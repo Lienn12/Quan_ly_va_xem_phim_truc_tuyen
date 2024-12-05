@@ -1,6 +1,6 @@
-﻿namespace Quan_ly_thu_vien_phim
+﻿namespace Quan_ly_thu_vien_phim.View.View_Container
 {
-    partial class Form1
+    partial class FormDSNguoiDung
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // panel1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(126, 101);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 24);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.panel1.Location = new System.Drawing.Point(259, 166);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(692, 259);
+            this.panel1.TabIndex = 0;
             // 
-            // Form1
+            // FormDSNguoiDung
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.checkBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1068, 544);
+            this.Controls.Add(this.panel1);
+            this.Name = "FormDSNguoiDung";
+            this.Text = "FormDSNguoiDung";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
-
