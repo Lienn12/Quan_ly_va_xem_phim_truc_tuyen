@@ -67,6 +67,18 @@
     <Compile Include="View\View_Container\FormTrangChu.Designer.cs">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\SuaPhim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\SuaPhim.Designer.cs">
+      <DependentUpon>SuaPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\XemChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\XemChiTiet.Designer.cs">
+      <DependentUpon>XemChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Login_Signup\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +105,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormThemPhim.resx">
+      <DependentUpon>FormThemPhim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormTrangChu.resx">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\SuaPhim.resx">
+      <DependentUpon>SuaPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\XemChiTiet.resx">
+      <DependentUpon>XemChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Login_Signup\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -133,6 +154,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vidUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backxanh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
