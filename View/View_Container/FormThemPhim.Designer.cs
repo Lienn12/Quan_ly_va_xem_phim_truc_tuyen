@@ -28,24 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemPhim));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.cbFormat = new System.Windows.Forms.ComboBox();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.txtDescrip = new System.Windows.Forms.TextBox();
+            this.txtEpisode = new System.Windows.Forms.TextBox();
+            this.txtCast = new System.Windows.Forms.TextBox();
+            this.txtDirector = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,20 +51,26 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.pbMovie = new System.Windows.Forms.PictureBox();
+            this.btnUpVid = new System.Windows.Forms.Button();
+            this.btnUpImg = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
+            this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(0, -10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 770);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -83,20 +85,20 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.comboBox3);
-            this.panel3.Controls.Add(this.comboBox2);
-            this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.pbMovie);
+            this.panel3.Controls.Add(this.btnCancel);
+            this.panel3.Controls.Add(this.btnSave);
+            this.panel3.Controls.Add(this.btnUpVid);
+            this.panel3.Controls.Add(this.btnUpImg);
+            this.panel3.Controls.Add(this.cbFormat);
+            this.panel3.Controls.Add(this.cbCountry);
+            this.panel3.Controls.Add(this.cbType);
+            this.panel3.Controls.Add(this.txtDescrip);
+            this.panel3.Controls.Add(this.txtEpisode);
+            this.panel3.Controls.Add(this.txtCast);
+            this.panel3.Controls.Add(this.txtDirector);
+            this.panel3.Controls.Add(this.txtYear);
+            this.panel3.Controls.Add(this.txtName);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
@@ -111,136 +113,100 @@
             this.panel3.Size = new System.Drawing.Size(932, 661);
             this.panel3.TabIndex = 5;
             // 
-            // pictureBox1
+            // btnCancel
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(553, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(359, 429);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.btnCancel.BackColor = System.Drawing.Color.Silver;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(500, 561);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(157, 77);
+            this.btnCancel.TabIndex = 22;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnSave
             // 
-            this.button4.BackColor = System.Drawing.Color.Silver;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(500, 561);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(157, 77);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSave.Location = new System.Drawing.Point(279, 561);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(157, 77);
+            this.btnSave.TabIndex = 21;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // cbFormat
             // 
-            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(279, 561);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(157, 77);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = false;
+            this.cbFormat.FormattingEnabled = true;
+            this.cbFormat.Location = new System.Drawing.Point(186, 316);
+            this.cbFormat.Name = "cbFormat";
+            this.cbFormat.Size = new System.Drawing.Size(331, 24);
+            this.cbFormat.TabIndex = 17;
             // 
-            // button2
+            // cbCountry
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(805, 486);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 56);
-            this.button2.TabIndex = 20;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(186, 270);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(331, 24);
+            this.cbCountry.TabIndex = 16;
             // 
-            // button1
+            // cbType
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(586, 485);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 56);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Upload Image";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Location = new System.Drawing.Point(186, 224);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(331, 24);
+            this.cbType.TabIndex = 15;
             // 
-            // comboBox3
+            // txtDescrip
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(186, 316);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(331, 24);
-            this.comboBox3.TabIndex = 17;
+            this.txtDescrip.Location = new System.Drawing.Point(186, 409);
+            this.txtDescrip.Multiline = true;
+            this.txtDescrip.Name = "txtDescrip";
+            this.txtDescrip.Size = new System.Drawing.Size(331, 133);
+            this.txtDescrip.TabIndex = 14;
             // 
-            // comboBox2
+            // txtEpisode
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(186, 270);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(331, 24);
-            this.comboBox2.TabIndex = 16;
+            this.txtEpisode.Location = new System.Drawing.Point(186, 362);
+            this.txtEpisode.Multiline = true;
+            this.txtEpisode.Name = "txtEpisode";
+            this.txtEpisode.Size = new System.Drawing.Size(331, 25);
+            this.txtEpisode.TabIndex = 13;
             // 
-            // comboBox1
+            // txtCast
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(186, 224);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(331, 24);
-            this.comboBox1.TabIndex = 15;
+            this.txtCast.Location = new System.Drawing.Point(186, 177);
+            this.txtCast.Multiline = true;
+            this.txtCast.Name = "txtCast";
+            this.txtCast.Size = new System.Drawing.Size(331, 25);
+            this.txtCast.TabIndex = 12;
             // 
-            // textBox6
+            // txtDirector
             // 
-            this.textBox6.Location = new System.Drawing.Point(186, 409);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(331, 133);
-            this.textBox6.TabIndex = 14;
+            this.txtDirector.Location = new System.Drawing.Point(186, 130);
+            this.txtDirector.Multiline = true;
+            this.txtDirector.Name = "txtDirector";
+            this.txtDirector.Size = new System.Drawing.Size(331, 25);
+            this.txtDirector.TabIndex = 11;
             // 
-            // textBox5
+            // txtYear
             // 
-            this.textBox5.Location = new System.Drawing.Point(186, 362);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(331, 25);
-            this.textBox5.TabIndex = 13;
+            this.txtYear.Location = new System.Drawing.Point(186, 83);
+            this.txtYear.Multiline = true;
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(331, 25);
+            this.txtYear.TabIndex = 10;
             // 
-            // textBox4
+            // txtName
             // 
-            this.textBox4.Location = new System.Drawing.Point(186, 177);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(331, 25);
-            this.textBox4.TabIndex = 12;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(186, 130);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(331, 25);
-            this.textBox3.TabIndex = 11;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(186, 83);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(331, 25);
-            this.textBox2.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(186, 36);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(331, 25);
-            this.textBox1.TabIndex = 9;
+            this.txtName.Location = new System.Drawing.Point(186, 36);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(331, 25);
+            this.txtName.TabIndex = 9;
             // 
             // label10
             // 
@@ -332,6 +298,54 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Phim:";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(890, 22);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(67, 42);
+            this.btnBack.TabIndex = 6;
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // pbMovie
+            // 
+            this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbMovie.Location = new System.Drawing.Point(553, 37);
+            this.pbMovie.Name = "pbMovie";
+            this.pbMovie.Size = new System.Drawing.Size(359, 429);
+            this.pbMovie.TabIndex = 23;
+            this.pbMovie.TabStop = false;
+            // 
+            // btnUpVid
+            // 
+            this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUpVid.Location = new System.Drawing.Point(805, 486);
+            this.btnUpVid.Name = "btnUpVid";
+            this.btnUpVid.Size = new System.Drawing.Size(69, 56);
+            this.btnUpVid.TabIndex = 20;
+            this.btnUpVid.UseVisualStyleBackColor = false;
+            this.btnUpVid.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnUpImg
+            // 
+            this.btnUpImg.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpImg.FlatAppearance.BorderSize = 0;
+            this.btnUpImg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpImg.Location = new System.Drawing.Point(586, 485);
+            this.btnUpImg.Name = "btnUpImg";
+            this.btnUpImg.Size = new System.Drawing.Size(174, 56);
+            this.btnUpImg.TabIndex = 19;
+            this.btnUpImg.Text = "Upload Image";
+            this.btnUpImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpImg.UseVisualStyleBackColor = false;
+            this.btnUpImg.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormThemPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -345,7 +359,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,19 +369,19 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnUpVid;
+        private System.Windows.Forms.Button btnUpImg;
+        private System.Windows.Forms.ComboBox cbFormat;
+        private System.Windows.Forms.ComboBox cbCountry;
+        private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.TextBox txtDescrip;
+        private System.Windows.Forms.TextBox txtEpisode;
+        private System.Windows.Forms.TextBox txtCast;
+        private System.Windows.Forms.TextBox txtDirector;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -377,6 +391,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbMovie;
+        private System.Windows.Forms.Button btnBack;
     }
 }
