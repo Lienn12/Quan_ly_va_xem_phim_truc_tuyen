@@ -33,16 +33,17 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(259, 166);
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel1.Location = new System.Drawing.Point(-2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 259);
+            this.panel1.Size = new System.Drawing.Size(982, 770);
             this.panel1.TabIndex = 0;
             // 
             // FormDSNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 544);
+            this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.panel1);
             this.Name = "FormDSNguoiDung";
             this.Text = "FormDSNguoiDung";
