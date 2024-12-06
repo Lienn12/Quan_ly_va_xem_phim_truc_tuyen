@@ -74,5 +74,10 @@ namespace Quan_ly_thu_vien_phim.View
         {
             OpenChidForm(new View_Container.FormTrangChu(), sender);
         }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
