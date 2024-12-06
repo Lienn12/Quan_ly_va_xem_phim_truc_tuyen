@@ -61,6 +61,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\FormDSNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormDSNguoiDung.Designer.cs">
+      <DependentUpon>FormDSNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\FormTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormDSNguoiDung.resx">
+      <DependentUpon>FormDSNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormTrangChu.resx">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
