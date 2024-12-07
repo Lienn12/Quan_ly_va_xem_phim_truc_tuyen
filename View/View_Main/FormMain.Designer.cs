@@ -52,11 +52,11 @@
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.logout;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(0, 435);
+            this.btnLogin.Location = new System.Drawing.Point(0, 540);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnLogin.Size = new System.Drawing.Size(240, 60);
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogin.Size = new System.Drawing.Size(270, 75);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "      Log out";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,11 +75,11 @@
             this.btnReview.ForeColor = System.Drawing.Color.White;
             this.btnReview.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.review;
             this.btnReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReview.Location = new System.Drawing.Point(0, 375);
+            this.btnReview.Location = new System.Drawing.Point(0, 465);
             this.btnReview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReview.Name = "btnReview";
-            this.btnReview.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnReview.Size = new System.Drawing.Size(240, 60);
+            this.btnReview.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReview.Size = new System.Drawing.Size(270, 75);
             this.btnReview.TabIndex = 5;
             this.btnReview.Text = "      Đánh giá";
             this.btnReview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,11 +98,11 @@
             this.btnUser.ForeColor = System.Drawing.Color.White;
             this.btnUser.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.userlist;
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.Location = new System.Drawing.Point(0, 315);
+            this.btnUser.Location = new System.Drawing.Point(0, 390);
             this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(240, 60);
+            this.btnUser.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnUser.Size = new System.Drawing.Size(270, 75);
             this.btnUser.TabIndex = 4;
             this.btnUser.Text = "      Người dùng";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,11 +122,11 @@
             this.btnFilm.ForeColor = System.Drawing.Color.White;
             this.btnFilm.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.listFilm;
             this.btnFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilm.Location = new System.Drawing.Point(0, 255);
+            this.btnFilm.Location = new System.Drawing.Point(0, 315);
             this.btnFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFilm.Name = "btnFilm";
-            this.btnFilm.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnFilm.Size = new System.Drawing.Size(240, 60);
+            this.btnFilm.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnFilm.Size = new System.Drawing.Size(270, 75);
             this.btnFilm.TabIndex = 3;
             this.btnFilm.Text = "      Phim";
             this.btnFilm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,11 +145,11 @@
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.home;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 195);
+            this.btnHome.Location = new System.Drawing.Point(0, 240);
             this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(240, 60);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(270, 75);
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "      Trang chủ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,11 +162,11 @@
             this.txtName.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(0, 165);
+            this.txtName.Location = new System.Drawing.Point(0, 206);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(240, 30);
+            this.txtName.Size = new System.Drawing.Size(270, 34);
             this.txtName.TabIndex = 2;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -178,7 +178,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(240, 165);
+            this.pictureBox2.Size = new System.Drawing.Size(270, 206);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -197,25 +197,25 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(240, 543);
+            this.pnlMenu.Size = new System.Drawing.Size(270, 744);
             this.pnlMenu.TabIndex = 1;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
             // 
             // pnlMain
             // 
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(240, 0);
+            this.pnlMain.Location = new System.Drawing.Point(270, 0);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(878, 543);
+            this.pnlMain.Size = new System.Drawing.Size(988, 744);
             this.pnlMain.TabIndex = 2;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 543);
+            this.ClientSize = new System.Drawing.Size(1258, 744);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
