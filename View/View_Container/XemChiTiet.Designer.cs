@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemChiTiet));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTap = new System.Windows.Forms.Button();
+            this.btnTrailer = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTheLoai = new System.Windows.Forms.Label();
@@ -44,24 +46,24 @@
             this.lblNam = new System.Windows.Forms.Label();
             this.lblTenPhim = new System.Windows.Forms.Label();
             this.pbImage = new System.Windows.Forms.PictureBox();
+            this.pnlSoTap = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(369, 9);
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thông tin Phim";
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnTap);
+            this.panel1.Controls.Add(this.btnTrailer);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.lblTheLoai);
@@ -75,159 +77,110 @@
             this.panel1.Controls.Add(this.lblNam);
             this.panel1.Controls.Add(this.lblTenPhim);
             this.panel1.Controls.Add(this.pbImage);
-            this.panel1.Location = new System.Drawing.Point(26, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 663);
-            this.panel1.TabIndex = 1;
             // 
-            // button1
+            // btnTap
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.button1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
-            this.button1.Location = new System.Drawing.Point(124, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 94);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTap.BackColor = System.Drawing.Color.SteelBlue;
+            resources.ApplyResources(this.btnTap, "btnTap");
+            this.btnTap.ForeColor = System.Drawing.Color.White;
+            this.btnTap.Name = "btnTap";
+            this.btnTap.UseVisualStyleBackColor = false;
+            this.btnTap.Click += new System.EventHandler(this.btnTap_Click);
+            // 
+            // btnTrailer
+            // 
+            this.btnTrailer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.btnTrailer.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
+            resources.ApplyResources(this.btnTrailer, "btnTrailer");
+            this.btnTrailer.Name = "btnTrailer";
+            this.btnTrailer.UseVisualStyleBackColor = false;
+            this.btnTrailer.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(418, 382);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 25);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "mô tả phim";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(418, 340);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 28);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Mô tả:";
             // 
             // lblTheLoai
             // 
-            this.lblTheLoai.AutoSize = true;
-            this.lblTheLoai.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTheLoai.Location = new System.Drawing.Point(528, 287);
+            resources.ApplyResources(this.lblTheLoai, "lblTheLoai");
             this.lblTheLoai.Name = "lblTheLoai";
-            this.lblTheLoai.Size = new System.Drawing.Size(123, 25);
-            this.lblTheLoai.TabIndex = 10;
-            this.lblTheLoai.Text = "tên dien vien";
             // 
             // lblDienVien
             // 
-            this.lblDienVien.AutoSize = true;
-            this.lblDienVien.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDienVien.Location = new System.Drawing.Point(528, 231);
+            resources.ApplyResources(this.lblDienVien, "lblDienVien");
             this.lblDienVien.Name = "lblDienVien";
-            this.lblDienVien.Size = new System.Drawing.Size(123, 25);
-            this.lblDienVien.TabIndex = 9;
-            this.lblDienVien.Text = "tên dien vien";
             // 
             // lblDaoDien
             // 
-            this.lblDaoDien.AutoSize = true;
-            this.lblDaoDien.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDaoDien.Location = new System.Drawing.Point(528, 173);
+            resources.ApplyResources(this.lblDaoDien, "lblDaoDien");
             this.lblDaoDien.Name = "lblDaoDien";
-            this.lblDaoDien.Size = new System.Drawing.Size(119, 25);
-            this.lblDaoDien.TabIndex = 8;
-            this.lblDaoDien.Text = "tên dao dien";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(418, 284);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 28);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Thể loại:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(418, 228);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 28);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Diễn viên:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(418, 173);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 28);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Đạo diễn:";
             // 
             // lblDinhDang
             // 
-            this.lblDinhDang.AutoSize = true;
-            this.lblDinhDang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDinhDang.Location = new System.Drawing.Point(675, 110);
+            resources.ApplyResources(this.lblDinhDang, "lblDinhDang");
             this.lblDinhDang.Name = "lblDinhDang";
-            this.lblDinhDang.Size = new System.Drawing.Size(110, 28);
-            this.lblDinhDang.TabIndex = 4;
-            this.lblDinhDang.Text = "Định dạng";
             // 
             // lblQuocGia
             // 
-            this.lblQuocGia.AutoSize = true;
-            this.lblQuocGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuocGia.Location = new System.Drawing.Point(528, 110);
+            resources.ApplyResources(this.lblQuocGia, "lblQuocGia");
             this.lblQuocGia.Name = "lblQuocGia";
-            this.lblQuocGia.Size = new System.Drawing.Size(96, 28);
-            this.lblQuocGia.TabIndex = 3;
-            this.lblQuocGia.Text = "Quốc gia";
             // 
             // lblNam
             // 
-            this.lblNam.AutoSize = true;
-            this.lblNam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNam.Location = new System.Drawing.Point(418, 110);
+            resources.ApplyResources(this.lblNam, "lblNam");
             this.lblNam.Name = "lblNam";
-            this.lblNam.Size = new System.Drawing.Size(57, 28);
-            this.lblNam.TabIndex = 2;
-            this.lblNam.Text = "Năm";
             // 
             // lblTenPhim
             // 
-            this.lblTenPhim.AutoSize = true;
-            this.lblTenPhim.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenPhim.Location = new System.Drawing.Point(414, 28);
+            resources.ApplyResources(this.lblTenPhim, "lblTenPhim");
             this.lblTenPhim.Name = "lblTenPhim";
-            this.lblTenPhim.Size = new System.Drawing.Size(185, 50);
-            this.lblTenPhim.TabIndex = 1;
-            this.lblTenPhim.Text = "Tên phim";
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(22, 25);
+            resources.ApplyResources(this.pbImage, "pbImage");
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(370, 415);
-            this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
+            // 
+            // pnlSoTap
+            // 
+            resources.ApplyResources(this.pnlSoTap, "pnlSoTap");
+            this.pnlSoTap.BackColor = System.Drawing.Color.White;
+            this.pnlSoTap.Name = "pnlSoTap";
             // 
             // XemChiTiet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(982, 753);
+            this.Controls.Add(this.pnlSoTap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "XemChiTiet";
-            this.Text = "XemChiTiet";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Load += new System.EventHandler(this.XemChiTiet_Load);
+            this.Click += new System.EventHandler(this.button1_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.XemChiTiet_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -252,8 +205,10 @@
         private System.Windows.Forms.Label lblTheLoai;
         private System.Windows.Forms.Label lblDienVien;
         private System.Windows.Forms.Label lblDaoDien;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTrailer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnTap;
+        private System.Windows.Forms.FlowLayoutPanel pnlSoTap;
     }
 }
