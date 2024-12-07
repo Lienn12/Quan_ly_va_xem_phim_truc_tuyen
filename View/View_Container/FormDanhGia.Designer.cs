@@ -57,7 +57,7 @@
             this.ClientSize = new System.Drawing.Size(902, 571);
             this.Controls.Add(this.panel1);
             this.Name = "FormDanhGia";
-            this.Text = "FormDanhGia";
+            this.Text = "[";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
