@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +11,11 @@ using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.View.View_Container
 {
-    public partial class FormDanhGia : Form
+    public partial class ThemTap : Form
     {
-        public FormDanhGia()
+        public ThemTap()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

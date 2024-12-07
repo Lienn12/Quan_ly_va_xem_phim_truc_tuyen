@@ -10,21 +10,17 @@ using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.View.View_Container
 {
-    public partial class FormDanhGia : Form
+    public partial class PhatVideo : Form
     {
-        public FormDanhGia()
+        public PhatVideo()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void setVideo(String vidPath)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            axWindowsMediaPlayer1.URL = vidPath;
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
         }
     }
 }

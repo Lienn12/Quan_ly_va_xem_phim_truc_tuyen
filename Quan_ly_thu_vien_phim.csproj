@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,11 +80,23 @@
     <Compile Include="View\View_Container\FormTrangChu.Designer.cs">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\PhatVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\PhatVideo.Designer.cs">
+      <DependentUpon>PhatVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\SuaPhim.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\View_Container\SuaPhim.Designer.cs">
       <DependentUpon>SuaPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\ThemTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\ThemTap.Designer.cs">
+      <DependentUpon>ThemTap.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\XemChiTiet.cs">
       <SubType>Form</SubType>
@@ -141,8 +154,14 @@
     <EmbeddedResource Include="View\View_Container\FormTrangChu.resx">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\PhatVideo.resx">
+      <DependentUpon>PhatVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\SuaPhim.resx">
       <DependentUpon>SuaPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\ThemTap.resx">
+      <DependentUpon>ThemTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\XemChiTiet.resx">
       <DependentUpon>XemChiTiet.cs</DependentUpon>
@@ -212,7 +231,26 @@
     <None Include="Resources\playicon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo %283%29.png" />
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
