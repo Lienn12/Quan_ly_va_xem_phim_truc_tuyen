@@ -8,6 +8,7 @@ namespace Quan_ly_thu_vien_phim.View
     public partial class FormThemPhim : Form
     {
         private string filePath, videoPath;
+        private Form activeForm;
         public FormThemPhim()
         {
             InitializeComponent();
