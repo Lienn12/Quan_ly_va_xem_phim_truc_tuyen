@@ -113,6 +113,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormThemPhim.resx">
       <DependentUpon>FormThemPhim.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormDSNguoiDung.resx">
       <DependentUpon>FormDSNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
