@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnThemTap = new System.Windows.Forms.Button();
+            this.pbMovie = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnUpVid = new System.Windows.Forms.Button();
+            this.btnUpImg = new System.Windows.Forms.Button();
             this.cbFormat = new System.Windows.Forms.ComboBox();
             this.cbCountry = new System.Windows.Forms.ComboBox();
             this.cbType = new System.Windows.Forms.ComboBox();
@@ -51,10 +56,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.pbMovie = new System.Windows.Forms.PictureBox();
-            this.btnUpVid = new System.Windows.Forms.Button();
-            this.btnUpImg = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).BeginInit();
@@ -72,6 +73,20 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back;
+            this.btnBack.Location = new System.Drawing.Point(890, 22);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(67, 42);
+            this.btnBack.TabIndex = 6;
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -85,6 +100,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnThemTap);
             this.panel3.Controls.Add(this.pbMovie);
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Controls.Add(this.btnSave);
@@ -113,6 +129,25 @@
             this.panel3.Size = new System.Drawing.Size(932, 661);
             this.panel3.TabIndex = 5;
             // 
+            // btnThemTap
+            // 
+            this.btnThemTap.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnThemTap.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.add;
+            this.btnThemTap.Location = new System.Drawing.Point(470, 353);
+            this.btnThemTap.Name = "btnThemTap";
+            this.btnThemTap.Size = new System.Drawing.Size(47, 40);
+            this.btnThemTap.TabIndex = 24;
+            this.btnThemTap.UseVisualStyleBackColor = false;
+            // 
+            // pbMovie
+            // 
+            this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbMovie.Location = new System.Drawing.Point(553, 37);
+            this.pbMovie.Name = "pbMovie";
+            this.pbMovie.Size = new System.Drawing.Size(359, 429);
+            this.pbMovie.TabIndex = 23;
+            this.pbMovie.TabStop = false;
+            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Silver;
@@ -135,6 +170,34 @@
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnUpVid
+            // 
+            this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUpVid.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.vidUp;
+            this.btnUpVid.Location = new System.Drawing.Point(805, 486);
+            this.btnUpVid.Name = "btnUpVid";
+            this.btnUpVid.Size = new System.Drawing.Size(69, 56);
+            this.btnUpVid.TabIndex = 20;
+            this.btnUpVid.UseVisualStyleBackColor = false;
+            this.btnUpVid.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnUpImg
+            // 
+            this.btnUpImg.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpImg.FlatAppearance.BorderSize = 0;
+            this.btnUpImg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpImg.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.upload;
+            this.btnUpImg.Location = new System.Drawing.Point(586, 485);
+            this.btnUpImg.Name = "btnUpImg";
+            this.btnUpImg.Size = new System.Drawing.Size(174, 56);
+            this.btnUpImg.TabIndex = 19;
+            this.btnUpImg.Text = "Upload Image";
+            this.btnUpImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpImg.UseVisualStyleBackColor = false;
+            this.btnUpImg.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbFormat
             // 
@@ -173,7 +236,7 @@
             this.txtEpisode.Location = new System.Drawing.Point(186, 362);
             this.txtEpisode.Multiline = true;
             this.txtEpisode.Name = "txtEpisode";
-            this.txtEpisode.Size = new System.Drawing.Size(331, 25);
+            this.txtEpisode.Size = new System.Drawing.Size(263, 25);
             this.txtEpisode.TabIndex = 13;
             // 
             // txtCast
@@ -298,54 +361,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Phim:";
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
-            this.btnBack.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(890, 22);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(67, 42);
-            this.btnBack.TabIndex = 6;
-            this.btnBack.UseVisualStyleBackColor = false;
-            // 
-            // pbMovie
-            // 
-            this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbMovie.Location = new System.Drawing.Point(553, 37);
-            this.pbMovie.Name = "pbMovie";
-            this.pbMovie.Size = new System.Drawing.Size(359, 429);
-            this.pbMovie.TabIndex = 23;
-            this.pbMovie.TabStop = false;
-            // 
-            // btnUpVid
-            // 
-            this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnUpVid.Location = new System.Drawing.Point(805, 486);
-            this.btnUpVid.Name = "btnUpVid";
-            this.btnUpVid.Size = new System.Drawing.Size(69, 56);
-            this.btnUpVid.TabIndex = 20;
-            this.btnUpVid.UseVisualStyleBackColor = false;
-            this.btnUpVid.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnUpImg
-            // 
-            this.btnUpImg.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnUpImg.FlatAppearance.BorderSize = 0;
-            this.btnUpImg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpImg.Location = new System.Drawing.Point(586, 485);
-            this.btnUpImg.Name = "btnUpImg";
-            this.btnUpImg.Size = new System.Drawing.Size(174, 56);
-            this.btnUpImg.TabIndex = 19;
-            this.btnUpImg.Text = "Upload Image";
-            this.btnUpImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpImg.UseVisualStyleBackColor = false;
-            this.btnUpImg.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormThemPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,5 +408,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbMovie;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnThemTap;
     }
 }

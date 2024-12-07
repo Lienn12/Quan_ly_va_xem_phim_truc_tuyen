@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTheLoai = new System.Windows.Forms.Label();
@@ -43,7 +42,9 @@
             this.lblQuocGia = new System.Windows.Forms.Label();
             this.lblNam = new System.Windows.Forms.Label();
             this.lblTenPhim = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -77,18 +79,8 @@
             this.panel1.Controls.Add(this.pbImage);
             this.panel1.Location = new System.Drawing.Point(26, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 663);
+            this.panel1.Size = new System.Drawing.Size(931, 617);
             this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.button1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
-            this.button1.Location = new System.Drawing.Point(124, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 94);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -116,9 +108,9 @@
             this.lblTheLoai.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTheLoai.Location = new System.Drawing.Point(528, 287);
             this.lblTheLoai.Name = "lblTheLoai";
-            this.lblTheLoai.Size = new System.Drawing.Size(123, 25);
+            this.lblTheLoai.Size = new System.Drawing.Size(109, 25);
             this.lblTheLoai.TabIndex = 10;
-            this.lblTheLoai.Text = "tên dien vien";
+            this.lblTheLoai.Text = "tên the loai";
             // 
             // lblDienVien
             // 
@@ -210,6 +202,16 @@
             this.lblTenPhim.TabIndex = 1;
             this.lblTenPhim.Text = "Tên phim";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.button1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
+            this.button1.Location = new System.Drawing.Point(122, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 94);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // pbImage
             // 
             this.pbImage.Location = new System.Drawing.Point(22, 25);
@@ -218,12 +220,24 @@
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(122, 558);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 47);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Xem tập";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // XemChiTiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(982, 753);
+            this.ClientSize = new System.Drawing.Size(982, 1053);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "XemChiTiet";
@@ -255,5 +269,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button2;
     }
 }

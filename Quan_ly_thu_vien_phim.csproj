@@ -85,6 +85,12 @@
     <Compile Include="View\View_Container\SuaPhim.Designer.cs">
       <DependentUpon>SuaPhim.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\ThemTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\ThemTap.Designer.cs">
+      <DependentUpon>ThemTap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\XemChiTiet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\SuaPhim.resx">
       <DependentUpon>SuaPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\ThemTap.resx">
+      <DependentUpon>ThemTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\XemChiTiet.resx">
       <DependentUpon>XemChiTiet.cs</DependentUpon>
@@ -192,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\playicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
