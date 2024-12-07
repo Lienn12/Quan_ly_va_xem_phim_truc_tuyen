@@ -17,20 +17,11 @@ namespace Quan_ly_thu_vien_phim.View
         public FormMain()
         {
             InitializeComponent();
-        }
-
-        private void pnlMenu_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Rectangle rc = pnlMenu.ClientRectangle;
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-               rc,
-               Color.FromArgb(28, 181, 224),
-               Color.FromArgb(0, 0, 70),
-               LinearGradientMode.Vertical))
-            {
-                g.FillRectangle(brush, rc);
-            }
+            this.Size = new Size(1000, 600);
+            pnlMenu.Size = new Size(200, 600);
+            pnlMenu.Dock = DockStyle.Left;
+            pnlMain.AutoScroll = true;
+            pnlMain.Dock = DockStyle.Fill;
         }
 
         private void OpenChidForm(Form childForm, object btnSender)
@@ -42,12 +33,10 @@ namespace Quan_ly_thu_vien_phim.View
             activeForm=childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock=DockStyle.Fill;
             this.pnlMain.Controls.Add(childForm);   
             this.pnlMain.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            txtName.Text = childForm.Text;
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -62,7 +51,7 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormTrangChu(), sender);
+            OpenChidForm(new View_Container.FormDSNguoiDung(), sender);
         }
 
         private void btnReview_Click(object sender, EventArgs e)
@@ -72,12 +61,7 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormTrangChu(), sender);
-        }
-
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
+            OpenChidForm(new View_Main.FormLoginSignup(), sender);
         }
     }
 }

@@ -33,12 +33,16 @@
             this.btnUser = new System.Windows.Forms.Button();
             this.btnFilm = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlMenu.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -52,11 +56,11 @@
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.logout;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(0, 435);
+            this.btnLogin.Location = new System.Drawing.Point(0, 240);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnLogin.Size = new System.Drawing.Size(240, 60);
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogin.Size = new System.Drawing.Size(286, 60);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "      Log out";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,11 +79,11 @@
             this.btnReview.ForeColor = System.Drawing.Color.White;
             this.btnReview.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.review;
             this.btnReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReview.Location = new System.Drawing.Point(0, 375);
+            this.btnReview.Location = new System.Drawing.Point(0, 180);
             this.btnReview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReview.Name = "btnReview";
-            this.btnReview.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnReview.Size = new System.Drawing.Size(240, 60);
+            this.btnReview.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReview.Size = new System.Drawing.Size(286, 60);
             this.btnReview.TabIndex = 5;
             this.btnReview.Text = "      Đánh giá";
             this.btnReview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,11 +102,11 @@
             this.btnUser.ForeColor = System.Drawing.Color.White;
             this.btnUser.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.userlist;
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.Location = new System.Drawing.Point(0, 315);
+            this.btnUser.Location = new System.Drawing.Point(0, 120);
             this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(240, 60);
+            this.btnUser.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnUser.Size = new System.Drawing.Size(286, 60);
             this.btnUser.TabIndex = 4;
             this.btnUser.Text = "      Người dùng";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,11 +126,11 @@
             this.btnFilm.ForeColor = System.Drawing.Color.White;
             this.btnFilm.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.listFilm;
             this.btnFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilm.Location = new System.Drawing.Point(0, 255);
+            this.btnFilm.Location = new System.Drawing.Point(0, 60);
             this.btnFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFilm.Name = "btnFilm";
-            this.btnFilm.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnFilm.Size = new System.Drawing.Size(240, 60);
+            this.btnFilm.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnFilm.Size = new System.Drawing.Size(286, 60);
             this.btnFilm.TabIndex = 3;
             this.btnFilm.Text = "      Phim";
             this.btnFilm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,11 +149,11 @@
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.home;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 195);
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(240, 60);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(286, 60);
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "      Trang chủ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,74 +161,91 @@
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // txtName
-            // 
-            this.txtName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtName.Enabled = false;
-            this.txtName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(0, 165);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(240, 30);
-            this.txtName.TabIndex = 2;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.avatar;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(240, 165);
+            this.pictureBox2.Size = new System.Drawing.Size(286, 288);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1258, 63);
+            this.pnlHeader.TabIndex = 1;
+            // 
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.pnlMenu.Controls.Add(this.btnLogin);
-            this.pnlMenu.Controls.Add(this.btnReview);
-            this.pnlMenu.Controls.Add(this.btnUser);
-            this.pnlMenu.Controls.Add(this.btnFilm);
-            this.pnlMenu.Controls.Add(this.btnHome);
-            this.pnlMenu.Controls.Add(this.txtName);
-            this.pnlMenu.Controls.Add(this.pictureBox2);
+            this.pnlMenu.Controls.Add(this.panel3);
+            this.pnlMenu.Controls.Add(this.panel2);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 63);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(240, 543);
-            this.pnlMenu.TabIndex = 1;
-            this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            this.pnlMenu.Size = new System.Drawing.Size(286, 681);
+            this.pnlMenu.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnLogin);
+            this.panel3.Controls.Add(this.btnReview);
+            this.panel3.Controls.Add(this.btnUser);
+            this.panel3.Controls.Add(this.btnFilm);
+            this.panel3.Controls.Add(this.btnHome);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 288);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(286, 393);
+            this.panel3.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(286, 288);
+            this.panel2.TabIndex = 7;
             // 
             // pnlMain
             // 
+            this.pnlMain.AutoScroll = true;
+            this.pnlMain.AutoSize = true;
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(240, 0);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlMain.Location = new System.Drawing.Point(286, 63);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(878, 543);
-            this.pnlMain.TabIndex = 2;
-            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            this.pnlMain.Size = new System.Drawing.Size(972, 681);
+            this.pnlMain.TabIndex = 4;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 543);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1258, 744);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
+            this.Controls.Add(this.pnlHeader);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.btnHome_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlMenu.ResumeLayout(false);
-            this.pnlMenu.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -235,9 +256,11 @@
         private System.Windows.Forms.Button btnUser;
         private System.Windows.Forms.Button btnFilm;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlMain;
     }
 }

@@ -55,7 +55,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
+
             this.panel1.Size = new System.Drawing.Size(859, 818);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -83,9 +85,11 @@
             this.Column6});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+
             this.dataGridView1.Size = new System.Drawing.Size(732, 550);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -131,8 +135,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(54, 66);
+         
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(366, 43);
+            this.label1.Size = new System.Drawing.Size(444, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh sách người dùng";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -163,6 +168,7 @@
             this.ClientSize = new System.Drawing.Size(859, 800);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.Name = "FormDSNguoiDung";
             this.Text = "FormDSNguoiDung";
             this.panel1.ResumeLayout(false);
