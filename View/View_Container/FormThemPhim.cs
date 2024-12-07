@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.View.View_Container;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -8,7 +9,6 @@ namespace Quan_ly_thu_vien_phim.View
     public partial class FormThemPhim : Form
     {
         private string filePath, videoPath;
-        private Form activeForm;
         public FormThemPhim()
         {
             InitializeComponent();
@@ -48,6 +48,12 @@ namespace Quan_ly_thu_vien_phim.View
             {
                 g.FillRectangle(brush, rc); // Tô màu loang cho toàn bộ form
             }
+        }
+
+        private void btnThemTap_Click(object sender, EventArgs e)
+        {
+            ThemTap themTap = new ThemTap();
+            themTap.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
