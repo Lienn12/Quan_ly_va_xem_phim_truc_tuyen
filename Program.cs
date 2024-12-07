@@ -1,4 +1,5 @@
 using Quan_ly_thu_vien_phim.View;
+using Quan_ly_thu_vien_phim.View.View_Container;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Quan_ly_thu_vien_phim
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new View.FormMain());
+           
         }
     }
 }

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vlc.DotNet.Forms;
 
 namespace Quan_ly_thu_vien_phim.View
 {
@@ -33,10 +26,26 @@ namespace Quan_ly_thu_vien_phim.View
                 // Lấy đường dẫn file
                 filePath = openFileDialog.FileName;
                 // Hiển thị ảnh trong PictureBox
-                pictureBox1.Image = Image.FromFile(filePath);
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pbMovie.Image = Image.FromFile(filePath);
+                pbMovie.SizeMode = PictureBoxSizeMode.Zoom;
                 // Xử lý bổ sung (nếu cần)
                 MessageBox.Show("Đã tải lên ảnh thành công!");
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Rectangle rc = this.ClientRectangle; // Kích thước của form
+
+            // Tạo LinearGradientBrush từ #052659 đến #1CB5E0
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rc,
+                Color.FromArgb(5, 38, 89),   // Màu bắt đầu (#052659)
+                Color.FromArgb(28, 181, 224), // Màu kết thúc (#1CB5E0)
+                LinearGradientMode.Vertical)) // Loang theo chiều dọc
+            {
+                g.FillRectangle(brush, rc); // Tô màu loang cho toàn bộ form
             }
         }
 
