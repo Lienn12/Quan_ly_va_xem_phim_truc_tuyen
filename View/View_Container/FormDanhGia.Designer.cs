@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhGia));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -131,6 +132,7 @@
             // 
             this.Chi_Tiet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Chi_Tiet.HeaderText = "";
+            this.Chi_Tiet.Image = ((System.Drawing.Image)(resources.GetObject("Chi_Tiet.Image")));
             this.Chi_Tiet.MinimumWidth = 6;
             this.Chi_Tiet.Name = "Chi_Tiet";
             this.Chi_Tiet.Width = 24;
@@ -139,6 +141,7 @@
             // 
             this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
             this.Delete.Width = 24;
