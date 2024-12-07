@@ -97,6 +97,18 @@
     <Compile Include="View\View_Login_Signup\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Login_Signup\Formsignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Login_Signup\Formsignup.Designer.cs">
+      <DependentUpon>Formsignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Main\FormLoginSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Main\FormLoginSignup.Designer.cs">
+      <DependentUpon>FormLoginSignup.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Main\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Login_Signup\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Login_Signup\Formsignup.resx">
+      <DependentUpon>Formsignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Main\FormLoginSignup.resx">
+      <DependentUpon>FormLoginSignup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Main\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -192,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\playicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo %283%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
