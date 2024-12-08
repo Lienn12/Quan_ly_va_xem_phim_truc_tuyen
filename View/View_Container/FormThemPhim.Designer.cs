@@ -67,7 +67,7 @@
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(689, 22);
+            this.btnBack.Location = new System.Drawing.Point(884, 25);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(50, 34);
@@ -80,7 +80,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(16, 15);
+            this.label1.Location = new System.Drawing.Point(42, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 37);
@@ -114,17 +114,17 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(23, 67);
+            this.panel3.Location = new System.Drawing.Point(49, 81);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(750, 537);
+            this.panel3.Size = new System.Drawing.Size(885, 597);
             this.panel3.TabIndex = 8;
             // 
             // btnThemTap
             // 
             this.btnThemTap.BackColor = System.Drawing.Color.SkyBlue;
             this.btnThemTap.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.add;
-            this.btnThemTap.Location = new System.Drawing.Point(349, 287);
+            this.btnThemTap.Location = new System.Drawing.Point(377, 303);
             this.btnThemTap.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemTap.Name = "btnThemTap";
             this.btnThemTap.Size = new System.Drawing.Size(35, 32);
@@ -135,10 +135,10 @@
             // pbMovie
             // 
             this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbMovie.Location = new System.Drawing.Point(431, 24);
+            this.pbMovie.Location = new System.Drawing.Point(543, 48);
             this.pbMovie.Margin = new System.Windows.Forms.Padding(2);
             this.pbMovie.Name = "pbMovie";
-            this.pbMovie.Size = new System.Drawing.Size(285, 349);
+            this.pbMovie.Size = new System.Drawing.Size(299, 364);
             this.pbMovie.TabIndex = 23;
             this.pbMovie.TabStop = false;
             // 
@@ -146,7 +146,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Silver;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(401, 458);
+            this.btnCancel.Location = new System.Drawing.Point(486, 513);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 63);
@@ -159,7 +159,7 @@
             this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSave.Location = new System.Drawing.Point(254, 458);
+            this.btnSave.Location = new System.Drawing.Point(311, 511);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(118, 63);
@@ -171,7 +171,7 @@
             // 
             this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnUpVid.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.vidUp;
-            this.btnUpVid.Location = new System.Drawing.Point(625, 394);
+            this.btnUpVid.Location = new System.Drawing.Point(754, 432);
             this.btnUpVid.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpVid.Name = "btnUpVid";
             this.btnUpVid.Size = new System.Drawing.Size(52, 46);
@@ -186,7 +186,7 @@
             this.btnUpImg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpImg.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.upload;
-            this.btnUpImg.Location = new System.Drawing.Point(468, 394);
+            this.btnUpImg.Location = new System.Drawing.Point(601, 432);
             this.btnUpImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpImg.Name = "btnUpImg";
             this.btnUpImg.Size = new System.Drawing.Size(130, 46);
@@ -200,42 +200,42 @@
             // cbFormat
             // 
             this.cbFormat.FormattingEnabled = true;
-            this.cbFormat.Location = new System.Drawing.Point(137, 257);
+            this.cbFormat.Location = new System.Drawing.Point(163, 270);
             this.cbFormat.Margin = new System.Windows.Forms.Padding(2);
             this.cbFormat.Name = "cbFormat";
-            this.cbFormat.Size = new System.Drawing.Size(249, 21);
+            this.cbFormat.Size = new System.Drawing.Size(337, 21);
             this.cbFormat.TabIndex = 17;
             // 
             // cbCountry
             // 
             this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(137, 219);
+            this.cbCountry.Location = new System.Drawing.Point(163, 232);
             this.cbCountry.Margin = new System.Windows.Forms.Padding(2);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(249, 21);
+            this.cbCountry.Size = new System.Drawing.Size(337, 21);
             this.cbCountry.TabIndex = 16;
             // 
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(137, 182);
+            this.cbType.Location = new System.Drawing.Point(163, 195);
             this.cbType.Margin = new System.Windows.Forms.Padding(2);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(249, 21);
+            this.cbType.Size = new System.Drawing.Size(337, 21);
             this.cbType.TabIndex = 15;
             // 
             // txtDescrip
             // 
-            this.txtDescrip.Location = new System.Drawing.Point(137, 332);
+            this.txtDescrip.Location = new System.Drawing.Point(163, 355);
             this.txtDescrip.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescrip.Multiline = true;
             this.txtDescrip.Name = "txtDescrip";
-            this.txtDescrip.Size = new System.Drawing.Size(249, 109);
+            this.txtDescrip.Size = new System.Drawing.Size(337, 109);
             this.txtDescrip.TabIndex = 14;
             // 
             // txtEpisode
             // 
-            this.txtEpisode.Location = new System.Drawing.Point(137, 294);
+            this.txtEpisode.Location = new System.Drawing.Point(163, 310);
             this.txtEpisode.Margin = new System.Windows.Forms.Padding(2);
             this.txtEpisode.Multiline = true;
             this.txtEpisode.Name = "txtEpisode";
@@ -244,45 +244,45 @@
             // 
             // txtCast
             // 
-            this.txtCast.Location = new System.Drawing.Point(137, 144);
+            this.txtCast.Location = new System.Drawing.Point(163, 157);
             this.txtCast.Margin = new System.Windows.Forms.Padding(2);
             this.txtCast.Multiline = true;
             this.txtCast.Name = "txtCast";
-            this.txtCast.Size = new System.Drawing.Size(249, 21);
+            this.txtCast.Size = new System.Drawing.Size(337, 21);
             this.txtCast.TabIndex = 12;
             // 
             // txtDirector
             // 
-            this.txtDirector.Location = new System.Drawing.Point(137, 106);
+            this.txtDirector.Location = new System.Drawing.Point(163, 119);
             this.txtDirector.Margin = new System.Windows.Forms.Padding(2);
             this.txtDirector.Multiline = true;
             this.txtDirector.Name = "txtDirector";
-            this.txtDirector.Size = new System.Drawing.Size(249, 21);
+            this.txtDirector.Size = new System.Drawing.Size(337, 21);
             this.txtDirector.TabIndex = 11;
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(137, 67);
+            this.txtYear.Location = new System.Drawing.Point(163, 77);
             this.txtYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtYear.Multiline = true;
             this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(249, 21);
+            this.txtYear.Size = new System.Drawing.Size(337, 21);
             this.txtYear.TabIndex = 10;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(137, 29);
+            this.txtName.Location = new System.Drawing.Point(163, 35);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(249, 21);
+            this.txtName.Size = new System.Drawing.Size(337, 21);
             this.txtName.TabIndex = 9;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(70, 330);
+            this.label10.Location = new System.Drawing.Point(81, 358);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 20);
@@ -293,7 +293,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(67, 292);
+            this.label9.Location = new System.Drawing.Point(78, 313);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 20);
@@ -304,7 +304,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(43, 254);
+            this.label8.Location = new System.Drawing.Point(54, 272);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 20);
@@ -315,7 +315,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(52, 215);
+            this.label7.Location = new System.Drawing.Point(63, 233);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 20);
@@ -326,7 +326,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(57, 177);
+            this.label6.Location = new System.Drawing.Point(68, 195);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
@@ -337,7 +337,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(47, 139);
+            this.label5.Location = new System.Drawing.Point(58, 157);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
@@ -348,7 +348,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(51, 101);
+            this.label4.Location = new System.Drawing.Point(62, 119);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
@@ -359,7 +359,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 63);
+            this.label3.Location = new System.Drawing.Point(23, 78);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 20);
@@ -370,7 +370,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(52, 24);
+            this.label2.Location = new System.Drawing.Point(63, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 20);
@@ -381,11 +381,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 642);
+            this.ClientSize = new System.Drawing.Size(984, 721);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormThemPhim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormThemPhim";

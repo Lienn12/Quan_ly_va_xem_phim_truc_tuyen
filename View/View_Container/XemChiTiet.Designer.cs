@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTap = new System.Windows.Forms.Button();
             this.btnTrailer = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblMota = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTheLoai = new System.Windows.Forms.Label();
             this.lblDienVien = new System.Windows.Forms.Label();
@@ -47,6 +47,8 @@
             this.lblTenPhim = new System.Windows.Forms.Label();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnlSoTap = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +66,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnTap);
             this.panel1.Controls.Add(this.btnTrailer);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblMota);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.lblTheLoai);
             this.panel1.Controls.Add(this.lblDienVien);
@@ -97,10 +99,10 @@
             this.btnTrailer.UseVisualStyleBackColor = false;
             this.btnTrailer.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
+            // lblMota
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.lblMota, "lblMota");
+            this.lblMota.Name = "lblMota";
             // 
             // label5
             // 
@@ -169,11 +171,27 @@
             this.pnlSoTap.BackColor = System.Drawing.Color.White;
             this.pnlSoTap.Name = "pnlSoTap";
             // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backxanh;
+            resources.ApplyResources(this.btnBack, "btnBack");
+            this.btnBack.Name = "btnBack";
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
             // XemChiTiet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pnlSoTap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -206,9 +224,11 @@
         private System.Windows.Forms.Label lblDienVien;
         private System.Windows.Forms.Label lblDaoDien;
         private System.Windows.Forms.Button btnTrailer;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblMota;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTap;
         private System.Windows.Forms.FlowLayoutPanel pnlSoTap;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnBack;
     }
 }
