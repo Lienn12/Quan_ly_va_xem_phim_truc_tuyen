@@ -283,9 +283,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\Logo %283%291.png" />
-
     <None Include="Resources\add-to-playlist %281%29.png" />
   </ItemGroup>
   <ItemGroup>
@@ -296,7 +294,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-back-16.png" />
-
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
