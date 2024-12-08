@@ -133,6 +133,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_back_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-back-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_find_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-find-30", resourceCulture);
@@ -153,6 +163,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap left_arrow {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap listFilm {
             get {
                 object obj = ResourceManager.GetObject("listFilm", resourceCulture);
@@ -166,6 +186,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         internal static System.Drawing.Bitmap logout {
             get {
                 object obj = ResourceManager.GetObject("logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus__1_ {
+            get {
+                object obj = ResourceManager.GetObject("minus (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

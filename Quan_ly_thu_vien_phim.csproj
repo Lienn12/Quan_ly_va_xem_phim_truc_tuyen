@@ -80,6 +80,12 @@
     <Compile Include="View\View_Container\FormDSPhim.Designer.cs">
       <DependentUpon>FormDSPhim.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\FormPhanHoiDanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormPhanHoiDanhGia.Designer.cs">
+      <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\FormTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormDSPhim.resx">
       <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormPhanHoiDanhGia.resx">
+      <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormThemPhim.resx">
       <DependentUpon>FormThemPhim.cs</DependentUpon>
@@ -272,6 +281,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-to-playlist %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-back-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
