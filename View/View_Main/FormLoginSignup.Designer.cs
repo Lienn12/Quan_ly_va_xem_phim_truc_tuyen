@@ -29,73 +29,118 @@
         private void InitializeComponent()
         {
             this.pnlLogSign = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbMinimum = new System.Windows.Forms.Label();
+            this.lbExit = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLogSign
             // 
-            this.pnlLogSign.Location = new System.Drawing.Point(312, 5);
+            this.pnlLogSign.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLogSign.Location = new System.Drawing.Point(344, 32);
             this.pnlLogSign.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLogSign.Name = "pnlLogSign";
-            this.pnlLogSign.Size = new System.Drawing.Size(360, 500);
+            this.pnlLogSign.Size = new System.Drawing.Size(456, 568);
             this.pnlLogSign.TabIndex = 0;
             // 
-            // panel2
+            // pnlLogo
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(5, 5);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(307, 506);
-            this.panel2.TabIndex = 0;
+            this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.pnlLogo.Controls.Add(this.pictureBox1);
+            this.pnlLogo.Controls.Add(this.label1);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(344, 600);
+            this.pnlLogo.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 318);
+            this.label1.Location = new System.Drawing.Point(19, 342);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 32);
+            this.label1.Size = new System.Drawing.Size(300, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Quản lý thư viện phim";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbMinimum);
+            this.panel1.Controls.Add(this.lbExit);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(344, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(456, 32);
+            this.panel1.TabIndex = 0;
+            // 
+            // lbMinimum
+            // 
+            this.lbMinimum.AutoSize = true;
+            this.lbMinimum.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lbMinimum.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbMinimum.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMinimum.Location = new System.Drawing.Point(402, 0);
+            this.lbMinimum.Name = "lbMinimum";
+            this.lbMinimum.Size = new System.Drawing.Size(24, 32);
+            this.lbMinimum.TabIndex = 1;
+            this.lbMinimum.Text = "_";
+            this.lbMinimum.Click += new System.EventHandler(this.lbMinimum_Click);
+            // 
+            // lbExit
+            // 
+            this.lbExit.AutoSize = true;
+            this.lbExit.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lbExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbExit.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbExit.Location = new System.Drawing.Point(426, 0);
+            this.lbExit.Name = "lbExit";
+            this.lbExit.Size = new System.Drawing.Size(30, 32);
+            this.lbExit.TabIndex = 0;
+            this.lbExit.Text = "X";
+            this.lbExit.Click += new System.EventHandler(this.lbExit_Click);
             // 
             // pictureBox1
             // 
 
-            //this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.Logo__3_;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 61);
+            this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.lg;
+            this.pictureBox1.Location = new System.Drawing.Point(48, 58);
 
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 158);
+            this.pictureBox1.Size = new System.Drawing.Size(240, 251);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // FormLoginSignup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(678, 516);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.pnlLogSign);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlLogo);
             this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLoginSignup";
-            this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLoginSignup";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlLogo.ResumeLayout(false);
+            this.pnlLogo.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -104,8 +149,11 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlLogSign;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbExit;
+        private System.Windows.Forms.Label lbMinimum;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
