@@ -143,16 +143,6 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_find_304 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-find-304", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap listFilm {
             get {
                 object obj = ResourceManager.GetObject("listFilm", resourceCulture);
