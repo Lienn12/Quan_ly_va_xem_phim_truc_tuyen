@@ -17,25 +17,29 @@ namespace Quan_ly_thu_vien_phim.View
         public FormMain()
         {
             InitializeComponent();
-            this.Size = new Size(1000, 600);
-            pnlMenu.Size = new Size(200, 600);
-            pnlMenu.Dock = DockStyle.Left;
-            pnlMain.AutoScroll = true;
-            pnlMain.Dock = DockStyle.Fill;
+            lbMinimum.Click += btnMinimum_Click;
+            lbExit.Click += btnExit_Click;
         }
 
         private void OpenChidForm(Form childForm, object btnSender)
         {
+
             if (activeForm != null)
             {
                 activeForm.Close();
             }
-            activeForm=childForm;
+
+            activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            this.pnlMain.Controls.Add(childForm);   
-            this.pnlMain.Tag = childForm;
-            childForm.BringToFront();
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true 
+            };
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(scrollablePanel); 
+            scrollablePanel.Controls.Add(childForm);
             childForm.Show();
         }
 
@@ -46,7 +50,7 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnFilm_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormTrangChu(), sender);
+            OpenChidForm(new View_Container.XemChiTiet(), sender);
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -56,12 +60,20 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Login_Signup.FormLogin(), sender);
+            //OpenChidForm(new View_Login_Signup.FormLogin(), sender);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             OpenChidForm(new View_Main.FormLoginSignup(), sender);
+        }
+        private void btnMinimum_Click (object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

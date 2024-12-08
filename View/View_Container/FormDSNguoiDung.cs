@@ -17,7 +17,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             InitializeComponent();
 
             customizeDataGridView();
-
+            //this.Size = new Size(881, 687);
+            //panel1.Size = new Size(859, 818);
         }
 
         private void customizeDataGridView()
