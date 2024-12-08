@@ -49,14 +49,14 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             // Danh sách các tập phim
             List<string> danhSachTap = new List<string> { "Tập 1", "Tập 2", "Tập 3", "Tập 4", "Tập 5", "Tập 6" };
 
-            int y = 10;  // Vị trí bắt đầu của các nút
+            int y = 15;  // Vị trí bắt đầu của các nút
 
             foreach (var tap in danhSachTap)
             {
                 Button btnCacTap = new Button
                 {
                     Text = tap,
-                    Size = new Size(100, 40),  // Kích thước nút
+                    Size = new Size(95, 40),  // Kích thước nút
                     Location = new Point(10 + (110 * (pnlSoTap.Controls.Count % 6)), y), // Đặt vị trí của nút
                     Margin = new Padding(5),  // Khoảng cách giữa các nút
                     BackColor = Color.Gray,   // Màu nền nút
