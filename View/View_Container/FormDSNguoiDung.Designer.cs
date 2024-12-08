@@ -40,7 +40,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+  
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -146,10 +146,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(62, 222);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 278);
-            this.panel1.TabIndex = 4;
+  
             // 
             // pictureBox1
             // 
