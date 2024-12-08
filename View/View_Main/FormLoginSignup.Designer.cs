@@ -69,7 +69,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.Logo__3_;
+  
             this.pictureBox1.Location = new System.Drawing.Point(57, 94);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(191, 158);
