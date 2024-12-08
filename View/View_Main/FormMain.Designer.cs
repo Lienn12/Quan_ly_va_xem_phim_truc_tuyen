@@ -35,11 +35,14 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lbMinimum = new System.Windows.Forms.Label();
+            this.lbExit = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlHeader.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,15 +55,15 @@
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.logout;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(0, 240);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnLogin.Size = new System.Drawing.Size(286, 60);
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLogin.Size = new System.Drawing.Size(250, 60);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "      Log out";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -75,15 +78,15 @@
             this.btnReview.FlatAppearance.BorderSize = 0;
             this.btnReview.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
             this.btnReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReview.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReview.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReview.ForeColor = System.Drawing.Color.White;
             this.btnReview.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.review;
             this.btnReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReview.Location = new System.Drawing.Point(0, 180);
-            this.btnReview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReview.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnReview.Name = "btnReview";
-            this.btnReview.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnReview.Size = new System.Drawing.Size(286, 60);
+            this.btnReview.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnReview.Size = new System.Drawing.Size(250, 60);
             this.btnReview.TabIndex = 5;
             this.btnReview.Text = "      Đánh giá";
             this.btnReview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,15 +101,15 @@
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUser.ForeColor = System.Drawing.Color.White;
             this.btnUser.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.userlist;
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.Location = new System.Drawing.Point(0, 120);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(286, 60);
+            this.btnUser.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnUser.Size = new System.Drawing.Size(250, 60);
             this.btnUser.TabIndex = 4;
             this.btnUser.Text = "      Người dùng";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,15 +125,15 @@
             this.btnFilm.FlatAppearance.BorderSize = 0;
             this.btnFilm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
             this.btnFilm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilm.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilm.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilm.ForeColor = System.Drawing.Color.White;
             this.btnFilm.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.listFilm;
             this.btnFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFilm.Location = new System.Drawing.Point(0, 60);
-            this.btnFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFilm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnFilm.Name = "btnFilm";
-            this.btnFilm.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnFilm.Size = new System.Drawing.Size(286, 60);
+            this.btnFilm.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFilm.Size = new System.Drawing.Size(250, 60);
             this.btnFilm.TabIndex = 3;
             this.btnFilm.Text = "      Phim";
             this.btnFilm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,15 +148,15 @@
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.home;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.Location = new System.Drawing.Point(0, 0);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(286, 60);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(250, 60);
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "      Trang chủ";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,25 +167,52 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.avatar;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(32, 40);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(286, 288);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.Size = new System.Drawing.Size(194, 187);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.pnlHeader.Controls.Add(this.lbMinimum);
+            this.pnlHeader.Controls.Add(this.lbExit);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1258, 63);
+            this.pnlHeader.Size = new System.Drawing.Size(1280, 40);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // lbMinimum
+            // 
+            this.lbMinimum.AutoSize = true;
+            this.lbMinimum.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lbMinimum.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbMinimum.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMinimum.ForeColor = System.Drawing.Color.White;
+            this.lbMinimum.Location = new System.Drawing.Point(1216, 0);
+            this.lbMinimum.Name = "lbMinimum";
+            this.lbMinimum.Size = new System.Drawing.Size(29, 40);
+            this.lbMinimum.TabIndex = 0;
+            this.lbMinimum.Text = "_";
+            // 
+            // lbExit
+            // 
+            this.lbExit.AutoSize = true;
+            this.lbExit.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lbExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbExit.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbExit.ForeColor = System.Drawing.Color.White;
+            this.lbExit.Location = new System.Drawing.Point(1245, 0);
+            this.lbExit.Name = "lbExit";
+            this.lbExit.Size = new System.Drawing.Size(35, 37);
+            this.lbExit.TabIndex = 1;
+            this.lbExit.Text = "X";
             // 
             // pnlMenu
             // 
@@ -190,9 +220,10 @@
             this.pnlMenu.Controls.Add(this.panel3);
             this.pnlMenu.Controls.Add(this.panel2);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 63);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 40);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(286, 681);
+            this.pnlMenu.Size = new System.Drawing.Size(250, 760);
             this.pnlMenu.TabIndex = 3;
             // 
             // panel3
@@ -203,9 +234,10 @@
             this.panel3.Controls.Add(this.btnFilm);
             this.panel3.Controls.Add(this.btnHome);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 288);
+            this.panel3.Location = new System.Drawing.Point(0, 301);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(286, 393);
+            this.panel3.Size = new System.Drawing.Size(250, 459);
             this.panel3.TabIndex = 8;
             // 
             // panel2
@@ -213,8 +245,9 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(286, 288);
+            this.panel2.Size = new System.Drawing.Size(250, 301);
             this.panel2.TabIndex = 7;
             // 
             // pnlMain
@@ -222,25 +255,29 @@
             this.pnlMain.AutoScroll = true;
             this.pnlMain.AutoSize = true;
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(286, 63);
+            this.pnlMain.Location = new System.Drawing.Point(250, 40);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(972, 681);
+            this.pnlMain.Size = new System.Drawing.Size(1030, 760);
             this.pnlMain.TabIndex = 4;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1258, 744);
+            this.ClientSize = new System.Drawing.Size(1280, 800);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.btnHome_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.pnlMenu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -262,5 +299,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Label lbExit;
+        private System.Windows.Forms.Label lbMinimum;
     }
 }
