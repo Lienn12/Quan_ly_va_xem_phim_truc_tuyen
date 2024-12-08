@@ -15,6 +15,22 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public FormDSNguoiDung()
         {
             InitializeComponent();
+
+            customizeDataGridView();
+
+        }
+
+        private void customizeDataGridView()
+        {
+            // Tùy chỉnh header DataGridView
+            dataGridView1.EnableHeadersVisualStyles = false; // Tắt Visual Style
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.White; // Màu nền header
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(84,131,179); // Màu chữ header
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold); // Phông chữ header
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -22,27 +38,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         }
 
-        private void FormDSNguoiDung_Load(object sender, EventArgs e)
-        {
-            dataGridView1.AllowUserToAddRows = false;  // Tắt tính năng tạo dòng mới
-                                                       // Nếu đã định nghĩa tiêu đề cột từ Designer, bỏ qua phần thêm cột này.
-
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Blue;
-            // Thêm dữ liệu mẫu
-            dataGridView1.Rows.Add(1, "Avengers123", "Nam", "10-10-2000", "aaa@gmail.com", "hakjhfasd");
-            dataGridView1.Rows.Add(2, "Titanic", "Nam", "10-10-2000", "aaa@gmail.com", "hakjhfasd");
-            dataGridView1.Rows.Add(3, "Inception", "Nam", "10-10-2000", "aaa@gmail.com", "hakjhfasd");
-            //dataGridView1.Rows.Add(4, "Avatar", 2009);
-            //dataGridView1.Rows.Add(5, "The Dark Knight", 2008);
-
-            // Tùy chỉnh các thuộc tính (tuỳ chọn)
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Tự động căn chỉnh
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
