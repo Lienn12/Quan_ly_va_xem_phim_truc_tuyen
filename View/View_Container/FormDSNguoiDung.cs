@@ -28,19 +28,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(84,131,179); // Màu chữ header
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold); // Phông chữ header
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }
-}
