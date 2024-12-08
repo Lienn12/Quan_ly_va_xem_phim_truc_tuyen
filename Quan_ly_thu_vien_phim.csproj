@@ -68,11 +68,11 @@
     <Compile Include="View\View_Container\FormDanhGia.Designer.cs">
       <DependentUpon>FormDanhGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\View_Container\FormDSNguoiDung.cs">
+    <Compile Include="View\View_Container\FormDSPhim.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\View_Container\FormDSNguoiDung.Designer.cs">
-      <DependentUpon>FormDSNguoiDung.cs</DependentUpon>
+    <Compile Include="View\View_Container\FormDSPhim.Designer.cs">
+      <DependentUpon>FormDSPhim.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\FormTrangChu.cs">
       <SubType>Form</SubType>
@@ -133,11 +133,11 @@
     <EmbeddedResource Include="View\View_Container\FormDanhGia.resx">
       <DependentUpon>FormDanhGia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormDSPhim.resx">
+      <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormThemPhim.resx">
       <DependentUpon>FormThemPhim.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\View_Container\FormDSNguoiDung.resx">
-      <DependentUpon>FormDSNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormTrangChu.resx">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
@@ -213,7 +213,6 @@
     <None Include="Resources\playicon.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +233,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-to-playlist %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
