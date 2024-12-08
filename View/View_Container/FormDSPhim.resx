@@ -117,81 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="playicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ten.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="properti.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="properti.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAlsAAAJbAUF4r0gAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABrklEQVQ4T92Qb0tTYRiHj70x2xfJNpwozUYzmkxs4KGmzJE2lRUpKoiV9CZwCL4Im+bw6NG1pTOX
+        irrQ6RSdf8Bv0Qcwq69QV/c5HZm+8At4vXue+3c9930/yjXlzS627gKuF3maOrZobs3iUje5ZZWvZuAE
+        e98B8117HDzPE4vk0No20ENZYs0r7D/5ypyawW7FLwAl/ce87Ttku3cHeySPp2OTs7Zv/A2tEwynsRkx
+        /xfu1M+R8yYZNBzTNRBZ7ykwZFx2HnJT5F8iE1rjuxVRpPNtdUbWkMwDnXf3ptHMgsjtvQWmzIMQztHQ
+        KnLLGjQt8+dxBjW4Qpl0XqhL4rdiyt04E1UfeaaIHH65Q8K6V0T2tayaMtIVfxrqP4P3E9yfLT5QOc6U
+        Y1QeMIhsobVvMBKNcsO/TWlgmVN1sSg/TECtzm/3GGWKZJwxhh0fiJuyiez1NMvr4Cp7gSWcjRncj9L8
+        9KX+yx6dHzUaHhm5wjnGrn2UV5c+8RyRyxsXSTXMc+xLEvcmmBFZq5mUfSc4EjnleE+5Fb8at3yayNWe
+        aQKuSQIiV5vjX0cU5R+K+AlyVF2wFAAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="review" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\review.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="note.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="note.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABfklEQVQ4T5VSzytFQRQ+mZn7SLGVXuHdmUEkUraULQul7CjqKT/WslCvlPwLFkQvqbeWzMx9yYJS
+        /gMplB9/xcuZuUOX5nU59S3mu/N93zlnLvyrKtDCFF+hhk95JlO6v7s1kaUQ4IIXvPiEanlDtXgjSi6k
+        QlPqRPIeyVeixWMITIvVVCwaxMjFSMXD1oRqPgnMyA2mZTV1C9R3skjYpZzw6Uu2EzsOUCUrFv76z8qI
+        4bbYZilv0rC8/d7cwIq1OMbL16BG2h2HJlQJg/wZ1IA4rpkBzn6UTXZiOwYms0SWoTYUOT5kEBkxiCnP
+        IXHaGX+Cel+P+xYyIIrPouDcHQJtBw38ZvcxZRmxhiM8WBMUvhAjDt3CfIUNtJzDd93C9PlCncf4tOtE
+        iZlIyQF3MVNBA2bEJiYd5IGpeDxogO1PMyXLecDfuvjbYBtb33OHPxZq3uGqt8sdmOFjuKwPasSu3UEe
+        mBKneP/Oib8KNz2K5I59hTzY5eIYHakS4BMed+tHfJarOgAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="delete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABSklEQVQ4T41TPS9EQRS9uTNvE/s7tFp+gp7CRkFDQyQ0RGJFKNCQCA0NDYnwCzT4E/I+VBLd/gXr
+        nNn7yGQ38/YkJ3Pm3HPvvJnkyShUIpOFcxXYN1b0rNyMXHUXTRe2FWp6th1GkWUzCPXstHHYy7Ns2tpF
+        StX93Ptj2zaCWfbYNhgHmPoCc2ccMsseaxf5aLWmYH6Cj4X3J0kygyx7rH0AmM/gnOlFrgzVwdrDOg8+
+        UUconbvLnVuiRqDPlZ9Zf+qf59wy9C11BBSucL816uQA1XUcdkkdAfc7LVS3g04MCI+It6COgOYuCodB
+        JwYgc4TsHnUETN5C+Iy6YcA5spvUEfAGq7jbNXVqADI3yK5QR4DZQeieGqcUYVXdICPPuQdkF6gjlN7P
+        oviOY9SsIbDGDLNm/eNbpI3iG/gDjvqBSNZev0QmBl0ivwgKzV+/SaKsAAAAAElFTkSuQmCC
+</value>
   </data>
-
-  <data name="vidUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vidUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
-  <data name="add-to-playlist (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-to-playlist (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
-  </data>
-  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backxanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backxanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="userlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\userlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="left-arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\left-arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="upload" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\upload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="minus (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minus (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="icons8-find-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-find-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\avatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="icons8-find-301" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-find-301.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="listFilm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\listFilm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
-  </data>
-  <data name="icons8-find-301" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-find-301.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-
-
-  </data>
-  <data name="Logo (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo (3)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
-  <data name="icons8-back-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-back-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-
 </root>

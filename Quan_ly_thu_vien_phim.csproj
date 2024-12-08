@@ -77,6 +77,18 @@
     <Compile Include="View\View_Container\FormDSNguoiDung.Designer.cs">
       <DependentUpon>FormDSNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\FormDSPhim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormDSPhim.Designer.cs">
+      <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\FormPhanHoiDanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormPhanHoiDanhGia.Designer.cs">
+      <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\FormTrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     </Compile>
     <Compile Include="View\View_Container\ThemTap.Designer.cs">
       <DependentUpon>ThemTap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\TrangUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\TrangUser.Designer.cs">
+      <DependentUpon>TrangUser.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\XemChiTiet.cs">
       <SubType>Form</SubType>
@@ -148,6 +166,12 @@
     <EmbeddedResource Include="View\View_Container\FormDanhGia.resx">
       <DependentUpon>FormDanhGia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormDSPhim.resx">
+      <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormPhanHoiDanhGia.resx">
+      <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormThemPhim.resx">
       <DependentUpon>FormThemPhim.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\ThemTap.resx">
       <DependentUpon>ThemTap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\TrangUser.resx">
+      <DependentUpon>TrangUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\XemChiTiet.resx">
       <DependentUpon>XemChiTiet.cs</DependentUpon>
@@ -256,7 +283,20 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+
     <None Include="Resources\Logo %283%291.png" />
+
+    <None Include="Resources\add-to-playlist %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-back-16.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
