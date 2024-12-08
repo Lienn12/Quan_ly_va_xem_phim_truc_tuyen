@@ -14,7 +14,45 @@ namespace Quan_ly_thu_vien_phim.View
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FormThemPhim_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Rectangle rc = this.ClientRectangle; // Kích thước của form
+
+            // Tạo LinearGradientBrush từ #052659 đến #1CB5E0
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                rc,
+                Color.FromArgb(5, 38, 89),   // Màu bắt đầu (#052659)
+                Color.FromArgb(28, 181, 224), // Màu kết thúc (#1CB5E0)
+                LinearGradientMode.Vertical)) // Loang theo chiều dọc
+            {
+                g.FillRectangle(brush, rc); // Tô màu loang cho toàn bộ form
+            }
+        }
+
+        private void btnUpVid_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog   // Tạo OpenFileDialog
+            {
+                Filter = "Video Files|*.mp4;*.avi;*.wmv;*.mov;*.mkv",
+                Title = "Chọn video"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)   // Hiển thị hộp thoại chọn file
+            {
+                // Lấy đường dẫn file video được chọn
+                videoPath = openFileDialog.FileName;
+                // Hiển thị đường dẫn ra màn hình (MessageBox hoặc TextBox)
+                MessageBox.Show("Đường dẫn video: " + videoPath);
+
+            }
+            else
+            {
+                // Người dùng bấm Cancel
+                MessageBox.Show("Bạn chưa chọn file nào!");
+            }
+        }
+
+        private void btnUpImg_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -34,48 +72,12 @@ namespace Quan_ly_thu_vien_phim.View
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Rectangle rc = this.ClientRectangle; // Kích thước của form
-
-            // Tạo LinearGradientBrush từ #052659 đến #1CB5E0
-            using (LinearGradientBrush brush = new LinearGradientBrush(
-                rc,
-                Color.FromArgb(5, 38, 89),   // Màu bắt đầu (#052659)
-                Color.FromArgb(28, 181, 224), // Màu kết thúc (#1CB5E0)
-                LinearGradientMode.Vertical)) // Loang theo chiều dọc
-            {
-                g.FillRectangle(brush, rc); // Tô màu loang cho toàn bộ form
-            }
-        }
-
         private void btnThemTap_Click(object sender, EventArgs e)
         {
             ThemTap themTap = new ThemTap();
             themTap.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog   // Tạo OpenFileDialog
-            {
-                Filter = "Video Files|*.mp4;*.avi;*.wmv;*.mov;*.mkv",
-                Title = "Chọn video"
-            };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)   // Hiển thị hộp thoại chọn file
-            {
-                // Lấy đường dẫn file video được chọn
-                videoPath = openFileDialog.FileName;
-                // Hiển thị đường dẫn ra màn hình (MessageBox hoặc TextBox)
-                MessageBox.Show("Đường dẫn video: " + videoPath);
-                
-            }
-            else
-            {
-                // Người dùng bấm Cancel
-                MessageBox.Show("Bạn chưa chọn file nào!");
-            }
-        }
+
     }
 }
