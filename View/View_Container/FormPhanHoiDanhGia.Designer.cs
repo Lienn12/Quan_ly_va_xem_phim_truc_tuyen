@@ -39,29 +39,29 @@
             this.btnTru = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNgaydanhgia = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPhanhoi2 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPhanhoi1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBinhluan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnQuaylai = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Anhphim = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Anhphim)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -176,104 +176,105 @@
             this.btnThem.Size = new System.Drawing.Size(30, 30);
             this.btnThem.TabIndex = 15;
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.txtUser);
             this.panel6.Location = new System.Drawing.Point(173, 17);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(316, 30);
             this.panel6.TabIndex = 14;
             // 
-            // textBox1
+            // txtUser
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(316, 27);
-            this.textBox1.TabIndex = 5;
+            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtUser.Location = new System.Drawing.Point(0, 0);
+            this.txtUser.Multiline = true;
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(316, 27);
+            this.txtUser.TabIndex = 5;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.txtNgaydanhgia);
             this.panel5.Location = new System.Drawing.Point(173, 65);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(319, 30);
             this.panel5.TabIndex = 13;
             // 
-            // textBox2
+            // txtNgaydanhgia
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(319, 27);
-            this.textBox2.TabIndex = 6;
+            this.txtNgaydanhgia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNgaydanhgia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtNgaydanhgia.Location = new System.Drawing.Point(0, 0);
+            this.txtNgaydanhgia.Multiline = true;
+            this.txtNgaydanhgia.Name = "txtNgaydanhgia";
+            this.txtNgaydanhgia.Size = new System.Drawing.Size(319, 27);
+            this.txtNgaydanhgia.TabIndex = 6;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.panel4.Controls.Add(this.textBox5);
+            this.panel4.Controls.Add(this.txtPhanhoi2);
             this.panel4.Location = new System.Drawing.Point(170, 444);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(322, 115);
             this.panel4.TabIndex = 12;
             // 
-            // textBox5
+            // txtPhanhoi2
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox5.Location = new System.Drawing.Point(3, 3);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(316, 109);
-            this.textBox5.TabIndex = 9;
+            this.txtPhanhoi2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhanhoi2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPhanhoi2.Location = new System.Drawing.Point(3, 3);
+            this.txtPhanhoi2.Multiline = true;
+            this.txtPhanhoi2.Name = "txtPhanhoi2";
+            this.txtPhanhoi2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPhanhoi2.Size = new System.Drawing.Size(316, 109);
+            this.txtPhanhoi2.TabIndex = 9;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.txtPhanhoi1);
             this.panel3.Location = new System.Drawing.Point(170, 309);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(322, 121);
             this.panel3.TabIndex = 11;
             // 
-            // textBox4
+            // txtPhanhoi1
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox4.Location = new System.Drawing.Point(3, 3);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(316, 115);
-            this.textBox4.TabIndex = 8;
+            this.txtPhanhoi1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhanhoi1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPhanhoi1.Location = new System.Drawing.Point(3, 3);
+            this.txtPhanhoi1.Multiline = true;
+            this.txtPhanhoi1.Name = "txtPhanhoi1";
+            this.txtPhanhoi1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPhanhoi1.Size = new System.Drawing.Size(316, 115);
+            this.txtPhanhoi1.TabIndex = 8;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtBinhluan);
             this.panel2.Location = new System.Drawing.Point(170, 155);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(322, 122);
             this.panel2.TabIndex = 10;
             // 
-            // textBox3
+            // txtBinhluan
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox3.Location = new System.Drawing.Point(3, 3);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(316, 115);
-            this.textBox3.TabIndex = 7;
+            this.txtBinhluan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBinhluan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtBinhluan.Location = new System.Drawing.Point(3, 3);
+            this.txtBinhluan.Multiline = true;
+            this.txtBinhluan.Name = "txtBinhluan";
+            this.txtBinhluan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBinhluan.Size = new System.Drawing.Size(316, 115);
+            this.txtBinhluan.TabIndex = 7;
             // 
             // label6
             // 
@@ -342,14 +343,14 @@
             this.btnQuaylai.TabIndex = 2;
             this.btnQuaylai.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // Anhphim
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Cyan;
-            this.pictureBox1.Location = new System.Drawing.Point(627, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 293);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.Anhphim.BackColor = System.Drawing.Color.Cyan;
+            this.Anhphim.Location = new System.Drawing.Point(627, 94);
+            this.Anhphim.Name = "Anhphim";
+            this.Anhphim.Size = new System.Drawing.Size(327, 293);
+            this.Anhphim.TabIndex = 3;
+            this.Anhphim.TabStop = false;
             // 
             // FormPhanHoiDanhGia
             // 
@@ -357,10 +358,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(984, 722);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Anhphim);
             this.Controls.Add(this.btnQuaylai);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPhanHoiDanhGia";
             this.Text = "FormPhanHoiDanhGia";
             this.Load += new System.EventHandler(this.FormPhanHoiDanhGia_Load);
@@ -376,7 +378,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Anhphim)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,11 +388,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPhanhoi2;
+        private System.Windows.Forms.TextBox txtPhanhoi1;
+        private System.Windows.Forms.TextBox txtBinhluan;
+        private System.Windows.Forms.TextBox txtNgaydanhgia;
+        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -410,6 +412,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Anhphim;
     }
 }
