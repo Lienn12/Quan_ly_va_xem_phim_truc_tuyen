@@ -20,6 +20,7 @@ namespace Quan_ly_thu_vien_phim.Model
         public Country_model Country { get; set; } 
         public string Description { get; set; }
         public int Episode { get; set; } 
+        public float Rating { get; set; }
         public string ImgPath { get; set; } 
         public string VidPath { get; set; } 
         public Movie_model()
@@ -28,12 +29,28 @@ namespace Quan_ly_thu_vien_phim.Model
 
         public Movie_model(SqlDataReader reader)
         {
-            MovieId = reader.GetInt32(0);
-            Title = reader.GetString(1);  // TITLE
-            Year = reader.GetInt32(2); // RELEASE_YEAR
+            MovieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID")); 
+            Title = reader.GetString(reader.GetOrdinal("TITLE"));     
+            Year = reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR"));
         }
 
-        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode, string img, string vidPath)
+        public Movie_model(int movieId, string title, int year)
+        {
+            MovieId = movieId;
+            Title = title;
+            Year = year;
+        }
+
+        public Movie_model(int movieId, string title, string description, float rating, string imgPath)
+        {
+            MovieId = movieId;
+            Title = title;
+            Description = description;
+            Rating = rating;
+            ImgPath = imgPath;
+        }
+
+        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode,float rating, string img, string vidPath)
         {
             this.MovieId = movieId;
             this.Title = title;
@@ -45,6 +62,7 @@ namespace Quan_ly_thu_vien_phim.Model
             this.Country = country;
             this.Description = description;
             this.Episode = episode;
+            this.Rating = rating;
             this.ImgPath = img;
             this.VidPath = vidPath;
         }
@@ -52,7 +70,7 @@ namespace Quan_ly_thu_vien_phim.Model
      
         public override string ToString()
         {
-            return $"ID: {MovieId}, Title: {Title}, Year: {Year}, Director: {Director}, Cast: {Cast}, Type: {Genre}, Format: {Format}, Country: {Country}, Description: {Description}, Episode: {Episode},ImgPath: {ImgPath}, VidPath: {VidPath}";
+            return $"ID: {MovieId}, Title: {Title}, Year: {Year}, Director: {Director}, Cast: {Cast}, Type: {Genre}, Format: {Format}, Country: {Country}, Description: {Description}, Episode: {Episode}, Rating: {Rating},ImgPath: {ImgPath}, VidPath: {VidPath}";
         }
     }
 }
