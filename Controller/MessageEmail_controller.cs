@@ -27,11 +27,11 @@ namespace Quan_ly_thu_vien_phim.Controller
             smtpClient.Port = 587;
             smtpClient.DeliveryMethod=SmtpDeliveryMethod.Network;
             smtpClient.Credentials= new NetworkCredential(from, pass);
-
+            
             try
             {
                 smtpClient.Send(mailMessage);
-                MessageBox.Show("Code Send Successfully"+code+toEmail);
+                MessageBox.Show("Code Send Successfully defregrgerg"+code+toEmail);
                 return true;
             }
             catch (Exception ex) 
