@@ -16,5 +16,10 @@ namespace Quan_ly_thu_vien_phim.Model
             FormatID = formatID;
             FormatName= formatName;
         }
+
+        public override string ToString()
+        {
+            return FormatName;
+        }
     }
 }

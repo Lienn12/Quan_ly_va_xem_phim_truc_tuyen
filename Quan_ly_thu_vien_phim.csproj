@@ -57,7 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\DanhGia_controller.cs" />
+    <Compile Include="Controller\Format_controller.cs" />
     <Compile Include="Controller\Country_controller.cs" />
+    <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
     <Compile Include="Controller\Movie_controller.cs" />

@@ -16,5 +16,10 @@ namespace Quan_ly_thu_vien_phim.Model
             GenreID = genreID;
             GenreName = genreName;
         }
+
+        public override string ToString()
+        {
+            return GenreName;
+        }
     }
 }
