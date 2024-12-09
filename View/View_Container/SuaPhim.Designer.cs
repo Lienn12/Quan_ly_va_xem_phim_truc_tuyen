@@ -64,7 +64,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Silver;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(474, 536);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 63);
             this.btnCancel.TabIndex = 22;
@@ -77,7 +77,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.Location = new System.Drawing.Point(308, 536);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(118, 63);
             this.btnSave.TabIndex = 21;
@@ -88,7 +88,7 @@
             // 
             this.cbDinhDang.FormattingEnabled = true;
             this.cbDinhDang.Location = new System.Drawing.Point(140, 314);
-            this.cbDinhDang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbDinhDang.Margin = new System.Windows.Forms.Padding(2);
             this.cbDinhDang.Name = "cbDinhDang";
             this.cbDinhDang.Size = new System.Drawing.Size(336, 21);
             this.cbDinhDang.TabIndex = 17;
@@ -97,7 +97,7 @@
             // 
             this.cbQuocGia.FormattingEnabled = true;
             this.cbQuocGia.Location = new System.Drawing.Point(140, 262);
-            this.cbQuocGia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbQuocGia.Margin = new System.Windows.Forms.Padding(2);
             this.cbQuocGia.Name = "cbQuocGia";
             this.cbQuocGia.Size = new System.Drawing.Size(336, 21);
             this.cbQuocGia.TabIndex = 16;
@@ -106,7 +106,7 @@
             // 
             this.cbTheLoai.FormattingEnabled = true;
             this.cbTheLoai.Location = new System.Drawing.Point(140, 209);
-            this.cbTheLoai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTheLoai.Margin = new System.Windows.Forms.Padding(2);
             this.cbTheLoai.Name = "cbTheLoai";
             this.cbTheLoai.Size = new System.Drawing.Size(336, 21);
             this.cbTheLoai.TabIndex = 15;
@@ -114,7 +114,7 @@
             // txtMota
             // 
             this.txtMota.Location = new System.Drawing.Point(140, 413);
-            this.txtMota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMota.Margin = new System.Windows.Forms.Padding(2);
             this.txtMota.Multiline = true;
             this.txtMota.Name = "txtMota";
             this.txtMota.Size = new System.Drawing.Size(336, 109);
@@ -123,7 +123,7 @@
             // txtSoTap
             // 
             this.txtSoTap.Location = new System.Drawing.Point(140, 366);
-            this.txtSoTap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoTap.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoTap.Multiline = true;
             this.txtSoTap.Name = "txtSoTap";
             this.txtSoTap.Size = new System.Drawing.Size(275, 21);
@@ -132,7 +132,7 @@
             // txtDienVien
             // 
             this.txtDienVien.Location = new System.Drawing.Point(140, 160);
-            this.txtDienVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDienVien.Margin = new System.Windows.Forms.Padding(2);
             this.txtDienVien.Multiline = true;
             this.txtDienVien.Name = "txtDienVien";
             this.txtDienVien.Size = new System.Drawing.Size(336, 21);
@@ -141,7 +141,7 @@
             // txtDaoDien
             // 
             this.txtDaoDien.Location = new System.Drawing.Point(140, 112);
-            this.txtDaoDien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDaoDien.Margin = new System.Windows.Forms.Padding(2);
             this.txtDaoDien.Multiline = true;
             this.txtDaoDien.Name = "txtDaoDien";
             this.txtDaoDien.Size = new System.Drawing.Size(336, 21);
@@ -174,8 +174,8 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(49, 65);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(59, 85);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(878, 623);
             this.panel3.TabIndex = 7;
@@ -184,17 +184,18 @@
             // 
             this.button1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.add;
             this.button1.Location = new System.Drawing.Point(433, 359);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(43, 33);
             this.button1.TabIndex = 24;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pbMovie
             // 
             this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbMovie.Location = new System.Drawing.Point(535, 29);
-            this.pbMovie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbMovie.Margin = new System.Windows.Forms.Padding(2);
             this.pbMovie.Name = "pbMovie";
             this.pbMovie.Size = new System.Drawing.Size(304, 394);
             this.pbMovie.TabIndex = 23;
@@ -205,7 +206,7 @@
             this.btnVid.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnVid.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.vidUp;
             this.btnVid.Location = new System.Drawing.Point(742, 445);
-            this.btnVid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVid.Margin = new System.Windows.Forms.Padding(2);
             this.btnVid.Name = "btnVid";
             this.btnVid.Size = new System.Drawing.Size(52, 46);
             this.btnVid.TabIndex = 20;
@@ -219,7 +220,7 @@
             this.btnImage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnImage.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.upload;
             this.btnImage.Location = new System.Drawing.Point(578, 444);
-            this.btnImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImage.Margin = new System.Windows.Forms.Padding(2);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(130, 46);
             this.btnImage.TabIndex = 19;
@@ -232,7 +233,7 @@
             // txtNam
             // 
             this.txtNam.Location = new System.Drawing.Point(140, 64);
-            this.txtNam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNam.Margin = new System.Windows.Forms.Padding(2);
             this.txtNam.Multiline = true;
             this.txtNam.Name = "txtNam";
             this.txtNam.Size = new System.Drawing.Size(336, 21);
@@ -241,7 +242,7 @@
             // txtTen
             // 
             this.txtTen.Location = new System.Drawing.Point(140, 17);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(2);
             this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(336, 21);
@@ -352,7 +353,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(42, 17);
+            this.label1.Location = new System.Drawing.Point(52, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 37);
@@ -365,23 +366,25 @@
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(878, 17);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(888, 31);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(49, 32);
             this.btnBack.TabIndex = 8;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // SuaPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(984, 721);
+            this.ClientSize = new System.Drawing.Size(999, 759);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SuaPhim";
             this.Text = "SuaPhim";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SuaPhim_Paint);

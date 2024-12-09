@@ -242,41 +242,50 @@ namespace Quan_ly_thu_vien_phim.Controller
                             INNER JOIN GENRES ON MOVIES.GENRE_ID = GENRES.GENRE_ID
                             INNER JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
                             WHERE MOVIE_ID = @movieId;";
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@movieId", movieId);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlConnection conn = new DbConnect().GetConnection()) { 
+                    conn.Open();
+                    using (cmd = new SqlCommand(query, conn))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@movieId", movieId);
+                        using (reader = cmd.ExecuteReader())
                         {
-                            string name = reader["title"].ToString();
-                            int year = Convert.ToInt32(reader["release_year"]);
-                            string genre = reader["genre_name"].ToString();
-                            string format = reader["format_name"].ToString();
-                            string country = reader["country_name"].ToString();
-                            string director = reader["director"].ToString();
-                            string cast = reader["cast"].ToString();
-                            float rating = Convert.ToSingle(reader["rating"]);
-                            string description = reader["description"].ToString();
-                            int episode = Convert.ToInt32(reader["episode"]);
-                            string img = reader["cover_image"].ToString();
-                            string vidPath = reader["trailer"].ToString();
+                            if (reader.Read())
+                            {
+                                string name = reader["TITLE"].ToString();
+                                int year = Convert.ToInt32(reader["RELEASE_YEAR"]);
+                                string genre = reader["GENRE_NAME"].ToString();
+                                string format = reader["FORMAT_NAME"].ToString();
+                                string country = reader["COUNTRY_NAME"].ToString();
+                                string director = reader["DIRECTOR"].ToString();
+                                string cast = reader["CAST"].ToString();
+                                string description = reader["DESCRIPTION"].ToString();
+                                int episode = Convert.ToInt32(reader["TOTAL_EPISODES"]);
+                                string img = reader["COVER_IMAGE"].ToString();  
+                                string vidPath = reader["TRAILER"].ToString();
 
-                            //return new Movie_model(movieId, name, year,
-                            //    new Genre_model(0, genre),
-                            //    new Format(0, format),
-                            //    new Country(0, country),
-                            //    director, cast, rating, description, episode, img, vidPath);
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Movie not found for movieID: {movieId}");
+                                Genre_model genreModel = string.IsNullOrEmpty(genre) ? null : new Genre_model(0, genre);
+                                Format_model formatModel = string.IsNullOrEmpty(format) ? null : new Format_model(0, format);
+                                Country_model countryModel = string.IsNullOrEmpty(country) ? null : new Country_model(0, country);
+
+                                // Trả về đối tượng Movie_model
+                                return new Movie_model(
+                                    movieId, name, year, director, cast,
+                                    genreModel, formatModel, countryModel, description, episode, img, vidPath
+                                );
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Movie not found for movieID: {movieId}");
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
             }
 
             Console.WriteLine("GetMovieById: MovieModel is null");

@@ -17,8 +17,10 @@ namespace Quan_ly_thu_vien_phim.View
         private Genre_controller genre_Controller = new Genre_controller();
         private Format_controller format_Controller = new Format_controller();
         private Country_controller country_Controller = new Country_controller();
-        public FormThemPhim()
+        private FormMain formMain ;
+        public FormThemPhim(FormMain formMain)
         {
+            this.formMain = formMain;
             InitializeComponent();
             LoadDataComboGenres(cbType, genre_Controller.GetGenres());
             LoadDataComboFormats(cbFormat, format_Controller.GetFormats());
@@ -176,6 +178,11 @@ namespace Quan_ly_thu_vien_phim.View
                 MessageBox.Show("Đã thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 setNull();
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain),sender);
         }
 
         public void setNull()
