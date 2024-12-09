@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
-    public class Movie__controller
+    public class Movie_controller
     {
 
     }
