@@ -16,5 +16,10 @@ namespace Quan_ly_thu_vien_phim.Model
             CountryId = countryId;
             CountryName = countryName;
         }
+
+        public override string ToString()
+        {
+            return CountryName;
+        }
     }
 }

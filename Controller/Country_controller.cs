@@ -13,39 +13,39 @@ namespace Quan_ly_thu_vien_phim.Controller
         SqlConnection conn = null;
         SqlCommand cmd = null;
         SqlDataReader reader = null;
-        //private Countries country;
-        //public Country_controller()
-        //{
-        //    conn = new DbConnect().GetConnection();
-        //}
-        //public List<Countries> GetCountries()
-        //{
-        //    List<Countries> CountryList = new List<Countries>();
-        //    try
-        //    {
-        //        string sql = "SELECT * FROM COUNTRIES";
-        //        cmd = new SqlCommand(sql, conn);
-        //        conn.Open();
-        //        reader = cmd.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            int countryId = reader.GetInt32(reader.GetOrdinal("COUNTRY_ID"));
-        //            string countrytName = reader.GetString(reader.GetOrdinal("COUNTRY_NAME"));
-        //            // Tạo đối tượng Formats và thêm vào danh sách
-        //            Countries country = new Countries(countryId, countrytName);
-        //            CountryList.Add(country);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Lỗi: " + ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        if (reader != null) reader.Close();
-        //        if (conn != null) conn.Close();
-        //    }
-        //    return CountryList;
-        //}
+        private Country_model country;
+        public Country_controller()
+        {
+            conn = new DbConnect().GetConnection();
+        }
+        public List<Country_model> GetCountries()
+        {
+            List<Country_model> CountryList = new List<Country_model>();
+            string sql = "SELECT * FROM COUNTRIES";
+            try
+            {
+                conn.Open();
+                cmd = new SqlCommand(sql, conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    int countryId = reader.GetInt32(reader.GetOrdinal("COUNTRY_ID"));
+                    string countrytName = reader.GetString(reader.GetOrdinal("COUNTRY_NAME"));
+                    // Tạo đối tượng Formats và thêm vào danh sách
+                    Country_model country = new Country_model(countryId, countrytName);
+                    CountryList.Add(country);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (conn != null) conn.Close();
+            }
+            return CountryList;
+        }
     }
 }
