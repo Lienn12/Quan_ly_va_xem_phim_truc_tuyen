@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,13 @@ namespace Quan_ly_thu_vien_phim.Model
         public string VidPath { get; set; } 
         public Movie_model()
         {
+        }
+
+        public Movie_model(SqlDataReader reader)
+        {
+            MovieId = reader.GetInt32(0);
+            Title = reader.GetString(1);  // TITLE
+            Year = reader.GetInt32(2); // RELEASE_YEAR
         }
 
         public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode, string img, string vidPath)
