@@ -59,6 +59,9 @@
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\Movie__controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
+    <Compile Include="Model\Country_model.cs" />
+    <Compile Include="Model\Format_model.cs" />
+    <Compile Include="Model\Genre_model.cs" />
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
