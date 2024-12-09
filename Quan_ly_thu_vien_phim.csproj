@@ -56,22 +56,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="Controller\DanhGia_controller.cs" />
     <Compile Include="Controller\Format_controller.cs" />
     <Compile Include="Controller\Country_controller.cs" />
     <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
-   <Compile Include="Controller\Movie__controller.cs" />
+    <Compile Include="Controller\Movie_controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
-
     <Compile Include="Model\DanhGia_model.cs" />
-
     <Compile Include="Model\Country_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
-
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -143,6 +139,18 @@
     </Compile>
     <Compile Include="View\View_Login_Signup\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Login_Signup\FormForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Login_Signup\FormForgotPassword.Designer.cs">
+      <DependentUpon>FormForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Login_Signup\FormReset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Login_Signup\FormReset.Designer.cs">
+      <DependentUpon>FormReset.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Login_Signup\Formsignup.cs">
       <SubType>Form</SubType>
@@ -217,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Login_Signup\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Login_Signup\FormForgotPassword.resx">
+      <DependentUpon>FormForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Login_Signup\FormReset.resx">
+      <DependentUpon>FormReset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Login_Signup\Formsignup.resx">
       <DependentUpon>Formsignup.cs</DependentUpon>
@@ -319,6 +333,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

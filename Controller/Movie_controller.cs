@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
-    public class Movie__controller
+    public class Movie_controller
     {
         SqlConnection conn = null;
         SqlCommand cmd = null;

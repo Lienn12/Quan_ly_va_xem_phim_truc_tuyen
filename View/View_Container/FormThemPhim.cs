@@ -83,10 +83,16 @@ namespace Quan_ly_thu_vien_phim.View
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+                MessageBox.Show("filePath:   " + filePath);
+        }
+
         private void btnThemTap_Click(object sender, EventArgs e)
         {
             ThemTap themTap = new ThemTap();
             themTap.Show();
+            
         }
         private void LoadDataComboBox<T>(ComboBox comboBox, List<T> dataList, string displayField)
         {

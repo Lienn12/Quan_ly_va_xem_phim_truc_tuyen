@@ -31,7 +31,6 @@ namespace Quan_ly_thu_vien_phim.Controller
             try
             {
                 smtpClient.Send(mailMessage);
-                MessageBox.Show("Code Send Successfully defregrgerg"+code+toEmail);
                 return true;
             }
             catch (Exception ex) 

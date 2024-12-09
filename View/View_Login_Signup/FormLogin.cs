@@ -16,6 +16,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
     public partial class FormLogin : Form
     {
         private View_Main.FormLoginSignup frmLoginSignup;
+        private User_model user;
         public FormLogin(FormLoginSignup frmLoginSignup)
         {
             InitializeComponent();
@@ -24,29 +25,35 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
 
         private void lbSignup_Click(object sender, EventArgs e)
         {
-            frmLoginSignup.OpenChidForm(new View.View_Login_Signup.Formsignup(frmLoginSignup));
+            frmLoginSignup.OpenChidForm(new View.View_Login_Signup.Formsignup(frmLoginSignup,user));
             Close();
         }
 
-        //private void getUserData(object sender, EventArgs e)
-        //{
-       
-        //}
-        private void showUserData(List<User_model> users)
-        { 
-            if(users.Count > 0)
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+           string username= txtUsername.Text;
+           string password= txtPassword.Text;
+           User_model user = new User_model();
+           user.username = username;
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                MessageBox.Show("Username và password không được để trống");
+            else
             {
-                User_model user = users[0];
-                txtUsername.Text= user.username;
+                User_controller userController = new User_controller();
+                if (userController.CheckLoginUser(user, password)) 
+                {
+                    MessageBox.Show("Đăng nhập thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập thất bại");
+                }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void lbForgot_Click(object sender, EventArgs e)
         {
-            User_controller user_Controller = new User_controller();
-            List<User_model> users = user_Controller.getUserData();
-            showUserData(users);
-
+            frmLoginSignup.showForgot(user);
         }
     }
 
