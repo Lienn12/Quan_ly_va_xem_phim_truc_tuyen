@@ -15,6 +15,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
     public partial class FormDSNguoiDung : Form
     {
         User_controller userController = new User_controller();
+        
         public FormDSNguoiDung()
         {
             InitializeComponent();
