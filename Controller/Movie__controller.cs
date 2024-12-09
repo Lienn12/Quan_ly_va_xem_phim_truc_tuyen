@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,6 +18,33 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             this.conn = new DbConnect().GetConnection();
         }
+        public List<Movie_model> GetMovies()
+        {
+            List<Movie_model> movieList = new List<Movie_model>();
+            try
+            {                
+                conn.Open();
+                string sql = "SELECT MOVIE_ID, TITLE, RELEASE_YEAR FROM MOVIES";
+                using (cmd = new SqlCommand(sql, conn))
+                {
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Movie_model movie = new Movie_model(reader);
+                            movieList.Add(movie);
+                        }
+                    }
+                }                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            return movieList;
+        }
+
+
         public bool SaveInfo(string name, int year, string director, string cast, int genreID, int formatID, int countryID, int episode, string descrip, string imgPath, string vidPath)
         {
             int row = 0;
