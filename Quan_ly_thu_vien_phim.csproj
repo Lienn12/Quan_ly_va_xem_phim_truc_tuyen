@@ -56,9 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DanhGia_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\Movie__controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
+    <Compile Include="Model\DanhGia_model.cs" />
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
