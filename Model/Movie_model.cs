@@ -8,6 +8,7 @@ namespace Quan_ly_thu_vien_phim.Model
 {
     public class Movie_model
     {
+
         public int MovieId { get; set; } 
         public string Title { get; set; } 
         public int Year { get; set; } 
@@ -20,7 +21,6 @@ namespace Quan_ly_thu_vien_phim.Model
         public int Episode { get; set; } 
         public string ImgPath { get; set; } 
         public string VidPath { get; set; } 
-        // Constructor mặc định
         public Movie_model()
         {
         }
