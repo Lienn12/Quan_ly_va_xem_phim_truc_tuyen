@@ -12,10 +12,21 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class FormPhanHoiDanhGia : Form
     {
-        public FormPhanHoiDanhGia()
+        private FormMain formMain;
+        public FormPhanHoiDanhGia(FormMain formMain)
         {
             InitializeComponent();
+            this.formMain = formMain;
         }
 
+        private void btnTru_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPhanHoiDanhGia_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

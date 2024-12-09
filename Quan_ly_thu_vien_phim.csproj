@@ -56,15 +56,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Controller\DanhGia_controller.cs" />
+
     <Compile Include="Controller\Country_controller.cs" />
+
     <Compile Include="Controller\DbConnect.cs" />
-    <Compile Include="Controller\Format_controller.cs" />
-    <Compile Include="Controller\Genre_controller.cs" />
-    <Compile Include="Controller\Movie__controller.cs" />
+    <Compile Include="Controller\MessageEmail_controller.cs" />
+   <Compile Include="Controller\Movie__controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
+
+    <Compile Include="Model\DanhGia_model.cs" />
+
     <Compile Include="Model\Country_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
+
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -143,6 +150,12 @@
     <Compile Include="View\View_Login_Signup\Formsignup.Designer.cs">
       <DependentUpon>Formsignup.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Login_Signup\VerifyCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Login_Signup\VerifyCode.Designer.cs">
+      <DependentUpon>VerifyCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Main\FormLoginSignup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Login_Signup\Formsignup.resx">
       <DependentUpon>Formsignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Login_Signup\VerifyCode.resx">
+      <DependentUpon>VerifyCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Main\FormLoginSignup.resx">
       <DependentUpon>FormLoginSignup.cs</DependentUpon>
