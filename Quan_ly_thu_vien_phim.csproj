@@ -62,12 +62,19 @@
     <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
+
+    <Compile Include="Controller\PhanHoiDanhGia_controller.cs" />
+
     <Compile Include="Controller\Movie_controller.cs" />
+
     <Compile Include="Controller\User_controller.cs" />
     <Compile Include="Model\DanhGia_model.cs" />
     <Compile Include="Model\Country_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
+
+    <Compile Include="Model\PhanHoiDanhGia_model.cs" />
+
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
