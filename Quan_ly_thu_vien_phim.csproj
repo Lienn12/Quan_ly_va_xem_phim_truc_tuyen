@@ -56,7 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Country_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
+    <Compile Include="Controller\Format_controller.cs" />
+    <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\Movie__controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
     <Compile Include="Model\User_model.cs" />
