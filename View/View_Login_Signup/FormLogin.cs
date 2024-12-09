@@ -46,6 +46,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
             User_controller user_Controller = new User_controller();
             List<User_model> users = user_Controller.getUserData();
             showUserData(users);
+
         }
     }
 

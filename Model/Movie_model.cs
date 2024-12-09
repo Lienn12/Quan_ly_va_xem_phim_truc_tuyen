@@ -8,6 +8,7 @@ namespace Quan_ly_thu_vien_phim.Model
 {
     public class Movie_model
     {
+
         public int MovieId { get; set; } 
         public string Title { get; set; } 
         public int Year { get; set; } 
@@ -20,7 +21,6 @@ namespace Quan_ly_thu_vien_phim.Model
         public int Episode { get; set; } 
         public string ImgPath { get; set; } 
         public string VidPath { get; set; } 
-        // Constructor mặc định
         public Movie_model()
         {
         }
@@ -41,7 +41,7 @@ namespace Quan_ly_thu_vien_phim.Model
             this.VidPath = vidPath;
         }
 
-        // Override phương thức ToString() để dễ dàng hiển thị thông tin phim (không hiển thị ảnh vì là nhị phân)
+     
         public override string ToString()
         {
             return $"ID: {MovieId}, Title: {Title}, Year: {Year}, Director: {Director}, Cast: {Cast}, Type: {Genre}, Format: {Format}, Country: {Country}, Description: {Description}, Episode: {Episode},ImgPath: {ImgPath}, VidPath: {VidPath}";
