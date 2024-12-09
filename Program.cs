@@ -20,6 +20,7 @@ namespace Quan_ly_thu_vien_phim
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new View.View_Main.FormLoginSignup());
 
+
         }
     }
 }
