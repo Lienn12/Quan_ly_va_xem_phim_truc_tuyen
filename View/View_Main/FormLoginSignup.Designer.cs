@@ -111,8 +111,10 @@
             // 
             // pictureBox1
             // 
+
             this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.lg;
             this.pictureBox1.Location = new System.Drawing.Point(48, 58);
+
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(240, 251);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
