@@ -39,7 +39,7 @@
             this.Phim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chi_Tiet = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Phan_hoi = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.Phim,
             this.Rating,
             this.Ngay,
-            this.Chi_Tiet,
+            this.Phan_hoi,
             this.Delete});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -79,7 +79,8 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 164);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 133);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -94,16 +95,18 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(711, 432);
+            this.dataGridView1.Size = new System.Drawing.Size(533, 351);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(25, 70);
+            this.label1.Location = new System.Drawing.Point(19, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 45);
+            this.label1.Size = new System.Drawing.Size(131, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đánh giá";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -138,14 +141,14 @@
             this.Ngay.MinimumWidth = 6;
             this.Ngay.Name = "Ngay";
             // 
-            // Chi_Tiet
+            // Phan_hoi
             // 
-            this.Chi_Tiet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Chi_Tiet.HeaderText = "";
-            this.Chi_Tiet.Image = ((System.Drawing.Image)(resources.GetObject("Chi_Tiet.Image")));
-            this.Chi_Tiet.MinimumWidth = 6;
-            this.Chi_Tiet.Name = "Chi_Tiet";
-            this.Chi_Tiet.Width = 6;
+            this.Phan_hoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Phan_hoi.HeaderText = "";
+            this.Phan_hoi.Image = ((System.Drawing.Image)(resources.GetObject("Phan_hoi.Image")));
+            this.Phan_hoi.MinimumWidth = 6;
+            this.Phan_hoi.Name = "Phan_hoi";
+            this.Phan_hoi.Width = 6;
             // 
             // Delete
             // 
@@ -154,16 +157,17 @@
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
-            this.Delete.Width = 48;
+            this.Delete.Width = 38;
             // 
             // FormDanhGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(782, 634);
+            this.ClientSize = new System.Drawing.Size(586, 515);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDanhGia";
             this.Text = "[";
             this.Load += new System.EventHandler(this.FormDanhGia_Load);
@@ -181,7 +185,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Phim;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
-        private System.Windows.Forms.DataGridViewImageColumn Chi_Tiet;
+        private System.Windows.Forms.DataGridViewImageColumn Phan_hoi;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

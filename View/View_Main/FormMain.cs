@@ -21,7 +21,7 @@ namespace Quan_ly_thu_vien_phim.View
             lbExit.Click += btnExit_Click;
         }
 
-        private void OpenChidForm(Form childForm, object btnSender)
+        public void OpenChidForm(Form childForm, object btnSender)
         {
 
             if (activeForm != null)
@@ -60,7 +60,7 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            //OpenChidForm(new View_Login_Signup.FormLogin(), sender);
+            OpenChidForm(new View_Container.FormDanhGia(this), sender);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
