@@ -21,8 +21,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public FormDanhGia(FormMain formMain)
         {
             InitializeComponent();
-
-            // khoi tao contructor
             danhGia_Controller = new DanhGia_controller();
             this.formMain = formMain;
         }
@@ -66,10 +64,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //formMain.OpenChidForm(new View_Container.FormPhanHoiDanhGia, sender);
-            
-
-        
+            formMain.OpenChidForm(new View.View_Container.FormPhanHoiDanhGia(formMain), sender);
+                   
         }
     }
     

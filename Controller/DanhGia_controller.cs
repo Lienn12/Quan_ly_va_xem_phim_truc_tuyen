@@ -14,16 +14,13 @@ namespace Quan_ly_thu_vien_phim.Controller
 
         public DanhGia_controller()
         {
-            // Khởi tạo kết nối khi lớp này được gọi
             conn = new DbConnect().GetConnection();
         }
 
-        // Lấy dữ liệu từ SQL Server và trả về danh sách DanhGia_model
         public List<DanhGia_model> getdanhgia()
         {
             List<DanhGia_model> reviews = new List<DanhGia_model>();
 
-            // Dùng try-catch để bắt lỗi kết nối nếu xảy ra
             try
             {
                 // Câu truy vấn SQL
@@ -39,7 +36,6 @@ namespace Quan_ly_thu_vien_phim.Controller
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    // Mở kết nối
                     conn.Open();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())

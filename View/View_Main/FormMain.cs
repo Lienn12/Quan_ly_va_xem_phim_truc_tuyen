@@ -21,7 +21,7 @@ namespace Quan_ly_thu_vien_phim.View
             lbExit.Click += btnExit_Click;
         }
 
-        private void OpenChidForm(Form childForm, object btnSender)
+        public void OpenChidForm(Form childForm, object btnSender)
         {
 
             if (activeForm != null)
