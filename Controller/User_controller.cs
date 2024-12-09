@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -23,122 +24,123 @@ namespace Quan_ly_thu_vien_phim.Controller
             conn = new DbConnect().GetConnection();
         }
 
-        public List<User_model> getUserData()
+        public List<User_model> GetUserData()
         {
-            List<User_model> users = new List<User_model>();    
-            string sql = $"SELECT * FROM USERS ";
-            try
+            List<User_model> users = new List<User_model>();
+            string sql = "SELECT * FROM USERS";
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
                 conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    User_model user = new User_model()
+                    while (reader.Read())
                     {
-                        userId = reader["User_Id"] != DBNull.Value ? Convert.ToInt32(reader["User_Id"]) : 0,
-                        username = reader["Username"] != DBNull.Value ? reader["Username"].ToString() : string.Empty,
-                        email = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : string.Empty,
-                        gender = reader["Gender"] != DBNull.Value ? reader["Gender"].ToString() : string.Empty,
-                        birth = reader["Birth"] != DBNull.Value ? Convert.ToDateTime(reader["Birth"]) : DateTime.MinValue,
-                        verifyCode =reader["VerifyCode"] != DBNull.Value ? reader["VerifyCode"].ToString() : string.Empty
-                    };
-                    users.Add(user);                   
+                        User_model user = new User_model()
+                        {
+                            userId = reader["USER_ID"] != DBNull.Value ? Convert.ToInt32(reader["USER_ID"]) : 0,
+                            username = reader["USERNAME"]?.ToString() ?? string.Empty,
+                            email = reader["EMAIL"]?.ToString() ?? string.Empty,
+                            gender = reader["GENDER"]?.ToString() ?? string.Empty,
+                            birth = reader["BIRTH"] != DBNull.Value ? Convert.ToDateTime(reader["BIRTH"]) : DateTime.MinValue,
+                            verifyCode = reader["VERIFYCODE"]?.ToString() ?? string.Empty
+                        };
+                        users.Add(user);
+                    }
                 }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error "+ ex.Message);
-            }
-            finally
-            {
-                if(reader != null) reader.Close();
-                if(conn != null) conn.Close();
             }
             return users;
         }
         //Kiem tra dang nhap user
         public bool CheckLoginUser(User_model user, string password)
         {
-            string sql = "SELECT * FROM USERS WHERE USERNAME=@username AND PASSWORD=@password";
-            try
+            string sql = "SELECT * FROM USERS WHERE USERNAME = @username AND PASSWORD = @password AND STATUS = 'VERIFIED'";
+            string hashedPassword = HashPassword(password);
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
                 conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@username", user.username);
-                cmd.Parameters.AddWithValue("@password",password);
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    return true;
+                    cmd.Parameters.AddWithValue("@username", user.username);
+                    cmd.Parameters.AddWithValue("@password", hashedPassword);
+
+                    return cmd.ExecuteScalar() != null;
                 }
             }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return false;
         }
         //Kiem tra dang ky
         public void CheckSignupUser(User_model user, string password)
         {
             try
             {
-                conn.Open ();
-                string sql = "INSERT INTO USERS(USERNAME, EMAIL, PASSWORD,VERIFYCODE) VALUES (@username, @email,@password, @verifycode)";
-                string code = GenerateVerifyCode();
-                cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@username", user.username);
-                cmd.Parameters.AddWithValue("@email", user.email);
-                cmd.Parameters.AddWithValue("@password",password );
-                cmd.Parameters.AddWithValue("@verifycode", code);
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "SELECT SCOPE_IDENTITY()";
-                object userID = cmd.ExecuteScalar();
-                if (userID != null)
+                if (CheckDuplicateUser(user.username))
                 {
-                    user.userId = Convert.ToInt32(userID);
+                    throw new Exception("Tên người dùng đã tồn tại.");
                 }
+
+                if (CheckDuplicateEmail(user.email))
+                {
+                    throw new Exception("Email đã tồn tại.");
+                }
+
+                string hashedPassword = HashPassword(password);
+                string code = GenerateVerifyCode();
+                string sql = "INSERT INTO USERS (USERNAME, EMAIL, PASSWORD, VERIFYCODE) " +
+                             "OUTPUT INSERTED.USER_ID " +
+                             "VALUES (@username, @email, @password, @verifycode)";
+
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", user.username);
+                        cmd.Parameters.AddWithValue("@email", user.email);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@verifycode", code);
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            user.userId = Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            throw new Exception("Không thể lấy userID.");
+                        }
+                    }
+                }
+
                 user.verifyCode = code;
             }
             catch (Exception ex)
             {
-                MessageBox.Show (ex.Message);
-                throw;
+                throw new Exception($"Lỗi đăng ký: {ex.Message}");
             }
-            finally
+        }
+
+        public static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
             {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
             }
         }
         // Kiểm tra user đã tồn tại
         public bool CheckDuplicateUser(string username)
         {
-            try
+            string sql = "SELECT * FROM USERS WHERE USERNAME = @username AND STATUS = 'VERIFIED'";
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
                 conn.Open();
-                string query = "SELECT USER_ID FROM USERS WHERE USERNAME = @username AND STATUS = 'VERIFIED'";
-                cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@username", username);
-                reader = cmd.ExecuteReader();
-                bool exist = reader.HasRows;
-                reader.Close();
-                return exist;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    conn.Close();
+                    cmd.Parameters.AddWithValue("@username", username);
+                    return cmd.ExecuteScalar() != null;
                 }
             }
         }
@@ -146,27 +148,15 @@ namespace Quan_ly_thu_vien_phim.Controller
         // Kiểm tra email đã tồn tại
         public bool CheckDuplicateEmail(string email)
         {
-            try
+            string sql = "SELECT * FROM USERS WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
                 conn.Open();
-                string query = "SELECT USER_ID FROM USERS WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
-                cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Email", email);
-                reader = cmd.ExecuteReader();
-                bool exist = reader.HasRows;
-                reader.Close();
-                return exist;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    conn.Close();
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    return cmd.ExecuteScalar() != null;
                 }
             }
         }
@@ -211,85 +201,131 @@ namespace Quan_ly_thu_vien_phim.Controller
         // Kiểm tra verifyCode có trùng với userID không
         public bool CheckDuplicateCode(string code)
         {
-            try
-            {
-                conn.Open();
-                string query = "SELECT USER_ID FROM USERS WHERE VERIFYCODE = @code";
-                cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@code", code);
+            string query = "SELECT * FROM USERS WHERE VERIFYCODE = @code";
 
-                reader = cmd.ExecuteReader();
-                bool exist = reader.HasRows;
-
-                reader.Close();
-                return exist;
-            }
-            catch (Exception ex)
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
+                try
                 {
-                    conn.Close();
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@code", code);
+                        object result = cmd.ExecuteScalar();
+                        return result != null; 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
         }
+
 
         // Cập nhật status về "VERIFIED"
-        public void DoneVerify(int userID)
+        public void DoneVerify(int userId)
         {
-            try
+            string sql = "UPDATE USERS SET VERIFYCODE = '', STATUS = 'VERIFIED' WHERE USER_ID = @userId";
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
                 conn.Open();
-                string query = "UPDATE USERS SET VERIFYCODE = '', STATUS = 'VERIFIED' WHERE USER_ID = @userID";
-                cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@userID", userID);
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    conn.Close();
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        throw new Exception("Không thể xác minh người dùng.");
+                    }
                 }
             }
         }
+
 
         // Kiểm tra verifyCode có đúng với userID cho không
         public bool VerifyCodeWithUser(int userID, string code)
         {
-            try
+            string query = "SELECT 1 FROM USERS WHERE USER_ID = @userID AND VERIFYCODE = @code";
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@userID", userID);
+                        cmd.Parameters.AddWithValue("@code", code);
+
+                        // Sử dụng ExecuteScalar để lấy giá trị đầu tiên nếu tồn tại
+                        object result = cmd.ExecuteScalar();
+                        bool isVerified = result != null;
+
+                        if (!isVerified)
+                        {
+                            MessageBox.Show("Không tìm thấy người dùng hoặc mã xác minh không chính xác.");
+                        }
+
+                        return isVerified;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+        public void ForgotPassword(User_model user)
+        {
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
                 conn.Open();
-                string query = "SELECT USER_ID FROM USERS WHERE USER_ID = @userID AND VERIFYCODE = @code";
-                cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@userID", userID);
-                cmd.Parameters.AddWithValue("@code", code);
-
-                reader = cmd.ExecuteReader();
-                bool exist = reader.HasRows;
-
-                reader.Close();
-                return exist;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
+                string query = "SELECT USER_ID FROM USERS WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
+                using ( cmd = new SqlCommand(query, conn))
                 {
-                    conn.Close();
+                    cmd.Parameters.AddWithValue("@Email", user.email);
+
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int userID = reader.GetInt32(0);
+                            string code = GenerateVerifyCode();
+                            user.userId = userID;
+                            reader.Close();
+                            string updateQuery = "UPDATE USERS SET VERIFYCODE = @VerifyCode WHERE USER_ID = @UserID";
+                            using (var updateCommand = new SqlCommand(updateQuery, conn))
+                            {
+                                updateCommand.Parameters.AddWithValue("@VerifyCode", code);
+                                updateCommand.Parameters.AddWithValue("@UserID", userID);
+                                updateCommand.ExecuteNonQuery();
+                            }
+                            user.verifyCode = code;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Email không tồn tại hoặc chưa được xác minh.");
+                        }
+                    }
+                }
+            }
+        }
+        public void ResetPassword(string email, string password)
+        {
+            using (SqlConnection conn = new DbConnect().GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE USERS SET PASSWORD = @Password WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
+                using (var command = new SqlCommand(query, conn))
+                {
+                    string hashedPassword = HashPassword(password);
+                    command.Parameters.AddWithValue("@Password", hashedPassword);
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    command.ExecuteNonQuery();
                 }
             }
         }
