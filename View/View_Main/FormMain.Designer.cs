@@ -195,8 +195,10 @@
             this.lbMinimum.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbMinimum.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMinimum.ForeColor = System.Drawing.Color.White;
+
             this.lbMinimum.Location = new System.Drawing.Point(1811, 0);
             this.lbMinimum.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+
             this.lbMinimum.Name = "lbMinimum";
             this.lbMinimum.Size = new System.Drawing.Size(29, 40);
             this.lbMinimum.TabIndex = 0;
@@ -209,8 +211,10 @@
             this.lbExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbExit.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbExit.ForeColor = System.Drawing.Color.White;
+
             this.lbExit.Location = new System.Drawing.Point(1840, 0);
             this.lbExit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+
             this.lbExit.Name = "lbExit";
             this.lbExit.Size = new System.Drawing.Size(35, 37);
             this.lbExit.TabIndex = 1;
@@ -224,7 +228,9 @@
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 62);
             this.pnlMenu.Name = "pnlMenu";
+
             this.pnlMenu.Size = new System.Drawing.Size(375, 1038);
+
             this.pnlMenu.TabIndex = 3;
             // 
             // panel3
@@ -258,7 +264,9 @@
             this.pnlMain.Location = new System.Drawing.Point(375, 62);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlMain.Name = "pnlMain";
+
             this.pnlMain.Size = new System.Drawing.Size(1500, 1038);
+
             this.pnlMain.TabIndex = 4;
             // 
             // FormMain
@@ -266,7 +274,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+
             this.ClientSize = new System.Drawing.Size(1875, 1100);
+
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlHeader);
