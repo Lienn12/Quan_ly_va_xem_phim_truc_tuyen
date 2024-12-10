@@ -15,6 +15,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
 {
     public partial class FormLogin : Form
     {
+        private FormMain formMain = new FormMain();
+        private FormMainUser formMainUser = new FormMainUser();
         private View_Main.FormLoginSignup frmLoginSignup;
         private User_model user;
         private Admin_model admin;
@@ -49,10 +51,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                 if (userController.CheckLoginUser(user, password)) 
                 {
                     MessageBox.Show("Đăng nhập thành công");
+                    frmLoginSignup.Hide();
+                    formMainUser.ShowDialog();
+                    frmLoginSignup.Close();
                 }
                 else if(adminController.CheckLoginAdmin(admin,password))
                 {
                     MessageBox.Show("Đăng nhập thành công");
+                    frmLoginSignup.Hide();
+                    formMain.ShowDialog();
+                    frmLoginSignup.Close();
                 }
                 else
                 {

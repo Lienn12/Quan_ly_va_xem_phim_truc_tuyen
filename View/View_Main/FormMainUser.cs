@@ -58,7 +58,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
         private void btnFavourite_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.TrangUser(), sender);
+            OpenChidForm(new View_Container.FormFavourite(), sender);
         }
 
         private void btnHome_Click(object sender, EventArgs e)
