@@ -114,7 +114,7 @@
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(61, 120);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(319, 40);
+            this.panel2.Size = new System.Drawing.Size(319, 35);
             this.panel2.TabIndex = 6;
             // 
             // txtUsename
@@ -123,11 +123,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsename.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsename.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsename.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsename.Location = new System.Drawing.Point(0, -2);
             this.txtUsename.Multiline = true;
             this.txtUsename.Name = "txtUsename";
-            this.txtUsename.Size = new System.Drawing.Size(319, 40);
+            this.txtUsename.Size = new System.Drawing.Size(319, 35);
             this.txtUsename.TabIndex = 1;
             // 
             // panel1
@@ -137,7 +137,7 @@
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(60, 208);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(319, 40);
+            this.panel1.Size = new System.Drawing.Size(319, 35);
             this.panel1.TabIndex = 7;
             // 
             // txtEmail
@@ -146,11 +146,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(0, -2);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(319, 40);
+            this.txtEmail.Size = new System.Drawing.Size(319, 35);
             this.txtEmail.TabIndex = 1;
             // 
             // panel3
@@ -160,7 +160,7 @@
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(60, 289);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(319, 40);
+            this.panel3.Size = new System.Drawing.Size(320, 35);
             this.panel3.TabIndex = 8;
             // 
             // txtPass
@@ -169,11 +169,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(0, -2);
             this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(319, 40);
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(320, 35);
             this.txtPass.TabIndex = 1;
             // 
             // label5
@@ -203,9 +204,9 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
             this.panel4.Controls.Add(this.txtConfirm);
             this.panel4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(60, 371);
+            this.panel4.Location = new System.Drawing.Point(60, 372);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(319, 40);
+            this.panel4.Size = new System.Drawing.Size(319, 35);
             this.panel4.TabIndex = 10;
             // 
             // txtConfirm
@@ -214,18 +215,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtConfirm.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirm.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirm.Location = new System.Drawing.Point(0, -2);
             this.txtConfirm.Multiline = true;
             this.txtConfirm.Name = "txtConfirm";
-            this.txtConfirm.Size = new System.Drawing.Size(319, 40);
+            this.txtConfirm.PasswordChar = '*';
+            this.txtConfirm.Size = new System.Drawing.Size(319, 35);
             this.txtConfirm.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(56, 345);
+            this.label7.Location = new System.Drawing.Point(56, 346);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 25);
             this.label7.TabIndex = 9;

@@ -1,4 +1,5 @@
 ﻿using Quan_ly_thu_vien_phim.View.View_Container;
+using Quan_ly_thu_vien_phim.View.View_Main;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,9 @@ namespace Quan_ly_thu_vien_phim.View
             InitializeComponent();
             lbMinimum.Click += btnMinimum_Click;
             lbExit.Click += btnExit_Click;
+            this.Size = new Size(1250, 800);
+            pnlHeader.Size = new Size(1250, 40);
+            pnlMenu.Size = new Size(250, 760);
         }
 
         public void OpenChidForm(Form childForm, object btnSender)
@@ -68,7 +72,10 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Main.FormLoginSignup(), sender);
+            FormLoginSignup formLoginSignup = new FormLoginSignup();
+            this.Hide(); 
+            formLoginSignup.ShowDialog(); 
+            this.Close();
         }
         private void btnMinimum_Click (object sender, EventArgs e)
         {

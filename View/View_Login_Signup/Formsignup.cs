@@ -19,13 +19,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
         private View_Main.FormLoginSignup frmLoginSignup;
         private View_Login_Signup.VerifyCode VerifyCode;
         private User_controller userController;
+        private Admin_controller adminController;
         private User_model user;
+        private Admin_model admin;
         public Formsignup(FormLoginSignup frmLoginSignup, User_model user)
         {
             InitializeComponent();
             userController = new User_controller();
             this.frmLoginSignup = frmLoginSignup;
             this.user = user;
+            adminController = new Admin_controller();
         }
 
         private void lbLogin_Click(object sender, EventArgs e)
@@ -51,56 +54,52 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
         private bool validateInputs(User_model user, string password, string confirm)
         {
             bool valid = true;
-            if (string.IsNullOrWhiteSpace(user.username))  // Check if the username is null or empty
+            if (string.IsNullOrWhiteSpace(user.username))  
             {
-                txtUsename.Text = "Username không được để trống.";  // Display message in the corresponding TextBox
+                txtUsename.Text = "Username không được để trống.";  
                 valid = false;
             }
-            else if (userController.CheckDuplicateUser(user.username))  // Check if the username already exists
+            else if (userController.CheckDuplicateUser(user.username)) 
             {
-                txtUsename.Text = "Username đã tồn tại";  // Display message in the corresponding TextBox
+                txtUsename.Text = "Username đã tồn tại";  
                 valid = false;
             }
 
-            // Check if email is null or empty
-            if (string.IsNullOrWhiteSpace(user.email))  // Check if the email is null or empty
+            if (string.IsNullOrWhiteSpace(user.email))  
             {
-                txtEmail.Text = "Email không được để trống.";  // Display message in the corresponding TextBox
+                txtEmail.Text = "Email không được để trống.";  
                 valid = false;
             }
-            else if (userController.CheckDuplicateEmail(user.email))  // Check if the email already exists
+            else if (userController.CheckDuplicateEmail(user.email)) 
             {
-                txtEmail.Text = "Email đã tồn tại.";  // Display message in the corresponding TextBox
+                txtEmail.Text = "Email đã tồn tại.";  
                 valid = false;
             }
-            else if (!userController.CheckEmail(user.email))  // Check if the email is valid
+            else if (!userController.CheckEmail(user.email))  
             {
-                txtEmail.Text = "Email không hợp lệ";  // Display message in the corresponding TextBox
+                txtEmail.Text = "Email không hợp lệ";  
                 valid = false;
             }
  
-            // Check if password is null or empty
-            if (string.IsNullOrWhiteSpace(password))  // Check if the password is null or empty
+            if (string.IsNullOrWhiteSpace(password))  
             {
-                txtPass.Text = "Password không được để trống.";  // Display message in the corresponding TextBox
+                txtPass.Text = "Password không được để trống.";  
                 valid = false;
             }
-            else if (!userController.CheckPassword(password))  // Check if the password is valid
+            else if (!userController.CheckPassword(password))  
             {
-                txtPass.Text = "Mật khẩu không hợp lệ. Vui lòng nhập ít nhất 6 ký tự, bao gồm cả chữ, số và ký tự.";  // Display message in the corresponding TextBox
+                txtPass.Text = "Mật khẩu không hợp lệ. Vui lòng nhập ít nhất 6 ký tự, bao gồm cả chữ, số và ký tự.";  
                 valid = false;
             }
 
-            // Check if confirm password is null or empty
-            if (string.IsNullOrWhiteSpace(confirm))  // Check if confirm password is null or empty
+            if (string.IsNullOrWhiteSpace(confirm))  
             {
-                txtConfirm.Text = "Xác nhận mật khẩu không được để trống.";  // Display message in the corresponding TextBox
+                txtConfirm.Text = "Xác nhận mật khẩu không được để trống.";  
                 valid = false;
             }
-            else if (password != confirm)  // Check if confirm password matches the password
+            else if (password != confirm)  
             {
-                txtConfirm.Text = "Xác nhận mật khẩu không khớp. Vui lòng nhập lại";  // Display message in the corresponding TextBox
-                valid = false;
+                txtConfirm.Text = "Xác nhận mật khẩu không khớp. Vui lòng nhập lại";  
             }
 
             return valid;
@@ -114,31 +113,35 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                 string pass = txtPass.Text;
                 string confirm = txtConfirm.Text;
                 user = new User_model(0, username, email, pass);
+                //admin = new Admin_model(username, pass);
                 bool valid = validateInputs(user, pass, confirm);
                 if (valid)
                 {
                     MessageEmail_controller ms = new MessageEmail_controller();
+                    //adminController.CheckSignupAdmin(admin, pass);
                     userController.CheckSignupUser(user, pass);
                     if (ms.sendEmail(user.email, user.verifyCode))
                     {
-                        MessageBox.Show("Đã gửi code. Vui lòng kiểm tra Email!!","thong bao", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        frmLoginSignup.ShowVerifyCode(user);                  
+                        MessageBox.Show("Đã gửi code. Vui lòng kiểm tra Email!!", "thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmLoginSignup.ShowVerifyCode(user);
                     }
                     else
                     {
                         MessageBox.Show("gui email that bai");
                     }
                 }
-                    else
+                else
                 {
                     MessageBox.Show("Thông tin đăng ký không hợp lệ. Vui lòng kiểm tra lại.");
                 }
-                }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Đăng ký thất bại");
             }
         }
+
+        
     }
 }

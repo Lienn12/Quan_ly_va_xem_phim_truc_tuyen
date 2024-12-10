@@ -83,6 +83,7 @@ namespace Quan_ly_thu_vien_phim.View
                 }
             }
         }
+
         private void btnThemTap_Click(object sender, EventArgs e)
         {
             ThemTap themTap = new ThemTap();

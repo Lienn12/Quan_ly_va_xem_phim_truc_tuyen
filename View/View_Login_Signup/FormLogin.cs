@@ -17,10 +17,17 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
     {
         private View_Main.FormLoginSignup frmLoginSignup;
         private User_model user;
+        private Admin_model admin;
+        private User_controller userController;
+        private Admin_controller adminController;
         public FormLogin(FormLoginSignup frmLoginSignup)
         {
             InitializeComponent();
             this.frmLoginSignup = frmLoginSignup;
+            userController= new User_controller();
+            adminController = new Admin_controller();
+            user = new User_model();
+            admin = new Admin_model();
         }
 
         private void lbSignup_Click(object sender, EventArgs e)
@@ -33,14 +40,17 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
         {
            string username= txtUsername.Text;
            string password= txtPassword.Text;
-           User_model user = new User_model();
            user.username = username;
+           admin.Username = username;
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 MessageBox.Show("Username và password không được để trống");
             else
             {
-                User_controller userController = new User_controller();
                 if (userController.CheckLoginUser(user, password)) 
+                {
+                    MessageBox.Show("Đăng nhập thành công");
+                }
+                else if(adminController.CheckLoginAdmin(admin,password))
                 {
                     MessageBox.Show("Đăng nhập thành công");
                 }
@@ -54,6 +64,27 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
         private void lbForgot_Click(object sender, EventArgs e)
         {
             frmLoginSignup.showForgot(user);
+        }
+
+        private void btnEyeHide_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '*')
+            {
+                btnEyeHide.BringToFront();
+                txtPassword.PasswordChar = '\0';
+                btnEyeShow.Visible = true;      
+                btnEyeHide.Visible = false;
+            }
+        }
+        private void btnEyeShow_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '\0')
+            {
+                btnEyeHide.BringToFront();
+                txtPassword.PasswordChar = '*';
+                btnEyeShow.Visible = false;    
+                btnEyeHide.Visible = true;
+            }
         }
     }
 
