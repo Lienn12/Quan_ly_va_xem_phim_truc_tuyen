@@ -58,10 +58,8 @@
   <ItemGroup>
     <Compile Include="Controller\Admin_controller.cs" />
     <Compile Include="Controller\DanhGia_controller.cs" />
-
     <Compile Include="Controller\Episode_controller.cs" />
     <Compile Include="Controller\Favourite_controller.cs" />
-
     <Compile Include="Controller\Format_controller.cs" />
     <Compile Include="Controller\Country_controller.cs" />
     <Compile Include="Controller\Genre_controller.cs" />
@@ -271,6 +269,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Main\FormMainUser.resx">
       <DependentUpon>FormMainUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
