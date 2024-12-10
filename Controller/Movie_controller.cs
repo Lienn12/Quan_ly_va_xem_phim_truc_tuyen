@@ -14,7 +14,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         SqlConnection conn = null;
         SqlCommand cmd = null;
         SqlDataReader reader = null;
-        public Movie__controller()
+        public Movie_controller()
         {
             this.conn = new DbConnect().GetConnection();
         }
