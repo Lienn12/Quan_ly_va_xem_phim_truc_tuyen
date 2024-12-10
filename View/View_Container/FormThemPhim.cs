@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Quan_ly_thu_vien_phim.View
 {
@@ -74,12 +75,23 @@ namespace Quan_ly_thu_vien_phim.View
             };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                filePath = openFileDialog.FileName;                
+                filePath = openFileDialog.FileName;
                 if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
                 {
-                    pbMovie.Image = Image.FromFile(filePath);
-                    pbMovie.SizeMode = PictureBoxSizeMode.Zoom;
-                    btnUpImg.BackColor = Color.Green; // Đổi màu nút thành màu được chỉ định
+                    try
+                    {
+                        var img = System.Drawing.Image.FromFile(filePath);
+                        Bitmap resizedImg = new Bitmap(img, pbMovie.Width, pbMovie.Height);
+                        pbMovie.Image = resizedImg;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi tải ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy tệp hình ảnh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
