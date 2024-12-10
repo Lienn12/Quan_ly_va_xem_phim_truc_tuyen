@@ -16,6 +16,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             InitializeComponent();
         }
+        private void LoadMovies()
+        {
+            try
+            {
+                // Tạo controller và lấy danh sách phim
+                Movie_controller movieController = new Movie_controller();
+                List<Movie_model> movies = movieController.GetMovies();
 
         private void FormDSPhim_Load(object sender, EventArgs e)
         {

@@ -13,7 +13,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class XemChiTiet : Form
     {
-        public XemChiTiet()
+        private FormMain formMain;
+        private string filePath, vidPath;
+        private Movie_controller controller;
+        public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();
         }

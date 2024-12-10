@@ -9,7 +9,12 @@ namespace Quan_ly_thu_vien_phim.View
     public partial class FormThemPhim : Form
     {
         private string filePath, videoPath;
-        public FormThemPhim()
+        private Movie_controller movie_Controller = new Movie_controller();
+        private Genre_controller genre_Controller = new Genre_controller();
+        private Format_controller format_Controller = new Format_controller();
+        private Country_controller country_Controller = new Country_controller();
+        private FormMain formMain ;
+        public FormThemPhim(FormMain formMain)
         {
             InitializeComponent();
         }
@@ -72,10 +77,7 @@ namespace Quan_ly_thu_vien_phim.View
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-                MessageBox.Show("filePath:   " + filePath);
-        }
+     
 
         private void btnThemTap_Click(object sender, EventArgs e)
         {
