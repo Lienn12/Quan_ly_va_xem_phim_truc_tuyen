@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Controller;
+using Quan_ly_thu_vien_phim.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,10 +17,26 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class SuaPhim : Form
     {
+
+        private FormMain formMain;
+        private FormDSPhim dsPhim;
         private string filePath, videoPath;
-        public SuaPhim()
+        private Movie__controller movie_Controller = new Movie__controller();
+        private Genre_controller genre_Controller = new Genre_controller();
+        private Format_controller format_Controller = new Format_controller();
+        private Country_controller country_Controller = new Country_controller();
+        private Genre_model genre = new Genre_model();
+        private Country_model country = new Country_model();
+        private Format_model format = new Format_model();
+        private int newMovieId;
+        public SuaPhim(FormMain formMain)
         {
             InitializeComponent();
+            this.formMain = formMain;
+            dsPhim = new FormDSPhim(formMain);
+            LoadDataComboGenres(cbTheLoai, genre_Controller.GetGenres());
+            LoadDataComboFormats(cbDinhDang, format_Controller.GetFormats());
+            LoadDataComboCountries(cbQuocGia, country_Controller.GetCountries());
         }
 
         private void btnVid_Click(object sender, EventArgs e)
@@ -31,7 +51,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 // Lấy đường dẫn file video được chọn
                 videoPath = openFileDialog.FileName;
                 // Hiển thị đường dẫn ra màn hình (MessageBox hoặc TextBox)
-                MessageBox.Show("Đường dẫn video: " + videoPath);
+                btnVid.BackColor = Color.Green;
 
             }
             else
@@ -57,6 +77,17 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain), sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ThemTap themTap = new ThemTap();
+            themTap.Show();
+        }
+
         private void btnImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -72,10 +103,161 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 // Hiển thị ảnh trong PictureBox
                 pbMovie.Image = Image.FromFile(filePath);
                 pbMovie.SizeMode = PictureBoxSizeMode.Zoom;
+                btnImage.BackColor = Color.Green;
                 // Xử lý bổ sung (nếu cần)
                 MessageBox.Show("Đã tải lên ảnh thành công!");
             }
         }
 
+        private void LoadDataComboBox<T>(ComboBox comboBox, List<T> dataList, string displayField)
+        {
+            try
+            {
+                comboBox.Items.Clear();
+                if (dataList != null && dataList.Count > 0)
+                {
+                    foreach (var item in dataList)
+                    {
+                        if (item is Genre_model genreItem)
+                        {
+                            if (genreItem.GenreID == 1)
+                                continue; // Skip items with GenreId == 1
+                        }
+                        else if (item is Format_model formatItem)
+                        {
+                            if (formatItem.FormatID == 1)
+                                continue; // Skip items with FormatId == 1
+                        }
+                        else if (item is Country_model countryItem)
+                        {
+                            if (countryItem.CountryId == 1)
+                                continue; // Skip items with CountryId == 1
+                        }
+                        comboBox.Items.Add(item);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Danh sách trống hoặc không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                comboBox.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void LoadDataComboGenres(ComboBox comboBox, List<Genre_model> genreList)
+        {
+            LoadDataComboBox(comboBox, genreList, "GenreName"); // "GenreName" is the property for display
+        }
+        public void LoadDataComboFormats(ComboBox comboBox, List<Format_model> formatList)
+        {
+            LoadDataComboBox(comboBox, formatList, "FormatName"); // "FormatName" is the property for display
+        }
+        public void LoadDataComboCountries(ComboBox comboBox, List<Country_model> countryList)
+        {
+            LoadDataComboBox(comboBox, countryList, "CountryName"); // "CountryName" is the property for display
+        }
+
+        public void setMovie(Movie_model movie)
+        {
+            newMovieId = movie.MovieId;
+            txtNam.Text = movie.Year.ToString();
+            txtTen.Text = movie.Title;
+            txtDaoDien.Text = movie.Director;
+            txtDienVien.Text = movie.Cast;
+            if (movie.Genre != null)
+            {
+                for (int i = 0; i < cbTheLoai.Items.Count; i++)
+                {
+                    if (cbTheLoai.Items[i] is Genre_model genre && genre.GenreID == movie.Genre.GenreID)
+                    {
+                        cbTheLoai.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            int formatId = movie.Format.FormatID;
+            for (int i = 1; i < cbDinhDang.Items.Count; i++)
+            {
+                if (cbDinhDang.Items[i] is Format_model format && format.FormatID == formatId)
+                {
+                    cbDinhDang.SelectedIndex = i;
+                    break;
+                }
+            }
+            int countryId = movie.Country.CountryId;
+            for (int i = 1; i < cbQuocGia.Items.Count; i++)
+            {
+                if (cbQuocGia.Items[i] is Country_model country && country.CountryId == countryId)
+                {
+                    cbQuocGia.SelectedIndex = i;
+                    break;
+                }
+            }
+            MessageBox.Show(movie.Genre.ToString());
+            txtSoTap.Text = movie.Episode.ToString();
+            txtMota.Text = movie.Description;
+            if (!string.IsNullOrEmpty(movie.ImgPath))
+            {
+                try
+                {
+                    if (File.Exists(movie.ImgPath))
+                    {
+                        var img = Image.FromFile(movie.ImgPath);
+                        var resizedImg = new Bitmap(img, pbMovie.Width, pbMovie.Height);
+                        pbMovie.Image = resizedImg;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Không tìm thấy ảnh.");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Lỗi hiển thị ảnh: {e.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Không có ảnh trong Phim.");
+            }
+            if (!string.IsNullOrEmpty(movie.VidPath))
+            {
+                if (File.Exists(movie.VidPath))
+                {
+                    btnVid.BackColor = Color.Green;
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy Video.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Không có video trong Phim.");
+            }
+        }
+        public void editPhim(int movieID )
+        {
+            try
+            {
+                Movie_model movie = movie_Controller.GetMovieById(movieID);
+                if (movie != null)
+                {
+                    setMovie(movie);
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy movie.");
+                }
+            }catch (Exception e)
+            {
+                MessageBox.Show(movieID+$"Lỗi: {e.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

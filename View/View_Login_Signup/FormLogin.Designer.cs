@@ -34,9 +34,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lnForgot = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lbForgot = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lbSignup = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -104,52 +104,54 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Location = new System.Drawing.Point(70, 277);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(319, 40);
             this.panel2.TabIndex = 4;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(0, -2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(319, 40);
-            this.textBox2.TabIndex = 1;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(0, -2);
+            this.txtPassword.Multiline = true;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(319, 40);
+            this.txtPassword.TabIndex = 1;
             // 
-            // lnForgot
+            // lbForgot
             // 
-            this.lnForgot.AutoSize = true;
-            this.lnForgot.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lnForgot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnForgot.Location = new System.Drawing.Point(256, 333);
-            this.lnForgot.Name = "lnForgot";
-            this.lnForgot.Size = new System.Drawing.Size(133, 21);
-            this.lnForgot.TabIndex = 5;
-            this.lnForgot.Text = "Forgot password?";
-            this.lnForgot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbForgot.AutoSize = true;
+            this.lbForgot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbForgot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbForgot.Location = new System.Drawing.Point(256, 333);
+            this.lbForgot.Name = "lbForgot";
+            this.lbForgot.Size = new System.Drawing.Size(133, 21);
+            this.lbForgot.TabIndex = 5;
+            this.lbForgot.Text = "Forgot password?";
+            this.lbForgot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbForgot.Click += new System.EventHandler(this.lbForgot_Click);
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(131)))), ((int)(((byte)(179)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(110, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 60);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "LOGIN";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(131)))), ((int)(((byte)(179)))));
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(110, 374);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(216, 60);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "LOGIN";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label5
             // 
@@ -180,8 +182,8 @@
             this.ClientSize = new System.Drawing.Size(456, 568);
             this.Controls.Add(this.lbSignup);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lnForgot);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.lbForgot);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -211,9 +213,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label lnForgot;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lbForgot;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbSignup;
     }

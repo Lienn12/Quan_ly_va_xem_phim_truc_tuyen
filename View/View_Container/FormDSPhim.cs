@@ -15,6 +15,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
     public partial class FormDSPhim : Form
     {
         private FormMain formMain;
+        private SuaPhim suaPhim;
+        private XemChiTiet chiTiet;
         public FormDSPhim(FormMain formMain)
         {
             this.formMain = formMain;
@@ -54,7 +56,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            formMain.OpenChidForm(new View.FormThemPhim(),sender);
+            formMain.OpenChidForm(new View.FormThemPhim(formMain),sender);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -63,16 +65,19 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             {
                 int movieId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value); // Lấy MovieId
                 string movieTitle = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-
                 if (e.ColumnIndex == 3) // Cột 3: Chuyển đến trang chi tiết
                 {
-
-                    formMain.OpenChidForm(new View.View_Container.XemChiTiet(), sender);  // Gọi phương thức OpenChildForm
+                    chiTiet = formMain.getChiTiet();
+                    chiTiet.showMovie(movieId);
+                    formMain.OpenChidForm(chiTiet, sender);
+                    
                 }
                 else if (e.ColumnIndex == 4) // Cột 4: Chuyển đến trang sửa phim
                 {
-
-                    formMain.OpenChidForm(new View.View_Container.SuaPhim(), sender); // Gọi phương thức OpenChildForm
+                    int id = movieId;
+                    suaPhim = formMain.GetSuaPhim();
+                    suaPhim.editPhim(id);
+                    formMain.OpenChidForm(suaPhim, sender);  
                 }
                 else if (e.ColumnIndex == 5) // Cột 5: Xóa
                 {

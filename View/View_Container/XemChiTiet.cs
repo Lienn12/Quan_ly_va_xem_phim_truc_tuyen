@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Controller;
+using Quan_ly_thu_vien_phim.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +16,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class XemChiTiet : Form
     {
-        public XemChiTiet()
+        private FormMain formMain;
+        private string filePath, vidPath;
+        private Movie__controller controller;
+        public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();
+            this.formMain = formMain;
         }
 
         private void XemChiTiet_Paint(object sender, PaintEventArgs e)
@@ -36,7 +43,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String f = "H:\\FileBaoCao\\video\\aSilentVoice.mp4";
+            String f = vidPath;
             PhatVideo playVideo = new PhatVideo();
             playVideo.setVideo(f);
             playVideo.Show();
@@ -98,6 +105,72 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             else
             {
                 btnTap.Text = "Xem tập";
+            }
+        }
+        public void SetMovieDetails(Movie_model movie)
+        {
+            if (movie == null)
+            {
+                Console.WriteLine("Lỗi truy vấn");
+                return;
+            }
+            lblNam.Text = movie.Year.ToString();
+            lblTenPhim.Text = movie.Title;
+
+            if (movie.Genre != null)
+            {
+                lblTheLoai.Text = movie.Genre.GenreName;
+            }
+            else
+            {
+                lblTheLoai.Text = "Không có thể loại";
+            }
+
+            lblMota.Text = movie.Description;
+            lblDienVien.Text = movie.Cast;
+
+            if (movie.Country != null)
+            {
+                lblQuocGia.Text = movie.Country.CountryName;
+            }
+            else
+            {
+                lblQuocGia.Text = "";
+            }
+
+            lblDaoDien.Text = movie.Director;
+            if (movie.Format != null)
+            {
+                lblDinhDang.Text = movie.Format.FormatName;
+            }
+            else
+            {
+                lblDinhDang.Text = "";
+            }
+
+            filePath = movie.ImgPath;
+            var img = Image.FromFile(filePath);
+            var resizedImg = new Bitmap(img, pbImage.Width, pbImage.Height);
+            pbImage.Image = resizedImg;
+            vidPath = movie.VidPath;
+        }
+         public void showMovie(int movieId)
+        {
+            try
+            {
+                Movie_model movie = controller.GetMovieById(movieId);
+                if (movie != null)
+                {
+                    SetMovieDetails(movie);
+                }
+                else
+                {
+                    Console.WriteLine("Không tìm thấy movie.");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(movieId + $"Lỗi: {e.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

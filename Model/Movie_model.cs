@@ -56,6 +56,22 @@ namespace Quan_ly_thu_vien_phim.Model
             ImgPath = imgPath;
         }
 
+        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode, string imgPath, string vidPath) : this(movieId, title, year)
+        {
+            MovieId = movieId;
+            Title = title;
+            Year = year;
+            Director = director;
+            Cast = cast;
+            Genre = genre;
+            Format = format;
+            Country = country;
+            Description = description;
+            Episode = episode;
+            ImgPath = imgPath;
+            VidPath = vidPath;
+        }
+
         public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode,float rating, string img, string vidPath)
         {
             this.MovieId = movieId;
