@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Controller;
+using Quan_ly_thu_vien_phim.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +14,14 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class FormDSNguoiDung : Form
     {
+        User_controller userController = new User_controller();
+        
         public FormDSNguoiDung()
         {
             InitializeComponent();
 
             customizeDataGridView();
-            //this.Size = new Size(881, 687);
-            //panel1.Size = new Size(859, 818);
+            
         }
 
         private void customizeDataGridView()
@@ -26,7 +29,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             // Tùy chỉnh header DataGridView
             dataGridView1.EnableHeadersVisualStyles = false; // Tắt Visual Style
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.White; // Màu nền header
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(84,131,179); // Màu chữ header
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(84, 131, 179); // Màu chữ header
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold); // Phông chữ header
         }
 

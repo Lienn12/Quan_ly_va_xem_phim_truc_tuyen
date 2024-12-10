@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.View.View_Container;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,13 @@ namespace Quan_ly_thu_vien_phim.View
 {
     public partial class FormMain : Form
     {
+        private SuaPhim suaPhim ;
+        private XemChiTiet xemChiTiet;
         private Form activeForm;
         public FormMain()
         {
+            suaPhim = new SuaPhim(this);
+            xemChiTiet = new XemChiTiet(this);
             InitializeComponent();
             lbMinimum.Click += btnMinimum_Click;
             lbExit.Click += btnExit_Click;
@@ -50,7 +55,7 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnFilm_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.XemChiTiet(), sender);
+            OpenChidForm(new View_Container.FormDSPhim(this), sender);
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -74,6 +79,14 @@ namespace Quan_ly_thu_vien_phim.View
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        public SuaPhim GetSuaPhim()
+        {
+            return suaPhim;
+        }
+        public XemChiTiet getChiTiet()
+        {
+            return xemChiTiet;
         }
     }
 }

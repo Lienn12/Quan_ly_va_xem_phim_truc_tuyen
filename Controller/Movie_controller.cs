@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {

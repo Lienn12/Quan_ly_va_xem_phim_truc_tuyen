@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Controller;
+using Quan_ly_thu_vien_phim.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +17,9 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class SuaPhim : Form
     {
+
+        private FormMain formMain;
+        private FormDSPhim dsPhim;
         private string filePath, videoPath;
         private Movie_controller movie_Controller = new Movie_controller();
         private Genre_controller genre_Controller = new Genre_controller();
@@ -25,6 +32,11 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public SuaPhim(FormMain formMain)
         {
             InitializeComponent();
+            this.formMain = formMain;
+            dsPhim = new FormDSPhim(formMain);
+            LoadDataComboGenres(cbTheLoai, genre_Controller.GetGenres());
+            LoadDataComboFormats(cbDinhDang, format_Controller.GetFormats());
+            LoadDataComboCountries(cbQuocGia, country_Controller.GetCountries());
         }
 
         private void btnVid_Click(object sender, EventArgs e)
@@ -39,7 +51,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 // Lấy đường dẫn file video được chọn
                 videoPath = openFileDialog.FileName;
                 // Hiển thị đường dẫn ra màn hình (MessageBox hoặc TextBox)
-                MessageBox.Show("Đường dẫn video: " + videoPath);
+                btnVid.BackColor = Color.Green;
 
             }
             else
@@ -65,6 +77,17 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain), sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ThemTap themTap = new ThemTap();
+            themTap.Show();
+        }
+
         private void btnImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -80,6 +103,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 // Hiển thị ảnh trong PictureBox
                 pbMovie.Image = Image.FromFile(filePath);
                 pbMovie.SizeMode = PictureBoxSizeMode.Zoom;
+                btnImage.BackColor = Color.Green;
                 // Xử lý bổ sung (nếu cần)
                 MessageBox.Show("Đã tải lên ảnh thành công!");
             }
