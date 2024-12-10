@@ -77,10 +77,13 @@
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(91, 123);
+            this.txtCode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Location = new System.Drawing.Point(91, 103);
+            this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(203, 29);
+            this.txtCode.Size = new System.Drawing.Size(203, 49);
             this.txtCode.TabIndex = 4;
+            this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // VerifyCode
             // 

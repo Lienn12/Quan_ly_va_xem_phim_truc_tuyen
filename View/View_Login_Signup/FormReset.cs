@@ -74,5 +74,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                 MessageBox.Show("Reset thất bại!!", "loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formLoginSignup.showForgot(user);
+        }
     }
 }

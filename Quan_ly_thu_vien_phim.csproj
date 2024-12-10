@@ -56,25 +56,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Admin_controller.cs" />
     <Compile Include="Controller\DanhGia_controller.cs" />
+    <Compile Include="Controller\Favourite_controller.cs" />
     <Compile Include="Controller\Format_controller.cs" />
     <Compile Include="Controller\Country_controller.cs" />
     <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
-
     <Compile Include="Controller\PhanHoiDanhGia_controller.cs" />
-
     <Compile Include="Controller\Movie_controller.cs" />
-
     <Compile Include="Controller\User_controller.cs" />
+    <Compile Include="Model\Admin_model.cs" />
     <Compile Include="Model\DanhGia_model.cs" />
     <Compile Include="Model\Country_model.cs" />
+    <Compile Include="Model\Favourite_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
-
     <Compile Include="Model\PhanHoiDanhGia_model.cs" />
-
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -192,6 +191,12 @@
     <Compile Include="View\View_Container\FormThemPhim.Designer.cs">
       <DependentUpon>FormThemPhim.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Main\FormMainUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Main\FormMainUser.Designer.cs">
+      <DependentUpon>FormMainUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -250,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Main\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Main\FormMainUser.resx">
+      <DependentUpon>FormMainUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -326,7 +334,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo %283%291.png" />
+    <None Include="Resources\Logo.png" />
     <None Include="Resources\add-to-playlist %281%29.png" />
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +351,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeHide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
