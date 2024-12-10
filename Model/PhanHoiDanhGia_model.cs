@@ -18,7 +18,7 @@ namespace Quan_ly_thu_vien_phim.Model
         {
             ReplyId = replyId;
             ReviewId = reviewId;
-            ReplyContent = replyContent;
+            ReplyContent = replyContent; 
         }
     }
 }
