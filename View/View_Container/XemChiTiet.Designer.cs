@@ -184,6 +184,7 @@
             resources.ApplyResources(this.btnBack, "btnBack");
             this.btnBack.Name = "btnBack";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // XemChiTiet
             // 

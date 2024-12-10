@@ -18,7 +18,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
     {
         private FormMain formMain;
         private string filePath, vidPath;
-        private Movie_controller controller;
+        private Movie_model movie;
+        private Movie_controller controller = new Movie_controller();
         public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();
@@ -111,50 +112,39 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             if (movie == null)
             {
-                Console.WriteLine("Lỗi truy vấn");
+                MessageBox.Show("Dữ liệu không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            lblNam.Text = movie.Year.ToString();
-            lblTenPhim.Text = movie.Title;
-
-            if (movie.Genre != null)
-            {
-                lblTheLoai.Text = movie.Genre.GenreName;
-            }
-            else
-            {
-                lblTheLoai.Text = "Không có thể loại";
-            }
-
-            lblMota.Text = movie.Description;
-            lblDienVien.Text = movie.Cast;
-
-            if (movie.Country != null)
-            {
-                lblQuocGia.Text = movie.Country.CountryName;
-            }
-            else
-            {
-                lblQuocGia.Text = "";
-            }
-
-            lblDaoDien.Text = movie.Director;
-            if (movie.Format != null)
-            {
-                lblDinhDang.Text = movie.Format.FormatName;
-            }
-            else
-            {
-                lblDinhDang.Text = "";
-            }
+            if (lblTenPhim != null) lblTenPhim.Text = movie.Title;
+            if (lblNam != null) lblNam.Text = movie.Year.ToString();
+            if (lblDaoDien != null) lblDaoDien.Text = movie.Director;
+            if (lblDienVien != null) lblDienVien.Text = movie.Cast;
+            if (lblTheLoai != null) lblTheLoai.Text = movie.Genre != null ? movie.Genre.GenreName : "N/A"; // Nếu Genre là null, hiển thị "N/A"
+            if (lblDinhDang != null) lblDinhDang.Text = movie.Format != null ? movie.Format.FormatName : "N/A";
+            if (lblQuocGia != null) lblQuocGia.Text = movie.Country != null ? movie.Country.CountryName : "N/A";
+            if (lblMota != null) lblMota.Text = movie.Description;
 
             filePath = movie.ImgPath;
-            var img = Image.FromFile(filePath);
-            var resizedImg = new Bitmap(img, pbImage.Width, pbImage.Height);
-            pbImage.Image = resizedImg;
+            if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+            {
+                var img = Image.FromFile(filePath);
+                var resizedImg = new Bitmap(img, pbImage.Width, pbImage.Height);
+                pbImage.Image = resizedImg;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy tệp hình ảnh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             vidPath = movie.VidPath;
         }
-         public void showMovie(int movieId)
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain), sender);
+        }
+
+        public void showMovie(int movieId)
         {
             try
             {

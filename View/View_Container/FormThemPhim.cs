@@ -25,6 +25,7 @@ namespace Quan_ly_thu_vien_phim.View
             LoadDataComboGenres(cbType, genre_Controller.GetGenres());
             LoadDataComboFormats(cbFormat, format_Controller.GetFormats());
             LoadDataComboCountries(cbCountry, country_Controller.GetCountries());
+            setNull();
         }
 
         private void FormThemPhim_Paint(object sender, PaintEventArgs e)
@@ -82,8 +83,6 @@ namespace Quan_ly_thu_vien_phim.View
                 }
             }
         }
-
-     
 
         private void btnThemTap_Click(object sender, EventArgs e)
         {
@@ -202,7 +201,5 @@ namespace Quan_ly_thu_vien_phim.View
             this.pbMovie = null;
             this.btnUpVid.BackColor = Color.LightSkyBlue;
         }
-
-
     }
 }

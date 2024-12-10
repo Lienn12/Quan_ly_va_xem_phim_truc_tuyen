@@ -12,6 +12,7 @@ using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Quan_ly_thu_vien_phim.View.View_Container
 {
@@ -182,25 +183,31 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     }
                 }
             }
-            int formatId = movie.Format.FormatID;
-            for (int i = 1; i < cbDinhDang.Items.Count; i++)
+            if (movie.Format != null)
             {
-                if (cbDinhDang.Items[i] is Format_model format && format.FormatID == formatId)
+                for (int i = 0; i < cbDinhDang.Items.Count; i++)
                 {
-                    cbDinhDang.SelectedIndex = i;
-                    break;
+                    if (cbDinhDang.Items[i] is Format_model format && format.FormatName == movie.Format.FormatName)
+                    {
+                        //int formatid = format.FormatID;
+                        cbDinhDang.SelectedIndex = i;
+                        break;
+                    }
                 }
             }
-            int countryId = movie.Country.CountryId;
-            for (int i = 1; i < cbQuocGia.Items.Count; i++)
+            if (movie.Country != null)
             {
-                if (cbQuocGia.Items[i] is Country_model country && country.CountryId == countryId)
+                for (int i = 0; i < cbQuocGia.Items.Count; i++)
                 {
-                    cbQuocGia.SelectedIndex = i;
-                    break;
+                    if (cbQuocGia.Items[i] is Country_model country && country.CountryName == movie.Country.CountryName)
+                    {
+                        //int countryid = country.CountryId;
+                        cbQuocGia.SelectedIndex = i;
+                        break;
+                    }
                 }
             }
-            MessageBox.Show(movie.Genre.ToString());
+            
             txtSoTap.Text = movie.Episode.ToString();
             txtMota.Text = movie.Description;
             if (!string.IsNullOrEmpty(movie.ImgPath))
@@ -233,16 +240,41 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 {
                     btnVid.BackColor = Color.Green;
                 }
-                else
-                {
-                    Console.WriteLine("Không tìm thấy Video.");
-                }
             }
             else
             {
                 Console.WriteLine("Không có video trong Phim.");
             }
+            filePath = movie.ImgPath;
+            videoPath = movie.VidPath;
+            btnSave.Click += (sender, e) =>
+            {
+                try
+                {
+                    Movie_model updatedMovie = GetMovieDetails();
+                    updatedMovie.MovieId = newMovieId;
+
+                    if (movie_Controller.UpdateMovie(updatedMovie))
+                    {
+                        MessageBox.Show("Đã sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                            };
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            setNull();
+        }
+
         public void editPhim(int movieID )
         {
             try
@@ -261,6 +293,78 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             {
                 MessageBox.Show(movieID+$"Lỗi: {e.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public Movie_model GetMovieDetails()
+        {
+            // Tạo một đối tượng Movie_model
+            Movie_model movie = new Movie_model
+            {
+                Genre = new Genre_model(),
+                Country = new Country_model(),
+                Format = new Format_model()
+            };
+            // Lấy tên phim
+            movie.Title = txtTen.Text;
+            // Lấy năm phát hành
+            if (!int.TryParse(txtNam.Text, out int releaseYear) || releaseYear < 0 || releaseYear > 2024)
+            {
+                MessageBox.Show("Vui lòng nhập năm hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            movie.Year = releaseYear;
+            // Lấy thông tin đạo diễn và diễn viên
+            movie.Director = txtDaoDien.Text;
+            movie.Cast = txtDienVien.Text;
+            // Lấy thể loại
+            if (cbTheLoai.SelectedItem is Genre_model genre)
+            {
+                movie.Genre = genre;
+            }
+            // Lấy định dạng
+            if (cbDinhDang.SelectedItem is Format_model format)
+            {
+                movie.Format = format;
+            }
+            // Lấy quốc gia
+            if (cbQuocGia.SelectedItem is Country_model country)
+            {
+                movie.Country = country;
+            }
+            // Lấy số tập
+            if (!int.TryParse(txtSoTap.Text, out int episodes) || episodes < 0)
+            {
+                MessageBox.Show("Số tập phải lớn hơn hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            movie.Episode = episodes;
+            // Lấy mô tả
+            movie.Description = txtMota.Text;
+            // Lấy đường dẫn ảnh
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                movie.ImgPath = filePath; // Gán filePath (chuỗi đường dẫn) vào ImgPath
+            }
+            // Lấy đường dẫn video
+            if (!string.IsNullOrEmpty(videoPath))
+            {
+                movie.VidPath = videoPath; // Gán videoPath (chuỗi đường dẫn) vào VidPath
+            }
+            return movie;
+        }
+
+        public void setNull()
+        {
+            this.txtTen = null;
+            this.txtNam = null;
+            this.txtDaoDien = null;
+            this.txtDienVien = null;
+            this.cbQuocGia = null;
+            this.cbDinhDang = null;
+            this.cbTheLoai = null;
+            this.txtSoTap = null;
+            this.txtMota = null;
+            this.pbMovie = null;
+            this.btnVid.BackColor = Color.LightSkyBlue;
         }
     }
 }

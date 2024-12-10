@@ -20,8 +20,6 @@ namespace Quan_ly_thu_vien_phim.View
         private Form activeForm;
         public FormMain()
         {
-            suaPhim = new SuaPhim(this);
-            xemChiTiet = new XemChiTiet(this);
             InitializeComponent();
             lbMinimum.Click += btnMinimum_Click;
             lbExit.Click += btnExit_Click;
@@ -33,12 +31,12 @@ namespace Quan_ly_thu_vien_phim.View
         public void OpenChidForm(Form childForm, object btnSender)
         {
 
-            if (activeForm != null)
+            if (this.activeForm != null && !activeForm.IsDisposed)
             {
                 activeForm.Close();
             }
 
-            activeForm = childForm;
+            this.activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             Panel scrollablePanel = new Panel
@@ -46,8 +44,8 @@ namespace Quan_ly_thu_vien_phim.View
                 Dock = DockStyle.Fill,
                 AutoScroll = true 
             };
-            pnlMain.Controls.Clear();
-            pnlMain.Controls.Add(scrollablePanel); 
+            this.pnlMain.Controls.Clear();
+            this.pnlMain.Controls.Add(scrollablePanel); 
             scrollablePanel.Controls.Add(childForm);
             childForm.Show();
         }
@@ -89,10 +87,18 @@ namespace Quan_ly_thu_vien_phim.View
         }
         public SuaPhim GetSuaPhim()
         {
+            if (suaPhim == null || suaPhim.IsDisposed)
+            {
+                suaPhim = new SuaPhim(this);
+            }
             return suaPhim;
         }
         public XemChiTiet getChiTiet()
         {
+            if (xemChiTiet == null || xemChiTiet.IsDisposed)
+            {
+                xemChiTiet = new XemChiTiet(this);
+            }
             return xemChiTiet;
         }
     }

@@ -98,6 +98,12 @@
     <Compile Include="View\View_Container\FormDSPhim.Designer.cs">
       <DependentUpon>FormDSPhim.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\FormFavourite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormFavourite.Designer.cs">
+      <DependentUpon>FormFavourite.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\FormPhanHoiDanhGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormDSPhim.resx">
       <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormFavourite.resx">
+      <DependentUpon>FormFavourite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormPhanHoiDanhGia.resx">
       <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>
@@ -350,7 +359,10 @@
     <None Include="Resources\lg.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back1.png" />
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stargray.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eyeHide.png" />
