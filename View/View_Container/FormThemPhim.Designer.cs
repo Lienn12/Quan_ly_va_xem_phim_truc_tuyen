@@ -30,8 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pbMovie = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnUpVid = new System.Windows.Forms.Button();
+            this.btnUpImg = new System.Windows.Forms.Button();
             this.cbFormat = new System.Windows.Forms.ComboBox();
             this.cbCountry = new System.Windows.Forms.ComboBox();
             this.cbType = new System.Windows.Forms.ComboBox();
@@ -51,30 +54,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnThemTap = new System.Windows.Forms.Button();
-            this.pbMovie = new System.Windows.Forms.PictureBox();
-            this.btnUpVid = new System.Windows.Forms.Button();
-            this.btnUpImg = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(890, 41);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(50, 34);
-            this.btnBack.TabIndex = 9;
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-
             // label1
             // 
             this.label1.AutoSize = true;
@@ -91,7 +74,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnThemTap);
             this.panel3.Controls.Add(this.pbMovie);
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Controls.Add(this.btnSave);
@@ -116,28 +98,16 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(55, 98);
-            this.panel3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(885, 597);
             this.panel3.TabIndex = 8;
-            // 
-            // btnThemTap
-            // 
-            this.btnThemTap.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnThemTap.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.add;
-            this.btnThemTap.Location = new System.Drawing.Point(377, 303);
-            this.btnThemTap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnThemTap.Name = "btnThemTap";
-            this.btnThemTap.Size = new System.Drawing.Size(35, 32);
-            this.btnThemTap.TabIndex = 24;
-            this.btnThemTap.UseVisualStyleBackColor = false;
-            this.btnThemTap.Click += new System.EventHandler(this.btnThemTap_Click);
             // 
             // pbMovie
             // 
             this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbMovie.Location = new System.Drawing.Point(543, 48);
-            this.pbMovie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbMovie.Margin = new System.Windows.Forms.Padding(2);
             this.pbMovie.Name = "pbMovie";
             this.pbMovie.Size = new System.Drawing.Size(299, 364);
             this.pbMovie.TabIndex = 23;
@@ -148,7 +118,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Silver;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(486, 513);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 63);
             this.btnCancel.TabIndex = 22;
@@ -162,7 +132,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.Location = new System.Drawing.Point(311, 511);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(118, 63);
             this.btnSave.TabIndex = 21;
@@ -175,7 +145,7 @@
             this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnUpVid.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.vidUp;
             this.btnUpVid.Location = new System.Drawing.Point(754, 432);
-            this.btnUpVid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpVid.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpVid.Name = "btnUpVid";
             this.btnUpVid.Size = new System.Drawing.Size(52, 46);
             this.btnUpVid.TabIndex = 20;
@@ -190,7 +160,7 @@
             this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpImg.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.upload;
             this.btnUpImg.Location = new System.Drawing.Point(601, 432);
-            this.btnUpImg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpImg.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpImg.Name = "btnUpImg";
             this.btnUpImg.Size = new System.Drawing.Size(130, 46);
             this.btnUpImg.TabIndex = 19;
@@ -204,7 +174,7 @@
             // 
             this.cbFormat.FormattingEnabled = true;
             this.cbFormat.Location = new System.Drawing.Point(163, 270);
-            this.cbFormat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFormat.Margin = new System.Windows.Forms.Padding(2);
             this.cbFormat.Name = "cbFormat";
             this.cbFormat.Size = new System.Drawing.Size(337, 21);
             this.cbFormat.TabIndex = 17;
@@ -213,7 +183,7 @@
             // 
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.Location = new System.Drawing.Point(163, 232);
-            this.cbCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCountry.Margin = new System.Windows.Forms.Padding(2);
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(337, 21);
             this.cbCountry.TabIndex = 16;
@@ -222,7 +192,7 @@
             // 
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(163, 195);
-            this.cbType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbType.Margin = new System.Windows.Forms.Padding(2);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(337, 21);
             this.cbType.TabIndex = 15;
@@ -230,7 +200,7 @@
             // txtDescrip
             // 
             this.txtDescrip.Location = new System.Drawing.Point(163, 355);
-            this.txtDescrip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescrip.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescrip.Multiline = true;
             this.txtDescrip.Name = "txtDescrip";
             this.txtDescrip.Size = new System.Drawing.Size(337, 109);
@@ -239,16 +209,16 @@
             // txtEpisode
             // 
             this.txtEpisode.Location = new System.Drawing.Point(163, 310);
-            this.txtEpisode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEpisode.Margin = new System.Windows.Forms.Padding(2);
             this.txtEpisode.Multiline = true;
             this.txtEpisode.Name = "txtEpisode";
-            this.txtEpisode.Size = new System.Drawing.Size(198, 21);
+            this.txtEpisode.Size = new System.Drawing.Size(337, 21);
             this.txtEpisode.TabIndex = 13;
             // 
             // txtCast
             // 
             this.txtCast.Location = new System.Drawing.Point(163, 157);
-            this.txtCast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCast.Margin = new System.Windows.Forms.Padding(2);
             this.txtCast.Multiline = true;
             this.txtCast.Name = "txtCast";
             this.txtCast.Size = new System.Drawing.Size(337, 21);
@@ -257,7 +227,7 @@
             // txtDirector
             // 
             this.txtDirector.Location = new System.Drawing.Point(163, 119);
-            this.txtDirector.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDirector.Margin = new System.Windows.Forms.Padding(2);
             this.txtDirector.Multiline = true;
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(337, 21);
@@ -266,7 +236,7 @@
             // txtYear
             // 
             this.txtYear.Location = new System.Drawing.Point(163, 77);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtYear.Multiline = true;
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(337, 21);
@@ -275,7 +245,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(163, 35);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(337, 21);
@@ -388,7 +358,7 @@
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(597, 28);
+            this.btnBack.Location = new System.Drawing.Point(890, 41);
             this.btnBack.Margin = new System.Windows.Forms.Padding(1);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(50, 34);
@@ -396,69 +366,16 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnThemTap
-            // 
-            this.btnThemTap.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnThemTap.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.add;
-            this.btnThemTap.Location = new System.Drawing.Point(377, 303);
-            this.btnThemTap.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThemTap.Name = "btnThemTap";
-            this.btnThemTap.Size = new System.Drawing.Size(35, 32);
-            this.btnThemTap.TabIndex = 24;
-            this.btnThemTap.UseVisualStyleBackColor = false;
-            this.btnThemTap.Click += new System.EventHandler(this.btnThemTap_Click);
-            // 
-            // pbMovie
-            // 
-            this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbMovie.Location = new System.Drawing.Point(543, 48);
-            this.pbMovie.Margin = new System.Windows.Forms.Padding(2);
-            this.pbMovie.Name = "pbMovie";
-            this.pbMovie.Size = new System.Drawing.Size(299, 364);
-            this.pbMovie.TabIndex = 23;
-            this.pbMovie.TabStop = false;
-            // 
-            // btnUpVid
-            // 
-            this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnUpVid.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.vidUp;
-            this.btnUpVid.Location = new System.Drawing.Point(754, 432);
-            this.btnUpVid.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpVid.Name = "btnUpVid";
-            this.btnUpVid.Size = new System.Drawing.Size(52, 46);
-            this.btnUpVid.TabIndex = 20;
-            this.btnUpVid.UseVisualStyleBackColor = false;
-            this.btnUpVid.Click += new System.EventHandler(this.btnUpVid_Click);
-            // 
-            // btnUpImg
-            // 
-            this.btnUpImg.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnUpImg.FlatAppearance.BorderSize = 0;
-            this.btnUpImg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpImg.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.upload;
-            this.btnUpImg.Location = new System.Drawing.Point(601, 432);
-            this.btnUpImg.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpImg.Name = "btnUpImg";
-            this.btnUpImg.Size = new System.Drawing.Size(130, 46);
-            this.btnUpImg.TabIndex = 19;
-            this.btnUpImg.Text = "Upload Image";
-            this.btnUpImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpImg.UseVisualStyleBackColor = false;
-            this.btnUpImg.Click += new System.EventHandler(this.btnUpImg_Click);
-            // 
             // FormThemPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 760);
-
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "FormThemPhim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormThemPhim";
@@ -476,7 +393,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnThemTap;
         private System.Windows.Forms.PictureBox pbMovie;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;

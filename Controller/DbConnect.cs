@@ -13,7 +13,10 @@ namespace Quan_ly_thu_vien_phim.Controller
     {
         public SqlConnection GetConnection()
         {
+
+//             string sql = "Data Source=HANNIEL; Initial Catalog=Thu_vien_phim; Integrated Security=true;";
             string sql = "Data Source=LAPTOP-7F0OPAJM\\LIEN; Initial Catalog=Quan_ly_thu_vien_phim; Integrated Security=true;";
+
             SqlConnection conn = new SqlConnection(sql);
             if (conn != null)
             {

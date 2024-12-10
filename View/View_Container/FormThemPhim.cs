@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Quan_ly_thu_vien_phim.View
 {
@@ -22,6 +23,11 @@ namespace Quan_ly_thu_vien_phim.View
         {
             this.formMain = formMain;
             InitializeComponent();
+            btnUpImg.Click -= btnUpImg_Click;
+            btnUpImg.Click += btnUpImg_Click;
+
+            btnUpVid.Click -= btnUpVid_Click;
+            btnUpVid.Click += btnUpVid_Click;
             LoadDataComboGenres(cbType, genre_Controller.GetGenres());
             LoadDataComboFormats(cbFormat, format_Controller.GetFormats());
             LoadDataComboCountries(cbCountry, country_Controller.GetCountries());
@@ -90,6 +96,7 @@ namespace Quan_ly_thu_vien_phim.View
             themTap.Show();
             
         }
+
         private void LoadDataComboBox<T>(ComboBox comboBox, List<T> dataList, string displayField)
         {
             try
@@ -187,19 +194,79 @@ namespace Quan_ly_thu_vien_phim.View
             formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain),sender);
         }
 
+        private void btnUpVid_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Video Files|*.mp4;*.avi;*.wmv;*.mov;*.mkv",
+                Title = "Chọn video"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                videoPath = openFileDialog.FileName;
+                if (!string.IsNullOrEmpty(videoPath) && File.Exists(videoPath))
+                {
+                    btnUpVid.BackColor = Color.Green; // Đổi màu nút thành màu xanh
+                }
+                else
+                {
+                    btnUpVid.BackColor = Color.LightSkyBlue; // Reset màu nếu không chọn file
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn file nào!");
+            }
+        }
+
+        private void btnUpImg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+                Title = "Chọn ảnh để tải lên"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+                {
+                    try
+                    {
+                        using (FileStream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                        {
+                            var img = System.Drawing.Image.FromStream(stream);
+                            Bitmap resizedImg = new Bitmap(img, pbMovie.Width, pbMovie.Height);
+                            pbMovie.Image = resizedImg;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi tải ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy tệp hình ảnh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         public void setNull()
         {
-            this.txtName = null;
-            this.txtYear = null;
-            this.txtDirector = null;
-            this.txtCast = null;
-            this.cbCountry = null;
-            this.cbFormat = null;
-            this.cbType = null;
-            this.txtEpisode = null;
-            this.txtDescrip = null;
-            this.pbMovie = null;
-            this.btnUpVid.BackColor = Color.LightSkyBlue;
+            this.txtName.Text = string.Empty;
+            this.txtYear.Text = string.Empty;
+            this.txtDirector.Text = string.Empty;
+            this.txtCast.Text = string.Empty;
+            this.cbCountry.SelectedIndex = -1;
+            this.cbFormat.SelectedIndex = -1;
+            this.cbType.SelectedIndex = -1;
+            this.txtEpisode.Text = string.Empty;
+            this.txtDescrip.Text = string.Empty;
+            this.pbMovie.Image = null; // Xóa ảnh hiện tại
+            this.filePath = null; // Reset đường dẫn file ảnh
+            this.videoPath = null; // Reset đường dẫn file video
+            this.btnUpVid.BackColor = Color.LightSkyBlue; // Reset màu nút
         }
     }
 }
