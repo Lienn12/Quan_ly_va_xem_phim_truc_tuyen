@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\DanhGia_controller.cs" />
+    <Compile Include="Controller\Episode_controller.cs" />
     <Compile Include="Controller\Format_controller.cs" />
     <Compile Include="Controller\Country_controller.cs" />
     <Compile Include="Controller\Genre_controller.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
     <Compile Include="Model\PhanHoiDanhGia_model.cs" />
+    <Compile Include="Model\Tap_model.cs" />
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -350,6 +352,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stargray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upvidicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\removeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

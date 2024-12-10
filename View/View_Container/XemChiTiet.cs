@@ -20,6 +20,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private string filePath, vidPath;
         private Movie_model movie;
         private Movie_controller controller = new Movie_controller();
+        private Episode_controller episode_Controller = new Episode_controller();
+        private int idPhim;
         public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             pnlSoTap.Controls.Clear(); // Xóa các nút cũ nếu có
 
             // Danh sách các tập phim
-            List<string> danhSachTap = new List<string> { "Tập 1", "Tập 2", "Tập 3", "Tập 4", "Tập 5", "Tập 6" };
+            List<Tap_model> danhSachTap = episode_Controller.GetEpisodesByMovieID(idPhim);
 
             int y = 15;  // Vị trí bắt đầu của các nút
 
@@ -63,7 +65,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             {
                 Button btnCacTap = new Button
                 {
-                    Text = tap,
+                    Text = tap.epName,
                     Size = new Size(95, 40),  // Kích thước nút
                     Location = new Point(10 + (110 * (pnlSoTap.Controls.Count % 6)), y), // Đặt vị trí của nút
                     Margin = new Padding(5),  // Khoảng cách giữa các nút
@@ -82,7 +84,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
                     // Đổi màu cho nút được chọn
                     btnCacTap.BackColor = Color.Orange;
-                    MessageBox.Show($"Đang phát: {tap}");
+                    String video = tap.vidPathTap;
+                    PhatVideo playVideo = new PhatVideo();
+                    playVideo.setVideo(video);
+                    playVideo.Show();
                 };
 
                 pnlSoTap.Controls.Add(btnCacTap);  // Thêm nút vào panel
@@ -94,20 +99,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             LoadDanhSachTap();
         }
 
-        private void btnTap_Click(object sender, EventArgs e)
-        {
-            pnlSoTap.Visible = !pnlSoTap.Visible;
-
-            // Cập nhật nội dung của nút khi hiển thị/ẩn danh sách
-            if (pnlSoTap.Visible)
-            {
-                btnTap.Text = "Ẩn danh sách";
-            }
-            else
-            {
-                btnTap.Text = "Xem tập";
-            }
-        }
         public void SetMovieDetails(Movie_model movie)
         {
             if (movie == null)
@@ -144,8 +135,31 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain), sender);
         }
 
+        private void btnTap_Click(object sender, EventArgs e)
+        {
+            if (episode_Controller.checkTap(idPhim))
+            {
+                pnlSoTap.Visible = !pnlSoTap.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Không có tập nào!");
+            }
+
+            // Cập nhật nội dung của nút khi hiển thị/ẩn danh sách
+            if (pnlSoTap.Visible)
+            {
+                btnTap.Text = "Ẩn danh sách";
+            }
+            else
+            {
+                btnTap.Text = "Xem tập";
+            }
+        }
+
         public void showMovie(int movieId)
         {
+            idPhim = movieId;
             try
             {
                 Movie_model movie = controller.GetMovieById(movieId);

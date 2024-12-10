@@ -63,6 +63,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _lock {
+            get {
+                object obj = ResourceManager.GetObject("lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -96,16 +106,6 @@ namespace Quan_ly_thu_vien_phim.Properties {
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap back1 {
-            get {
-                object obj = ResourceManager.GetObject("back1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +233,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap removeicon {
+            get {
+                object obj = ResourceManager.GetObject("removeicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap review {
             get {
                 object obj = ResourceManager.GetObject("review", resourceCulture);
@@ -266,6 +276,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         internal static System.Drawing.Bitmap upload {
             get {
                 object obj = ResourceManager.GetObject("upload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upvidicon {
+            get {
+                object obj = ResourceManager.GetObject("upvidicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

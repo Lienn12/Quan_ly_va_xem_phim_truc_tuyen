@@ -85,8 +85,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ThemTap themTap = new ThemTap();
-            themTap.Show();
+            if (int.TryParse(txtSoTap.Text, out int numberOfEpisodes) && numberOfEpisodes > 0)
+            {
+                // Mở Form Thêm Tập và truyền số lượng tập
+                ThemTap addEpisodesForm = new ThemTap(numberOfEpisodes,newMovieId, txtTen.Text);
+                addEpisodesForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập số tập hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnImage_Click(object sender, EventArgs e)
