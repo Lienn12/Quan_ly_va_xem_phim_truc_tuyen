@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnThemTap = new System.Windows.Forms.Button();
-            this.pbMovie = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnUpVid = new System.Windows.Forms.Button();
-            this.btnUpImg = new System.Windows.Forms.Button();
             this.cbFormat = new System.Windows.Forms.ComboBox();
             this.cbCountry = new System.Windows.Forms.ComboBox();
             this.cbType = new System.Windows.Forms.ComboBox();
@@ -55,6 +50,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnThemTap = new System.Windows.Forms.Button();
+            this.pbMovie = new System.Windows.Forms.PictureBox();
+            this.btnUpVid = new System.Windows.Forms.Button();
+            this.btnUpImg = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMovie)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             this.btnBack.TabIndex = 9;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
+
             // label1
             // 
             this.label1.AutoSize = true;
@@ -380,11 +380,80 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Phim:";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back;
+            this.btnBack.Location = new System.Drawing.Point(597, 28);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(1);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(50, 34);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnThemTap
+            // 
+            this.btnThemTap.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnThemTap.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.add;
+            this.btnThemTap.Location = new System.Drawing.Point(377, 303);
+            this.btnThemTap.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThemTap.Name = "btnThemTap";
+            this.btnThemTap.Size = new System.Drawing.Size(35, 32);
+            this.btnThemTap.TabIndex = 24;
+            this.btnThemTap.UseVisualStyleBackColor = false;
+            this.btnThemTap.Click += new System.EventHandler(this.btnThemTap_Click);
+            // 
+            // pbMovie
+            // 
+            this.pbMovie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbMovie.Location = new System.Drawing.Point(543, 48);
+            this.pbMovie.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMovie.Name = "pbMovie";
+            this.pbMovie.Size = new System.Drawing.Size(299, 364);
+            this.pbMovie.TabIndex = 23;
+            this.pbMovie.TabStop = false;
+            // 
+            // btnUpVid
+            // 
+            this.btnUpVid.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUpVid.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.vidUp;
+            this.btnUpVid.Location = new System.Drawing.Point(754, 432);
+            this.btnUpVid.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpVid.Name = "btnUpVid";
+            this.btnUpVid.Size = new System.Drawing.Size(52, 46);
+            this.btnUpVid.TabIndex = 20;
+            this.btnUpVid.UseVisualStyleBackColor = false;
+            this.btnUpVid.Click += new System.EventHandler(this.btnUpVid_Click);
+            // 
+            // btnUpImg
+            // 
+            this.btnUpImg.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpImg.FlatAppearance.BorderSize = 0;
+            this.btnUpImg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpImg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpImg.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.upload;
+            this.btnUpImg.Location = new System.Drawing.Point(601, 432);
+            this.btnUpImg.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpImg.Name = "btnUpImg";
+            this.btnUpImg.Size = new System.Drawing.Size(130, 46);
+            this.btnUpImg.TabIndex = 19;
+            this.btnUpImg.Text = "Upload Image";
+            this.btnUpImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpImg.UseVisualStyleBackColor = false;
+            this.btnUpImg.Click += new System.EventHandler(this.btnUpImg_Click);
+            // 
             // FormThemPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 760);
+
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
