@@ -176,13 +176,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             txtTen.Text = movie.Title;
             txtDaoDien.Text = movie.Director;
             txtDienVien.Text = movie.Cast;
+            
             if (movie.Genre != null)
             {
                 for (int i = 0; i < cbTheLoai.Items.Count; i++)
                 {
                     if (cbTheLoai.Items[i] is Genre_model genre && genre.GenreName == movie.Genre.GenreName)
                     {
-                        //int genreid = genre.GenreID;
+                        int genreId = genre.GenreID;
+                        MessageBox.Show("GenreID: " + genreId);
+                        MessageBox.Show("cbTheLoai.Items[i]: " + cbTheLoai.Items[i]);
                         cbTheLoai.SelectedIndex = i;
                         break;
                     }
@@ -288,7 +291,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 if (movie != null)
                 {
                     setMovie(movie);
-                    
+                   
                 }
                 else
                 {

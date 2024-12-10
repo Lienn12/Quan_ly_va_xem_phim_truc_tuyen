@@ -131,6 +131,7 @@
             this.btnBack.Size = new System.Drawing.Size(58, 44);
             this.btnBack.TabIndex = 0;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FormForgotPassword
             // 

@@ -16,6 +16,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public TrangUser()
         {
             InitializeComponent();
+            this.Size = new Size(1000, 760);
+            cbGioitinh.DropDownHeight = 150;
         }
 
         private void TrangUser_Paint(object sender, PaintEventArgs e)

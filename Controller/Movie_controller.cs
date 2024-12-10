@@ -271,14 +271,14 @@ namespace Quan_ly_thu_vien_phim.Controller
                                 string img = reader["COVER_IMAGE"].ToString();  
                                 string vidPath = reader["TRAILER"].ToString();
 
-                                Genre_model genreModel = string.IsNullOrEmpty(genre) ? null : new Genre_model(0, genre);
-                                Format_model formatModel = string.IsNullOrEmpty(format) ? null : new Format_model(0, format);
-                                Country_model countryModel = string.IsNullOrEmpty(country) ? null : new Country_model(0, country);
+                                //Genre_model genreModel = string.IsNullOrEmpty(genre) ? null : new Genre_model(0, genre);
+                                //Format_model formatModel = string.IsNullOrEmpty(format) ? null : new Format_model(0, format);
+                                //Country_model countryModel = string.IsNullOrEmpty(country) ? null : new Country_model(0, country);
 
                                 // Trả về đối tượng Movie_model
                                 return new Movie_model(
                                     movieId, name, year, director, cast,
-                                    genreModel, formatModel, countryModel, description, episode, img, vidPath
+                                    new Genre_model(0, genre), new Format_model(0, format), new Country_model(0, country), description, episode, img, vidPath
                                 );
                             }
                             else
