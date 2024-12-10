@@ -84,5 +84,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                 }
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formLoginSignup.OpenChidForm(new View_Login_Signup.FormLogin(formLoginSignup));
+        }
     }
 }

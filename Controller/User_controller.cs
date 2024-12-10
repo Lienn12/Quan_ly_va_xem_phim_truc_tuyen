@@ -171,11 +171,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         // Kiểm tra password đúng định dạng
         public bool CheckPassword(string password)
         {
-            if (password.Length < 6)
-            {
-                return false;
-            }
-            string passwordRegex = @"^(?=.*[A-Za-z])(?=.*\d).+$";
+            string passwordRegex = @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
             return Regex.IsMatch(password, passwordRegex);
         }
 
@@ -324,7 +320,6 @@ namespace Quan_ly_thu_vien_phim.Controller
                     string hashedPassword = HashPassword(password);
                     command.Parameters.AddWithValue("@Password", hashedPassword);
                     command.Parameters.AddWithValue("@Email", email);
-
                     command.ExecuteNonQuery();
                 }
             }

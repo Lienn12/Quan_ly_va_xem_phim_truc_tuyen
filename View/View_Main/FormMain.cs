@@ -1,4 +1,5 @@
 ﻿using Quan_ly_thu_vien_phim.View.View_Container;
+using Quan_ly_thu_vien_phim.View.View_Main;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,22 +20,23 @@ namespace Quan_ly_thu_vien_phim.View
         private Form activeForm;
         public FormMain()
         {
-            suaPhim = new SuaPhim(this);
-            xemChiTiet = new XemChiTiet(this);
             InitializeComponent();
             lbMinimum.Click += btnMinimum_Click;
             lbExit.Click += btnExit_Click;
+            this.Size = new Size(1250, 800);
+            pnlHeader.Size = new Size(1250, 40);
+            pnlMenu.Size = new Size(250, 760);
         }
 
         public void OpenChidForm(Form childForm, object btnSender)
         {
 
-            if (activeForm != null)
+            if (this.activeForm != null && !activeForm.IsDisposed)
             {
                 activeForm.Close();
             }
 
-            activeForm = childForm;
+            this.activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             Panel scrollablePanel = new Panel
@@ -42,8 +44,8 @@ namespace Quan_ly_thu_vien_phim.View
                 Dock = DockStyle.Fill,
                 AutoScroll = true 
             };
-            pnlMain.Controls.Clear();
-            pnlMain.Controls.Add(scrollablePanel); 
+            this.pnlMain.Controls.Clear();
+            this.pnlMain.Controls.Add(scrollablePanel); 
             scrollablePanel.Controls.Add(childForm);
             childForm.Show();
         }
@@ -70,7 +72,10 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Main.FormLoginSignup(), sender);
+            FormLoginSignup formLoginSignup = new FormLoginSignup();
+            this.Hide(); 
+            formLoginSignup.ShowDialog(); 
+            this.Close();
         }
         private void btnMinimum_Click (object sender, EventArgs e)
         {
@@ -82,10 +87,18 @@ namespace Quan_ly_thu_vien_phim.View
         }
         public SuaPhim GetSuaPhim()
         {
+            if (suaPhim == null || suaPhim.IsDisposed)
+            {
+                suaPhim = new SuaPhim(this);
+            }
             return suaPhim;
         }
         public XemChiTiet getChiTiet()
         {
+            if (xemChiTiet == null || xemChiTiet.IsDisposed)
+            {
+                xemChiTiet = new XemChiTiet(this);
+            }
             return xemChiTiet;
         }
     }
