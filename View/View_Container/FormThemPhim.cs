@@ -13,7 +13,7 @@ namespace Quan_ly_thu_vien_phim.View
     public partial class FormThemPhim : Form
     {
         private string filePath, videoPath;
-        private Movie__controller movie_Controller = new Movie__controller();
+        private Movie_controller movie_Controller = new Movie_controller();
         private Genre_controller genre_Controller = new Genre_controller();
         private Format_controller format_Controller = new Format_controller();
         private Country_controller country_Controller = new Country_controller();
