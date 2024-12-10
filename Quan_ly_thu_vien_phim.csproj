@@ -62,19 +62,14 @@
     <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
-
     <Compile Include="Controller\PhanHoiDanhGia_controller.cs" />
-
     <Compile Include="Controller\Movie_controller.cs" />
-
     <Compile Include="Controller\User_controller.cs" />
     <Compile Include="Model\DanhGia_model.cs" />
     <Compile Include="Model\Country_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
-
     <Compile Include="Model\PhanHoiDanhGia_model.cs" />
-
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,6 +93,12 @@
     </Compile>
     <Compile Include="View\View_Container\FormDSPhim.Designer.cs">
       <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\FormFavourite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormFavourite.Designer.cs">
+      <DependentUpon>FormFavourite.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\FormPhanHoiDanhGia.cs">
       <SubType>Form</SubType>
@@ -202,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormDSPhim.resx">
       <DependentUpon>FormDSPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormFavourite.resx">
+      <DependentUpon>FormFavourite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormPhanHoiDanhGia.resx">
       <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>
