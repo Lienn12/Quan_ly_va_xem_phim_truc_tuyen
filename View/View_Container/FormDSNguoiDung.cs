@@ -37,7 +37,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             dataGridView1.AutoGenerateColumns = false; // Tắt tự động tạo cột
             // Lấy dữ liệu từ User_controller
-            List<User_model> users = userController.getUserData();
+            List<User_model> users = userController.GetUserData();
             if (users.Count > 0)
             {
                 dataGridView1.DataSource = null; // Xóa dữ liệu cũ
@@ -53,7 +53,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             // Lấy danh sách người dùng từ controller
             User_controller userController = new User_controller();
-            List<User_model> users = userController.getUserData();  // Lấy tất cả dữ liệu ban đầu
+            List<User_model> users = userController.GetUserData();  // Lấy tất cả dữ liệu ban đầu
 
             // Nếu từ khóa không rỗng, lọc danh sách
             if (!string.IsNullOrEmpty(keyword))
@@ -86,7 +86,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private void txtSearch_Leave(object sender, EventArgs e)
         {
             User_controller userController = new User_controller();
-            List<User_model> users = userController.getUserData();
+            List<User_model> users = userController.GetUserData();
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 txtSearch.Text = "Tìm kiếm người dùng...";

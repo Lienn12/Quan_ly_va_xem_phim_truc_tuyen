@@ -19,7 +19,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private FormMain formMain;
         private string filePath, vidPath;
         private Movie_model movie;
-        private Movie__controller controller = new Movie__controller();
+        private Movie_controller controller = new Movie_controller();
         public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();

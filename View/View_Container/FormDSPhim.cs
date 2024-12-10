@@ -28,7 +28,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             try
             {
                 // Tạo controller và lấy danh sách phim
-                Movie__controller movieController = new Movie__controller();
+                Movie_controller movieController = new Movie_controller();
                 List<Movie_model> movies = movieController.GetMovies();
 
                 // Xóa dữ liệu cũ
@@ -86,7 +86,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     {
                         try
                         {
-                            Movie__controller movieController = new Movie__controller();
+                            Movie_controller movieController = new Movie_controller();
                             bool isDeleted = movieController.DeleteFilm(movieId);
 
                             if (isDeleted)
@@ -110,7 +110,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private void SearchPhim(string keyword)
         {
             // Lấy danh sách phim từ controller
-            Movie__controller movieController = new Movie__controller();
+            Movie_controller movieController = new Movie_controller();
             List<Movie_model> movieList = movieController.GetMovies();  // Lấy tất cả dữ liệu phim
 
             // Nếu từ khóa không rỗng, lọc danh sách
@@ -140,7 +140,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void txtTimkiem_Leave(object sender, EventArgs e)
         {
-            Movie__controller movieController = new Movie__controller();
+            Movie_controller movieController = new Movie_controller();
             List<Movie_model> movieList = movieController.GetMovies(); 
             if (string.IsNullOrWhiteSpace(txtTimkiem.Text))
             {

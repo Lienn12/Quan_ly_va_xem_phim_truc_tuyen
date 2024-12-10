@@ -195,7 +195,8 @@
             this.lbMinimum.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbMinimum.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMinimum.ForeColor = System.Drawing.Color.White;
-            this.lbMinimum.Location = new System.Drawing.Point(769, 0);
+
+            this.lbMinimum.Location = new System.Drawing.Point(1186, 0);
             this.lbMinimum.Name = "lbMinimum";
             this.lbMinimum.Size = new System.Drawing.Size(29, 40);
             this.lbMinimum.TabIndex = 0;
@@ -208,7 +209,8 @@
             this.lbExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbExit.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbExit.ForeColor = System.Drawing.Color.White;
-            this.lbExit.Location = new System.Drawing.Point(798, 0);
+
+            this.lbExit.Location = new System.Drawing.Point(1215, 0);
             this.lbExit.Name = "lbExit";
             this.lbExit.Size = new System.Drawing.Size(35, 37);
             this.lbExit.TabIndex = 1;
@@ -223,7 +225,9 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 40);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(167, 480);
+
+            this.pnlMenu.Size = new System.Drawing.Size(167, 760);
+
             this.pnlMenu.TabIndex = 3;
             // 
             // panel3
@@ -237,7 +241,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 166);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(167, 314);
+            this.panel3.Size = new System.Drawing.Size(167, 594);
             this.panel3.TabIndex = 8;
             // 
             // panel2
@@ -258,7 +262,7 @@
             this.pnlMain.Location = new System.Drawing.Point(167, 40);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(666, 480);
+            this.pnlMain.Size = new System.Drawing.Size(1083, 760);
             this.pnlMain.TabIndex = 4;
             // 
             // FormMain
