@@ -83,26 +83,26 @@ namespace Quan_ly_thu_vien_phim.Controller
                          WHERE MOVIE_ID = @MovieID";
             try
             {
+                conn.Open();
+                using (cmd = new SqlCommand(query, conn))
                 {
-                    conn.Open();
-                    using ( cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Title", movie.Title);
-                        cmd.Parameters.AddWithValue("@ReleaseYear", movie.Year);
-                        cmd.Parameters.AddWithValue("@Director", movie.Director);
-                        cmd.Parameters.AddWithValue("@Cast", movie.Cast);
-                        cmd.Parameters.AddWithValue("@GenreId", movie.Genre.GenreID);
-                        cmd.Parameters.AddWithValue("@FormatId", movie.Format.FormatID);
-                        cmd.Parameters.AddWithValue("@CountryId", movie.Country.CountryId);
-                        cmd.Parameters.AddWithValue("@Episodes", movie.Episode);
-                        cmd.Parameters.AddWithValue("@Description", movie.Description);
-                        cmd.Parameters.AddWithValue("@imgPath", movie.ImgPath); 
-                        cmd.Parameters.AddWithValue("@vidPath", movie.VidPath);
-                        cmd.Parameters.AddWithValue("@MovieID", movie.MovieId);
-                        int rowsUpdated = cmd.ExecuteNonQuery();
-                        return rowsUpdated > 0;
-                    }
+                    cmd.Parameters.AddWithValue("@Title", movie.Title);
+                    cmd.Parameters.AddWithValue("@ReleaseYear", movie.Year);
+                    cmd.Parameters.AddWithValue("@Director", movie.Director);
+                    cmd.Parameters.AddWithValue("@Cast", movie.Cast);
+                    cmd.Parameters.AddWithValue("@GenreId", movie.Genre.GenreID);
+                    cmd.Parameters.AddWithValue("@FormatId", movie.Format.FormatID);
+                    cmd.Parameters.AddWithValue("@CountryId", movie.Country.CountryId);
+                    cmd.Parameters.AddWithValue("@Episodes", movie.Episode);
+                    cmd.Parameters.AddWithValue("@Description", movie.Description ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@imgPath", movie.ImgPath ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@vidPath", movie.VidPath ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@MovieID", movie.MovieId);
+
+                    int rowsUpdated = cmd.ExecuteNonQuery();
+                    return rowsUpdated > 0;
                 }
+                
             }
             catch (Exception ex)
             {
@@ -237,14 +237,20 @@ namespace Quan_ly_thu_vien_phim.Controller
         }
         public Movie_model GetMovieById(int movieId)
         {
-            string query = @"SELECT MOVIE_ID, TITLE, RELEASE_YEAR, GENRE_NAME, COUNTRY_NAME, FORMAT_NAME, DIRECTOR, CAST, RATING, DESCRIPTION, TOTAL_EPISODES, COVER_IMAGE, TRAILER FROM MOVIES
+            string query = @"SELECT MOVIE_ID, TITLE, RELEASE_YEAR, GENRE_NAME, COUNTRY_NAME, FORMAT_NAME, DIRECTOR, CAST, DESCRIPTION, TOTAL_EPISODES, COVER_IMAGE, TRAILER FROM MOVIES
                             INNER JOIN COUNTRIES ON MOVIES.COUNTRY_ID = COUNTRIES.COUNTRY_ID
                             INNER JOIN GENRES ON MOVIES.GENRE_ID = GENRES.GENRE_ID
                             INNER JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
                             WHERE MOVIE_ID = @movieId;";
             try
             {
-                using (SqlConnection conn = new DbConnect().GetConnection()) { 
+                using (SqlConnection conn = new DbConnect().GetConnection()) 
+                {
+                    if (conn == null)
+                    {
+                        Console.WriteLine("Không thể kết nối đến cơ sở dữ liệu.");
+                        return null;
+                    }
                     conn.Open();
                     using (cmd = new SqlCommand(query, conn))
                     {

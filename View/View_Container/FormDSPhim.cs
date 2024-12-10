@@ -62,42 +62,50 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Chỉ xử lý khi nhấn vào hàng hợp lệ
+            try
             {
-                int movieId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value); // Lấy MovieId
-                string movieTitle = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                if (e.ColumnIndex == 3) // Cột 3: Chuyển đến trang chi tiết
+                if (e.RowIndex >= 0) // Chỉ xử lý khi nhấn vào hàng hợp lệ
                 {
-                    chiTiet = formMain.getChiTiet();
-                    chiTiet.showMovie(movieId);
-                    formMain.OpenChidForm(chiTiet, sender);
-                    
+                    int movieId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value); // Lấy MovieId
+                    string movieTitle = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    if (e.ColumnIndex == 3) // Cột 3: Chuyển đến trang chi tiết
+                    {
+                        if (chiTiet == null || chiTiet.IsDisposed)
+                            chiTiet = formMain.getChiTiet();
+                        chiTiet.showMovie(movieId);
+                        formMain.OpenChidForm(chiTiet, sender);
+
+                    }
+                    else if (e.ColumnIndex == 4) // Cột 4: Chuyển đến trang sửa phim
+                    {
+                        if (suaPhim == null || suaPhim.IsDisposed)
+                            suaPhim = formMain.GetSuaPhim();
+                        suaPhim.editPhim(movieId);
+                        formMain.OpenChidForm(suaPhim, sender);
+                    }
+                    //else if (e.ColumnIndex == 5) // Cột 5: Xóa
+                    //{
+                    //    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim: {movieTitle}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    //    if (result == DialogResult.Yes)
+                    //    {
+                    //        Movie__controller movieController = new Movie__controller();
+                    //        // Gọi hàm xóa trong controller
+                    //        if (movieController.DeleteMovie(movieId))
+                    //        {
+                    //            MessageBox.Show("Xóa phim thành công!", "Thông báo");
+                    //            LoadMovies(); // Tải lại danh sách phim
+                    //        }
+                    //        else
+                    //        {
+                    //            MessageBox.Show("Xóa phim thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //        }
+                    //    }
+                    //}
                 }
-                else if (e.ColumnIndex == 4) // Cột 4: Chuyển đến trang sửa phim
-                {
-                    int id = movieId;
-                    suaPhim = formMain.GetSuaPhim();
-                    suaPhim.editPhim(id);
-                    formMain.OpenChidForm(suaPhim, sender);  
-                }
-                //else if (e.ColumnIndex == 5) // Cột 5: Xóa
-                //{
-                //    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim: {movieTitle}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                //    if (result == DialogResult.Yes)
-                //    {
-                //        Movie__controller movieController = new Movie__controller();
-                //        // Gọi hàm xóa trong controller
-                //        if (movieController.DeleteMovie(movieId))
-                //        {
-                //            MessageBox.Show("Xóa phim thành công!", "Thông báo");
-                //            LoadMovies(); // Tải lại danh sách phim
-                //        }
-                //        else
-                //        {
-                //            MessageBox.Show("Xóa phim thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //        }
-                //    }
-                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
