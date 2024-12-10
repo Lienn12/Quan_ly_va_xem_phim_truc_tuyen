@@ -27,11 +27,16 @@ namespace Quan_ly_thu_vien_phim.Model
         {
         }
 
-        public Movie_model(SqlDataReader reader)
+        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country) : this(movieId, title, year)
         {
-            MovieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID")); 
-            Title = reader.GetString(reader.GetOrdinal("TITLE"));     
-            Year = reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR"));
+            MovieId = movieId;
+            Title = title;
+            Year = year;
+            Director = director;
+            Cast = cast;
+            Genre = genre;
+            Format = format;
+            Country = country;
         }
 
         public Movie_model(int movieId, string title, int year)
@@ -39,6 +44,7 @@ namespace Quan_ly_thu_vien_phim.Model
             MovieId = movieId;
             Title = title;
             Year = year;
+
         }
 
         public Movie_model(int movieId, string title, string description, float rating, string imgPath)
