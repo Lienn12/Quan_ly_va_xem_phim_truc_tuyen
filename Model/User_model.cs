@@ -41,5 +41,14 @@ namespace Quan_ly_thu_vien_phim.Model
             this.birth = birth;
             this.verifyCode = verifyCode;
         }
+        public User_model(int userId, string username, string email, string gender, DateTime birth)
+        {
+            this.userId = userId;
+            this.username = username;
+            this.email = email;
+            this.gender = gender;
+            this.birth = birth;
+        }
+
     }
 }

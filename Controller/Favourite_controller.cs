@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
@@ -20,14 +21,14 @@ namespace Quan_ly_thu_vien_phim.Controller
         public List<Favourite_model> GetFavorite(int userId)
         {
             List<Favourite_model> dsFavorite = new List<Favourite_model>();
-            string sql = "SELECT FAVORITE_ID, USER_ID, TITLE, RELEASE_YEAR FROM FAVORITEs, MOVIES WHERE MOVIES.MOVIE_ID = FAVORITEs.MOVIE_ID AND USER_ID = @userId";
+            string sql = "SELECT FAVORITE_ID, USER_ID, TITLE, RELEASE_YEAR FROM FAVORITES, MOVIES WHERE MOVIES.MOVIE_ID = FAVORITEs.MOVIE_ID AND USER_ID = @userId";
 
-            using (conn)
-            {
+            using (conn=new DbConnect().GetConnection())
+            {   
+                conn.Open();
                 using (cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    conn.Open();
+                    cmd.Parameters.AddWithValue("@userId", userId);                   
                     using (reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -45,7 +46,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         public int GetMovieId(int favoriteID)
         {
             string sql = "SELECT MOVIE_ID FROM FAVORITES WHERE FAVORITE_ID = @favoriteID";
-            using (conn)
+            using (conn = new DbConnect().GetConnection())
             {
                 using (cmd = new SqlCommand(sql, conn))
                 {

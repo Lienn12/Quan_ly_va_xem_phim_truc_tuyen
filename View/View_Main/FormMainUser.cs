@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quan_ly_thu_vien_phim.Model;
+using Quan_ly_thu_vien_phim.View.View_Container;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +15,17 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
     public partial class FormMainUser : Form
     {
         private Form activeForm;
+        private FormFavourite formFavourite;
+        private TrangUser trangUser;
+        private User_model user;
         public FormMainUser()
         {
             InitializeComponent();
             this.Size = new Size(1250, 800);
             pnlHeader.Size = new Size(1250, 40);
             pnlMenu.Size = new Size(250, 760);
+            formFavourite = new FormFavourite(this);
+            trangUser = new TrangUser();
         }
 
         public void OpenChidForm(Form childForm, object btnSender)
@@ -28,7 +35,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             {
                 activeForm.Close();
             }
-
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -58,7 +64,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
         private void btnFavourite_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormFavourite(), sender);
+            OpenChidForm(new View_Container.FormFavourite(this), sender);
+            formFavourite.ShowData();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -72,6 +79,22 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             this.Hide();
             formLoginSignup.ShowDialog();
             this.Close();
+        }
+        public FormFavourite GetFavourite()
+        {
+            if (formFavourite == null)
+            {
+                formFavourite = new FormFavourite(this);
+            }
+            return formFavourite;
+        }
+        public TrangUser getCaNhan()
+        {
+            return trangUser;
+        }
+        public void setuserModel(User_model user)
+        {
+            this.user = user;
         }
     }
 }

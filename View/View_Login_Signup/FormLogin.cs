@@ -1,5 +1,6 @@
 ﻿using Quan_ly_thu_vien_phim.Controller;
 using Quan_ly_thu_vien_phim.Model;
+using Quan_ly_thu_vien_phim.View.View_Container;
 using Quan_ly_thu_vien_phim.View.View_Main;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
     public partial class FormLogin : Form
     {
         private FormMain formMain = new FormMain();
-        private FormMainUser formMainUser = new FormMainUser();
+        private FormMainUser formMainUser ;
         private View_Main.FormLoginSignup frmLoginSignup;
-        private User_model user;
+        private User_model user, userInfor;
         private Admin_model admin;
         private User_controller userController;
         private Admin_controller adminController;
@@ -50,10 +51,19 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
             {
                 if (userController.CheckLoginUser(user, password)) 
                 {
+                    int userId = user.userId;
                     MessageBox.Show("Đăng nhập thành công");
-                    frmLoginSignup.Hide();
+                    //frmLoginSignup.Hide();
+                    userInfor = userController.GetInfo(userId);
+                    formMainUser = new FormMainUser();
+                    formMainUser.setuserModel(user);
+                    FormFavourite formFavourite = formMainUser.GetFavourite();
+                    formFavourite.ShowData();
+                    TrangUser tranguser = formMainUser.getCaNhan();
+                    tranguser.setInfor(userInfor);
                     formMainUser.ShowDialog();
-                    frmLoginSignup.Close();
+                    //frmLoginSignup.Close();
+                    
                 }
                 else if(adminController.CheckLoginAdmin(admin,password))
                 {

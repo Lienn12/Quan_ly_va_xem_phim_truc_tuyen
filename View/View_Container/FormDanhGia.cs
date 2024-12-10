@@ -38,13 +38,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             try
             {
-                // Lấy danh sách đánh giá từ controller
                 List<DanhGia_model> reviews = danhGia_Controller.getdanhgia();
 
-                // Xóa dữ liệu cũ (nếu có)
                 dataGridView1.Rows.Clear();
 
-                // Thêm dữ liệu vào DataGridView
                 foreach (var review in reviews)
                 {
                     dataGridView1.Rows.Add(

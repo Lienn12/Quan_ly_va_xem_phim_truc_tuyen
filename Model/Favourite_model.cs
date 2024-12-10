@@ -32,5 +32,9 @@ namespace Quan_ly_thu_vien_phim.Model
             this.Movie.Year = year;
         }
 
+        public override string ToString()
+        {
+            return $"Favourite ID: {FavouriteId}, User: {User.userId}, Movie: {Movie.Title} ({Movie.Year})";
+        }
     }
 }

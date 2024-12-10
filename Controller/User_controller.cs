@@ -65,8 +65,19 @@ namespace Quan_ly_thu_vien_phim.Controller
                 {
                     cmd.Parameters.AddWithValue("@username", user.username);
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
-
-                    return cmd.ExecuteScalar() != null;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read()) 
+                        {
+                            int userId = Convert.ToInt32(reader["USER_ID"]); 
+                            user.userId = userId;
+                            return true; 
+                        }
+                        else
+                        {
+                            return false; 
+                        }
+                    }
                 }
             }
         }
@@ -324,5 +335,58 @@ namespace Quan_ly_thu_vien_phim.Controller
                 }
             }
         }
+
+        public User_model GetInfo(int userId)
+        {
+            string sql = "SELECT USER_ID, USERNAME, GENDER, BIRTH, EMAIL FROM USERS WHERE USER_ID = @UserId";
+            User_model userInfo = null;
+
+            using (conn)
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userInfo = new User_model
+                            {
+                                userId = reader.GetInt32(reader.GetOrdinal("USER_ID")),
+                                username = reader.IsDBNull(reader.GetOrdinal("USERNAME")) ? null : reader.GetString(reader.GetOrdinal("USERNAME")),
+                                email = reader.IsDBNull(reader.GetOrdinal("EMAIL")) ? null : reader.GetString(reader.GetOrdinal("EMAIL")),
+                                gender = reader.IsDBNull(reader.GetOrdinal("GENDER")) ? null : reader.GetString(reader.GetOrdinal("GENDER")),
+                                birth = reader.IsDBNull(reader.GetOrdinal("BIRTH")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("BIRTH"))
+                            };
+                        }
+                    }
+                }
+            }
+
+            return userInfo;
+        }
+
+        public bool UpdateInfo(User_model userModel)
+        {
+            string sql = "UPDATE USERS SET BIRTH = @Birth, GENDER = @Gender, EMAIL = @Email WHERE USER_ID = @UserId";
+
+            using (conn) 
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Birth", userModel.birth);
+                    cmd.Parameters.AddWithValue("@Gender", userModel.gender);
+                    cmd.Parameters.AddWithValue("@Email", userModel.email);
+                    cmd.Parameters.AddWithValue("@UserId", userModel.userId);
+
+                    int rowsUpdated = cmd.ExecuteNonQuery();
+                    return rowsUpdated > 0;
+                }
+            }
+        }
+
     }
 }
