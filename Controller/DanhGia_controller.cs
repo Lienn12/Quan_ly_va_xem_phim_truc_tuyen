@@ -16,61 +16,98 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             conn = new DbConnect().GetConnection();
         }
-
-        public List<DanhGia_model> getdanhgia()
+        public List<DanhGia_model> GetReview()
         {
-            List<DanhGia_model> reviews = new List<DanhGia_model>();
-
-            try
+            List<DanhGia_model> dsReview = new List<DanhGia_model>();
+            string sql = "SELECT REVIEW_ID, USERNAME, TITLE, REVIEWS.RATING, REVIEW_DATE FROM REVIEWS, USERS, MOVIES WHERE REVIEWS.MOVIE_ID = MOVIES.MOVIE_ID AND REVIEWS.USER_ID = USERS.USER_ID";
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
-                // Câu truy vấn SQL
-                string query = @"SELECT 
-                                    REVIEWS.REVIEW_ID AS 'ID Đánh Giá',
-                                    USERS.USERNAME AS 'Tên Tài Khoản',
-                                    MOVIES.TITLE AS 'Tên Phim',
-                                    REVIEWS.RATING AS 'Rating',
-                                    FORMAT(REVIEWS.REVIEW_DATE, 'dd/MM/yyyy HH:mm:ss') AS 'Ngày Đánh Giá'
-                                FROM REVIEWS
-                                INNER JOIN USERS ON REVIEWS.USER_ID = USERS.USER_ID
-                                INNER JOIN MOVIES ON REVIEWS.MOVIE_ID = MOVIES.MOVIE_ID;";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    conn.Open();
-
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            // Thêm từng dòng dữ liệu vào danh sách
-                            DanhGia_model review = new DanhGia_model
-                            {
-                                ReviewId = Convert.ToInt32(reader["ID Đánh Giá"]),
-                                Username = reader["Tên Tài Khoản"].ToString(),
-                                MovieTitle = reader["Tên Phim"].ToString(),
-                                Rating = Convert.ToInt32(reader["Rating"]),
-                                ReviewDate = reader["Ngày Đánh Giá"].ToString()
-                            };
-
-                            reviews.Add(review);
+                            DanhGia_model reviewModel = new DanhGia_model(reader);
+                            dsReview.Add(reviewModel);
                         }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                // Ghi lỗi nếu xảy ra
-                Console.WriteLine("Lỗi khi lấy dữ liệu đánh giá: " + ex.Message);
-            }
-            finally
-            {
-                // Đảm bảo kết nối được đóng
-                if (conn.State == System.Data.ConnectionState.Open)
-                    conn.Close();
-            }
-
-            return reviews;
+            return dsReview;
         }
+        public DanhGia_model GetReply(int reviewId)
+        {
+            string sql = @"
+                        SELECT Review_ID, USERNAME, REVIEW_DATE, REVIEWS.RATING, COMMENT, COVER_IMAGE, TITLE, RELEASE_YEAR, REPLY
+                        FROM USERS, REVIEWS, MOVIES
+                        WHERE REVIEWS.MOVIE_ID = MOVIES.MOVIE_ID 
+                        AND REVIEWS.USER_ID = USERS.USER_ID 
+                        AND REVIEW_ID = @reviewId";
+            using (SqlConnection conn = new DbConnect().GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@reviewId", reviewId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string username = reader["USERNAME"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("USERNAME")) : string.Empty;
+                            DateTime reviewDate = reader["REVIEW_DATE"] != DBNull.Value ? reader.GetDateTime(reader.GetOrdinal("REVIEW_DATE")) : DateTime.MinValue;
+                            int rating = reader["RATING"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RATING")) : 0;
+                            string comment = reader["COMMENT"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("COMMENT")) : string.Empty;
+                            string img = reader["COVER_IMAGE"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("COVER_IMAGE")) : string.Empty;
+                            string title = reader["TITLE"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("TITLE")) : string.Empty;
+                            int releaseYear = reader["RELEASE_YEAR"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR")) : 0;
+                            string reply = reader["REPLY"] != DBNull.Value ? reader.GetString(reader.GetOrdinal("REPLY")) : string.Empty;
+
+                            return new DanhGia_model(reviewId, username, reviewDate, rating, comment, img, title, releaseYear, reply);
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
+        public bool SetReply(int reviewId, string reply)
+        {
+            string sql = "UPDATE REVIEWS SET REPLY = @reply WHERE REVIEW_ID = @reviewId";
+            using (SqlConnection conn = new DbConnect().GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@reply", reply);
+                    cmd.Parameters.AddWithValue("@reviewId", reviewId);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            
+        }
+        public bool DeleteReply(int reviewId)
+        {
+            string sql = "UPDATE reviews SET reply = '' WHERE review_ID = @reviewId";
+            using (SqlConnection conn = new DbConnect().GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@reviewId", reviewId);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
         public void DeleteReview(int reviewId)
         {
             using (SqlConnection conn = new DbConnect().GetConnection())

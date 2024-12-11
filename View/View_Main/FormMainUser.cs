@@ -24,8 +24,14 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             this.Size = new Size(1250, 800);
             pnlHeader.Size = new Size(1250, 40);
             pnlMenu.Size = new Size(250, 760);
-            formFavourite = new FormFavourite(this);
-            trangUser = new TrangUser();
+            if (formFavourite == null || formFavourite.IsDisposed)
+            {
+                formFavourite = new FormFavourite(this);
+            }
+            if (trangUser == null || trangUser.IsDisposed)
+            {
+                trangUser = new TrangUser(this);
+            }
         }
 
         public void OpenChidForm(Form childForm, object btnSender)
@@ -59,13 +65,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
         private void btnCaNhan_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.TrangUser(),sender);
+            OpenChidForm(trangUser, sender);
         }
 
         private void btnFavourite_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormFavourite(this), sender);
-            formFavourite.ShowData();
+            OpenChidForm(formFavourite, sender);
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -82,14 +87,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         }
         public FormFavourite GetFavourite()
         {
-            if (formFavourite == null)
-            {
-                formFavourite = new FormFavourite(this);
-            }
+            
             return formFavourite;
         }
         public TrangUser getCaNhan()
         {
+            
             return trangUser;
         }
         public void setuserModel(User_model user)

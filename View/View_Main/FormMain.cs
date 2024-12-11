@@ -18,6 +18,7 @@ namespace Quan_ly_thu_vien_phim.View
         private SuaPhim suaPhim ;
         private XemChiTiet xemChiTiet;
         private Form activeForm;
+        private FormPhanHoiDanhGia formPhanHoi;
         public FormMain()
         {
             InitializeComponent();
@@ -100,6 +101,14 @@ namespace Quan_ly_thu_vien_phim.View
                 xemChiTiet = new XemChiTiet(this);
             }
             return xemChiTiet;
+        }
+        public FormPhanHoiDanhGia GetDanhGia()
+        {
+            if (formPhanHoi == null || formPhanHoi.IsDisposed)
+            {
+                formPhanHoi = new FormPhanHoiDanhGia(this);
+            }
+            return formPhanHoi;
         }
     }
 }

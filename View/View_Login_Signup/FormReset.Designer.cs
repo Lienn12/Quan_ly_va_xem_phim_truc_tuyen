@@ -93,7 +93,7 @@
             this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back1;
+            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backlai;
             this.btnBack.Location = new System.Drawing.Point(41, 45);
             this.btnBack.Margin = new System.Windows.Forms.Padding(6);
             this.btnBack.Name = "btnBack";
