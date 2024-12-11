@@ -50,9 +50,6 @@ namespace Quan_ly_thu_vien_phim.View
             }
         }
 
-   
-
-
         private void LoadDataComboBox<T>(ComboBox comboBox, List<T> dataList, string displayField)
         {
             try
@@ -204,6 +201,24 @@ namespace Quan_ly_thu_vien_phim.View
                 else
                 {
                     MessageBox.Show("Không tìm thấy tệp hình ảnh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cbFormat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFormat.SelectedItem is Format_model selected)
+            {
+                string formatName = selected.FormatName;
+                if (formatName == "Phim lẻ")
+                {
+                    txtEpisode.Text = "1";
+                    txtEpisode.Enabled = false;
+                }
+                else if (formatName == "Phim bộ")
+                {
+                    txtEpisode.Enabled = true;
+                    txtEpisode.Text = string.Empty;
                 }
             }
         }

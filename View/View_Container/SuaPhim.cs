@@ -360,6 +360,24 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             return movie;
         }
 
+        private void cbDinhDang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDinhDang.SelectedItem is Format_model selected)
+            {
+                string formatName = selected.FormatName;
+                if (formatName == "Phim lẻ")
+                {
+                    txtSoTap.Text = "1";
+                    txtSoTap.Enabled = false;
+                }
+                else if (formatName == "Phim bộ")
+                {
+                    txtSoTap.Enabled = true;
+                    txtSoTap.Text = string.Empty;
+                }
+            }
+        }
+
         public void setNull()
         {
             this.txtTen = null;
