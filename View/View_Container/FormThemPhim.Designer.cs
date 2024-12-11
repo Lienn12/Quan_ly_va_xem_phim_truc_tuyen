@@ -178,6 +178,7 @@
             this.cbFormat.Name = "cbFormat";
             this.cbFormat.Size = new System.Drawing.Size(337, 21);
             this.cbFormat.TabIndex = 17;
+            this.cbFormat.SelectedIndexChanged += new System.EventHandler(this.cbFormat_SelectedIndexChanged);
             // 
             // cbCountry
             // 
