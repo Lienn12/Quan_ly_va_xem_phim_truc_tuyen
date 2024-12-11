@@ -56,50 +56,50 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
             bool valid = true;
             if (string.IsNullOrWhiteSpace(user.username))  
             {
-                txtUsename.Text = "Username không được để trống.";  
+                lbErrorUser.Text = "Username không được để trống.";  
                 valid = false;
             }
             else if (userController.CheckDuplicateUser(user.username)) 
             {
-                txtUsename.Text = "Username đã tồn tại";  
+                lbErrorUser.Text = "Username đã tồn tại";  
                 valid = false;
             }
 
             if (string.IsNullOrWhiteSpace(user.email))  
             {
-                txtEmail.Text = "Email không được để trống.";  
+                lbErrorEmail.Text = "Email không được để trống.";  
                 valid = false;
             }
             else if (userController.CheckDuplicateEmail(user.email)) 
             {
-                txtEmail.Text = "Email đã tồn tại.";  
+                lbErrorEmail.Text = "Email đã tồn tại.";  
                 valid = false;
             }
             else if (!userController.CheckEmail(user.email))  
             {
-                txtEmail.Text = "Email không hợp lệ";  
+                lbErrorEmail.Text = "Email không hợp lệ";  
                 valid = false;
             }
  
             if (string.IsNullOrWhiteSpace(password))  
             {
-                txtPass.Text = "Password không được để trống.";  
+                lbErrorPass.Text = "Password không được để trống.";  
                 valid = false;
             }
             else if (!userController.CheckPassword(password))  
             {
-                txtPass.Text = "Mật khẩu không hợp lệ. Vui lòng nhập ít nhất 6 ký tự, bao gồm cả chữ, số và ký tự.";  
+                lbErrorPass.Text = "Mật khẩu không hợp lệ. Vui lòng nhập ít nhất 8 ký tự, \nbao gồm cả chữ, số và ký tự.";  
                 valid = false;
             }
 
             if (string.IsNullOrWhiteSpace(confirm))  
             {
-                txtConfirm.Text = "Xác nhận mật khẩu không được để trống.";  
+                lbErrorConfirm.Text = "Xác nhận mật khẩu không được để trống.";  
                 valid = false;
             }
             else if (password != confirm)  
             {
-                txtConfirm.Text = "Xác nhận mật khẩu không khớp. Vui lòng nhập lại";  
+                lbErrorConfirm.Text = "Xác nhận mật khẩu không khớp. Vui lòng nhập lại";  
             }
 
             return valid;

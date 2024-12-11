@@ -26,6 +26,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
             userController =new User_controller();
             ms= new MessageEmail_controller();
             InitializeComponent();
+            setShow(false);
+        }
+        private void setShow(bool a) 
+        {
+            lbVerify.Visible = a;
+            txtVerifyCode.Visible = a;
+            btnVerify.Visible = a;
         }
         public void setUserModel(User_model user)
         {
@@ -54,7 +61,15 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
             else
             {
                 userController.ForgotPassword(user);
-                ms.sendEmail(email, user.verifyCode);
+                if(ms.sendEmail(email, user.verifyCode))
+                {
+                    MessageBox.Show("Đã gửi code. Vui lòng kiểm tra email!!", "thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setShow(true);
+                }
+                else
+                {
+                    MessageBox.Show("Không thể gửi được Email!!", "loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

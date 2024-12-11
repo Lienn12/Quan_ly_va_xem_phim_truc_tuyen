@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbVerify = new System.Windows.Forms.Label();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnVerify = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -59,15 +59,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Email";
             // 
-            // label3
+            // lbVerify
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 341);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Verify Code";
+            this.lbVerify.AutoSize = true;
+            this.lbVerify.Location = new System.Drawing.Point(60, 341);
+            this.lbVerify.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbVerify.Name = "lbVerify";
+            this.lbVerify.Size = new System.Drawing.Size(109, 25);
+            this.lbVerify.TabIndex = 3;
+            this.lbVerify.Text = "Verify Code";
             // 
             // btnSend
             // 
@@ -75,7 +75,7 @@
             this.btnSend.FlatAppearance.BorderSize = 0;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(298, 220);
+            this.btnSend.Location = new System.Drawing.Point(298, 279);
             this.btnSend.Margin = new System.Windows.Forms.Padding(6);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(113, 44);
@@ -90,7 +90,7 @@
             this.btnVerify.FlatAppearance.BorderSize = 0;
             this.btnVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerify.ForeColor = System.Drawing.Color.White;
-            this.btnVerify.Location = new System.Drawing.Point(298, 372);
+            this.btnVerify.Location = new System.Drawing.Point(298, 425);
             this.btnVerify.Margin = new System.Windows.Forms.Padding(6);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(113, 44);
@@ -101,22 +101,22 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(65, 224);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(6);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(221, 40);
+            this.txtEmail.Size = new System.Drawing.Size(346, 40);
             this.txtEmail.TabIndex = 6;
             // 
             // txtVerifyCode
             // 
-            this.txtVerifyCode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerifyCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerifyCode.Location = new System.Drawing.Point(65, 372);
             this.txtVerifyCode.Margin = new System.Windows.Forms.Padding(6);
             this.txtVerifyCode.Multiline = true;
             this.txtVerifyCode.Name = "txtVerifyCode";
-            this.txtVerifyCode.Size = new System.Drawing.Size(221, 40);
+            this.txtVerifyCode.Size = new System.Drawing.Size(346, 40);
             this.txtVerifyCode.TabIndex = 7;
             // 
             // btnBack
@@ -124,7 +124,7 @@
             this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.back1;
+            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backlai;
             this.btnBack.Location = new System.Drawing.Point(41, 40);
             this.btnBack.Margin = new System.Windows.Forms.Padding(6);
             this.btnBack.Name = "btnBack";
@@ -143,7 +143,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnVerify);
             this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbVerify);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
@@ -163,7 +163,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbVerify;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnVerify;
         private System.Windows.Forms.TextBox txtEmail;

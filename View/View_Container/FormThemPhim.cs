@@ -50,52 +50,8 @@ namespace Quan_ly_thu_vien_phim.View
             }
         }
 
-        private void btnUpVid_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog   // Tạo OpenFileDialog
-            {
-                Filter = "Video Files|*.mp4;*.avi;*.wmv;*.mov;*.mkv",
-                Title = "Chọn video"
-            };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)   // Hiển thị hộp thoại chọn file
-            {
-                videoPath = openFileDialog.FileName;
-                if (!string.IsNullOrEmpty(videoPath) && File.Exists(videoPath))
-                {
-                    btnUpVid.BackColor = Color.Green; // Đổi màu nút thành màu được chỉ định
-                }
-            }
-            else
-            {
-                MessageBox.Show("Bạn chưa chọn file nào!");
-            }
-        }
+   
 
-        private void btnUpImg_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
-                Title = "Chọn ảnh để tải lên"
-            };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                filePath = openFileDialog.FileName;                
-                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
-                {
-                    pbMovie.Image = Image.FromFile(filePath);
-                    pbMovie.SizeMode = PictureBoxSizeMode.Zoom;
-                    btnUpImg.BackColor = Color.Green; // Đổi màu nút thành màu được chỉ định
-                }
-            }
-        }
-
-        private void btnThemTap_Click(object sender, EventArgs e)
-        {
-            ThemTap themTap = new ThemTap();
-            themTap.Show();
-            
-        }
 
         private void LoadDataComboBox<T>(ComboBox comboBox, List<T> dataList, string displayField)
         {

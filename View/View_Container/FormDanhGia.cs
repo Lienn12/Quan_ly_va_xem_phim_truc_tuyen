@@ -38,16 +38,15 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             try
             {
-                List<DanhGia_model> reviews = danhGia_Controller.getdanhgia();
+                List<DanhGia_model> reviews = danhGia_Controller.GetReview();
 
                 dataGridView1.Rows.Clear();
-
                 foreach (var review in reviews)
                 {
                     dataGridView1.Rows.Add(
                         review.ReviewId,       // Cột "ID Đánh Giá"
-                        review.Username,       // Cột "Tên Tài Khoản"
-                        review.MovieTitle,     // Cột "Tên Phim"
+                        review.User.username,       // Cột "Tên Tài Khoản"
+                        review.Movie.Title,     // Cột "Tên Phim"
                         review.Rating,         // Cột "Rating"
                         review.ReviewDate      // Cột "Ngày Đánh Giá"
                     );
@@ -70,12 +69,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             {
                 try
                 {
-                    // Lấy giá trị của cột ReviewID
                     object reviewIdValue = dataGridView1.Rows[e.RowIndex].Cells["ReviewID"].Value;
                     if (reviewIdValue != null && int.TryParse(reviewIdValue.ToString(), out int reviewId) && reviewId > 0)
                     {
-                        // Mở form PhanHoiDanhGia và truyền reviewId
-                        formMain.OpenChidForm(new View.View_Container.FormPhanHoiDanhGia(formMain, reviewId), sender);
+                        FormPhanHoiDanhGia formPhanHoi=  formMain.GetDanhGia();
+                        formPhanHoi.ShowDanhgia(reviewId);
+                        formMain.OpenChidForm(formPhanHoi, sender);
                     }
                     else
                     {
