@@ -80,7 +80,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            //OpenChidForm(new View_Container.FormTrangChu(this), sender);
+            OpenChidForm(new View_Container.TrangchuUser(this), sender);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

@@ -134,6 +134,18 @@
     <Compile Include="View\View_Container\PhatVideo.Designer.cs">
       <DependentUpon>PhatVideo.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\PhimLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\PhimLoai.Designer.cs">
+      <DependentUpon>PhimLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\PhimTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\PhimTrangChu.Designer.cs">
+      <DependentUpon>PhimTrangChu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\SuaPhim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </Compile>
     <Compile Include="View\View_Container\ThemTap.Designer.cs">
       <DependentUpon>ThemTap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\TrangchuUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\TrangchuUser.Designer.cs">
+      <DependentUpon>TrangchuUser.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\TrangUser.cs">
       <SubType>Form</SubType>
@@ -227,6 +245,12 @@
     <Compile Include="View\View_useControl\ItemPhim.Designer.cs">
       <DependentUpon>ItemPhim.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_useControl\ItemPhimUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\View_useControl\ItemPhimUser.Designer.cs">
+      <DependentUpon>ItemPhimUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_useControl\ItemReviewformUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -286,11 +310,20 @@
     <EmbeddedResource Include="View\View_Container\PhatVideo.resx">
       <DependentUpon>PhatVideo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\PhimLoai.resx">
+      <DependentUpon>PhimLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\PhimTrangChu.resx">
+      <DependentUpon>PhimTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\SuaPhim.resx">
       <DependentUpon>SuaPhim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\ThemTap.resx">
       <DependentUpon>ThemTap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\TrangchuUser.resx">
+      <DependentUpon>TrangchuUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\TrangUser.resx">
       <DependentUpon>TrangUser.cs</DependentUpon>
@@ -328,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_useControl\ItemPhim.resx">
       <DependentUpon>ItemPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_useControl\ItemPhimUser.resx">
+      <DependentUpon>ItemPhimUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_useControl\ItemReviewformUser.resx">
       <DependentUpon>ItemReviewformUser.cs</DependentUpon>
