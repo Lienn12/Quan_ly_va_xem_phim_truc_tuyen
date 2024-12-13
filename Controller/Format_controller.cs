@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
@@ -24,26 +25,28 @@ namespace Quan_ly_thu_vien_phim.Controller
             string sql = "SELECT * FROM FORMATS";
             try
             {
-                conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (conn = new DbConnect().GetConnection())
                 {
-                    int formatId = reader.GetInt32(reader.GetOrdinal("FORMAT_ID"));
-                    string formatName = reader.GetString(reader.GetOrdinal("FORMAT_NAME"));
-                    // Tạo đối tượng Formats và thêm vào danh sách
-                    Format_model format = new Format_model(formatId, formatName);
-                    formatList.Add(format);
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int formatId = reader.GetInt32(reader.GetOrdinal("FORMAT_ID"));
+                                string formatName = reader.GetString(reader.GetOrdinal("FORMAT_NAME"));
+                                // Tạo đối tượng Formats và thêm vào danh sách
+                                Format_model format = new Format_model(formatId, formatName);
+                                formatList.Add(format);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null) reader.Close();
-                if (conn != null) conn.Close();
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             return formatList;
         }

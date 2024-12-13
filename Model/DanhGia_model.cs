@@ -54,6 +54,15 @@ namespace Quan_ly_thu_vien_phim.Model
             Rating = rating;
             Reply = reply;
         }
+
+        public DanhGia_model(string username, int rating, string comment, int movieId,string reply)
+        {
+            this.User = new User_model(username);  
+            this.Movie = new Movie_model(movieId); 
+            this.Comment = comment;
+            this.Rating = rating;
+            this.Reply = reply;
+        }
     }
 
 }

@@ -26,6 +26,10 @@ namespace Quan_ly_thu_vien_phim.Model
         public Movie_model()
         {
         }
+        public Movie_model(int movieId)
+        {
+            MovieId = movieId;
+        }
 
         public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country) : this(movieId, title, year)
         {
@@ -44,7 +48,6 @@ namespace Quan_ly_thu_vien_phim.Model
             MovieId = movieId;
             Title = title;
             Year = year;
-
         }
 
         public Movie_model(int movieId, string title, string description, float rating, string imgPath)
@@ -55,11 +58,24 @@ namespace Quan_ly_thu_vien_phim.Model
             Rating = rating;
             ImgPath = imgPath;
         }
-
-        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode, string imgPath, string vidPath) : this(movieId, title, year)
+        public Movie_model(int movieId, string title,float rating, string imgPath)
         {
             MovieId = movieId;
             Title = title;
+            Rating = rating;
+            ImgPath = imgPath;
+        }
+        public Movie_model( string title, float rating, string imgPath)
+        {
+            Title = title;
+            Rating = rating;
+            ImgPath = imgPath;
+        }
+        public Movie_model(int movieId, string title,float rating, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode, string imgPath, string vidPath) : this(movieId, title, year)
+        {
+            MovieId = movieId;
+            Title = title;
+            Rating = rating;
             Year = year;
             Director = director;
             Cast = cast;

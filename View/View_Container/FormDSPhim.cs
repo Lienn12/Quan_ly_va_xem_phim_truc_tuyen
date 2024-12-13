@@ -21,13 +21,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             this.formMain = formMain;
             InitializeComponent();
-            this.Load += FormDSPhim_Load; // Gắn sự kiện Load cho form
+            this.Load += FormDSPhim_Load; 
         }
         private void LoadMovies()
         {
             try
             {
-                // Tạo controller và lấy danh sách phim
                 Movie_controller movieController = new Movie_controller();
                 List<Movie_model> movies = movieController.GetMovies();
 
@@ -70,7 +69,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     chiTiet = formMain.getChiTiet();
                     chiTiet.showMovie(movieId);
                     formMain.OpenChidForm(chiTiet, sender);
-                    
                 }
                 else if (e.ColumnIndex == 4) // Cột 4: Chuyển đến trang sửa phim
                 {
@@ -88,7 +86,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         {
                             Movie_controller movieController = new Movie_controller();
                             bool isDeleted = movieController.DeleteFilm(movieId);
-
                             if (isDeleted)
                             {
                                 MessageBox.Show("Xóa phim thành công!", "Thông báo");

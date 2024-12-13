@@ -123,6 +123,7 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap backlai {
             get {
                 object obj = ResourceManager.GetObject("backlai", resourceCulture);
@@ -133,6 +134,7 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap backxanh {
             get {
                 object obj = ResourceManager.GetObject("backxanh", resourceCulture);
@@ -156,6 +158,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         internal static System.Drawing.Bitmap eyeShow {
             get {
                 object obj = ResourceManager.GetObject("eyeShow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Favourite {
+            get {
+                object obj = ResourceManager.GetObject("Favourite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,6 +305,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reply_icon {
+            get {
+                object obj = ResourceManager.GetObject("reply_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap review {
             get {
                 object obj = ResourceManager.GetObject("review", resourceCulture);
@@ -316,6 +338,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         internal static System.Drawing.Bitmap stargray {
             get {
                 object obj = ResourceManager.GetObject("stargray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash {
+            get {
+                object obj = ResourceManager.GetObject("trash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

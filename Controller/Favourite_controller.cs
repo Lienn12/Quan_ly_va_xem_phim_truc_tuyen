@@ -47,11 +47,12 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             string sql = "SELECT MOVIE_ID FROM FAVORITES WHERE FAVORITE_ID = @favoriteID";
             using (conn = new DbConnect().GetConnection())
-            {
+            { 
+                conn.Open();
                 using (cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@favoriteID", favoriteID);
-                    conn.Open();
+                   
                     using (reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -71,12 +72,13 @@ namespace Quan_ly_thu_vien_phim.Controller
         public int GetUserId(int favoriteID)
         {
             string sql = "SELECT USER_ID FROM FAVORITES WHERE FAVORITE_ID = @favoriteID";
-            using(conn)
+            using(conn = new DbConnect().GetConnection())
             {
+                conn.Open();
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@favoriteID", favoriteID);
-                    conn.Open();
+                    
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -95,13 +97,14 @@ namespace Quan_ly_thu_vien_phim.Controller
         public bool InsertFavorite(int movieId, int userId)
         {
             string sql = "INSERT INTO FAVORITES (MOVIE_ID, USER_ID) VALUES (@movieId, @userId)";
-            using (conn)
-            {
+            using (conn = new DbConnect().GetConnection())
+            { 
+                conn.Open();
                 using (cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@movieId", movieId);
                     cmd.Parameters.AddWithValue("@userId", userId);
-                    conn.Open();
+                   
                     int row = cmd.ExecuteNonQuery();
                     return row > 0;
                 }
@@ -111,13 +114,14 @@ namespace Quan_ly_thu_vien_phim.Controller
         public bool CheckMovie(int movieId, int userId)
         {
             string sql = "SELECT FAVORITE_ID FROM FAVORITES WHERE USER_ID = @userId AND MOVIE_ID = @movieId";
-            using (conn)
+            using (conn = new DbConnect().GetConnection())
             {
+                conn.Open();
                 using (cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@userId", userId);
                     cmd.Parameters.AddWithValue("@movieId", movieId);
-                    conn.Open();
+                    
                     using (reader = cmd.ExecuteReader())
                     {
                         return reader.HasRows;
@@ -129,12 +133,13 @@ namespace Quan_ly_thu_vien_phim.Controller
         public bool DeleteFavorite(int favoriteID)
         {
             string sql = "DELETE FROM FAVORITES WHERE FAVORITE_ID = @favoriteID";
-            using (conn)
+            using (conn = new DbConnect().GetConnection())
             {
+                conn.Open();
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@favoriteID", favoriteID);
-                    conn.Open();
+                    
                     int row = cmd.ExecuteNonQuery();
                     return row > 0;
                 }

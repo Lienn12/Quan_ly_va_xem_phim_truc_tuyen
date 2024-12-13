@@ -192,15 +192,14 @@
             // 
             this.lbMinimum.AutoSize = true;
             this.lbMinimum.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lbMinimum.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbMinimum.Font = new System.Drawing.Font("Segoe UI Black", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMinimum.ForeColor = System.Drawing.Color.White;
-            this.lbMinimum.Location = new System.Drawing.Point(1186, 0);
+            this.lbMinimum.Location = new System.Drawing.Point(1186, -6);
             this.lbMinimum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMinimum.Name = "lbMinimum";
-            this.lbMinimum.Size = new System.Drawing.Size(29, 40);
+            this.lbMinimum.Size = new System.Drawing.Size(37, 40);
             this.lbMinimum.TabIndex = 0;
-            this.lbMinimum.Text = "_";
+            this.lbMinimum.Text = "_ ";
             // 
             // lbExit
             // 

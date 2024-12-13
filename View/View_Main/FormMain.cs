@@ -19,6 +19,7 @@ namespace Quan_ly_thu_vien_phim.View
         private XemChiTiet xemChiTiet;
         private Form activeForm;
         private FormPhanHoiDanhGia formPhanHoi;
+        private FormMainUser formMainUser;
         public FormMain()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormTrangChu(), sender);
+            OpenChidForm(new View_Container.FormTrangChu(this), sender);
         }
 
         private void btnFilm_Click(object sender, EventArgs e)

@@ -27,7 +27,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         public List<User_model> GetUserData()
         {
             List<User_model> users = new List<User_model>();
-            string sql = "SELECT * FROM USERS";
+            string sql = "SELECT * FROM USERS WHERE STATUS='VERIFIED'";
 
             using (SqlConnection conn = new DbConnect().GetConnection())
             {
@@ -44,7 +44,6 @@ namespace Quan_ly_thu_vien_phim.Controller
                             email = reader["EMAIL"]?.ToString() ?? string.Empty,
                             gender = reader["GENDER"]?.ToString() ?? string.Empty,
                             birth = reader["BIRTH"] != DBNull.Value ? Convert.ToDateTime(reader["BIRTH"]) : DateTime.MinValue,
-                            verifyCode = reader["VERIFYCODE"]?.ToString() ?? string.Empty
                         };
                         users.Add(user);
                     }
@@ -57,28 +56,35 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             string sql = "SELECT * FROM USERS WHERE USERNAME = @username AND PASSWORD = @password AND STATUS = 'VERIFIED'";
             string hashedPassword = HashPassword(password);
-
-            using (SqlConnection conn = new DbConnect().GetConnection())
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@username", user.username);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        if (reader.Read()) 
+                        cmd.Parameters.AddWithValue("@username", user.username);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            int userId = Convert.ToInt32(reader["USER_ID"]); 
-                            user.userId = userId;
-                            return true; 
-                        }
-                        else
-                        {
-                            return false; 
+                            if (reader.Read())
+                            {
+                                int userId = Convert.ToInt32(reader["USER_ID"]);
+                                user.userId = userId;
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
             }
         }
         //Kiem tra dang ky
@@ -235,18 +241,24 @@ namespace Quan_ly_thu_vien_phim.Controller
         public void DoneVerify(int userId)
         {
             string sql = "UPDATE USERS SET VERIFYCODE = '', STATUS = 'VERIFIED' WHERE USER_ID = @userId";
-
-            using (SqlConnection conn = new DbConnect().GetConnection())
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@userId", userId);
-                    if (cmd.ExecuteNonQuery() == 0)
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        throw new Exception("Không thể xác minh người dùng.");
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        if (cmd.ExecuteNonQuery() == 0)
+                        {
+                            throw new Exception("Không thể xác minh người dùng.");
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -287,52 +299,66 @@ namespace Quan_ly_thu_vien_phim.Controller
         }
         public void ForgotPassword(User_model user)
         {
-            using (SqlConnection conn = new DbConnect().GetConnection())
+            try
             {
-                conn.Open();
-                string query = "SELECT USER_ID FROM USERS WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
-                using ( cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@Email", user.email);
-
-                    using (reader = cmd.ExecuteReader())
+                    conn.Open();
+                    string query = "SELECT USER_ID FROM USERS WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
+                    using (cmd = new SqlCommand(query, conn))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@Email", user.email);
+
+                        using (reader = cmd.ExecuteReader())
                         {
-                            int userID = reader.GetInt32(0);
-                            string code = GenerateVerifyCode();
-                            user.userId = userID;
-                            reader.Close();
-                            string updateQuery = "UPDATE USERS SET VERIFYCODE = @VerifyCode WHERE USER_ID = @UserID";
-                            using (var updateCommand = new SqlCommand(updateQuery, conn))
+                            if (reader.Read())
                             {
-                                updateCommand.Parameters.AddWithValue("@VerifyCode", code);
-                                updateCommand.Parameters.AddWithValue("@UserID", userID);
-                                updateCommand.ExecuteNonQuery();
+                                int userID = reader.GetInt32(0);
+                                string code = GenerateVerifyCode();
+                                user.userId = userID;
+                                reader.Close();
+                                string updateQuery = "UPDATE USERS SET VERIFYCODE = @VerifyCode WHERE USER_ID = @UserID";
+                                using (var updateCommand = new SqlCommand(updateQuery, conn))
+                                {
+                                    updateCommand.Parameters.AddWithValue("@VerifyCode", code);
+                                    updateCommand.Parameters.AddWithValue("@UserID", userID);
+                                    updateCommand.ExecuteNonQuery();
+                                }
+                                user.verifyCode = code;
                             }
-                            user.verifyCode = code;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Email không tồn tại hoặc chưa được xác minh.");
+                            else
+                            {
+                                MessageBox.Show("Email không tồn tại hoặc chưa được xác minh.");
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void ResetPassword(string email, string password)
         {
-            using (SqlConnection conn = new DbConnect().GetConnection())
+            try
             {
-                conn.Open();
-                string query = "UPDATE USERS SET PASSWORD = @Password WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
-                using (var command = new SqlCommand(query, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    string hashedPassword = HashPassword(password);
-                    command.Parameters.AddWithValue("@Password", hashedPassword);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.ExecuteNonQuery();
+                    conn.Open();
+                    string query = "UPDATE USERS SET PASSWORD = @Password WHERE EMAIL = @Email AND STATUS = 'VERIFIED'";
+                    using (var command = new SqlCommand(query, conn))
+                    {
+                        string hashedPassword = HashPassword(password);
+                        command.Parameters.AddWithValue("@Password", hashedPassword);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -340,53 +366,129 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             string sql = "SELECT USER_ID, USERNAME, GENDER, BIRTH, EMAIL FROM USERS WHERE USER_ID = @UserId";
             User_model userInfo = null;
-
-            using (conn)
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@UserId", userId);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@UserId", userId);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            userInfo = new User_model
+                            if (reader.Read())
                             {
-                                userId = reader.GetInt32(reader.GetOrdinal("USER_ID")),
-                                username = reader.IsDBNull(reader.GetOrdinal("USERNAME")) ? null : reader.GetString(reader.GetOrdinal("USERNAME")),
-                                email = reader.IsDBNull(reader.GetOrdinal("EMAIL")) ? null : reader.GetString(reader.GetOrdinal("EMAIL")),
-                                gender = reader.IsDBNull(reader.GetOrdinal("GENDER")) ? null : reader.GetString(reader.GetOrdinal("GENDER")),
-                                birth = reader.IsDBNull(reader.GetOrdinal("BIRTH")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("BIRTH"))
-                            };
+                                userInfo = new User_model
+                                {
+                                    userId = reader.GetInt32(reader.GetOrdinal("USER_ID")),
+                                    username = reader.IsDBNull(reader.GetOrdinal("USERNAME")) ? null : reader.GetString(reader.GetOrdinal("USERNAME")),
+                                    email = reader.IsDBNull(reader.GetOrdinal("EMAIL")) ? null : reader.GetString(reader.GetOrdinal("EMAIL")),
+                                    gender = reader.IsDBNull(reader.GetOrdinal("GENDER")) ? null : reader.GetString(reader.GetOrdinal("GENDER")),
+                                    birth = reader.IsDBNull(reader.GetOrdinal("BIRTH")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("BIRTH"))
+                                };
+                            }
                         }
                     }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             return userInfo;
         }
 
         public bool UpdateInfo(User_model userModel)
         {
             string sql = "UPDATE USERS SET BIRTH = @Birth, GENDER = @Gender, EMAIL = @Email WHERE USER_ID = @UserId";
+            try
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Birth", userModel.birth);
+                        cmd.Parameters.AddWithValue("@Gender", userModel.gender);
+                        cmd.Parameters.AddWithValue("@Email", userModel.email);
+                        cmd.Parameters.AddWithValue("@UserId", userModel.userId);
 
-            using (conn) 
+                        int rowsUpdated = cmd.ExecuteNonQuery();
+                        return rowsUpdated > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool DeleteData(int userId)
+        {
+            string deleteFavorite = "DELETE FROM FAVORITES WHERE MOVIE_ID IN (SELECT MOVIE_ID FROM MOVIES WHERE USER_ID = @userId)";
+            string deleteUser = "DELETE FROM USERS WHERE USER_ID = @userId";
+
+            try
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            using (SqlCommand cmd = new SqlCommand(deleteFavorite, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@userId", userId);
+                                cmd.ExecuteNonQuery();
+                            }
+                            using (SqlCommand cmd = new SqlCommand(deleteUser, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@userId", userId);
+                                int row = cmd.ExecuteNonQuery();
+                                if (row > 0)
+                                {
+                                    transaction.Commit();
+                                    return true;
+                                }
+                                else
+                                {
+                                    transaction.Rollback();
+                                    return false;
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show(ex.Message);
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool DeleteData(int userId)
+        {
+            string sql = "DELETE FROM USERS WHERE USER_ID = @UserId";
+            using (conn)
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Birth", userModel.birth);
-                    cmd.Parameters.AddWithValue("@Gender", userModel.gender);
-                    cmd.Parameters.AddWithValue("@Email", userModel.email);
-                    cmd.Parameters.AddWithValue("@UserId", userModel.userId);
-
-                    int rowsUpdated = cmd.ExecuteNonQuery();
-                    return rowsUpdated > 0;
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    int rows = cmd.ExecuteNonQuery();
+                    return rows > 0;
                 }
             }
         }
-
     }
 }

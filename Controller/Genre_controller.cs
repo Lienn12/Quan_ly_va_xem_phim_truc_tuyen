@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
@@ -24,26 +25,27 @@ namespace Quan_ly_thu_vien_phim.Controller
             string sql = "SELECT * FROM GENRES";
             try
             {
-                conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (conn = new DbConnect().GetConnection())
                 {
-                    int genreId = reader.GetInt32(reader.GetOrdinal("GENRE_ID"));
-                    string genreName = reader.GetString(reader.GetOrdinal("GENRE_NAME"));
-                    // Tạo đối tượng Formats và thêm vào danh sách
-                    Genre_model genre = new Genre_model(genreId, genreName);
-                    GenreList.Add(genre);
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        using (reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int genreId = reader.GetInt32(reader.GetOrdinal("GENRE_ID"));
+                                string genreName = reader.GetString(reader.GetOrdinal("GENRE_NAME"));
+                                Genre_model genre = new Genre_model(genreId, genreName);
+                                GenreList.Add(genre);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null) reader.Close();
-                if (conn != null) conn.Close();
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             return GenreList;
         }

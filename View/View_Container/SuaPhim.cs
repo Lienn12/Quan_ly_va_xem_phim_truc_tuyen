@@ -184,8 +184,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     if (cbTheLoai.Items[i] is Genre_model genre && genre.GenreName == movie.Genre.GenreName)
                     {
                         int genreId = genre.GenreID;
-                        MessageBox.Show("GenreID: " + genreId);
-                        MessageBox.Show("cbTheLoai.Items[i]: " + cbTheLoai.Items[i]);
                         cbTheLoai.SelectedIndex = i;
                         break;
                     }

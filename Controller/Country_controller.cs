@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
@@ -24,26 +25,29 @@ namespace Quan_ly_thu_vien_phim.Controller
             string sql = "SELECT * FROM COUNTRIES";
             try
             {
-                conn.Open();
-                cmd = new SqlCommand(sql, conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (conn = new DbConnect().GetConnection())
                 {
-                    int countryId = reader.GetInt32(reader.GetOrdinal("COUNTRY_ID"));
-                    string countrytName = reader.GetString(reader.GetOrdinal("COUNTRY_NAME"));
-                    // Tạo đối tượng Formats và thêm vào danh sách
-                    Country_model country = new Country_model(countryId, countrytName);
-                    CountryList.Add(country);
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        using (reader = cmd.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                int countryId = reader.GetInt32(reader.GetOrdinal("COUNTRY_ID"));
+                                string countrytName = reader.GetString(reader.GetOrdinal("COUNTRY_NAME"));
+                                // Tạo đối tượng Formats và thêm vào danh sách
+                                Country_model country = new Country_model(countryId, countrytName);
+                                CountryList.Add(country);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
-            }
-            finally
-            {
-                if (reader != null) reader.Close();
-                if (conn != null) conn.Close();
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             return CountryList;
         }
