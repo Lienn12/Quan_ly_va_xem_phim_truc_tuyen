@@ -163,6 +163,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Favourite {
+            get {
+                object obj = ResourceManager.GetObject("Favourite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap heart_icon {
             get {
                 object obj = ResourceManager.GetObject("heart_icon", resourceCulture);
@@ -286,6 +296,16 @@ namespace Quan_ly_thu_vien_phim.Properties {
         internal static System.Drawing.Bitmap removeicon {
             get {
                 object obj = ResourceManager.GetObject("removeicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reply_icon {
+            get {
+                object obj = ResourceManager.GetObject("reply_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

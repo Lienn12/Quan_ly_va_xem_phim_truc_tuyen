@@ -22,23 +22,26 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             List<Movie_model> movieList = new List<Movie_model>();
             try
-            {                
-                conn.Open();
-                string sql = "SELECT MOVIE_ID, TITLE, RELEASE_YEAR FROM MOVIES";
-                using (cmd = new SqlCommand(sql, conn))
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    using (reader = cmd.ExecuteReader())
+                    conn.Open();
+                    string sql = "SELECT MOVIE_ID, TITLE, RELEASE_YEAR FROM MOVIES";
+                    using (cmd = new SqlCommand(sql, conn))
                     {
-                        while (reader.Read())
+                        using (reader = cmd.ExecuteReader())
                         {
-                            int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
-                            string title = reader.GetString(reader.GetOrdinal("TITLE"));
-                            int year = reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR"));
-                            Movie_model movie = new Movie_model(movieId,title,year);
-                            movieList.Add(movie);
+                            while (reader.Read())
+                            {
+                                int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                                string title = reader.GetString(reader.GetOrdinal("TITLE"));
+                                int year = reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR"));
+                                Movie_model movie = new Movie_model(movieId, title, year);
+                                movieList.Add(movie);
+                            }
                         }
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -54,21 +57,24 @@ namespace Quan_ly_thu_vien_phim.Controller
                    VALUES (@Title, @ReleaseYear, @Director, @Cast, @GenreID, @FormatID, @CountryID, @Episode, @Description, @CoverImage, @Trailer)";
             try
             {
-                conn.Open();
-                using (cmd = new SqlCommand(sql, conn))
+                using (conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@Title", name);
-                    cmd.Parameters.AddWithValue("@ReleaseYear", year);
-                    cmd.Parameters.AddWithValue("@Director", director);
-                    cmd.Parameters.AddWithValue("@Cast", cast);
-                    cmd.Parameters.AddWithValue("@GenreID", genreID);
-                    cmd.Parameters.AddWithValue("@FormatID", formatID);
-                    cmd.Parameters.AddWithValue("@CountryID", countryID);
-                    cmd.Parameters.AddWithValue("@Episode", episode);
-                    cmd.Parameters.AddWithValue("@Description", descrip);
-                    cmd.Parameters.AddWithValue("@CoverImage", imgPath);
-                    cmd.Parameters.AddWithValue("@Trailer", vidPath);
-                    row = cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Title", name);
+                        cmd.Parameters.AddWithValue("@ReleaseYear", year);
+                        cmd.Parameters.AddWithValue("@Director", director);
+                        cmd.Parameters.AddWithValue("@Cast", cast);
+                        cmd.Parameters.AddWithValue("@GenreID", genreID);
+                        cmd.Parameters.AddWithValue("@FormatID", formatID);
+                        cmd.Parameters.AddWithValue("@CountryID", countryID);
+                        cmd.Parameters.AddWithValue("@Episode", episode);
+                        cmd.Parameters.AddWithValue("@Description", descrip);
+                        cmd.Parameters.AddWithValue("@CoverImage", imgPath);
+                        cmd.Parameters.AddWithValue("@Trailer", vidPath);
+                        row = cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)
@@ -83,26 +89,28 @@ namespace Quan_ly_thu_vien_phim.Controller
                          WHERE MOVIE_ID = @MovieID";
             try
             {
-                conn.Open();
-                using (cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@Title", movie.Title);
-                    cmd.Parameters.AddWithValue("@ReleaseYear", movie.Year);
-                    cmd.Parameters.AddWithValue("@Director", movie.Director);
-                    cmd.Parameters.AddWithValue("@Cast", movie.Cast);
-                    cmd.Parameters.AddWithValue("@GenreId", movie.Genre.GenreID);
-                    cmd.Parameters.AddWithValue("@FormatId", movie.Format.FormatID);
-                    cmd.Parameters.AddWithValue("@CountryId", movie.Country.CountryId);
-                    cmd.Parameters.AddWithValue("@Episodes", movie.Episode);
-                    cmd.Parameters.AddWithValue("@Description", movie.Description ?? string.Empty);
-                    cmd.Parameters.AddWithValue("@imgPath", movie.ImgPath ?? string.Empty);
-                    cmd.Parameters.AddWithValue("@vidPath", movie.VidPath ?? string.Empty);
-                    cmd.Parameters.AddWithValue("@MovieID", movie.MovieId);
+                    conn.Open();
+                    using (cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Title", movie.Title);
+                        cmd.Parameters.AddWithValue("@ReleaseYear", movie.Year);
+                        cmd.Parameters.AddWithValue("@Director", movie.Director);
+                        cmd.Parameters.AddWithValue("@Cast", movie.Cast);
+                        cmd.Parameters.AddWithValue("@GenreId", movie.Genre.GenreID);
+                        cmd.Parameters.AddWithValue("@FormatId", movie.Format.FormatID);
+                        cmd.Parameters.AddWithValue("@CountryId", movie.Country.CountryId);
+                        cmd.Parameters.AddWithValue("@Episodes", movie.Episode);
+                        cmd.Parameters.AddWithValue("@Description", movie.Description ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@imgPath", movie.ImgPath ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@vidPath", movie.VidPath ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@MovieID", movie.MovieId);
 
-                    int rowsUpdated = cmd.ExecuteNonQuery();
-                    return rowsUpdated > 0;
+                        int rowsUpdated = cmd.ExecuteNonQuery();
+                        return rowsUpdated > 0;
+                    }
                 }
-                
             }
             catch (Exception ex)
             {
@@ -115,129 +123,142 @@ namespace Quan_ly_thu_vien_phim.Controller
             string deleteReviews = "DELETE FROM Reviews WHERE MOVIE_ID = @movie_id";
             string deleteMovies = "DELETE FROM Movies WHERE MOVIE_ID = @movie_id";
             {
-                conn.Open();
-                using (SqlTransaction transaction = conn.BeginTransaction())
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    try
+                    conn.Open();
+                    using (SqlTransaction transaction = conn.BeginTransaction())
                     {
-                        using ( cmd = new SqlCommand(deleteFavorite, conn, transaction))
+                        try
                         {
-                            cmd.Parameters.AddWithValue("@movie_id", movieId);
-                            cmd.ExecuteNonQuery();
+                            using (cmd = new SqlCommand(deleteFavorite, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@movie_id", movieId);
+                                cmd.ExecuteNonQuery();
+                            }
+                            using (cmd = new SqlCommand(deleteReviews, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@movie_id", movieId);
+                                cmd.ExecuteNonQuery();
+                            }
+                            int rows;
+                            using (cmd = new SqlCommand(deleteMovies, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@movie_id", movieId);
+                                rows = cmd.ExecuteNonQuery();
+                            }
+                            transaction.Commit(); 
+                            return rows > 0;
                         }
-                        using ( cmd = new SqlCommand(deleteReviews, conn, transaction))
+                        catch (Exception)
                         {
-                            cmd.Parameters.AddWithValue("@movie_id", movieId);
-                            cmd.ExecuteNonQuery();
+                            transaction.Rollback(); 
+                            throw;
                         }
-                        int rows;
-                        using ( cmd = new SqlCommand(deleteMovies, conn, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@movie_id", movieId);
-                            rows = cmd.ExecuteNonQuery();
-                        }
-                        transaction.Commit(); // Commit transaction
-                        return rows > 0;
-                    }
-                    catch (Exception)
-                    {
-                        transaction.Rollback(); // Rollback transaction in case of error
-                        throw;
                     }
                 }
             }
         }
 
-        public List<Movie_model> GetImage()
+        public List<Movie_model> GetDeXuat()
         {
             List<Movie_model> dsMovie = new List<Movie_model>();
             string query = "SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION FROM MOVIES";
             try
-            {                
-                conn.Open();
-                using (cmd = new SqlCommand(query, conn))
-                using (reader = cmd.ExecuteReader())
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    while (reader.Read())
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
-                        string title = reader.GetString(reader.GetOrdinal("TITLE"));
-                        float rating = reader.GetFloat(reader.GetOrdinal("RATING"));                        
-                        string description = reader.GetString(reader.GetOrdinal("DESCRIPTION"));
-                        string img = reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
-                        Movie_model movie = new Movie_model(movieId, title, description, rating, img);
-                        dsMovie.Add(movie);
+                        while (reader.Read())
+                        {
+                            int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                            string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                            string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader.GetString(reader.GetOrdinal("DESCRIPTION"));
+                            float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
+                            string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath);
+                            dsMovie.Add(movie);
+                        }
                     }
                 }
-                
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                MessageBox.Show(ex.Message);
             }
             return dsMovie;
         }
-        public List<Movie_model> getPhimBo()
+
+
+        public List<Movie_model> GetPhimBo()
         {
             List<Movie_model> dsMovie = new List<Movie_model>();
             string query = @"SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION FROM MOVIES JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
                             WHERE FORMAT_NAME = N'Phim bộ'";
             try
             {
-                conn.Open();
-                using (cmd = new SqlCommand(query, conn))
-                using (reader = cmd.ExecuteReader())
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    while (reader.Read())
+                    conn.Open();
+                    using (cmd = new SqlCommand(query, conn))
+                    using (reader = cmd.ExecuteReader())
                     {
-                        int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
-                        string title = reader.GetString(reader.GetOrdinal("TITLE"));
-                        float rating = reader.GetFloat(reader.GetOrdinal("RATING"));
-                        string description = reader.GetString(reader.GetOrdinal("DESCRIPTION"));
-                        string img = reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
-                        Movie_model movie = new Movie_model(movieId, title, description, rating, img);
-                        dsMovie.Add(movie);
+                        while (reader.Read())
+                        {
+                            int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                            string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                            string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader.GetString(reader.GetOrdinal("DESCRIPTION"));
+                            float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
+                            string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath);
+                            dsMovie.Add(movie);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
             return dsMovie;
         }
-        public List<Movie_model> getPhimLe()
+        public List<Movie_model> GetPhimLe()
         {
             List<Movie_model> dsMovie = new List<Movie_model>();
             string query = @"SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION FROM MOVIES JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
                             WHERE FORMAT_NAME = N'Phim lẻ'";
             try
             {
-                conn.Open();
-                using (cmd = new SqlCommand(query, conn))
-                using (reader = cmd.ExecuteReader())
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    while (reader.Read())
+                    conn.Open();
+                    using (cmd = new SqlCommand(query, conn))
+                    using (reader = cmd.ExecuteReader())
                     {
-                        int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
-                        string title = reader.GetString(reader.GetOrdinal("TITLE"));
-                        float rating = reader.GetFloat(reader.GetOrdinal("RATING"));
-                        string description = reader.GetString(reader.GetOrdinal("DESCRIPTION"));
-                        string img = reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
-                        Movie_model movie = new Movie_model(movieId, title, description, rating, img);
-                        dsMovie.Add(movie);
+                        while (reader.Read())
+                        {
+                            int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                            string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                            string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader.GetString(reader.GetOrdinal("DESCRIPTION"));
+                            float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
+                            string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath);
+                            dsMovie.Add(movie);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
             return dsMovie;
         }
         public Movie_model GetMovieById(int movieId)
         {
-            string query = @"SELECT MOVIE_ID, TITLE, RELEASE_YEAR, GENRE_NAME, COUNTRY_NAME, FORMAT_NAME, DIRECTOR, CAST, DESCRIPTION, TOTAL_EPISODES, COVER_IMAGE, TRAILER FROM MOVIES
+            string query = @"SELECT MOVIE_ID, TITLE, RELEASE_YEAR,RATING, GENRE_NAME, COUNTRY_NAME, FORMAT_NAME, DIRECTOR, CAST, DESCRIPTION, TOTAL_EPISODES, COVER_IMAGE, TRAILER FROM MOVIES
                             INNER JOIN COUNTRIES ON MOVIES.COUNTRY_ID = COUNTRIES.COUNTRY_ID
                             INNER JOIN GENRES ON MOVIES.GENRE_ID = GENRES.GENRE_ID
                             INNER JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
@@ -261,6 +282,7 @@ namespace Quan_ly_thu_vien_phim.Controller
                             {
                                 string name = reader["TITLE"].ToString();
                                 int year = Convert.ToInt32(reader["RELEASE_YEAR"]);
+                                float rating = Convert.ToInt32(reader["RATING"]);
                                 string genre = reader["GENRE_NAME"].ToString();
                                 string format = reader["FORMAT_NAME"].ToString();
                                 string country = reader["COUNTRY_NAME"].ToString();
@@ -277,7 +299,7 @@ namespace Quan_ly_thu_vien_phim.Controller
 
                                 // Trả về đối tượng Movie_model
                                 return new Movie_model(
-                                    movieId, name, year, director, cast,
+                                    movieId, name,rating, year, director, cast,
                                     new Genre_model(0, genre), new Format_model(0, format), new Country_model(0, country), description, episode, img, vidPath
                                 );
                             }
@@ -291,12 +313,190 @@ namespace Quan_ly_thu_vien_phim.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
 
             Console.WriteLine("GetMovieById: MovieModel is null");
             return null;
         }
 
+        public List<Movie_model> GetReview()
+        {
+            List<Movie_model> dsMovie = new List<Movie_model>();
+            string sql = "SELECT TOP 5 MOVIE_ID, TITLE, RATING, COVER_IMAGE FROM MOVIES ORDER BY RATING DESC";
+            try
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                                string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                                float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
+                                string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+
+                                Movie_model movie = new Movie_model(movieId, title, rating, imgPath);
+                                dsMovie.Add(movie);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error executing query GetReview(): " + ex.Message);
+            }
+            return dsMovie;
+        }
+        public List<Movie_model> GetMoviesByGenreID(int genreId)
+        {
+            string sql = @"
+            SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE
+            FROM MOVIES, GENRES 
+            WHERE MOVIES.GENRE_ID = GENRES.GENRE_ID 
+            AND GENRES.GENRE_ID = @genreId";
+
+            List<Movie_model> dsMovie = new List<Movie_model>();
+
+            try
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@genreId", genreId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                                string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                                float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
+                                string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+
+                                Movie_model movie = new Movie_model(movieId, title, rating, imgPath);
+                                dsMovie.Add(movie);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving movies by genre: " + ex.Message);
+            }
+
+            return dsMovie;
+        }
+
+        public List<Movie_model> GetMoviesByCountryID(int countryId)
+        {
+            string sql = @"
+            SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE
+            FROM MOVIES,COUNTRIES
+            WHERE MOVIES.COUNTRY_ID = COUNTRIES.COUNTRY_ID
+            AND COUNTRIES.COUNTRY_ID = @countryId";
+
+
+            List<Movie_model> dsMovie = new List<Movie_model>();
+
+            try
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@countryId", countryId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                                string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                                float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
+                                string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+
+                                Movie_model movie = new Movie_model(movieId, title, rating, imgPath);
+                                dsMovie.Add(movie);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving movies by country: " + ex.Message);
+            }
+
+            return dsMovie;
+        }
+        public List<Movie_model> SearchMovies(int genre, int country, int format, int sort)
+        {
+            List<Movie_model> dsMovie = new List<Movie_model>();
+            StringBuilder sql = new StringBuilder(@"
+            SELECT MOVIE_ID, TITLE, RELEASE_YEAR, RATING, COVER_IMAGE, DESCRIPTION
+            FROM MOVIES, COUNTRIES, GENRES, FORMATS
+            WHERE MOVIES.COUNTRY_ID = COUNTRIES.COUNTRY_ID
+            AND MOVIES.GENRE_ID = GENRES.GENRE_ID
+            AND MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
+            AND (GENRES.GENRE_ID = @genre OR @genre = 1)
+            AND (COUNTRIES.COUNTRY_ID = @country OR @country = 1)
+            AND (FORMATS.FORMAT_ID = @format OR @format = 1)");
+
+            if (sort == 1)
+            {
+                sql.Append(" ORDER BY TITLE ASC");
+            }
+            else if (sort == 2)
+            {
+                sql.Append(" ORDER BY RELEASE_YEAR DESC");
+            }
+            else if (sort == 3)
+            {
+                sql.Append(" ORDER BY RATING DESC");
+            }
+
+            try
+            {
+                using (SqlConnection conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql.ToString(), conn))
+                    {
+                        cmd.Parameters.AddWithValue("@genre", genre);
+                        cmd.Parameters.AddWithValue("@country", country);
+                        cmd.Parameters.AddWithValue("@format", format);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                                string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                                float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader["RATING"]); // Sử dụng Convert.ToSingle để đảm bảo an toàn kiểu
+                                string img = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
+
+                                Movie_model movie = new Movie_model(movieId, title, rating, img);
+                                dsMovie.Add(movie);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error executing query: " + ex.Message);
+            }
+
+            return dsMovie;
+        }
     }
+
 }

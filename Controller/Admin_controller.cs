@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,23 @@ namespace Quan_ly_thu_vien_phim.Controller
         {
             string sql = "SELECT * FROM ADMIN WHERE USERNAME = @username AND PASSWORD = @password ";
             string hashedPassword = HashPassword(password);
-
-            using (SqlConnection conn = new DbConnect().GetConnection())
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlConnection conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@username", admin.Username);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
-                    return cmd.ExecuteScalar() != null;
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", admin.Username);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        return cmd.ExecuteScalar() != null;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return false;
             }
         }
 

@@ -16,6 +16,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
     {
         private Form activeForm;
         private FormFavourite formFavourite;
+        private XemChiTietUser xemChiTietUser;
         private TrangUser trangUser;
         private User_model user;
         public FormMainUser()
@@ -32,6 +33,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             {
                 trangUser = new TrangUser(this);
             }
+            if (xemChiTietUser == null || xemChiTietUser.IsDisposed)
+            {
+                xemChiTietUser = new XemChiTietUser(this);
+            }
         }
 
         public void OpenChidForm(Form childForm, object btnSender)
@@ -39,7 +44,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
             if (activeForm != null)
             {
-                activeForm.Close();
+                activeForm.Hide();
             }
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -75,7 +80,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            OpenChidForm(new View_Container.FormTrangChu(), sender);
+            //OpenChidForm(new View_Container.FormTrangChu(this), sender);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -98,6 +103,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         public void setuserModel(User_model user)
         {
             this.user = user;
+        }
+        public XemChiTietUser GetXemChiTiet()
+        {
+            return xemChiTietUser;
         }
     }
 }

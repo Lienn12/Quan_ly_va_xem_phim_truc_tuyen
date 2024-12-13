@@ -20,6 +20,10 @@ namespace Quan_ly_thu_vien_phim.Model
         {
 
         }
+        public User_model(string usename)
+        {
+            username = usename;
+        }
 
         public void setPassword(string password)
         {

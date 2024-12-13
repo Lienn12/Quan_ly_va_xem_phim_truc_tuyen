@@ -139,11 +139,17 @@
   <data name="upload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\upload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backlai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backlai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="playicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="backxanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backxanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reply_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reply_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-find-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-find-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,14 +181,11 @@
   <data name="userlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minus (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minus (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eyeHide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyeHide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stargray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stargray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eyeHide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eyeHide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vidUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vidUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,10 +208,13 @@
   <data name="back1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="minus (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minus (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="removeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\removeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backlai" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backlai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Favourite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Favourite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
