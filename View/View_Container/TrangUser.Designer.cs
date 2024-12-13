@@ -37,7 +37,6 @@
             this.cbGioitinh = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lbUserID = new System.Windows.Forms.Label();
             this.lbUsename = new System.Windows.Forms.Label();
@@ -133,39 +132,30 @@
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(270, 565);
+            this.btnEdit.Location = new System.Drawing.Point(308, 565);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 49);
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "EDIT";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightSalmon;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(445, 558);
+            this.btnSave.Location = new System.Drawing.Point(520, 565);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 49);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Silver;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(619, 558);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 49);
-            this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(369, 421);
+            this.txtEmail.Location = new System.Drawing.Point(369, 430);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(309, 34);
@@ -174,7 +164,9 @@
             // lbUserID
             // 
             this.lbUserID.AutoSize = true;
+            this.lbUserID.BackColor = System.Drawing.Color.Transparent;
             this.lbUserID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserID.ForeColor = System.Drawing.Color.White;
             this.lbUserID.Location = new System.Drawing.Point(366, 139);
             this.lbUserID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUserID.Name = "lbUserID";
@@ -185,7 +177,9 @@
             // lbUsename
             // 
             this.lbUsename.AutoSize = true;
+            this.lbUsename.BackColor = System.Drawing.Color.Transparent;
             this.lbUsename.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsename.ForeColor = System.Drawing.Color.White;
             this.lbUsename.Location = new System.Drawing.Point(366, 207);
             this.lbUsename.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUsename.Name = "lbUsename";
@@ -197,7 +191,7 @@
             // 
             this.dateBirth.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateBirth.Location = new System.Drawing.Point(369, 279);
-            this.dateBirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateBirth.Margin = new System.Windows.Forms.Padding(2);
             this.dateBirth.Name = "dateBirth";
             this.dateBirth.Size = new System.Drawing.Size(309, 20);
             this.dateBirth.TabIndex = 20;
@@ -212,7 +206,6 @@
             this.Controls.Add(this.lbUsename);
             this.Controls.Add(this.lbUserID);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.cbGioitinh);
@@ -242,7 +235,6 @@
         private System.Windows.Forms.ComboBox cbGioitinh;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lbUserID;
         private System.Windows.Forms.Label lbUsename;

@@ -48,8 +48,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(72, 65);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(48, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(344, 37);
             this.label1.TabIndex = 0;
@@ -86,22 +85,20 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Location = new System.Drawing.Point(82, 283);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView.Location = new System.Drawing.Point(55, 184);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.Size = new System.Drawing.Size(1324, 795);
+            this.dataGridView.Size = new System.Drawing.Size(883, 486);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.icons8_find_30;
-            this.pictureBox1.Location = new System.Drawing.Point(82, 192);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(55, 125);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 54);
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -109,11 +106,10 @@
             // txtTimkiem
             // 
             this.txtTimkiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimkiem.Location = new System.Drawing.Point(144, 192);
-            this.txtTimkiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTimkiem.Location = new System.Drawing.Point(96, 125);
             this.txtTimkiem.Multiline = true;
             this.txtTimkiem.Name = "txtTimkiem";
-            this.txtTimkiem.Size = new System.Drawing.Size(422, 52);
+            this.txtTimkiem.Size = new System.Drawing.Size(283, 35);
             this.txtTimkiem.TabIndex = 3;
             this.txtTimkiem.Text = "Tìm kiếm phim yêu thích";
             // 
@@ -141,33 +137,32 @@
             // chitiet
             // 
             this.chitiet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.chitiet.HeaderText = "";
+            this.chitiet.HeaderText = "                  ";
             this.chitiet.Image = ((System.Drawing.Image)(resources.GetObject("chitiet.Image")));
             this.chitiet.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.chitiet.Name = "chitiet";
-            this.chitiet.Width = 5;
+            this.chitiet.Width = 108;
             // 
             // delete
             // 
             this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.delete.HeaderText = "";
+            this.delete.HeaderText = "                   ";
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
             this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.delete.Name = "delete";
-            this.delete.Width = 5;
+            this.delete.Width = 113;
             // 
             // FormFavourite
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1498, 1100);
+            this.ClientSize = new System.Drawing.Size(999, 715);
             this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormFavourite";
             this.Text = "FormFavourite";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormFavourite_Paint);

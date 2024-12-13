@@ -44,7 +44,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                 {
                     userController.DoneVerify(user.userId);
                     MessageBox.Show("Verify Code chính xác");
-                    //formLoginSignup.OpenChidForm(new View.View_Login_Signup.FormLogin(formLoginSignup));
+                    formLoginSignup.OpenChidForm(new View.View_Login_Signup.FormLogin(formLoginSignup));
                     Close();
                 }
                 else

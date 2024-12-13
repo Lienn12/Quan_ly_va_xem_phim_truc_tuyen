@@ -34,13 +34,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEyeHide = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnEyeShow = new System.Windows.Forms.Button();
             this.lbForgot = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lbSignup = new System.Windows.Forms.Label();
-            this.btnEyeShow = new System.Windows.Forms.Button();
-            this.btnEyeHide = new System.Windows.Forms.Button();
+            this.lbErrorUser = new System.Windows.Forms.Label();
+            this.lbErrorPass = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +116,19 @@
             this.panel2.Size = new System.Drawing.Size(319, 40);
             this.panel2.TabIndex = 4;
             // 
+            // btnEyeHide
+            // 
+            this.btnEyeHide.BackColor = System.Drawing.Color.White;
+            this.btnEyeHide.FlatAppearance.BorderSize = 0;
+            this.btnEyeHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEyeHide.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.eyeHide;
+            this.btnEyeHide.Location = new System.Drawing.Point(268, -4);
+            this.btnEyeHide.Name = "btnEyeHide";
+            this.btnEyeHide.Size = new System.Drawing.Size(51, 42);
+            this.btnEyeHide.TabIndex = 10;
+            this.btnEyeHide.UseVisualStyleBackColor = false;
+            this.btnEyeHide.Click += new System.EventHandler(this.btnEyeHide_Click);
+            // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -128,12 +143,25 @@
             this.txtPassword.Size = new System.Drawing.Size(268, 40);
             this.txtPassword.TabIndex = 1;
             // 
+            // btnEyeShow
+            // 
+            this.btnEyeShow.BackColor = System.Drawing.Color.White;
+            this.btnEyeShow.FlatAppearance.BorderSize = 0;
+            this.btnEyeShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEyeShow.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.eyeShow;
+            this.btnEyeShow.Location = new System.Drawing.Point(268, -4);
+            this.btnEyeShow.Name = "btnEyeShow";
+            this.btnEyeShow.Size = new System.Drawing.Size(51, 42);
+            this.btnEyeShow.TabIndex = 9;
+            this.btnEyeShow.UseVisualStyleBackColor = false;
+            this.btnEyeShow.Click += new System.EventHandler(this.btnEyeShow_Click);
+            // 
             // lbForgot
             // 
             this.lbForgot.AutoSize = true;
             this.lbForgot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbForgot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbForgot.Location = new System.Drawing.Point(256, 333);
+            this.lbForgot.Location = new System.Drawing.Point(256, 368);
             this.lbForgot.Name = "lbForgot";
             this.lbForgot.Size = new System.Drawing.Size(133, 21);
             this.lbForgot.TabIndex = 5;
@@ -149,7 +177,7 @@
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(131)))), ((int)(((byte)(179)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(110, 374);
+            this.btnLogin.Location = new System.Drawing.Point(122, 426);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(216, 60);
             this.btnLogin.TabIndex = 6;
@@ -161,7 +189,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 487);
+            this.label5.Location = new System.Drawing.Point(66, 514);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(175, 21);
             this.label5.TabIndex = 7;
@@ -172,44 +200,42 @@
             this.lbSignup.AutoSize = true;
             this.lbSignup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbSignup.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSignup.Location = new System.Drawing.Point(305, 483);
+            this.lbSignup.Location = new System.Drawing.Point(305, 514);
             this.lbSignup.Name = "lbSignup";
             this.lbSignup.Size = new System.Drawing.Size(84, 25);
             this.lbSignup.TabIndex = 8;
             this.lbSignup.Text = "SIGNUP";
             this.lbSignup.Click += new System.EventHandler(this.lbSignup_Click);
             // 
-            // btnEyeShow
+            // lbErrorUser
             // 
-            this.btnEyeShow.BackColor = System.Drawing.Color.White;
-            this.btnEyeShow.FlatAppearance.BorderSize = 0;
-            this.btnEyeShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEyeShow.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.eyeShow;
-            this.btnEyeShow.Location = new System.Drawing.Point(268, -4);
-            this.btnEyeShow.Name = "btnEyeShow";
-            this.btnEyeShow.Size = new System.Drawing.Size(51, 42);
-            this.btnEyeShow.TabIndex = 9;
-            this.btnEyeShow.UseVisualStyleBackColor = false;
-            this.btnEyeShow.Click += new System.EventHandler(this.btnEyeShow_Click);
+            this.lbErrorUser.AutoSize = true;
+            this.lbErrorUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorUser.ForeColor = System.Drawing.Color.Red;
+            this.lbErrorUser.Location = new System.Drawing.Point(70, 215);
+            this.lbErrorUser.Name = "lbErrorUser";
+            this.lbErrorUser.Size = new System.Drawing.Size(18, 21);
+            this.lbErrorUser.TabIndex = 9;
+            this.lbErrorUser.Text = "  ";
             // 
-            // btnEyeHide
+            // lbErrorPass
             // 
-            this.btnEyeHide.BackColor = System.Drawing.Color.White;
-            this.btnEyeHide.FlatAppearance.BorderSize = 0;
-            this.btnEyeHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEyeHide.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.eyeHide;
-            this.btnEyeHide.Location = new System.Drawing.Point(268, -4);
-            this.btnEyeHide.Name = "btnEyeHide";
-            this.btnEyeHide.Size = new System.Drawing.Size(51, 42);
-            this.btnEyeHide.TabIndex = 10;
-            this.btnEyeHide.UseVisualStyleBackColor = false;
-            this.btnEyeHide.Click += new System.EventHandler(this.btnEyeHide_Click);
+            this.lbErrorPass.AutoSize = true;
+            this.lbErrorPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorPass.ForeColor = System.Drawing.Color.Red;
+            this.lbErrorPass.Location = new System.Drawing.Point(70, 320);
+            this.lbErrorPass.Name = "lbErrorPass";
+            this.lbErrorPass.Size = new System.Drawing.Size(18, 21);
+            this.lbErrorPass.TabIndex = 10;
+            this.lbErrorPass.Text = "  ";
             // 
             // FormLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(456, 568);
+            this.Controls.Add(this.lbErrorPass);
+            this.Controls.Add(this.lbErrorUser);
             this.Controls.Add(this.lbSignup);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLogin);
@@ -250,5 +276,7 @@
         private System.Windows.Forms.Label lbSignup;
         private System.Windows.Forms.Button btnEyeShow;
         private System.Windows.Forms.Button btnEyeHide;
+        private System.Windows.Forms.Label lbErrorUser;
+        private System.Windows.Forms.Label lbErrorPass;
     }
 }

@@ -25,6 +25,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             InitializeComponent();
             this.Size = new Size(1000, 760);
             customizeDataGridView();
+            ShowData();
             this.favorite_Id.DataPropertyName = "FavouriteId";
             this.title.DataPropertyName = "Movie.Title";       
             this.Release_year.DataPropertyName = "Movie.Year";
@@ -57,7 +58,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         }
         public void ShowData()
         {
-            dataGridView.Invalidate();
             try
             {   
                 List<Favourite_model> favouriteList = favouriteController.GetFavorite(28);

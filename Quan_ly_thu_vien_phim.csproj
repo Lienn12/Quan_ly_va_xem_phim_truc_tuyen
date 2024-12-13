@@ -65,7 +65,6 @@
     <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
-    <Compile Include="Controller\PhanHoiDanhGia_controller.cs" />
     <Compile Include="Controller\Movie_controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
     <Compile Include="Model\Admin_model.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Model\Favourite_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
-    <Compile Include="Model\PhanHoiDanhGia_model.cs" />
     <Compile Include="Model\Tap_model.cs" />
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -390,6 +388,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backlai.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

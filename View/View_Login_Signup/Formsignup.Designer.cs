@@ -44,6 +44,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtConfirm = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.lbErrorUser = new System.Windows.Forms.Label();
+            this.lbErrorEmail = new System.Windows.Forms.Label();
+            this.lbErrorPass = new System.Windows.Forms.Label();
+            this.lbErrorConfirm = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,7 +88,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 261);
+            this.label4.Location = new System.Drawing.Point(55, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 25);
             this.label4.TabIndex = 3;
@@ -98,7 +102,7 @@
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignup.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(121, 446);
+            this.btnSignup.Location = new System.Drawing.Point(121, 455);
             this.btnSignup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(216, 60);
@@ -158,7 +162,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
             this.panel3.Controls.Add(this.txtPass);
             this.panel3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(60, 289);
+            this.panel3.Location = new System.Drawing.Point(60, 296);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(320, 35);
             this.panel3.TabIndex = 8;
@@ -181,7 +185,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(57, 524);
+            this.label5.Location = new System.Drawing.Point(57, 526);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 9;
@@ -192,7 +196,7 @@
             this.lbLogin.AutoSize = true;
             this.lbLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLogin.Location = new System.Drawing.Point(309, 520);
+            this.lbLogin.Location = new System.Drawing.Point(309, 522);
             this.lbLogin.Name = "lbLogin";
             this.lbLogin.Size = new System.Drawing.Size(71, 25);
             this.lbLogin.TabIndex = 10;
@@ -204,7 +208,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
             this.panel4.Controls.Add(this.txtConfirm);
             this.panel4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(60, 372);
+            this.panel4.Location = new System.Drawing.Point(60, 387);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(319, 35);
             this.panel4.TabIndex = 10;
@@ -227,11 +231,55 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(56, 346);
+            this.label7.Location = new System.Drawing.Point(56, 361);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 25);
             this.label7.TabIndex = 9;
             this.label7.Text = "Confirm Password";
+            // 
+            // lbErrorUser
+            // 
+            this.lbErrorUser.AutoSize = true;
+            this.lbErrorUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorUser.ForeColor = System.Drawing.Color.Red;
+            this.lbErrorUser.Location = new System.Drawing.Point(61, 162);
+            this.lbErrorUser.Name = "lbErrorUser";
+            this.lbErrorUser.Size = new System.Drawing.Size(16, 17);
+            this.lbErrorUser.TabIndex = 11;
+            this.lbErrorUser.Text = "  ";
+            // 
+            // lbErrorEmail
+            // 
+            this.lbErrorEmail.AutoSize = true;
+            this.lbErrorEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorEmail.ForeColor = System.Drawing.Color.Red;
+            this.lbErrorEmail.Location = new System.Drawing.Point(61, 246);
+            this.lbErrorEmail.Name = "lbErrorEmail";
+            this.lbErrorEmail.Size = new System.Drawing.Size(16, 17);
+            this.lbErrorEmail.TabIndex = 12;
+            this.lbErrorEmail.Text = "  ";
+            // 
+            // lbErrorPass
+            // 
+            this.lbErrorPass.AutoSize = true;
+            this.lbErrorPass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorPass.ForeColor = System.Drawing.Color.Red;
+            this.lbErrorPass.Location = new System.Drawing.Point(61, 334);
+            this.lbErrorPass.Name = "lbErrorPass";
+            this.lbErrorPass.Size = new System.Drawing.Size(16, 17);
+            this.lbErrorPass.TabIndex = 13;
+            this.lbErrorPass.Text = "  ";
+            // 
+            // lbErrorConfirm
+            // 
+            this.lbErrorConfirm.AutoSize = true;
+            this.lbErrorConfirm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbErrorConfirm.ForeColor = System.Drawing.Color.Red;
+            this.lbErrorConfirm.Location = new System.Drawing.Point(61, 425);
+            this.lbErrorConfirm.Name = "lbErrorConfirm";
+            this.lbErrorConfirm.Size = new System.Drawing.Size(16, 17);
+            this.lbErrorConfirm.TabIndex = 14;
+            this.lbErrorConfirm.Text = "  ";
             // 
             // Formsignup
             // 
@@ -239,6 +287,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(456, 568);
+            this.Controls.Add(this.lbErrorConfirm);
+            this.Controls.Add(this.lbErrorPass);
+            this.Controls.Add(this.lbErrorEmail);
+            this.Controls.Add(this.lbErrorUser);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbLogin);
@@ -288,5 +340,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtConfirm;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbErrorUser;
+        private System.Windows.Forms.Label lbErrorEmail;
+        private System.Windows.Forms.Label lbErrorPass;
+        private System.Windows.Forms.Label lbErrorConfirm;
     }
 }

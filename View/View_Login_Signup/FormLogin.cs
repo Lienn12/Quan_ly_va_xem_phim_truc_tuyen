@@ -46,7 +46,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
            user.username = username;
            admin.Username = username;
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                MessageBox.Show("Username và password không được để trống");
+            {
+                lbErrorUser.Text = string.IsNullOrEmpty(username) ? "Username không được để trống" : "";
+                lbErrorPass.Text = string.IsNullOrEmpty(password) ? "Password không được để trống" : "";
+                return;
+            }
+                
             else
             {
                 if (userController.CheckLoginUser(user, password)) 
@@ -60,7 +65,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                     FormFavourite formFavourite = formMainUser.GetFavourite();
                     formFavourite.ShowData();
                     TrangUser tranguser = formMainUser.getCaNhan();
-                    tranguser.setInfor(userInfor);
+                    tranguser.getInfor(userInfor);
                     formMainUser.ShowDialog();
                     //frmLoginSignup.Close();
                     
