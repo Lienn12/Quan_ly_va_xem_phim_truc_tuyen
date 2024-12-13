@@ -387,6 +387,9 @@
     <None Include="Resources\heart_icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\backlai.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
