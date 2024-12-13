@@ -476,19 +476,6 @@ namespace Quan_ly_thu_vien_phim.Controller
             }
         }
 
-        public bool DeleteData(int userId)
-        {
-            string sql = "DELETE FROM USERS WHERE USER_ID = @UserId";
-            using (conn)
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@UserId", userId);
-                    int rows = cmd.ExecuteNonQuery();
-                    return rows > 0;
-                }
-            }
-        }
+        
     }
 }
