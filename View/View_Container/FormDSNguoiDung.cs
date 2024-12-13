@@ -117,6 +117,41 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 e.Handled = true;
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int userID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                string userName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (e.ColumnIndex == 5) 
+                {
+                    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn người dùng: {userName}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            User_controller user_Controller = new User_controller();
+                            bool isDeleted = user_Controller.DeleteData(userID);
+
+                            if (isDeleted)
+                            {
+                                MessageBox.Show("Xóa người dùng thành công!", "Thông báo");
+                                FormDSNguoiDung_Load(sender,e); // Tải lại danh sách phim
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa người dùng thất bại. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Lỗi khi xóa người dùng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
