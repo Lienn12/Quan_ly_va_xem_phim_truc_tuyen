@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemChiTiet));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbStar = new System.Windows.Forms.Label();
             this.btnTap = new System.Windows.Forms.Button();
-            this.btnTrailer = new System.Windows.Forms.Button();
             this.lblMota = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTheLoai = new System.Windows.Forms.Label();
@@ -45,11 +45,16 @@
             this.lblQuocGia = new System.Windows.Forms.Label();
             this.lblNam = new System.Windows.Forms.Label();
             this.lblTenPhim = new System.Windows.Forms.Label();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnlSoTap = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pnlReview = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnTrailer = new System.Windows.Forms.Button();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +69,8 @@
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lbStar);
             this.panel1.Controls.Add(this.btnTap);
             this.panel1.Controls.Add(this.btnTrailer);
             this.panel1.Controls.Add(this.lblMota);
@@ -81,6 +88,11 @@
             this.panel1.Controls.Add(this.pbImage);
             this.panel1.Name = "panel1";
             // 
+            // lbStar
+            // 
+            resources.ApplyResources(this.lbStar, "lbStar");
+            this.lbStar.Name = "lbStar";
+            // 
             // btnTap
             // 
             this.btnTap.BackColor = System.Drawing.Color.SteelBlue;
@@ -89,15 +101,6 @@
             this.btnTap.Name = "btnTap";
             this.btnTap.UseVisualStyleBackColor = false;
             this.btnTap.Click += new System.EventHandler(this.btnTap_Click);
-            // 
-            // btnTrailer
-            // 
-            this.btnTrailer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.btnTrailer.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
-            resources.ApplyResources(this.btnTrailer, "btnTrailer");
-            this.btnTrailer.Name = "btnTrailer";
-            this.btnTrailer.UseVisualStyleBackColor = false;
-            this.btnTrailer.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblMota
             // 
@@ -159,12 +162,6 @@
             resources.ApplyResources(this.lblTenPhim, "lblTenPhim");
             this.lblTenPhim.Name = "lblTenPhim";
             // 
-            // pbImage
-            // 
-            resources.ApplyResources(this.pbImage, "pbImage");
-            this.pbImage.Name = "pbImage";
-            this.pbImage.TabStop = false;
-            // 
             // pnlSoTap
             // 
             resources.ApplyResources(this.pnlSoTap, "pnlSoTap");
@@ -176,6 +173,17 @@
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
+            // pnlReview
+            // 
+            resources.ApplyResources(this.pnlReview, "pnlReview");
+            this.pnlReview.Name = "pnlReview";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Name = "label7";
+            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
@@ -186,16 +194,41 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.star;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnTrailer
+            // 
+            this.btnTrailer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.btnTrailer.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
+            resources.ApplyResources(this.btnTrailer, "btnTrailer");
+            this.btnTrailer.Name = "btnTrailer";
+            this.btnTrailer.UseVisualStyleBackColor = false;
+            this.btnTrailer.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pbImage
+            // 
+            resources.ApplyResources(this.pbImage, "pbImage");
+            this.pbImage.Name = "pbImage";
+            this.pbImage.TabStop = false;
+            // 
             // XemChiTiet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pnlReview);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pnlSoTap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "XemChiTiet";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Load += new System.EventHandler(this.XemChiTiet_Load);
@@ -203,6 +236,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.XemChiTiet_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -231,5 +265,9 @@
         private System.Windows.Forms.FlowLayoutPanel pnlSoTap;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.FlowLayoutPanel pnlReview;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbStar;
     }
 }

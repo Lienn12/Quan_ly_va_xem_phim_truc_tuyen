@@ -1,9 +1,13 @@
 ﻿using Quan_ly_thu_vien_phim.Controller;
 using Quan_ly_thu_vien_phim.Model;
+using Quan_ly_thu_vien_phim.Properties;
+using Quan_ly_thu_vien_phim.View.View_Main;
+using Quan_ly_thu_vien_phim.View.View_useControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -11,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Quan_ly_thu_vien_phim.View.View_Container
 {
@@ -19,13 +24,19 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private FormMain formMain;
         private string filePath, vidPath;
         private Movie_model movie;
+        private User_model user;
         private Movie_controller controller = new Movie_controller();
         private Episode_controller episode_Controller = new Episode_controller();
+        private DanhGia_controller danhgiaController= new DanhGia_controller();
+        private Favourite_controller favouriteController = new Favourite_controller();
         private int idPhim;
+        private int soStar = 0;
         public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();
             this.formMain = formMain;
+            pnlSoTap.BackColor = Color.FromArgb(128, 255, 255, 255);
+
         }
 
         private void XemChiTiet_Paint(object sender, PaintEventArgs e)
@@ -107,6 +118,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 return;
             }
             if (lblTenPhim != null) lblTenPhim.Text = movie.Title;
+            if (lbStar!=null) lbStar.Text = movie.Rating.ToString();
             if (lblNam != null) lblNam.Text = movie.Year.ToString();
             if (lblDaoDien != null) lblDaoDien.Text = movie.Director;
             if (lblDienVien != null) lblDienVien.Text = movie.Cast;
@@ -156,6 +168,28 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 btnTap.Text = "Xem tập";
             }
         }
+        private void LoadReview(int movieId)
+        {
+            try
+            {
+                List<DanhGia_model> dsDanhgia = danhgiaController.GetReviewUser(movieId);
+                if (dsDanhgia != null && dsDanhgia.Count > 0)
+                {
+                    pnlReview.Controls.Clear();
+                    foreach (DanhGia_model danhgia in dsDanhgia)
+                    {
+                        ItemReviewUser item = new ItemReviewUser(movie,danhgia, formMain,user);
+                        pnlReview.Controls.Add(item);
+                    }
+                    pnlReview.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         public void showMovie(int movieId)
         {
@@ -166,6 +200,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 if (movie != null)
                 {
                     SetMovieDetails(movie);
+                    LoadReview(movieId);
                 }
                 else
                 {
@@ -177,5 +212,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 MessageBox.Show(movieId + $"Lỗi: {e.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }

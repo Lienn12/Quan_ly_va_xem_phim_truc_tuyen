@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private Favourite_model favourite;
         private Favourite_controller favouriteController= new Favourite_controller();
         private FormMainUser formMainUser;
+        private XemChiTietUser chiTiet;
         public FormFavourite(FormMainUser formMainUser)
         {
             this.formMainUser = formMainUser;
@@ -40,8 +42,96 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0) // Chỉ xử lý khi nhấn vào hàng hợp lệ
+            {
+                int movieId = GetMovieIdFromFavorite();
+                int userId = GetUserIdFromFavorite();
+                if (e.ColumnIndex == 3) // Cột 3: Chuyển đến trang chi tiết
+                {
+                    chiTiet = formMainUser.GetXemChiTiet();
+                    chiTiet.showMovie(movieId,userId);
+                    formMainUser.OpenChidForm(chiTiet, sender);
+                }
+                else if (e.ColumnIndex == 4) // Cột 5: Xóa
+                {
+                    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            Movie_controller movieController = new Movie_controller();
+                            bool isDeleted = movieController.DeleteFilm(movieId);
+                            if (isDeleted)
+                            {
+                                MessageBox.Show("Xóa phim thành công!", "Thông báo");
+                                ShowData(); 
+                            }
+                            else
+                            {
+                                MessageBox.Show("Xóa phim thất bại. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Lỗi khi xóa phim: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
         }
+        public int GetMovieIdFromFavorite()
+        {
+            // Lấy chỉ số hàng được chọn
+            int selectedRow = dataGridView.CurrentCell?.RowIndex ?? -1;
+            if (selectedRow == -1)
+            {
+                return -1; 
+            }
+
+            if (dataGridView.Rows[selectedRow].Cells[0].Value == null ||
+                !int.TryParse(dataGridView.Rows[selectedRow].Cells[0].Value.ToString(), out int favoriteID))
+            {
+                return -1; 
+            }
+
+            try
+            {
+                int movieID = favouriteController.GetMovieId(favoriteID);
+                return movieID;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message); 
+                return -1;
+            }
+        }
+
+        public int GetUserIdFromFavorite()
+        {
+            int selectedRow = dataGridView.CurrentCell?.RowIndex ?? -1;
+            if (selectedRow == -1)
+            {
+                return -1; 
+            }
+
+            if (dataGridView.Rows[selectedRow].Cells[0].Value == null ||
+                !int.TryParse(dataGridView.Rows[selectedRow].Cells[0].Value.ToString(), out int favoriteID))
+            {
+                return -1; 
+            }
+
+            try
+            {
+                int userID = favouriteController.GetUserId(favoriteID);
+                return userID;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message); // Ghi log lỗi
+                return -1;
+            }
+        }
+
 
         private void FormFavourite_Paint(object sender, PaintEventArgs e)
         {

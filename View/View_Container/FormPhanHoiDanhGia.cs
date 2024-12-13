@@ -37,6 +37,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             txtPhanhoi.Visible = a;
             save.Visible = a;
         }
+
         public void SetData(DanhGia_model danhgia)
         {
             lbUsername.Text = danhgia.User.username;
