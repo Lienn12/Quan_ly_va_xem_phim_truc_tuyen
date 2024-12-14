@@ -16,19 +16,22 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 {
     public partial class PhimTrangChu : Form
     {
-        private Movie_model movie = new Movie_model();
+        private Movie_model movie ;
+        private User_model user ;
         private Movie_controller movieController = new Movie_controller();
         private TrangchuUser trangChuUser;
         private FormMainUser formMainUser;
-        public PhimTrangChu(TrangchuUser trangChuUser, FormMainUser formMainUser)
-        {
-            InitializeComponent();
+        public PhimTrangChu(TrangchuUser trangChuUser, FormMainUser formMainUser, User_model user)
+        { 
+            this.user = user;
             this.trangChuUser = trangChuUser;
+            this.formMainUser = formMainUser;
+            InitializeComponent();
             loadDataPhimdx();
             loadDataPhimbo();
             loadDataPhimle();
             loadDataReview();
-            this.formMainUser = formMainUser;
+            
             this.Size = new Size(999, 1500);
         }
         private void loadDataPhimdx()
@@ -41,7 +44,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     pnlPhimdx.Controls.Clear();
                     foreach (Movie_model movie in dsMovieDx)
                     {
-                        ItemPhimUser item = new ItemPhimUser(movie, formMainUser);
+                        ItemPhimUser item = new ItemPhimUser(movie, formMainUser,user);
                         pnlPhimdx.Controls.Add(item);
                     }
                     pnlPhimdx.Refresh();
@@ -62,7 +65,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     pnlPhimbo.Controls.Clear();
                     foreach (Movie_model movie in dsMovieDx)
                     {
-                        ItemPhimUser item = new ItemPhimUser(movie, formMainUser);
+                        ItemPhimUser item = new ItemPhimUser(movie, formMainUser,user);
                         pnlPhimbo.Controls.Add(item);
                     }
                     pnlPhimbo.Refresh();
@@ -83,7 +86,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     pnlPhimLe.Controls.Clear();
                     foreach (Movie_model movie in dsMovieDx)
                     {
-                        ItemPhimUser item = new ItemPhimUser(movie, formMainUser);
+                        ItemPhimUser item = new ItemPhimUser(movie, formMainUser,user);
                         pnlPhimLe.Controls.Add(item);
                     }
                     pnlPhimLe.Refresh();

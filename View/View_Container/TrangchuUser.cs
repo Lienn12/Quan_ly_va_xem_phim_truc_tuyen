@@ -3,12 +3,7 @@ using Quan_ly_thu_vien_phim.Model;
 using Quan_ly_thu_vien_phim.View.View_Main;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.View.View_Container
@@ -17,6 +12,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
     {
         private Form activeForm;
         private PhimLoai phimLoai;
+        private User_model user;
         private PhimTrangChu phimTrangChu;
         private FormMainUser mainUser;
         private TableLayoutPanel genrePanel;
@@ -35,8 +31,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             this.mainUser = mainUser;
             InitializeComponent();
-            phimLoai = new PhimLoai(this, mainUser);
-            phimTrangChu = new PhimTrangChu(this, mainUser);
+            phimLoai = new PhimLoai(this, mainUser,user);
+            phimTrangChu = new PhimTrangChu(this, mainUser,user);
             this.Size = new Size(999, 1800);
             initComboGenre();
             initComboCountry();
@@ -47,7 +43,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             if (this.activeForm != null)
             {
-                this.activeForm.Hide();  // Thay vì đóng, bạn có thể ẩn form hiện tại
+                this.activeForm.Hide();  
             }
             this.activeForm = childForm;
             childForm.TopLevel = false;
@@ -112,8 +108,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
                 genreMenu = new ContextMenuStrip();
                 genreMenu.Items.Add(new ToolStripControlHost(genrePanel));
-                genreMenu.Show(lbTheLoai, 0, lbTheLoai.Height);
-
                 lbTheLoai.MouseEnter += (sender, e) =>
                 {
                     lbTheLoai.ForeColor = Color.FromArgb(192, 232, 255);
@@ -187,8 +181,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
                 countryMenu = new ContextMenuStrip();
                 countryMenu.Items.Add(new ToolStripControlHost(countryPanel));
-                countryMenu.Show(btnQuocGia, 0, btnQuocGia.Height);
-
                 btnQuocGia.MouseEnter += (sender, e) =>
                 {
                     btnQuocGia.ForeColor = Color.FromArgb(192, 232, 255);
@@ -249,7 +241,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             OpenChidForm(phimLoai, sender);
         }
 
-        private void FormTrangChu_Load(object sender, EventArgs e)
+        private void TrangchuUser_Load(object sender, EventArgs e)
         {
             OpenChidForm(phimTrangChu, sender);
         }

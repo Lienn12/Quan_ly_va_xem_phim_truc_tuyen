@@ -39,6 +39,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             this.formMainUser = formMainUser;
             pnlDanhGia.Visible = false;
             formMain = new FormMain();
+            setShowBtnBackFavourite(false);
+            setShowBtnBackTrangChu(false);
         }
 
         private void XemChiTietUser_Paint(object sender, PaintEventArgs e)
@@ -64,35 +66,26 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         }
         private void LoadDanhSachTap()
         {
-            pnlSoTap.Controls.Clear(); // Xóa các nút cũ nếu có
-
-            // Danh sách các tập phim
+            pnlSoTap.Controls.Clear(); 
             List<Tap_model> danhSachTap = episode_Controller.GetEpisodesByMovieID(idPhim);
-
-            int y = 15;  // Vị trí bắt đầu của các nút
-
+            int y = 15;  
             foreach (var tap in danhSachTap)
             {
                 Button btnCacTap = new Button
                 {
                     Text = tap.epName,
-                    Size = new Size(95, 40),  // Kích thước nút
-                    Location = new Point(10 + (110 * (pnlSoTap.Controls.Count % 6)), y), // Đặt vị trí của nút
-                    Margin = new Padding(5),  // Khoảng cách giữa các nút
-                    BackColor = Color.Gray,   // Màu nền nút
-                    ForeColor = Color.White   // Màu chữ
+                    Size = new Size(95, 40), 
+                    Location = new Point(10 + (110 * (pnlSoTap.Controls.Count % 6)), y), 
+                    Margin = new Padding(5),  
+                    BackColor = Color.Gray,  
+                    ForeColor = Color.White   
                 };
-
-                // Thêm sự kiện Click cho mỗi nút
                 btnCacTap.Click += (s, e) =>
                 {
-                    // Reset lại màu sắc của các nút
                     foreach (Button btn in pnlSoTap.Controls)
                     {
                         btn.BackColor = Color.Gray;
                     }
-
-                    // Đổi màu cho nút được chọn
                     btnCacTap.BackColor = Color.Orange;
                     String video = tap.vidPathTap;
                     PhatVideo playVideo = new PhatVideo();
@@ -100,7 +93,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     playVideo.Show();
                 };
 
-                pnlSoTap.Controls.Add(btnCacTap);  // Thêm nút vào panel
+                pnlSoTap.Controls.Add(btnCacTap);  
             }
         }
 
@@ -120,7 +113,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             if (lblNam != null) lblNam.Text = movie.Year.ToString();
             if (lblDaoDien != null) lblDaoDien.Text = movie.Director;
             if (lblDienVien != null) lblDienVien.Text = movie.Cast;
-            if (lblTheLoai != null) lblTheLoai.Text = movie.Genre != null ? movie.Genre.GenreName : "N/A"; // Nếu Genre là null, hiển thị "N/A"
+            if (lblTheLoai != null) lblTheLoai.Text = movie.Genre != null ? movie.Genre.GenreName : "N/A"; 
             if (lblDinhDang != null) lblDinhDang.Text = movie.Format != null ? movie.Format.FormatName : "N/A";
             if (lblQuocGia != null) lblQuocGia.Text = movie.Country != null ? movie.Country.CountryName : "N/A";
             if (lblMota != null) lblMota.Text = movie.Description;
@@ -140,10 +133,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             vidPath = movie.VidPath;
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnTap_Click_1(object sender, EventArgs e)
         {
             if (episode_Controller.checkTap(idPhim))
@@ -154,8 +143,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 {
                     MessageBox.Show("Không có tập nào!");
                 }
-
-                // Cập nhật nội dung của nút khi hiển thị/ẩn danh sách
                 if (pnlSoTap.Visible)
                 {
                     btnTap.Text = "Ẩn danh sách";
@@ -247,7 +234,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         }
         public void InsertFavorite(int movieId, int userId)
         {
-            // Loại bỏ tất cả sự kiện nhấp chuột hiện có từ nút btnFavorite
             btnFavourite.Click -= BtnFavorite_Click;
             btnFavourite.Click += BtnFavorite_Click;
 
@@ -296,7 +282,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public void ShowData(int movieId)
         {
             try
@@ -317,6 +302,25 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 Console.WriteLine("Error with query: " + ex.Message);
             }
         }
+
+        public void setShowBtnBackFavourite(bool a)
+        {
+            btnBackFavourite.Visible = a;
+        }
+        public void setShowBtnBackTrangChu(bool a)
+        {
+            btnBackTrangChu.Visible = a;
+        }
+        private void btnBackTrangChu_Click(object sender, EventArgs e)
+        {
+            formMainUser.OpenChidForm(new View.View_Container.TrangchuUser(formMainUser), sender);
+        }
+
+        private void btnBackFavourite_Click(object sender, EventArgs e)
+        {
+            formMainUser.OpenChidForm(new View.View_Container.FormFavourite(formMainUser),sender);
+        }
+
         public void showMovie(int movieId, int userId)
         {
             idPhim = movieId;

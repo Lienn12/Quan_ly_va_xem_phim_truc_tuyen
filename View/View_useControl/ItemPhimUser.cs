@@ -17,6 +17,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
     public partial class ItemPhimUser  : UserControl
     {
         private Movie_model movieModel;
+        private User_model userModel;
         private FormMainUser formMainUser;
         private Mota mota;
         private Timer timer;
@@ -25,24 +26,44 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         private int speed = 20;
         private bool showing = false;
         private Image loadedImage;
-        public ItemPhimUser(Movie_model movieModel, FormMainUser formMainUser)
-        {
+        public ItemPhimUser(Movie_model movieModel, FormMainUser formMainUser, User_model userModel)
+        {   
+            this.userModel = userModel;
             this.movieModel = movieModel;
             this.formMainUser = formMainUser;
             InitializeComponent();
             Init();
-
-            // Tạo Mota và thêm vào UserControl
             mota = new Mota(movieModel.Title, movieModel.Rating)
             {
                 Location = new Point(0, y),
                 Size = new Size(180, 180)
             };
-            this.Controls.Add(mota); // Thêm Mota vào Controls của UserControl
-
+            this.Controls.Add(mota);
+            this.Click += (s, e) =>
+            {
+                showChiTietPhim(s);
+            };
+           
         }
+        private void showChiTietPhim(object sender)
+        {
+            if (movieModel == null)
+            {
+                MessageBox.Show("Dữ liệu phim chưa được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            if (formMainUser == null)
+            {
+                MessageBox.Show("Form chính chưa được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            formMainUser.ShowMovieDetail(movieModel);
+            XemChiTietUser chiTietUser = formMainUser.GetXemChiTiet();
+            chiTietUser.setShowBtnBackTrangChu(true);
+            formMainUser.OpenChidForm(chiTietUser, sender);
+        }
         public void Init()
         {
             this.BackColor = Color.Transparent;

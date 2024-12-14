@@ -42,17 +42,18 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Chỉ xử lý khi nhấn vào hàng hợp lệ
+            if (e.RowIndex >= 0) 
             {
                 int movieId = GetMovieIdFromFavorite();
                 int userId = GetUserIdFromFavorite();
-                if (e.ColumnIndex == 3) // Cột 3: Chuyển đến trang chi tiết
+                if (e.ColumnIndex == 3) 
                 {
                     chiTiet = formMainUser.GetXemChiTiet();
                     chiTiet.showMovie(movieId,userId);
+                    chiTiet.setShowBtnBackFavourite(true);
                     formMainUser.OpenChidForm(chiTiet, sender);
                 }
-                else if (e.ColumnIndex == 4) // Cột 5: Xóa
+                else if (e.ColumnIndex == 4)
                 {
                     DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
@@ -81,19 +82,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         }
         public int GetMovieIdFromFavorite()
         {
-            // Lấy chỉ số hàng được chọn
             int selectedRow = dataGridView.CurrentCell?.RowIndex ?? -1;
             if (selectedRow == -1)
             {
                 return -1; 
             }
-
             if (dataGridView.Rows[selectedRow].Cells[0].Value == null ||
                 !int.TryParse(dataGridView.Rows[selectedRow].Cells[0].Value.ToString(), out int favoriteID))
             {
                 return -1; 
             }
-
             try
             {
                 int movieID = favouriteController.GetMovieId(favoriteID);
@@ -127,7 +125,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             }
             catch (SqlException ex)
             {
-                Console.WriteLine(ex.Message); // Ghi log lỗi
+                Console.WriteLine(ex.Message); 
                 return -1;
             }
         }
@@ -160,7 +158,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                             review.Movie.Year   
                         );
                     }
-                MessageBox.Show("Dữ liệu đánh giá: " + favouriteList.Count.ToString());
                 dataGridView.Refresh();
             }
                 catch (Exception ex)

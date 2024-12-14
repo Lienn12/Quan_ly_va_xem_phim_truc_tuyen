@@ -33,9 +33,10 @@ namespace Quan_ly_thu_vien_phim.Controller
                         {
                             while (reader.Read())
                             {
-                                int movieId = reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
-                                string title = reader.GetString(reader.GetOrdinal("TITLE"));
-                                int year = reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR"));
+                                int movieId = reader.IsDBNull(reader.GetOrdinal("MOVIE_ID")) ? 0 : reader.GetInt32(reader.GetOrdinal("MOVIE_ID"));
+                                string title = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader.GetString(reader.GetOrdinal("TITLE"));
+                                int year = reader.IsDBNull(reader.GetOrdinal("RELEASE_YEAR")) ? 0 : reader.GetInt32(reader.GetOrdinal("RELEASE_YEAR"));
+
                                 Movie_model movie = new Movie_model(movieId, title, year);
                                 movieList.Add(movie);
                             }
@@ -280,24 +281,19 @@ namespace Quan_ly_thu_vien_phim.Controller
                         {
                             if (reader.Read())
                             {
-                                string name = reader["TITLE"].ToString();
-                                int year = Convert.ToInt32(reader["RELEASE_YEAR"]);
-                                float rating = Convert.ToInt32(reader["RATING"]);
-                                string genre = reader["GENRE_NAME"].ToString();
-                                string format = reader["FORMAT_NAME"].ToString();
-                                string country = reader["COUNTRY_NAME"].ToString();
-                                string director = reader["DIRECTOR"].ToString();
-                                string cast = reader["CAST"].ToString();
-                                string description = reader["DESCRIPTION"].ToString();
-                                int episode = Convert.ToInt32(reader["TOTAL_EPISODES"]);
-                                string img = reader["COVER_IMAGE"].ToString();  
-                                string vidPath = reader["TRAILER"].ToString();
+                                string name = reader.IsDBNull(reader.GetOrdinal("TITLE")) ? string.Empty : reader["TITLE"].ToString();
+                                int year = reader.IsDBNull(reader.GetOrdinal("RELEASE_YEAR")) ? 0 : Convert.ToInt32(reader["RELEASE_YEAR"]);
+                                float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0 : Convert.ToSingle(reader["RATING"]);
+                                string genre = reader.IsDBNull(reader.GetOrdinal("GENRE_NAME")) ? string.Empty : reader["GENRE_NAME"].ToString();
+                                string format = reader.IsDBNull(reader.GetOrdinal("FORMAT_NAME")) ? string.Empty : reader["FORMAT_NAME"].ToString();
+                                string country = reader.IsDBNull(reader.GetOrdinal("COUNTRY_NAME")) ? string.Empty : reader["COUNTRY_NAME"].ToString();
+                                string director = reader.IsDBNull(reader.GetOrdinal("DIRECTOR")) ? string.Empty : reader["DIRECTOR"].ToString();
+                                string cast = reader.IsDBNull(reader.GetOrdinal("CAST")) ? string.Empty : reader["CAST"].ToString();
+                                string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader["DESCRIPTION"].ToString();
+                                int episode = reader.IsDBNull(reader.GetOrdinal("TOTAL_EPISODES")) ? 0 : Convert.ToInt32(reader["TOTAL_EPISODES"]);
+                                string img = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader["COVER_IMAGE"].ToString();
+                                string vidPath = reader.IsDBNull(reader.GetOrdinal("TRAILER")) ? string.Empty : reader["TRAILER"].ToString();
 
-                                //Genre_model genreModel = string.IsNullOrEmpty(genre) ? null : new Genre_model(0, genre);
-                                //Format_model formatModel = string.IsNullOrEmpty(format) ? null : new Format_model(0, format);
-                                //Country_model countryModel = string.IsNullOrEmpty(country) ? null : new Country_model(0, country);
-
-                                // Trả về đối tượng Movie_model
                                 return new Movie_model(
                                     movieId, name,rating, year, director, cast,
                                     new Genre_model(0, genre), new Format_model(0, format), new Country_model(0, country), description, episode, img, vidPath

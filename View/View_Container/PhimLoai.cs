@@ -17,6 +17,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
     public partial class PhimLoai : Form
     {
         private Movie_model movie = new Movie_model();
+        private User_model user ;
         private Movie_controller movieController = new Movie_controller();
         private TrangchuUser trangchuUser;
         private FormMainUser formMainUser;
@@ -26,12 +27,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private Country_controller countryController = new Country_controller();
         private Genre_controller genreController = new Genre_controller();
         private Format_controller formatController = new Format_controller();
-        public PhimLoai(TrangchuUser trangchuUser, FormMainUser formMainUser)
+        public PhimLoai(TrangchuUser trangchuUser, FormMainUser formMainUser, User_model user)
         {
             InitializeComponent();
             this.Size = new Size(999, 1100);
             this.formMainUser = formMainUser;
             this.trangchuUser = trangchuUser;
+            this.user = user;
             LoadData();
         }
         public void Init(List<Movie_model> dsmovie)
@@ -45,7 +47,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     {
                         if (movie != null)
                         {
-                            ItemPhimUser item = new ItemPhimUser(movie, formMainUser);
+                            ItemPhimUser item = new ItemPhimUser(movie, formMainUser,user);
                             pnlPhim.Controls.Add(item);
                         }
                         else

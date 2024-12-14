@@ -37,6 +37,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             {
                 xemChiTietUser = new XemChiTietUser(this);
             }
+            OpenChidForm(new View_Container.TrangchuUser(this), null);
         }
 
         public void OpenChidForm(Form childForm, object btnSender)
@@ -108,5 +109,19 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         {
             return xemChiTietUser;
         }
+        public void ShowMovieDetail(Movie_model movie)
+        {
+            if (user != null)
+            {
+                xemChiTietUser.showMovie(movie.MovieId, user.userId);              
+            }
+            else
+            {
+                FormLoginSignup formLoginSignup = new FormLoginSignup();
+                formLoginSignup.ShowDialog();
+                this.Hide();
+            }
+        }
+
     }
 }
