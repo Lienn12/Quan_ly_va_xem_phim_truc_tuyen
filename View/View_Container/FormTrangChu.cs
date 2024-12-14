@@ -110,8 +110,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
                 genreMenu = new ContextMenuStrip();
                 genreMenu.Items.Add(new ToolStripControlHost(genrePanel));
-                genreMenu.Show(lbTheLoai, 0, lbTheLoai.Height);
-
                 lbTheLoai.MouseEnter += (sender, e) =>
                 {
                     lbTheLoai.ForeColor = Color.FromArgb(192, 232, 255);
@@ -185,8 +183,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
                 countryMenu = new ContextMenuStrip();
                 countryMenu.Items.Add(new ToolStripControlHost(countryPanel));
-                countryMenu.Show(btnQuocGia, 0, btnQuocGia.Height);
-
                 btnQuocGia.MouseEnter += (sender, e) =>
                 {
                     btnQuocGia.ForeColor = Color.FromArgb(192, 232, 255);

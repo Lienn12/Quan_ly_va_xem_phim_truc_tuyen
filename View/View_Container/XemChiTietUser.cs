@@ -38,9 +38,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             pnlSoTap.BackColor = Color.FromArgb(128, 255, 255, 255);
             this.formMainUser = formMainUser;
             pnlDanhGia.Visible = false;
-            btnBackFavourite.Visible = false;
-            btnBackTrangChu.Visible = false;
-            btnBackFavourite.Visible = false;
         }
 
         private void XemChiTietUser_Paint(object sender, PaintEventArgs e)
@@ -246,7 +243,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         }
         public void setShowBtnFavourite(bool a)
         {
-            btnBackFavourite.Visible = a;
+            btnFavourite.Visible = a;
         }
         public void InsertFavorite(int movieId, int userId)
         {
@@ -321,12 +318,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public void setShowBtnBackFavourite(bool a)
         {
             btnBackFavourite.Visible = a;
-            btnBackTrangChu.Visible = !a;
         }
         public void setShowBtnBackTrangChu(bool a)
         {
             btnBackTrangChu.Visible = a;
-            btnBackFavourite.Visible = !a;
         }
         private void btnBackTrangChu_Click(object sender, EventArgs e)
         {

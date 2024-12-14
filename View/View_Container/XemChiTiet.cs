@@ -36,17 +36,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             InitializeComponent();
             this.formMain = formMain;
             pnlSoTap.BackColor = Color.FromArgb(128, 255, 255, 255);
-            setShowBtnBackPhim(true);
+            //setShowBtnBackPhim(true);
         }
         public void setShowBtnBackPhim(bool a)
         {
             btnBackDSphim.Visible = a;
-            btnBackTrangChu.Visible = !a;
+            
         }
         public void setShowBtnBackTrangChu(bool a)
         {
             btnBackTrangChu.Visible = a;
-            btnBackDSphim.Visible = !a;
         }
         private void XemChiTiet_Paint(object sender, PaintEventArgs e)
         {
@@ -73,8 +72,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private void LoadDanhSachTap()
         {
             pnlSoTap.Controls.Clear(); // Xóa các nút cũ nếu có
-
-            // Danh sách các tập phim
             List<Tap_model> danhSachTap = episode_Controller.GetEpisodesByMovieID(idPhim);
 
             int y = 15;  // Vị trí bắt đầu của các nút
@@ -153,7 +150,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             formMain.OpenChidForm(new View.View_Container.FormDSPhim(formMain), sender);
         }
-
+        private void btnBackTrangChu_Click(object sender, EventArgs e)
+        {
+            formMain.OpenChidForm(new View.View_Container.FormTrangChu(formMain), sender);
+        }
         private void btnTap_Click(object sender, EventArgs e)
         {
             if (episode_Controller.checkTap(idPhim))
@@ -197,6 +197,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             }
         }
 
+        
 
         public void showMovie(int movieId)
         {

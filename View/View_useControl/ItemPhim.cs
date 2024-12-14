@@ -57,7 +57,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             }
             formMain.ShowMovieDetail(movieModel, sender);
             XemChiTiet chiTietUser = formMain.getChiTiet();
-            chiTietUser.setShowBtnBackPhim(true);
         }
 
         public void Init()

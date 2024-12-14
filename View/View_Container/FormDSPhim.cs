@@ -68,6 +68,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 {
                     chiTiet = formMain.getChiTiet();
                     chiTiet.showMovie(movieId);
+                    chiTiet.setShowBtnBackPhim(true);
+                    chiTiet.setShowBtnBackTrangChu(false);
                     formMain.OpenChidForm(chiTiet, sender);
                 }
                 else if (e.ColumnIndex == 4) // Cột 4: Chuyển đến trang sửa phim

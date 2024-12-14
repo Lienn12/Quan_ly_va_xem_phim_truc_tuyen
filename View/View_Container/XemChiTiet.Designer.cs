@@ -225,6 +225,7 @@
             resources.ApplyResources(this.btnBackTrangChu, "btnBackTrangChu");
             this.btnBackTrangChu.Name = "btnBackTrangChu";
             this.btnBackTrangChu.UseVisualStyleBackColor = false;
+            this.btnBackTrangChu.Click += new System.EventHandler(this.btnBackTrangChu_Click);
             // 
             // XemChiTiet
             // 

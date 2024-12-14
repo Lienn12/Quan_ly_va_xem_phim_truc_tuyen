@@ -51,6 +51,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     chiTiet = formMainUser.GetXemChiTiet();
                     chiTiet.showMovie(movieId, userId);
                     chiTiet.setShowBtnBackFavourite(true);
+                    chiTiet.setShowBtnBackTrangChu(false);
                     chiTiet.setShowBtnFavourite(false);
                     ShowData();
                     formMainUser.OpenChidForm(chiTiet, sender);
@@ -58,7 +59,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             }
             else if (e.ColumnIndex == 4)
                 {
-                int favouriteid = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value);
+                int favouriteid;
+                if (dataGridView.Rows[e.RowIndex].Cells[0].Value == null ||
+                    !int.TryParse(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out favouriteid))
+                {
+                    MessageBox.Show("Không tìm thấy ID yêu thích, không thể xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {

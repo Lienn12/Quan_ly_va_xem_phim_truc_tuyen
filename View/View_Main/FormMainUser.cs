@@ -107,15 +107,20 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         }
         public XemChiTietUser GetXemChiTiet()
         {
+            
             return xemChiTietUser;
         }
         public void ShowMovieDetail(Movie_model movie, object sender)
         {
-            
+            if (xemChiTietUser == null || xemChiTietUser.IsDisposed)
+            {
+                xemChiTietUser = new XemChiTietUser(this);
+            }
             if (user != null)
             {
                 xemChiTietUser.showMovie(movie.MovieId, user.userId);
                 xemChiTietUser.setShowBtnBackTrangChu(true);
+                xemChiTietUser.setShowBtnBackFavourite(false);
                 xemChiTietUser.setShowBtnFavourite(true);
                 OpenChidForm(xemChiTietUser, sender);
             }

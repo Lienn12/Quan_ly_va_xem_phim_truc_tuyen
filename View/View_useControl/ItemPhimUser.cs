@@ -61,7 +61,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
             formMainUser.ShowMovieDetail(movieModel, sender);
             XemChiTietUser chiTietUser = formMainUser.GetXemChiTiet();
-            chiTietUser.setShowBtnBackFavourite(true);
         }
         public void Init()
         {

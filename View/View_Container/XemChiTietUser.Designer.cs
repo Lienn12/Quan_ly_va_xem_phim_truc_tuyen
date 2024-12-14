@@ -239,7 +239,7 @@
             this.panel1.Controls.Add(this.lblTenPhim);
             this.panel1.Controls.Add(this.pbImage);
             this.panel1.Location = new System.Drawing.Point(62, 73);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(881, 531);
             this.panel1.TabIndex = 11;
@@ -286,7 +286,7 @@
             this.btnTap.ForeColor = System.Drawing.Color.White;
             this.btnTap.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnTap.Location = new System.Drawing.Point(625, 435);
-            this.btnTap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTap.Margin = new System.Windows.Forms.Padding(2);
             this.btnTap.Name = "btnTap";
             this.btnTap.Size = new System.Drawing.Size(116, 79);
             this.btnTap.TabIndex = 14;
@@ -300,7 +300,7 @@
             this.btnTrailer.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
             this.btnTrailer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnTrailer.Location = new System.Drawing.Point(461, 435);
-            this.btnTrailer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTrailer.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrailer.Name = "btnTrailer";
             this.btnTrailer.Size = new System.Drawing.Size(145, 79);
             this.btnTrailer.TabIndex = 13;
@@ -455,7 +455,7 @@
             // 
             this.pbImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pbImage.Location = new System.Drawing.Point(20, 32);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(391, 482);
             this.pbImage.TabIndex = 0;
@@ -480,7 +480,7 @@
             this.pnlSoTap.AutoScroll = true;
             this.pnlSoTap.BackColor = System.Drawing.Color.White;
             this.pnlSoTap.Location = new System.Drawing.Point(62, 953);
-            this.pnlSoTap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSoTap.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSoTap.Name = "pnlSoTap";
             this.pnlSoTap.Size = new System.Drawing.Size(881, 125);
             this.pnlSoTap.TabIndex = 12;
@@ -518,7 +518,7 @@
             this.btnBackTrangChu.FlatAppearance.BorderSize = 0;
             this.btnBackTrangChu.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backxanh;
             this.btnBackTrangChu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBackTrangChu.Location = new System.Drawing.Point(750, 23);
+            this.btnBackTrangChu.Location = new System.Drawing.Point(874, 29);
             this.btnBackTrangChu.Name = "btnBackTrangChu";
             this.btnBackTrangChu.Size = new System.Drawing.Size(69, 39);
             this.btnBackTrangChu.TabIndex = 20;
@@ -529,7 +529,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 1100);
+            this.ClientSize = new System.Drawing.Size(999, 1061);
             this.Controls.Add(this.btnBackTrangChu);
             this.Controls.Add(this.pnlDanhGia);
             this.Controls.Add(this.btnThem);

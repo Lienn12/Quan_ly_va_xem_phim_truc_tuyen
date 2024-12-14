@@ -121,6 +121,7 @@ namespace Quan_ly_thu_vien_phim.View
             }
             xemChiTiet.showMovie(movie.MovieId);
             xemChiTiet.setShowBtnBackTrangChu(true);
+            xemChiTiet.setShowBtnBackPhim(false);
             OpenChidForm(xemChiTiet, sender);
         }
     }

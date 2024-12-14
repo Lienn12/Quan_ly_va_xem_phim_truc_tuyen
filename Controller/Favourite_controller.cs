@@ -1,6 +1,7 @@
 ﻿using Quan_ly_thu_vien_phim.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -133,17 +134,31 @@ namespace Quan_ly_thu_vien_phim.Controller
         public bool DeleteFavorite(int favoriteID)
         {
             string sql = "DELETE FROM FAVORITES WHERE FAVORITE_ID = @favoriteID";
-            using (conn = new DbConnect().GetConnection())
+
+            try
             {
-                conn.Open();
-                using (var cmd = new SqlCommand(sql, conn))
+                using (var conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@favoriteID", favoriteID);
-                    
-                    int row = cmd.ExecuteNonQuery();
-                    return row > 0;
+                    conn.Open();
+                    using (var cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.Add("@favoriteID", SqlDbType.Int).Value = favoriteID;
+                        int row = cmd.ExecuteNonQuery();
+                        return row > 0; 
+                    }
                 }
             }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Lỗi khi xóa yêu thích: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi: {ex.Message}");
+                return false;
+            }
         }
+
     }
 }
