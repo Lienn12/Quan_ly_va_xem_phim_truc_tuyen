@@ -31,8 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XemChiTiet));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbStar = new System.Windows.Forms.Label();
             this.btnTap = new System.Windows.Forms.Button();
+            this.btnTrailer = new System.Windows.Forms.Button();
             this.lblMota = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTheLoai = new System.Windows.Forms.Label();
@@ -45,14 +47,13 @@
             this.lblQuocGia = new System.Windows.Forms.Label();
             this.lblNam = new System.Windows.Forms.Label();
             this.lblTenPhim = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnlSoTap = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlReview = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnTrailer = new System.Windows.Forms.Button();
-            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btnBackDSphim = new System.Windows.Forms.Button();
+            this.btnBackTrangChu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -88,6 +89,13 @@
             this.panel1.Controls.Add(this.pbImage);
             this.panel1.Name = "panel1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.star;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // lbStar
             // 
             resources.ApplyResources(this.lbStar, "lbStar");
@@ -101,6 +109,15 @@
             this.btnTap.Name = "btnTap";
             this.btnTap.UseVisualStyleBackColor = false;
             this.btnTap.Click += new System.EventHandler(this.btnTap_Click);
+            // 
+            // btnTrailer
+            // 
+            this.btnTrailer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.btnTrailer.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
+            resources.ApplyResources(this.btnTrailer, "btnTrailer");
+            this.btnTrailer.Name = "btnTrailer";
+            this.btnTrailer.UseVisualStyleBackColor = false;
+            this.btnTrailer.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblMota
             // 
@@ -162,6 +179,12 @@
             resources.ApplyResources(this.lblTenPhim, "lblTenPhim");
             this.lblTenPhim.Name = "lblTenPhim";
             // 
+            // pbImage
+            // 
+            resources.ApplyResources(this.pbImage, "pbImage");
+            this.pbImage.Name = "pbImage";
+            this.pbImage.TabStop = false;
+            // 
             // pnlSoTap
             // 
             resources.ApplyResources(this.pnlSoTap, "pnlSoTap");
@@ -184,46 +207,34 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Name = "label7";
             // 
-            // btnBack
+            // btnBackDSphim
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backxanh;
-            resources.ApplyResources(this.btnBack, "btnBack");
-            this.btnBack.Name = "btnBack";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBackDSphim.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackDSphim.FlatAppearance.BorderSize = 0;
+            this.btnBackDSphim.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backxanh;
+            resources.ApplyResources(this.btnBackDSphim, "btnBackDSphim");
+            this.btnBackDSphim.Name = "btnBackDSphim";
+            this.btnBackDSphim.UseVisualStyleBackColor = false;
+            this.btnBackDSphim.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // pictureBox1
+            // btnBackTrangChu
             // 
-            this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.star;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnTrailer
-            // 
-            this.btnTrailer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
-            this.btnTrailer.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.playicon;
-            resources.ApplyResources(this.btnTrailer, "btnTrailer");
-            this.btnTrailer.Name = "btnTrailer";
-            this.btnTrailer.UseVisualStyleBackColor = false;
-            this.btnTrailer.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pbImage
-            // 
-            resources.ApplyResources(this.pbImage, "pbImage");
-            this.pbImage.Name = "pbImage";
-            this.pbImage.TabStop = false;
+            this.btnBackTrangChu.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackTrangChu.FlatAppearance.BorderSize = 0;
+            this.btnBackTrangChu.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.backxanh;
+            resources.ApplyResources(this.btnBackTrangChu, "btnBackTrangChu");
+            this.btnBackTrangChu.Name = "btnBackTrangChu";
+            this.btnBackTrangChu.UseVisualStyleBackColor = false;
             // 
             // XemChiTiet
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.btnBackTrangChu);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pnlReview);
-            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnBackDSphim);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pnlSoTap);
             this.Controls.Add(this.panel1);
@@ -264,10 +275,11 @@
         private System.Windows.Forms.Button btnTap;
         private System.Windows.Forms.FlowLayoutPanel pnlSoTap;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnBackDSphim;
         private System.Windows.Forms.FlowLayoutPanel pnlReview;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbStar;
+        private System.Windows.Forms.Button btnBackTrangChu;
     }
 }

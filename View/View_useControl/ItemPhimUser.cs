@@ -59,10 +59,9 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
                 return;
             }
 
-            formMainUser.ShowMovieDetail(movieModel);
+            formMainUser.ShowMovieDetail(movieModel, sender);
             XemChiTietUser chiTietUser = formMainUser.GetXemChiTiet();
-            chiTietUser.setShowBtnBackTrangChu(true);
-            formMainUser.OpenChidForm(chiTietUser, sender);
+            chiTietUser.setShowBtnBackFavourite(true);
         }
         public void Init()
         {

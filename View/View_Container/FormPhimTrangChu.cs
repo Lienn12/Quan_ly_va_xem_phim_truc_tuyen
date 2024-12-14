@@ -25,11 +25,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             InitializeComponent();
             this.formTrangChu = formTrangChu;
+            this.formMain = formMain;
             loadDataPhimdx();
             loadDataPhimbo();
             loadDataPhimle();
             loadDataReview();
-            this.formMain = formMain;
+            
             this.Size = new Size(999, 1500);
         }
         private void loadDataPhimdx()

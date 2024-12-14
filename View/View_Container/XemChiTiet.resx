@@ -154,7 +154,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="panel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -763,19 +763,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="pnlSoTap.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="pnlSoTap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 606</value>
+    <value>517, 689</value>
   </data>
   <data name="pnlSoTap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="pnlSoTap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>881, 125</value>
+    <value>394, 252</value>
   </data>
   <data name="pnlSoTap.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -793,7 +793,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlSoTap.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -820,7 +820,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="pnlReview.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -829,7 +829,7 @@
     <value>TopDown</value>
   </data>
   <data name="pnlReview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 812</value>
+    <value>47, 689</value>
   </data>
   <data name="pnlReview.Size" type="System.Drawing.Size, System.Drawing">
     <value>422, 252</value>
@@ -850,7 +850,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlReview.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -862,7 +862,7 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 756</value>
+    <value>40, 633</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 40</value>
@@ -883,31 +883,55 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
-  <data name="btnBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnBackDSphim.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnBack.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnBackDSphim.Location" type="System.Drawing.Point, System.Drawing">
     <value>859, 15</value>
   </data>
-  <data name="btnBack.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnBackDSphim.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 39</value>
   </data>
-  <data name="btnBack.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnBackDSphim.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;btnBack.Name" xml:space="preserve">
-    <value>btnBack</value>
+  <data name="&gt;&gt;btnBackDSphim.Name" xml:space="preserve">
+    <value>btnBackDSphim</value>
   </data>
-  <data name="&gt;&gt;btnBack.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnBackDSphim.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnBack.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnBackDSphim.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnBack.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btnBackDSphim.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnBackTrangChu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnBackTrangChu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>737, 15</value>
+  </data>
+  <data name="btnBackTrangChu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 39</value>
+  </data>
+  <data name="btnBackTrangChu.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnBackTrangChu.Name" xml:space="preserve">
+    <value>btnBackTrangChu</value>
+  </data>
+  <data name="&gt;&gt;btnBackTrangChu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBackTrangChu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBackTrangChu.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -915,14 +939,11 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>984, 1100</value>
+    <value>984, 1000</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>

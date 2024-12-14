@@ -49,19 +49,22 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 if (e.ColumnIndex == 3) 
                 {
                     chiTiet = formMainUser.GetXemChiTiet();
-                    chiTiet.showMovie(movieId,userId);
+                    chiTiet.showMovie(movieId, userId);
                     chiTiet.setShowBtnBackFavourite(true);
+                    chiTiet.setShowBtnFavourite(false);
+                    ShowData();
                     formMainUser.OpenChidForm(chiTiet, sender);
                 }
-                else if (e.ColumnIndex == 4)
+            }
+            else if (e.ColumnIndex == 4)
                 {
-                    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                int favouriteid = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value);
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
                         try
                         {
-                            Movie_controller movieController = new Movie_controller();
-                            bool isDeleted = movieController.DeleteFilm(movieId);
+                            bool isDeleted = favouriteController.DeleteFavorite(favouriteid);
                             if (isDeleted)
                             {
                                 MessageBox.Show("Xóa phim thành công!", "Thông báo");
@@ -78,7 +81,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         }
                     }
                 }
-            }
         }
         public int GetMovieIdFromFavorite()
         {

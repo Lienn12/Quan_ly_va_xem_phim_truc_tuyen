@@ -1,4 +1,5 @@
-﻿using Quan_ly_thu_vien_phim.View.View_Container;
+﻿using Quan_ly_thu_vien_phim.Model;
+using Quan_ly_thu_vien_phim.View.View_Container;
 using Quan_ly_thu_vien_phim.View.View_Main;
 using System;
 using System.Collections.Generic;
@@ -110,6 +111,17 @@ namespace Quan_ly_thu_vien_phim.View
                 formPhanHoi = new FormPhanHoiDanhGia(this);
             }
             return formPhanHoi;
+        }
+        public void ShowMovieDetail(Movie_model movie, object sender)
+        {
+
+            if (xemChiTiet == null || xemChiTiet.IsDisposed)
+            {
+                xemChiTiet = new XemChiTiet(this);
+            }
+            xemChiTiet.showMovie(movie.MovieId);
+            xemChiTiet.setShowBtnBackTrangChu(true);
+            OpenChidForm(xemChiTiet, sender);
         }
     }
 }

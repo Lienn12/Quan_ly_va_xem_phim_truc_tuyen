@@ -31,17 +31,34 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             this.formMain = formMain;
             InitializeComponent();
             Init();
-
-            // Tạo Mota và thêm vào UserControl
             mota = new Mota(movieModel.Title, movieModel.Rating)
             {
                 Location = new Point(0, y),
                 Size = new Size(180, 180)
             };
             this.Controls.Add(mota); // Thêm Mota vào Controls của UserControl
-
+            this.Click += (s, e) =>
+            {
+                showChiTietPhim(s);
+            };
         }
+        private void showChiTietPhim(object sender)
+        {
+            if (movieModel == null)
+            {
+                MessageBox.Show("Dữ liệu phim chưa được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            if (formMain == null)
+            {
+                MessageBox.Show("Form chính chưa được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            formMain.ShowMovieDetail(movieModel, sender);
+            XemChiTiet chiTietUser = formMain.getChiTiet();
+            chiTietUser.setShowBtnBackPhim(true);
+        }
 
         public void Init()
         {

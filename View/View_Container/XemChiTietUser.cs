@@ -38,9 +38,9 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             pnlSoTap.BackColor = Color.FromArgb(128, 255, 255, 255);
             this.formMainUser = formMainUser;
             pnlDanhGia.Visible = false;
-            formMain = new FormMain();
-            setShowBtnBackFavourite(false);
-            setShowBtnBackTrangChu(false);
+            btnBackFavourite.Visible = false;
+            btnBackTrangChu.Visible = false;
+            btnBackFavourite.Visible = false;
         }
 
         private void XemChiTietUser_Paint(object sender, PaintEventArgs e)
@@ -208,13 +208,24 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             SetStarRating(5);
         }
+        private void setNullStar()
+        {
+            SetStarRating(0);
+        }
         private void insertReview(int movieID, int userID)
         {
-            btnThem.Click += new EventHandler((sender, e) =>
+            btnThem.Click -= btnThem_Click;
+            btnLuu.Click -= btnLuu_Click;
+
+            btnThem.Click += btnThem_Click;
+            btnLuu.Click += btnLuu_Click;
+
+            void btnThem_Click(object sender, EventArgs e)
             {
                 pnlDanhGia.Visible = true;
-            });
-            btnLuu.Click += new EventHandler((sender, e) =>
+            }
+
+            void btnLuu_Click(object sender, EventArgs e)
             {
                 try
                 {
@@ -222,21 +233,25 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     string comment = txtCmt.Text.Trim();
                     DateTime time = DateTime.Now;
                     danhgiaController.InsertReview(movieID, userID, rating, comment, time);
+                    setNullStar();
+                    txtCmt.Text = string.Empty; // Xóa nội dung textBox
+                    pnlDanhGia.Visible = false;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-                pnlDanhGia.Visible = true;
-                ShowData(movieID);
-            });
-
+                ShowData(movieID); // Hiển thị lại dữ liệu sau khi lưu
+            }
+        }
+        public void setShowBtnFavourite(bool a)
+        {
+            btnBackFavourite.Visible = a;
         }
         public void InsertFavorite(int movieId, int userId)
         {
             btnFavourite.Click -= BtnFavorite_Click;
             btnFavourite.Click += BtnFavorite_Click;
-
             void BtnFavorite_Click(object sender, EventArgs e)
             {
                 try
@@ -306,10 +321,12 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public void setShowBtnBackFavourite(bool a)
         {
             btnBackFavourite.Visible = a;
+            btnBackTrangChu.Visible = !a;
         }
         public void setShowBtnBackTrangChu(bool a)
         {
             btnBackTrangChu.Visible = a;
+            btnBackFavourite.Visible = !a;
         }
         private void btnBackTrangChu_Click(object sender, EventArgs e)
         {

@@ -25,10 +25,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             this.Size = new Size(1250, 800);
             pnlHeader.Size = new Size(1250, 40);
             pnlMenu.Size = new Size(250, 760);
-            if (formFavourite == null || formFavourite.IsDisposed)
-            {
-                formFavourite = new FormFavourite(this);
-            }
+            
             if (trangUser == null || trangUser.IsDisposed)
             {
                 trangUser = new TrangUser(this);
@@ -76,7 +73,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
 
         private void btnFavourite_Click(object sender, EventArgs e)
         {
-            OpenChidForm(formFavourite, sender);
+            OpenChidForm(new FormFavourite(this), sender);
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -93,7 +90,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         }
         public FormFavourite GetFavourite()
         {
-            
+            if (formFavourite == null || formFavourite.IsDisposed)
+            {
+                formFavourite = new FormFavourite(this);
+            }
             return formFavourite;
         }
         public TrangUser getCaNhan()
@@ -109,11 +109,15 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         {
             return xemChiTietUser;
         }
-        public void ShowMovieDetail(Movie_model movie)
+        public void ShowMovieDetail(Movie_model movie, object sender)
         {
+            
             if (user != null)
             {
-                xemChiTietUser.showMovie(movie.MovieId, user.userId);              
+                xemChiTietUser.showMovie(movie.MovieId, user.userId);
+                xemChiTietUser.setShowBtnBackTrangChu(true);
+                xemChiTietUser.setShowBtnFavourite(true);
+                OpenChidForm(xemChiTietUser, sender);
             }
             else
             {

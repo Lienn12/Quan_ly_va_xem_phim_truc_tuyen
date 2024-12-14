@@ -36,15 +36,22 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             InitializeComponent();
             this.formMain = formMain;
             pnlSoTap.BackColor = Color.FromArgb(128, 255, 255, 255);
-
+            setShowBtnBackPhim(true);
         }
-
+        public void setShowBtnBackPhim(bool a)
+        {
+            btnBackDSphim.Visible = a;
+            btnBackTrangChu.Visible = !a;
+        }
+        public void setShowBtnBackTrangChu(bool a)
+        {
+            btnBackTrangChu.Visible = a;
+            btnBackDSphim.Visible = !a;
+        }
         private void XemChiTiet_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rc = this.ClientRectangle; // Kích thước của form
-
-            // Tạo LinearGradientBrush từ #052659 đến #1CB5E0
+            Rectangle rc = this.ClientRectangle; 
             using (LinearGradientBrush brush = new LinearGradientBrush(
                 rc,
                 Color.FromArgb(5, 38, 89),   // Màu bắt đầu (#052659)
