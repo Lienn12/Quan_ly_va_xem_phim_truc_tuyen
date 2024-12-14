@@ -56,17 +56,16 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     ShowData();
                     formMainUser.OpenChidForm(chiTiet, sender);
                 }
-            }
-            else if (e.ColumnIndex == 4)
+                else if (e.ColumnIndex == 4)
                 {
-                int favouriteid;
-                if (dataGridView.Rows[e.RowIndex].Cells[0].Value == null ||
-                    !int.TryParse(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out favouriteid))
-                {
-                    MessageBox.Show("Không tìm thấy ID yêu thích, không thể xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    int favouriteid;
+                    if (dataGridView.Rows[e.RowIndex].Cells[0].Value == null ||
+                        !int.TryParse(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out favouriteid))
+                    {
+                        MessageBox.Show("Không tìm thấy ID yêu thích, không thể xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phim này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
                         try
@@ -75,7 +74,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                             if (isDeleted)
                             {
                                 MessageBox.Show("Xóa phim thành công!", "Thông báo");
-                                ShowData(); 
+                                ShowData();
                             }
                             else
                             {
@@ -88,6 +87,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         }
                     }
                 }
+            }
         }
         public int GetMovieIdFromFavorite()
         {
@@ -157,7 +157,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             try
             {   
-                List<Favourite_model> favouriteList = favouriteController.GetFavorite(28);
+                List<Favourite_model> favouriteList = favouriteController.GetFavorite(5);
                     dataGridView.Rows.Clear();
                     foreach (var review in favouriteList)
                     {
