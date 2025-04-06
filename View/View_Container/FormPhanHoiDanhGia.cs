@@ -41,7 +41,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         public void SetData(DanhGia_model danhgia)
         {
             lbUsername.Text = danhgia.User.username;
-            string formattedDate = danhgia.ReviewDate.ToString("dd/MM/yyyy HH:mm:ss");
+            string formattedDate = danhgia.ReviewDate.ToString();
             lbDate.Text = formattedDate;
             txtBinhluan.Text = danhgia.Comment;
             txtShowReply.Text = danhgia.Reply;

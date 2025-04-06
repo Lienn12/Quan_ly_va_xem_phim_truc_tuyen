@@ -50,7 +50,7 @@ namespace Quan_ly_thu_vien_phim.Model
             Movie.ImgPath = img;
             Comment = comment;
             ReviewId = reviewID;
-            ReviewDate = ReviewDate;
+            ReviewDate = reviewDate;
             Rating = rating;
             Reply = reply;
         }
