@@ -60,9 +60,17 @@ namespace Quan_ly_thu_vien_phim.View
 
         private void btnFilm_Click(object sender, EventArgs e)
         {
+            menutranstion.Start();
             OpenChidForm(new View_Container.FormDSPhim(this), sender);
         }
-
+         private void btnQuocGia_Click(object sender, EventArgs e)
+         {
+            OpenChidForm(new View_Container.frmQuocGia(), sender);
+        }
+        private void btnTheLoai_Click(object sender, EventArgs e)
+        {
+            OpenChidForm(new View_Container.frmTheLoai(), sender);
+        }
         private void btnUser_Click(object sender, EventArgs e)
         {
             OpenChidForm(new View_Container.FormDSNguoiDung(), sender);
@@ -124,5 +132,29 @@ namespace Quan_ly_thu_vien_phim.View
             xemChiTiet.setShowBtnBackPhim(false);
             OpenChidForm(xemChiTiet, sender);
         }
+        bool menuExpand = false;
+        private void menutranstion_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand == false)
+            {
+                menucontainer.Height += 30;
+                if(menucontainer.Height>= 200)
+                {
+                    menutranstion.Stop();
+                    menuExpand=true;
+                }
+            }
+            else
+            {
+                menucontainer.Height -= 30;
+                if(menucontainer.Height<=60)
+                {
+                    menutranstion.Stop();
+                    menuExpand=false;
+                }
+            }
+        }
+
+        
     }
 }

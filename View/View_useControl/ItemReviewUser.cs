@@ -28,7 +28,16 @@ namespace Quan_ly_thu_vien_phim.View.View_useControl
             lbUser.Text=danhgia.User.username;
             lbRating.Text=danhgia.Rating.ToString();
             txtCmt.Text = danhgia.Comment;
-            txtReply.Text = danhgia.Reply;
+            if (danhgia.Reply == null)
+            {
+                txtReply.Visible=false;
+                lbAdmin.Visible=false;
+            }
+            else
+            {
+                txtReply.Text = danhgia.Reply;
+            }
+            
         }
     }
 }

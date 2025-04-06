@@ -82,7 +82,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         Font = new Font("Segoe UI", 12),
                         ForeColor = Color.White,
                         AutoSize = false,
-                        Width = 200,
+                        Width = 250,
                         Height = 30,
                         TextAlign = ContentAlignment.MiddleLeft,
                         Cursor = Cursors.Hand
@@ -155,7 +155,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         Font = new Font("Segoe UI", 12),
                         ForeColor = Color.White,
                         AutoSize = false,
-                        Width = 200,
+                        Width = 250,
                         Height = 30,
                         TextAlign = ContentAlignment.MiddleLeft,
                         Cursor = Cursors.Hand

@@ -27,10 +27,18 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             InitializeComponent();
             this.Size = new Size(1000, 760);
             customizeDataGridView();
-            ShowData();
+            //ShowData();
             this.favorite_Id.DataPropertyName = "FavouriteId";
             this.title.DataPropertyName = "Movie.Title";       
             this.Release_year.DataPropertyName = "Movie.Year";
+            if (formMainUser != null)
+            {
+                User_model user = formMainUser.getUserModel(); 
+                if (user != null)
+                {
+                    ShowData(user.userId);
+                }
+            }
         }
         private void customizeDataGridView()
         {
@@ -53,7 +61,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     chiTiet.setShowBtnBackFavourite(true);
                     chiTiet.setShowBtnBackTrangChu(false);
                     chiTiet.setShowBtnFavourite(false);
-                    ShowData();
+                    ShowData(userId);
                     formMainUser.OpenChidForm(chiTiet, sender);
                 }
                 else if (e.ColumnIndex == 4)
@@ -74,7 +82,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                             if (isDeleted)
                             {
                                 MessageBox.Show("Xóa phim thành công!", "Thông báo");
-                                ShowData();
+                                ShowData(userId);
                             }
                             else
                             {
@@ -153,11 +161,11 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 g.FillRectangle(brush, rc);
             }
         }
-        public void ShowData()
+        public void ShowData(int userId)
         {
             try
             {   
-                List<Favourite_model> favouriteList = favouriteController.GetFavorite(5);
+                List<Favourite_model> favouriteList = favouriteController.GetFavorite(userId);
                     dataGridView.Rows.Clear();
                     foreach (var review in favouriteList)
                     {

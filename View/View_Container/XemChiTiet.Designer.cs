@@ -43,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblDinhDang = new System.Windows.Forms.Label();
             this.lblQuocGia = new System.Windows.Forms.Label();
             this.lblNam = new System.Windows.Forms.Label();
             this.lblTenPhim = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnBackDSphim = new System.Windows.Forms.Button();
             this.btnBackTrangChu = new System.Windows.Forms.Button();
+            this.lblDinhDang = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -70,6 +70,7 @@
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblDinhDang);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lbStar);
             this.panel1.Controls.Add(this.btnTap);
@@ -82,7 +83,6 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblDinhDang);
             this.panel1.Controls.Add(this.lblQuocGia);
             this.panel1.Controls.Add(this.lblNam);
             this.panel1.Controls.Add(this.lblTenPhim);
@@ -159,11 +159,6 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // lblDinhDang
-            // 
-            resources.ApplyResources(this.lblDinhDang, "lblDinhDang");
-            this.lblDinhDang.Name = "lblDinhDang";
-            // 
             // lblQuocGia
             // 
             resources.ApplyResources(this.lblQuocGia, "lblQuocGia");
@@ -227,6 +222,11 @@
             this.btnBackTrangChu.UseVisualStyleBackColor = false;
             this.btnBackTrangChu.Click += new System.EventHandler(this.btnBackTrangChu_Click);
             // 
+            // lblDinhDang
+            // 
+            resources.ApplyResources(this.lblDinhDang, "lblDinhDang");
+            this.lblDinhDang.Name = "lblDinhDang";
+            // 
             // XemChiTiet
             // 
             resources.ApplyResources(this, "$this");
@@ -261,7 +261,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label lblTenPhim;
-        private System.Windows.Forms.Label lblDinhDang;
         private System.Windows.Forms.Label lblQuocGia;
         private System.Windows.Forms.Label lblNam;
         private System.Windows.Forms.Label label4;
@@ -282,5 +281,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbStar;
         private System.Windows.Forms.Button btnBackTrangChu;
+        private System.Windows.Forms.Label lblDinhDang;
     }
 }

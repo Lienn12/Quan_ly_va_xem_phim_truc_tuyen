@@ -18,6 +18,7 @@ namespace Quan_ly_thu_vien_phim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new View.View_Main.FormMainUser());
             Application.Run(new View.FormMain());
         }
     }

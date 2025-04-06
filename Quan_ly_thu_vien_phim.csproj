@@ -128,6 +128,18 @@
     <Compile Include="View\View_Container\FormTrangChu.Designer.cs">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\frmQuocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\frmQuocGia.Designer.cs">
+      <DependentUpon>frmQuocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\frmTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\frmTheLoai.Designer.cs">
+      <DependentUpon>frmTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\PhatVideo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormTrangChu.resx">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\frmQuocGia.resx">
+      <DependentUpon>frmQuocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\frmTheLoai.resx">
+      <DependentUpon>frmTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\PhatVideo.resx">
       <DependentUpon>PhatVideo.cs</DependentUpon>
