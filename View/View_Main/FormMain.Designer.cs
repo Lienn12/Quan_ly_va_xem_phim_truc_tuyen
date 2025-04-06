@@ -203,7 +203,7 @@
             this.lbMinimum.Location = new System.Drawing.Point(1161, -6);
             this.lbMinimum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMinimum.Name = "lbMinimum";
-            this.lbMinimum.Size = new System.Drawing.Size(43, 46);
+            this.lbMinimum.Size = new System.Drawing.Size(34, 46);
             this.lbMinimum.TabIndex = 0;
             this.lbMinimum.Text = "_ ";
             // 
