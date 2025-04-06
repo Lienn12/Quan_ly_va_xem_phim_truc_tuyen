@@ -83,7 +83,7 @@ namespace Quan_ly_thu_vien_phim.Controller
                     conn.Open();
                     using (cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@GenreId", updatedGenre);
+                        cmd.Parameters.AddWithValue("@GenreId", updatedGenre.GenreID);
                         cmd.Parameters.AddWithValue("@GenreName", updatedGenre.GenreName);
                         int result = cmd.ExecuteNonQuery();
                         return result > 0;
@@ -104,23 +104,26 @@ namespace Quan_ly_thu_vien_phim.Controller
 
             try
             {
-                conn.Open();
-                using (cmd = new SqlCommand(checkSql, conn))
+                using (conn = new DbConnect().GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@GenreID", genreId);
-                    int count = (int)cmd.ExecuteScalar();
-
-                    if (count > 0)
+                    conn.Open();
+                    using (cmd = new SqlCommand(checkSql, conn))
                     {
-                        MessageBox.Show("Không thể xóa thể loại vì đang được sử dụng bởi phim.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return false;
+                        cmd.Parameters.AddWithValue("@GenreID", genreId);
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Không thể xóa thể loại vì đang được sử dụng bởi phim.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
                     }
-                }
-                using (cmd = new SqlCommand(deleteSql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@GenreID", genreId);
-                    int rows = cmd.ExecuteNonQuery();
-                    return rows > 0;
+                    using (cmd = new SqlCommand(deleteSql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@GenreID", genreId);
+                        int rows = cmd.ExecuteNonQuery();
+                        return rows > 0;
+                    }
                 }
             }
             catch (Exception ex)
@@ -128,10 +131,7 @@ namespace Quan_ly_thu_vien_phim.Controller
                 MessageBox.Show("Lỗi: " + ex.Message);
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
+
         }
 
     }

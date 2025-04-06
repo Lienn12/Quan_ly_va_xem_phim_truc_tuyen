@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
@@ -39,12 +40,17 @@
             this.lbExit = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.menucontainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnTheLoai = new System.Windows.Forms.Button();
+            this.btnQuocGia = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.menutranstion = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.menucontainer.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,7 +117,7 @@
             this.btnUser.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnUser.Size = new System.Drawing.Size(250, 60);
             this.btnUser.TabIndex = 4;
-            this.btnUser.Text = "      Người dùng";
+            this.btnUser.Text = "      User";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUser.UseVisualStyleBackColor = false;
@@ -129,7 +135,7 @@
             this.btnFilm.ForeColor = System.Drawing.Color.White;
             this.btnFilm.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.listFilm;
             this.btnFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilm.Location = new System.Drawing.Point(0, 60);
+            this.btnFilm.Location = new System.Drawing.Point(3, 2);
             this.btnFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFilm.Name = "btnFilm";
             this.btnFilm.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -232,13 +238,70 @@
             this.panel3.Controls.Add(this.btnLogin);
             this.panel3.Controls.Add(this.btnReview);
             this.panel3.Controls.Add(this.btnUser);
-            this.panel3.Controls.Add(this.btnFilm);
+            this.panel3.Controls.Add(this.menucontainer);
             this.panel3.Controls.Add(this.btnHome);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 217);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 458);
             this.panel3.TabIndex = 8;
+            // 
+            // menucontainer
+            // 
+            this.menucontainer.Controls.Add(this.btnFilm);
+            this.menucontainer.Controls.Add(this.btnTheLoai);
+            this.menucontainer.Controls.Add(this.btnQuocGia);
+            this.menucontainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menucontainer.Location = new System.Drawing.Point(0, 60);
+            this.menucontainer.Name = "menucontainer";
+            this.menucontainer.Size = new System.Drawing.Size(250, 60);
+            this.menucontainer.TabIndex = 7;
+            // 
+            // btnTheLoai
+            // 
+            this.btnTheLoai.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnTheLoai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTheLoai.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTheLoai.FlatAppearance.BorderSize = 0;
+            this.btnTheLoai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
+            this.btnTheLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTheLoai.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTheLoai.ForeColor = System.Drawing.Color.White;
+            this.btnTheLoai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTheLoai.Location = new System.Drawing.Point(3, 66);
+            this.btnTheLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTheLoai.Name = "btnTheLoai";
+            this.btnTheLoai.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnTheLoai.Size = new System.Drawing.Size(250, 60);
+            this.btnTheLoai.TabIndex = 4;
+            this.btnTheLoai.Text = "          Thể loại";
+            this.btnTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTheLoai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTheLoai.UseVisualStyleBackColor = false;
+            this.btnTheLoai.Click += new System.EventHandler(this.btnTheLoai_Click);
+            // 
+            // btnQuocGia
+            // 
+            this.btnQuocGia.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnQuocGia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnQuocGia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnQuocGia.FlatAppearance.BorderSize = 0;
+            this.btnQuocGia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
+            this.btnQuocGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuocGia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuocGia.ForeColor = System.Drawing.Color.White;
+            this.btnQuocGia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuocGia.Location = new System.Drawing.Point(3, 130);
+            this.btnQuocGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnQuocGia.Name = "btnQuocGia";
+            this.btnQuocGia.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnQuocGia.Size = new System.Drawing.Size(250, 60);
+            this.btnQuocGia.TabIndex = 5;
+            this.btnQuocGia.Text = "          Quốc gia";
+            this.btnQuocGia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuocGia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnQuocGia.UseVisualStyleBackColor = false;
+            this.btnQuocGia.Click += new System.EventHandler(this.btnQuocGia_Click);
             // 
             // panel2
             // 
@@ -260,6 +323,10 @@
             this.pnlMain.Size = new System.Drawing.Size(1000, 675);
             this.pnlMain.TabIndex = 4;
             // 
+            // menutranstion
+            // 
+            this.menutranstion.Tick += new System.EventHandler(this.menutranstion_Tick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +346,7 @@
             this.pnlHeader.PerformLayout();
             this.pnlMenu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.menucontainer.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -300,5 +368,9 @@
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Label lbExit;
         private System.Windows.Forms.Label lbMinimum;
+        private System.Windows.Forms.FlowLayoutPanel menucontainer;
+        private System.Windows.Forms.Button btnTheLoai;
+        private System.Windows.Forms.Button btnQuocGia;
+        private System.Windows.Forms.Timer menutranstion;
     }
 }
