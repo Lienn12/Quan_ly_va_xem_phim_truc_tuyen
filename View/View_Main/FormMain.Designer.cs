@@ -141,7 +141,7 @@
             this.btnFilm.ForeColor = System.Drawing.Color.White;
             this.btnFilm.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.listFilm;
             this.btnFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilm.Location = new System.Drawing.Point(0, 60);
+            this.btnFilm.Location = new System.Drawing.Point(0, 0);
             this.btnFilm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFilm.Name = "btnFilm";
             this.btnFilm.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -209,7 +209,7 @@
             this.lbMinimum.Location = new System.Drawing.Point(1186, -6);
             this.lbMinimum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMinimum.Name = "lbMinimum";
-            this.lbMinimum.Size = new System.Drawing.Size(43, 46);
+            this.lbMinimum.Size = new System.Drawing.Size(34, 46);
             this.lbMinimum.TabIndex = 0;
             this.lbMinimum.Text = "_";
             // 
