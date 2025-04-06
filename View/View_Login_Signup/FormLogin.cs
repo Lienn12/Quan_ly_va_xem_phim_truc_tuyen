@@ -63,12 +63,11 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                     formMainUser = new FormMainUser();
                     formMainUser.setuserModel(user);
                     FormFavourite formFavourite = formMainUser.GetFavourite();
-                    formFavourite.ShowData();
+                    formFavourite.ShowData(userId);
                     TrangUser tranguser = formMainUser.getCaNhan();
                     tranguser.getInfor(userInfor);
                     formMainUser.ShowDialog();
-                    //frmLoginSignup.Close();
-                    
+                    frmLoginSignup.Close();
                 }
                 else if(adminController.CheckLoginAdmin(admin,password))
                 {

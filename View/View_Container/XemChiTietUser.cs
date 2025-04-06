@@ -32,6 +32,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private Favourite_controller favouriteController = new Favourite_controller();
         private int idPhim;
         private int soStar = 0;
+        private int currentMovieId;
+        private int currentUserId;
         public XemChiTietUser(FormMainUser formMainUser)
         {
             InitializeComponent();
@@ -211,17 +213,37 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         }
         private void insertReview(int movieID, int userID)
         {
-            btnThem.Click -= btnThem_Click;
+            btnThem.Click -= btnThem_Click;  
             btnLuu.Click -= btnLuu_Click;
 
-            btnThem.Click += btnThem_Click;
+            btnThem.Click += btnThem_Click;  
             btnLuu.Click += btnLuu_Click;
 
             void btnThem_Click(object sender, EventArgs e)
             {
-                pnlDanhGia.Visible = true;
-            }
+                if (userID != -1)  
+                {
+                    pnlDanhGia.Visible = true;  
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Bạn cần đăng nhập để bình luận! Bạn có muốn đăng nhập không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                    if (result == DialogResult.Yes)  
+                    {
+                        FormLoginSignup formLoginSignup = new FormLoginSignup();
+                        if (formLoginSignup.ShowDialog() == DialogResult.OK)
+                        {
+                            formMainUser.Dispose();
+                            pnlDanhGia.Visible = true; 
+                        }
+                        else
+                        {
+                            this.Show();  
+                        }
+                    }
+                }
+            }
             void btnLuu_Click(object sender, EventArgs e)
             {
                 try
@@ -229,9 +251,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     int rating = soStar;
                     string comment = txtCmt.Text.Trim();
                     DateTime time = DateTime.Now;
+
+                    // Chèn dữ liệu bình luận vào hệ thống
                     danhgiaController.InsertReview(movieID, userID, rating, comment, time);
+
+                    // Reset lại phần đánh giá
                     setNullStar();
-                    txtCmt.Text = string.Empty; // Xóa nội dung textBox
+                    txtCmt.Text = string.Empty;
                     pnlDanhGia.Visible = false;
                 }
                 catch (Exception ex)
@@ -241,39 +267,45 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 ShowData(movieID); // Hiển thị lại dữ liệu sau khi lưu
             }
         }
+
         public void setShowBtnFavourite(bool a)
         {
             btnFavourite.Visible = a;
         }
-        public void InsertFavorite(int movieId, int userId)
+        public void SetupFavoriteButton(int movieId, int userId)
         {
+            currentMovieId = movieId;
+            currentUserId = userId;
             btnFavourite.Click -= BtnFavorite_Click;
             btnFavourite.Click += BtnFavorite_Click;
-            void BtnFavorite_Click(object sender, EventArgs e)
+        }
+
+        private void BtnFavorite_Click(object sender, EventArgs e)
+        {
+            try
             {
-                try
+                if (favouriteController.CheckMovie(currentMovieId, currentUserId))
                 {
-                    if (favouriteController.CheckMovie(movieId, userId))
+                    favouriteController.RemoveMovie(currentMovieId, currentUserId);
+                    MessageBox.Show("Đã xóa khỏi danh sách yêu thích");
+                    btnFavourite.BackColor = Color.FromArgb(125, 160, 202);
+                }
+                else
+                {
+                    if (favouriteController.InsertFavorite(currentMovieId, currentUserId))
                     {
-                        MessageBox.Show("Phim đã được thêm vào danh sách trước đó");
+                        MessageBox.Show("Phim đã được thêm vào danh sách");
+                        btnFavourite.BackColor = Color.FromArgb(5, 38, 89);
                     }
                     else
                     {
-                        if (favouriteController.InsertFavorite(movieId, userId))
-                        {
-                            MessageBox.Show("Phim đã được thêm vào danh sách");
-                            btnFavourite.BackColor = Color.FromArgb(5, 38, 89);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Không thể thêm phim vào danh sách yêu thích");
-                        }
+                        MessageBox.Show("Không thể thêm phim vào danh sách yêu thích");
                     }
                 }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void CheckMovieFavorite(int movieId, int userId)
@@ -342,22 +374,33 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 if (movie != null)
                 {
                     SetMovieDetails(movie);
-                    LoadReview(movieId);
+                    LoadReview(movieId); 
                     insertReview(movieId, userId);
-                    InsertFavorite(movieId, userId);
-                    CheckMovieFavorite(movieId, userId);
+                    btnThem.Enabled = true;
+                    // Nếu người dùng đã đăng nhập thì cho phép đánh giá và thêm yêu thích
+                    if (userId != -1)
+                    {
+                        
+                        SetupFavoriteButton(movieId, userId);
+                        CheckMovieFavorite(movieId, userId);
+                        btnFavourite.Enabled = true;
+                        
+                    }
+                    else
+                    {
+                        btnFavourite.Enabled = false;
+                        //btnThem.Enabled = false;
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Không tìm thấy movie.");
+                    Console.WriteLine("Movie with ID not found!");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(movieId + $"Lỗi: {e.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error with query: " + ex.Message);
             }
         }
-
-
     }
 }

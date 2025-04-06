@@ -1,6 +1,6 @@
 ﻿namespace Quan_ly_thu_vien_phim.View.View_Container
 {
-    partial class FormFavourite
+    partial class frmQuocGia
     {
         /// <summary>
         /// Required designer variable.
@@ -30,30 +30,29 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFavourite));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuocGia));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.txtTenQuocGia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnThem = new System.Windows.Forms.Button();
             this.favorite_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Release_year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chitiet = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.btnSua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(48, 42);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.29091F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(149, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(399, 42);
+            this.label1.Size = new System.Drawing.Size(149, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Danh sách phim yêu thích";
+            this.label1.Text = "Quốc gia";
             // 
             // dataGridView
             // 
@@ -75,7 +74,6 @@
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.favorite_Id,
             this.title,
-            this.Release_year,
             this.chitiet,
             this.delete});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -86,18 +84,49 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Location = new System.Drawing.Point(55, 184);
+            this.dataGridView.Location = new System.Drawing.Point(156, 223);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 47;
-            this.dataGridView.Size = new System.Drawing.Size(883, 486);
-            this.dataGridView.TabIndex = 1;
+            this.dataGridView.Size = new System.Drawing.Size(674, 428);
+            this.dataGridView.TabIndex = 2;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            // 
+            // txtTenQuocGia
+            // 
+            this.txtTenQuocGia.Font = new System.Drawing.Font("Segoe UI", 13.74545F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenQuocGia.Location = new System.Drawing.Point(285, 151);
+            this.txtTenQuocGia.Name = "txtTenQuocGia";
+            this.txtTenQuocGia.Size = new System.Drawing.Size(254, 35);
+            this.txtTenQuocGia.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.12727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(152, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 23);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tên quốc gia";
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(623, 144);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(114, 51);
+            this.btnThem.TabIndex = 5;
+            this.btnThem.Text = "Thêm ";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // favorite_Id
             // 
-            this.favorite_Id.DataPropertyName = "FavouriteId";
+            this.favorite_Id.DataPropertyName = "CountryId";
             this.favorite_Id.FillWeight = 37.09793F;
             this.favorite_Id.HeaderText = "ID";
             this.favorite_Id.MinimumWidth = 6;
@@ -105,19 +134,11 @@
             // 
             // title
             // 
-            this.title.DataPropertyName = "Movie.Title";
+            this.title.DataPropertyName = "CountryName";
             this.title.FillWeight = 115.931F;
-            this.title.HeaderText = "Tên phim";
+            this.title.HeaderText = "Tên quốc gia";
             this.title.MinimumWidth = 6;
             this.title.Name = "title";
-            // 
-            // Release_year
-            // 
-            this.Release_year.DataPropertyName = "Movie.Year";
-            this.Release_year.FillWeight = 66.97108F;
-            this.Release_year.HeaderText = "Năm phát hành";
-            this.Release_year.MinimumWidth = 6;
-            this.Release_year.Name = "Release_year";
             // 
             // chitiet
             // 
@@ -137,44 +158,37 @@
             this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
-            this.delete.Width = 82;
+            this.delete.Width = 133;
             // 
-            // pictureBox1
+            // btnSua
             // 
-            this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.icons8_find_30;
-            this.pictureBox1.Location = new System.Drawing.Point(55, 125);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(38)))), ((int)(((byte)(89)))));
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(623, 144);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(114, 51);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // txtTimkiem
-            // 
-            this.txtTimkiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTimkiem.Location = new System.Drawing.Point(96, 125);
-            this.txtTimkiem.Multiline = true;
-            this.txtTimkiem.Name = "txtTimkiem";
-            this.txtTimkiem.Size = new System.Drawing.Size(283, 35);
-            this.txtTimkiem.TabIndex = 3;
-            this.txtTimkiem.Text = "Tìm kiếm phim yêu thích";
-            // 
-            // FormFavourite
+            // frmQuocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(999, 715);
-            this.Controls.Add(this.txtTimkiem);
-            this.Controls.Add(this.pictureBox1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1000, 705);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtTenQuocGia);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormFavourite";
-            this.Text = "FormFavourite";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormFavourite_Paint);
+            this.Name = "frmQuocGia";
+            this.Text = "frmQuocGia";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,12 +198,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.TextBox txtTenQuocGia;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridViewTextBoxColumn favorite_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Release_year;
         private System.Windows.Forms.DataGridViewImageColumn chitiet;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.Button btnSua;
     }
 }

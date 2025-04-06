@@ -159,6 +159,37 @@ namespace Quan_ly_thu_vien_phim.Controller
                 return false;
             }
         }
+        public bool RemoveMovie(int movieId, int userId)
+        {
+            string sql = "DELETE FROM FAVORITES WHERE MOVIE_ID = @movieId AND USER_ID = @userId";
+
+            try
+            {
+                using (var conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@movieId", movieId);
+                        cmd.Parameters.AddWithValue("@userId", userId);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0; // trả về true nếu có dòng bị xóa
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error: " + ex.Message);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+        }
+
 
     }
 }

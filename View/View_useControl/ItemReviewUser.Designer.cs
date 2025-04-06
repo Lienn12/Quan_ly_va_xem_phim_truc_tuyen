@@ -43,7 +43,7 @@
             this.lbUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Location = new System.Drawing.Point(24, 14);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(65, 25);
+            this.lbUser.Size = new System.Drawing.Size(76, 30);
             this.lbUser.TabIndex = 0;
             this.lbUser.Text = "label1";
             // 
@@ -51,9 +51,9 @@
             // 
             this.lbRating.AutoSize = true;
             this.lbRating.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRating.Location = new System.Drawing.Point(288, 18);
+            this.lbRating.Location = new System.Drawing.Point(246, 14);
             this.lbRating.Name = "lbRating";
-            this.lbRating.Size = new System.Drawing.Size(63, 25);
+            this.lbRating.Size = new System.Drawing.Size(71, 30);
             this.lbRating.TabIndex = 1;
             this.lbRating.Text = "label2";
             // 
@@ -61,10 +61,10 @@
             // 
             this.lbAdmin.AutoSize = true;
             this.lbAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAdmin.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbAdmin.Location = new System.Drawing.Point(55, 148);
             this.lbAdmin.Name = "lbAdmin";
-            this.lbAdmin.Size = new System.Drawing.Size(61, 21);
+            this.lbAdmin.Size = new System.Drawing.Size(71, 25);
             this.lbAdmin.TabIndex = 2;
             this.lbAdmin.Text = "Admin";
             // 
@@ -75,13 +75,13 @@
             this.txtCmt.Location = new System.Drawing.Point(29, 61);
             this.txtCmt.Multiline = true;
             this.txtCmt.Name = "txtCmt";
-            this.txtCmt.Size = new System.Drawing.Size(332, 72);
+            this.txtCmt.Size = new System.Drawing.Size(288, 72);
             this.txtCmt.TabIndex = 4;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Quan_ly_thu_vien_phim.Properties.Resources.star;
-            this.pictureBox1.Location = new System.Drawing.Point(256, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(214, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(26, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -95,10 +95,10 @@
             this.txtReply.Location = new System.Drawing.Point(59, 172);
             this.txtReply.Multiline = true;
             this.txtReply.Name = "txtReply";
-            this.txtReply.Size = new System.Drawing.Size(302, 72);
+            this.txtReply.Size = new System.Drawing.Size(258, 72);
             this.txtReply.TabIndex = 6;
             // 
-            // ItiemReviewUser
+            // ItemReviewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,8 +108,8 @@
             this.Controls.Add(this.lbAdmin);
             this.Controls.Add(this.lbRating);
             this.Controls.Add(this.lbUser);
-            this.Name = "ItiemReviewUser";
-            this.Size = new System.Drawing.Size(405, 261);
+            this.Name = "ItemReviewUser";
+            this.Size = new System.Drawing.Size(343, 261);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
