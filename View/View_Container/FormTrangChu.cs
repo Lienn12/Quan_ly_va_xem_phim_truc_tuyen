@@ -64,10 +64,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     AutoSize = true,
                     BackColor = Color.FromArgb(5, 38, 89),
                     CellBorderStyle = TableLayoutPanelCellBorderStyle.None,
-                    GrowStyle = TableLayoutPanelGrowStyle.AddRows
+                    Width = 250,
+                    GrowStyle = TableLayoutPanelGrowStyle.AddRows,
+                    Dock = DockStyle.Fill,
+                    Margin = new Padding(5, 2, 5, 2)
                 };
-                genrePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-                genrePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+                genrePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+                genrePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
 
                 List<Genre_model> dsGenre = genreController.GetGenres();
                 int row = 0;
@@ -83,7 +86,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         Text = genre.GenreName,
                         Font = new Font("Segoe UI", 12),
                         ForeColor = Color.White,
-                        AutoSize = false,
+                        AutoSize = false ,
                         Width = 200,
                         Height = 30,
                         TextAlign = ContentAlignment.MiddleLeft,
@@ -140,7 +143,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                      Margin = new Padding(0)
                  };
                 countryPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-                countryPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+                countryPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 
                 List<Country_model> dsCountry = countryController.GetCountries();
                 int row = 0;
@@ -157,7 +160,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         Font = new Font("Segoe UI", 12),
                         ForeColor = Color.White,
                         AutoSize = false,
-                        Width = 200,
+                        Width = 300,
                         Height = 30,
                         TextAlign = ContentAlignment.MiddleLeft,
                         Cursor = Cursors.Hand

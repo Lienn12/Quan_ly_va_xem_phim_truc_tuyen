@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ItemPhimUser";
-            this.Size = new System.Drawing.Size(412, 439);
+            this.Size = new System.Drawing.Size(277, 360);
             this.ResumeLayout(false);
 
         }

@@ -23,7 +23,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         {
             InitializeComponent();
             this.Size = new Size(1250, 800);
-            pnlHeader.Size = new Size(1250, 40);
+            pnlHeader.Size = new Size(1250, 45);
             pnlMenu.Size = new Size(250, 760);
             
             if (trangUser == null || trangUser.IsDisposed)
@@ -101,6 +101,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             
             return trangUser;
         }
+        public User_model getUserModel()
+        {
+            return user;
+        }
         public void setuserModel(User_model user)
         {
             this.user = user;
@@ -122,15 +126,17 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
                 xemChiTietUser.setShowBtnBackTrangChu(true);
                 xemChiTietUser.setShowBtnBackFavourite(false);
                 xemChiTietUser.setShowBtnFavourite(true);
-                OpenChidForm(xemChiTietUser, sender);
             }
             else
             {
-                FormLoginSignup formLoginSignup = new FormLoginSignup();
-                formLoginSignup.ShowDialog();
-                this.Hide();
+                xemChiTietUser.showMovie(movie.MovieId, -1);
+                xemChiTietUser.setShowBtnBackTrangChu(true); 
+                xemChiTietUser.setShowBtnBackFavourite(false);
+                xemChiTietUser.setShowBtnFavourite(false); 
             }
+            OpenChidForm(xemChiTietUser, sender);
         }
+
 
     }
 }

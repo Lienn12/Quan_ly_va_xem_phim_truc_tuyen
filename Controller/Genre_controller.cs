@@ -49,5 +49,90 @@ namespace Quan_ly_thu_vien_phim.Controller
             }
             return GenreList;
         }
+         public bool AddGenre(Genre_model newGenre)
+        {
+            string sql = "INSERT INTO GENRES (GENRE_NAME) VALUES (@GenreName)";
+            try
+            {
+                using (conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@GenreName", newGenre.GenreName);
+                        int result = cmd.ExecuteNonQuery();
+                        return result > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+        }
+
+        // Sửa thể loại
+        public bool UpdateGenre(Genre_model updatedGenre)
+        {
+            string sql = "UPDATE GENRES SET GENRE_NAME = @GenreName WHERE GENRE_ID = @GenreId";
+            try
+            {
+                using (conn = new DbConnect().GetConnection())
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@GenreId", updatedGenre);
+                        cmd.Parameters.AddWithValue("@GenreName", updatedGenre.GenreName);
+                        int result = cmd.ExecuteNonQuery();
+                        return result > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+        }
+
+        public bool DeleteGenre(int genreId)
+        {
+            string checkSql = "SELECT COUNT(*) FROM MOVIES WHERE GENRE_ID = @GenreID";
+            string deleteSql = "DELETE FROM GENRES WHERE GENRE_ID = @GenreID";
+
+            try
+            {
+                conn.Open();
+                using (cmd = new SqlCommand(checkSql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@GenreID", genreId);
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Không thể xóa thể loại vì đang được sử dụng bởi phim.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+                using (cmd = new SqlCommand(deleteSql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@GenreID", genreId);
+                    int rows = cmd.ExecuteNonQuery();
+                    return rows > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }
