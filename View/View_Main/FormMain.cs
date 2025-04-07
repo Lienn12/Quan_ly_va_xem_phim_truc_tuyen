@@ -27,7 +27,7 @@ namespace Quan_ly_thu_vien_phim.View
             lbMinimum.Click += btnMinimum_Click;
             lbExit.Click += btnExit_Click;
             this.Size = new Size(1250, 800);
-            pnlHeader.Size = new Size(1250, 40);
+            pnlHeader.Size = new Size(1250, 45);
             pnlMenu.Size = new Size(250, 760);
         }
 
@@ -65,6 +65,7 @@ namespace Quan_ly_thu_vien_phim.View
         }
          private void btnQuocGia_Click(object sender, EventArgs e)
          {
+
             OpenChidForm(new View_Container.frmQuocGia(), sender);
         }
         private void btnTheLoai_Click(object sender, EventArgs e)
@@ -80,7 +81,19 @@ namespace Quan_ly_thu_vien_phim.View
         {
             OpenChidForm(new View_Container.FormDanhGia(this), sender);
         }
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            menuPay.Start();
+        }
+        private void btnGoi_Click(object sender, EventArgs e)
+        {
 
+            OpenChidForm(new View_Container.frmGoiDichVu(), sender);
+        }
+        private void btnPT_Click(object sender, EventArgs e)
+        {
+            OpenChidForm(new View_Container.formPhuongThuc(), sender);
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             FormLoginSignup formLoginSignup = new FormLoginSignup();
@@ -138,7 +151,7 @@ namespace Quan_ly_thu_vien_phim.View
             if (menuExpand == false)
             {
                 menucontainer.Height += 30;
-                if(menucontainer.Height>= 200)
+                if(menucontainer.Height>= 130)
                 {
                     menutranstion.Stop();
                     menuExpand=true;
@@ -147,14 +160,36 @@ namespace Quan_ly_thu_vien_phim.View
             else
             {
                 menucontainer.Height -= 30;
-                if(menucontainer.Height<=60)
+                if(menucontainer.Height<=50)
                 {
                     menutranstion.Stop();
                     menuExpand=false;
                 }
             }
         }
+        bool menuExpandPay = false;
+        private void menuPay_Tick(object sender, EventArgs e)
+        {
+            if (menuExpandPay == false)
+            {
+                ThanhToan.Height += 30;
+                if (ThanhToan.Height >= 130)
+                {
+                    menuPay.Stop();
+                    menuExpandPay = true;
+                }
+            }
+            else
+            {
+                ThanhToan.Height -= 30;
+                if (ThanhToan.Height <= 50)
+                {
+                    menuPay.Stop();
+                    menuExpandPay = false;
+                }
+            }
+        }
 
-        
+       
     }
 }

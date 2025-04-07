@@ -1,6 +1,5 @@
 ﻿using Quan_ly_thu_vien_phim.Controller;
 using Quan_ly_thu_vien_phim.Model;
-using Quan_ly_thu_vien_phim.View.View_Main;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +12,13 @@ using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.View.View_Container
 {
-    public partial class frmTheLoai : Form
+    public partial class formPhuongThuc : Form
     {
-        private Genre_controller categoryController;  
-
-        public frmTheLoai()
+        private PhuongThuc_controller phuongThucController;
+        public formPhuongThuc()
         {
             InitializeComponent();
-            categoryController = new Genre_controller();  
+            phuongThucController = new PhuongThuc_controller();
             ShowData();
             SetupDataGridView();
             btnSua.Visible = false;
@@ -36,62 +34,41 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             ((DataGridViewImageColumn)dataGridView.Columns[3]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
         }
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            string categoryName = txtTenTheLoai.Text;
-
-            if (string.IsNullOrEmpty(categoryName))
-            {
-                MessageBox.Show("Vui lòng nhập tên thể loại.");
-                return;
-            }
-            Genre_model newCategory = new Genre_model(0, categoryName);  
-            bool result = categoryController.AddGenre(newCategory); 
-            if (result)
-            {
-                MessageBox.Show("Thêm thể loại thành công!");
-                ShowData(); 
-            }
-            else
-            {
-                MessageBox.Show("Thêm thể loại thất bại.");
-            }
-        }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 2)  
+                if (e.ColumnIndex == 2)
                 {
                     int categoryId;
                     if (dataGridView.Rows[e.RowIndex].Cells[0].Value == null ||
                         !int.TryParse(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out categoryId))
                     {
-                        MessageBox.Show("Không tìm thấy ID thể loại, không thể sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Không tìm thấy ID phương thức, không thể sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     string genreName = dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                    txtTenTheLoai.Text = genreName;  
+                    txtPhuongThuc.Text = genreName;
                     btnSua.Visible = true;
                     btnSua.Tag = categoryId;
                 }
-                else if (e.ColumnIndex == 3)  
+                else if (e.ColumnIndex == 3)
                 {
-                    int categoryId;
+                    int methodId;
                     if (dataGridView.Rows[e.RowIndex].Cells[0].Value == null ||
-                        !int.TryParse(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out categoryId))
+                        !int.TryParse(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out methodId))
                     {
-                        MessageBox.Show("Không tìm thấy ID thể loại, không thể xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Không tìm thấy ID phương thức, không thể xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa thể loại này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phương thức này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
                         try
                         {
-                            bool isDeleted = categoryController.DeleteGenre(categoryId);  
+                            bool isDeleted = phuongThucController.DeleteMethod(methodId);
                             if (isDeleted)
                             {
                                 ShowData();
@@ -99,36 +76,63 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"Lỗi khi xóa thể loại: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Lỗi khi xóaphương thức: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
         }
-
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnthem_Click(object sender, EventArgs e)
         {
-            int categoryId = (int)btnSua.Tag;
-            string newCategoryName = txtTenTheLoai.Text; 
-            if (string.IsNullOrEmpty(newCategoryName))
+            string methodName = txtPhuongThuc.Text;
+            if (string.IsNullOrEmpty(methodName))
             {
-                MessageBox.Show("Vui lòng nhập tên thể loại.");
+                MessageBox.Show("Vui lòng nhập tên phương thức.");
                 return;
             }
 
-            Genre_model updatedCategory = new Genre_model(categoryId, newCategoryName);  
-            bool isUpdated = categoryController.UpdateGenre(updatedCategory); 
+            PhuongThuc_model newMethod = new PhuongThuc_model(0, methodName);
+            Task.Run(() =>
+            {
+                bool result = phuongThucController.AddMethod(newMethod);
+                Invoke(new Action(() =>
+                {
+                    if (result)
+                    {
+                        MessageBox.Show("Thêm phương thức thành công!");
+                        ShowData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm phương thức thất bại.");
+                    }
+                }));
+            });
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            int methodId = (int)btnSua.Tag;
+            string newMethodName = txtPhuongThuc.Text;
+            if (string.IsNullOrEmpty(newMethodName))
+            {
+                MessageBox.Show("Vui lòng nhập tênphương thức.");
+                return;
+            }
+
+            PhuongThuc_model updatedMethod = new PhuongThuc_model(methodId, newMethodName);
+            bool isUpdated = phuongThucController.UpdateMethod(updatedMethod);
 
             if (isUpdated)
             {
-                MessageBox.Show("Cập nhật thể loại thành công!", "Thông báo");
+                MessageBox.Show("Cập nhật phương thức thành công!", "Thông báo");
                 ShowData();
                 btnSua.Visible = false;
-                txtTenTheLoai.Text = " ";
+                txtPhuongThuc.Text = " ";
             }
             else
             {
-                MessageBox.Show("Cập nhật thể loại thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cập nhật phương thức thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -136,18 +140,13 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         {
             try
             {
-                List<Genre_model> CategoryList = categoryController.GetGenres();  
+                List<PhuongThuc_model> phuongThucs = phuongThucController.GetMethods();
                 dataGridView.Rows.Clear();
-                int index = 1;
-                foreach (var Genre in CategoryList)
+                foreach (var method in phuongThucs)
                 {
-                    if (Genre.GenreID == 1) 
-                    {
-                        continue;
-                    }
                     dataGridView.Rows.Add(
-                        Genre.GenreID,  
-                        Genre.GenreName
+                        method.MethodId,
+                        method.MethodName
                     );
                 }
                 dataGridView.Refresh();
@@ -157,5 +156,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                 MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+       
     }
 }

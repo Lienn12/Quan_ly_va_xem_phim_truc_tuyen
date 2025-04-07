@@ -9,20 +9,20 @@ using System.Windows.Forms;
 
 namespace Quan_ly_thu_vien_phim.Controller
 {
-    public class Genre_controller
+    public class PhuongThuc_controller
     {
         SqlConnection conn = null;
         SqlCommand cmd = null;
         SqlDataReader reader = null;
-        private Genre_model genre;
-        public Genre_controller()
+        private PhuongThuc_model Payment_Methods;
+        public PhuongThuc_controller()
         {
             conn = new DbConnect().GetConnection();
         }
-        public List<Genre_model> GetGenres()
+        public List<PhuongThuc_model> GetMethods()
         {
-            List<Genre_model> GenreList = new List<Genre_model>();
-            string sql = "SELECT * FROM GENRES";
+            List<PhuongThuc_model> methodList = new List<PhuongThuc_model>();
+            string sql = "SELECT * FROM Payment_Methods";
             try
             {
                 using (conn = new DbConnect().GetConnection())
@@ -34,10 +34,9 @@ namespace Quan_ly_thu_vien_phim.Controller
                         {
                             while (reader.Read())
                             {
-                                int genreId = reader.GetInt32(reader.GetOrdinal("GENRE_ID"));
-                                string genreName = reader.GetString(reader.GetOrdinal("GENRE_NAME"));
-                                Genre_model genre = new Genre_model(genreId, genreName);
-                                GenreList.Add(genre);
+                                int methodId = reader.GetInt32(reader.GetOrdinal("METHOD_ID"));
+                                string methodName = reader.GetString(reader.GetOrdinal("METHOD_NAME"));
+                                methodList.Add(new PhuongThuc_model(methodId, methodName));
                             }
                         }
                     }
@@ -47,11 +46,11 @@ namespace Quan_ly_thu_vien_phim.Controller
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
-            return GenreList;
+            return methodList;
         }
-         public bool AddGenre(Genre_model newGenre)
+        public bool AddMethod(PhuongThuc_model newMethod)
         {
-            string sql = "INSERT INTO GENRES (GENRE_NAME) VALUES (@GenreName)";
+            string sql = "INSERT INTO Payment_Methods (METHOD_NAME) VALUES (@MethodName)";
             try
             {
                 using (conn = new DbConnect().GetConnection())
@@ -59,7 +58,7 @@ namespace Quan_ly_thu_vien_phim.Controller
                     conn.Open();
                     using (cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@GenreName", newGenre.GenreName);
+                        cmd.Parameters.AddWithValue("@MethodName", newMethod.MethodName);
                         int result = cmd.ExecuteNonQuery();
                         return result > 0;
                     }
@@ -71,11 +70,9 @@ namespace Quan_ly_thu_vien_phim.Controller
             }
             return false;
         }
-
-        // Sửa thể loại
-        public bool UpdateGenre(Genre_model updatedGenre)
+        public bool UpdateMethod(PhuongThuc_model updatedMethod)
         {
-            string sql = "UPDATE GENRES SET GENRE_NAME = @GenreName WHERE GENRE_ID = @GenreId";
+            string sql = "UPDATE Payment_Methods SET METHOD_NAME = @MethodName WHERE METHOD_ID = @MethodId";
             try
             {
                 using (conn = new DbConnect().GetConnection())
@@ -83,8 +80,8 @@ namespace Quan_ly_thu_vien_phim.Controller
                     conn.Open();
                     using (cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@GenreId", updatedGenre.GenreID);
-                        cmd.Parameters.AddWithValue("@GenreName", updatedGenre.GenreName);
+                        cmd.Parameters.AddWithValue("@MethodId", updatedMethod.MethodId);
+                        cmd.Parameters.AddWithValue("@MethodName", updatedMethod.MethodName);
                         int result = cmd.ExecuteNonQuery();
                         return result > 0;
                     }
@@ -96,42 +93,27 @@ namespace Quan_ly_thu_vien_phim.Controller
             }
             return false;
         }
-
-        public bool DeleteGenre(int genreId)
+        public bool DeleteMethod(int methodId)
         {
-            string checkSql = "SELECT COUNT(*) FROM MOVIES WHERE GENRE_ID = @GenreID";
-            string deleteSql = "DELETE FROM GENRES WHERE GENRE_ID = @GenreID";
-
+            string sql = "DELETE FROM Payment_Methods WHERE METHOD_ID = @MethodId";
             try
             {
                 using (conn = new DbConnect().GetConnection())
                 {
                     conn.Open();
-                    using (cmd = new SqlCommand(checkSql, conn))
+                    using (cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@GenreID", genreId);
-                        int count = (int)cmd.ExecuteScalar();
-
-                        if (count > 0)
-                        {
-                            MessageBox.Show("Không thể xóa thể loại vì đang được sử dụng bởi phim.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return false;
-                        }
-                    }
-                    using (cmd = new SqlCommand(deleteSql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@GenreID", genreId);
-                        int rows = cmd.ExecuteNonQuery();
-                        return rows > 0;
+                        cmd.Parameters.AddWithValue("@MethodId", methodId);
+                        int result = cmd.ExecuteNonQuery();
+                        return result > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
         }
 
     }
