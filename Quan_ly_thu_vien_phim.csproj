@@ -64,8 +64,12 @@
     <Compile Include="Controller\Country_controller.cs" />
     <Compile Include="Controller\Genre_controller.cs" />
     <Compile Include="Controller\DbConnect.cs" />
+    <Compile Include="Controller\GoiDichVu_controller.cs" />
     <Compile Include="Controller\MessageEmail_controller.cs" />
     <Compile Include="Controller\Movie_controller.cs" />
+    <Compile Include="Controller\PhuongThuc_controller.cs" />
+    <Compile Include="Controller\ThanhToan_controller.cs" />
+    <Compile Include="Controller\UserVip.cs" />
     <Compile Include="Controller\User_controller.cs" />
     <Compile Include="Model\Admin_model.cs" />
     <Compile Include="Model\DanhGia_model.cs" />
@@ -73,7 +77,11 @@
     <Compile Include="Model\Favourite_model.cs" />
     <Compile Include="Model\Format_model.cs" />
     <Compile Include="Model\Genre_model.cs" />
+    <Compile Include="Model\GoiDichVu_model.cs" />
+    <Compile Include="Model\PhuongThuc_model.cs" />
     <Compile Include="Model\Tap_model.cs" />
+    <Compile Include="Model\ThanhToan_model.cs" />
+    <Compile Include="Model\UserVip_model.cs" />
     <Compile Include="Model\User_model.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -128,6 +136,12 @@
     <Compile Include="View\View_Container\FormTrangChu.Designer.cs">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_Container\frmGoiDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\frmGoiDichVu.Designer.cs">
+      <DependentUpon>frmGoiDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_Container\frmQuocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +177,18 @@
     </Compile>
     <Compile Include="View\View_Container\SuaPhim.Designer.cs">
       <DependentUpon>SuaPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\formPhuongThuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\formPhuongThuc.Designer.cs">
+      <DependentUpon>formPhuongThuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\ThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\ThanhToan.Designer.cs">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\ThemTap.cs">
       <SubType>Form</SubType>
@@ -251,6 +277,12 @@
     <Compile Include="View\View_Main\FormMainUser.Designer.cs">
       <DependentUpon>FormMainUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\View_useControl\itemCacGoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\View_useControl\itemCacGoi.Designer.cs">
+      <DependentUpon>itemCacGoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\View_useControl\ItemPhim.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -262,6 +294,12 @@
     </Compile>
     <Compile Include="View\View_useControl\ItemPhimUser.Designer.cs">
       <DependentUpon>ItemPhimUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_useControl\ItemPhuongThuc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\View_useControl\ItemPhuongThuc.Designer.cs">
+      <DependentUpon>ItemPhuongThuc.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_useControl\ItemReviewformUser.cs">
       <SubType>UserControl</SubType>
@@ -307,6 +345,9 @@
     <EmbeddedResource Include="View\View_Container\FormPhimloai.resx">
       <DependentUpon>FormPhimloai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\formPhuongThuc.resx">
+      <DependentUpon>formPhuongThuc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormThemPhim.resx">
       <DependentUpon>FormThemPhim.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormTrangChu.resx">
       <DependentUpon>FormTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\frmGoiDichVu.resx">
+      <DependentUpon>frmGoiDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\frmQuocGia.resx">
       <DependentUpon>frmQuocGia.cs</DependentUpon>
@@ -336,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\SuaPhim.resx">
       <DependentUpon>SuaPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\ThanhToan.resx">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\ThemTap.resx">
       <DependentUpon>ThemTap.cs</DependentUpon>
@@ -377,11 +424,17 @@
       <DependentUpon>FormMainUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\View_useControl\itemCacGoi.resx">
+      <DependentUpon>itemCacGoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\View_useControl\ItemPhim.resx">
       <DependentUpon>ItemPhim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_useControl\ItemPhimUser.resx">
       <DependentUpon>ItemPhimUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_useControl\ItemPhuongThuc.resx">
+      <DependentUpon>ItemPhuongThuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_useControl\ItemReviewformUser.resx">
       <DependentUpon>ItemReviewformUser.cs</DependentUpon>

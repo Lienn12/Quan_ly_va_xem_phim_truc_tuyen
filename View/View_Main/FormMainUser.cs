@@ -19,6 +19,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         private XemChiTietUser xemChiTietUser;
         private TrangUser trangUser;
         private User_model user;
+        private ThanhToan thanhToan;
         public FormMainUser()
         {
             InitializeComponent();
@@ -33,6 +34,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             if (xemChiTietUser == null || xemChiTietUser.IsDisposed)
             {
                 xemChiTietUser = new XemChiTietUser(this);
+            }
+            if(thanhToan == null || thanhToan.IsDisposed)
+            {
+                thanhToan = new ThanhToan(this);
             }
             OpenChidForm(new View_Container.TrangchuUser(this), null);
         }
@@ -80,7 +85,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         {
             OpenChidForm(new View_Container.TrangchuUser(this), sender);
         }
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChidForm(thanhToan, sender);
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             FormLoginSignup formLoginSignup = new FormLoginSignup();
@@ -100,6 +108,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         {
             
             return trangUser;
+        }
+        public ThanhToan getThanhToan()
+        {
+            return thanhToan;
         }
         public User_model getUserModel()
         {
@@ -136,7 +148,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             }
             OpenChidForm(xemChiTietUser, sender);
         }
-
-
+        
+       
     }
 }

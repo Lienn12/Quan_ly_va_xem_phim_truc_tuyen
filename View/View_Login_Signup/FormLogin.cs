@@ -64,8 +64,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                     formMainUser.setuserModel(user);
                     FormFavourite formFavourite = formMainUser.GetFavourite();
                     formFavourite.ShowData(userId);
-                    TrangUser tranguser = formMainUser.getCaNhan();
+                    TrangUser tranguser = formMainUser.getCaNhan();                   
                     tranguser.getInfor(userInfor);
+                    ThanhToan thanhToan= formMainUser.getThanhToan();
+                    thanhToan.ShowThongTin(userId, username);
                     formMainUser.ShowDialog();
                     frmLoginSignup.Close();
                 }
