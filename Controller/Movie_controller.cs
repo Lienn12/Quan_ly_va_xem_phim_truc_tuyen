@@ -121,44 +121,54 @@ namespace Quan_ly_thu_vien_phim.Controller
         public bool DeleteFilm(int movieId)
         {
             string deleteFavorite = "DELETE FROM FAVORITES WHERE MOVIE_ID = @movie_id";
-            string deleteReviews = "DELETE FROM Reviews WHERE MOVIE_ID = @movie_id";
-            string deleteMovies = "DELETE FROM Movies WHERE MOVIE_ID = @movie_id";
+            string deleteReviews = "DELETE FROM REVIEWS WHERE MOVIE_ID = @movie_id";
+            string deleteEpisodes = "DELETE FROM EPISODES WHERE MOVIE_ID = @movie_id";
+            string deleteMovies = "DELETE FROM MOVIES WHERE MOVIE_ID = @movie_id";
+
+            using (SqlConnection conn = new DbConnect().GetConnection())
             {
-                using (SqlConnection conn = new DbConnect().GetConnection())
+                conn.Open();
+                using (SqlTransaction transaction = conn.BeginTransaction())
                 {
-                    conn.Open();
-                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    try
                     {
-                        try
+                        using (SqlCommand cmd = new SqlCommand(deleteFavorite, conn, transaction))
                         {
-                            using (cmd = new SqlCommand(deleteFavorite, conn, transaction))
-                            {
-                                cmd.Parameters.AddWithValue("@movie_id", movieId);
-                                cmd.ExecuteNonQuery();
-                            }
-                            using (cmd = new SqlCommand(deleteReviews, conn, transaction))
-                            {
-                                cmd.Parameters.AddWithValue("@movie_id", movieId);
-                                cmd.ExecuteNonQuery();
-                            }
-                            int rows;
-                            using (cmd = new SqlCommand(deleteMovies, conn, transaction))
-                            {
-                                cmd.Parameters.AddWithValue("@movie_id", movieId);
-                                rows = cmd.ExecuteNonQuery();
-                            }
-                            transaction.Commit(); 
-                            return rows > 0;
+                            cmd.Parameters.AddWithValue("@movie_id", movieId);
+                            cmd.ExecuteNonQuery();
                         }
-                        catch (Exception)
+
+                        using (SqlCommand cmd = new SqlCommand(deleteReviews, conn, transaction))
                         {
-                            transaction.Rollback(); 
-                            throw;
+                            cmd.Parameters.AddWithValue("@movie_id", movieId);
+                            cmd.ExecuteNonQuery();
                         }
+
+                        using (SqlCommand cmd = new SqlCommand(deleteEpisodes, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@movie_id", movieId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        int rows;
+                        using (SqlCommand cmd = new SqlCommand(deleteMovies, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@movie_id", movieId);
+                            rows = cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        return rows > 0;
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                        throw;
                     }
                 }
             }
         }
+
 
         public List<Movie_model> GetDeXuat()
         {

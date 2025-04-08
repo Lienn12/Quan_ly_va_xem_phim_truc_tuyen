@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Quan_ly_thu_vien_phim.View.View_Main
 {
@@ -38,6 +39,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             if(thanhToan == null || thanhToan.IsDisposed)
             {
                 thanhToan = new ThanhToan(this);
+            }
+            if (Session.CurrentUser == null)
+            {
+                btnLogin.Text = "      Log in";
             }
             OpenChidForm(new View_Container.TrangchuUser(this), null);
         }
@@ -87,8 +92,10 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChidForm(thanhToan, sender);
+            
+                OpenChidForm(new View_Container.FormGoiNguoiDung(this), sender);
         }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             FormLoginSignup formLoginSignup = new FormLoginSignup();
@@ -148,7 +155,14 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             }
             OpenChidForm(xemChiTietUser, sender);
         }
-        
-       
+
+        private void FormMainUser_Load(object sender, EventArgs e)
+        {
+            UpdateLoginButtonText();
+        }
+        private void UpdateLoginButtonText()
+        {
+            btnLogin.Text = Session.CurrentUser == null ? "      Log in" : "      Log out";
+        }
     }
 }

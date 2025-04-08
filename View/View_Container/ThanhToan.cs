@@ -59,7 +59,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     selectedPlan = selectedGoi;
                     lbTenGoi.Text = selectedGoi.PlanName;
                     lbGia.Text = selectedGoi.Price.ToString("N0") + " VNĐ";
-                    lbThoiHan.Text = selectedGoi.DurationDays + " tháng";
+                    lbThoiHan.Text = selectedGoi.DurationDays + " ngày";
                     lbTong.Text = selectedGoi.Price.ToString("N0") + " VNĐ";
                 };
                 panelDanhSachGoi.Controls.Add(item);
@@ -112,7 +112,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             if (isSuccess)
             {
                 MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); 
+                FormMainUser.OpenChidForm(new View_Container.FormGoiNguoiDung(FormMainUser), sender);
             }
             else
             {

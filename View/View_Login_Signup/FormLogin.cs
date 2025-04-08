@@ -59,6 +59,8 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                     int userId = user.userId;
                     MessageBox.Show("Đăng nhập thành công");
                     //frmLoginSignup.Hide();
+                    Session.CurrentUser = user;
+                    this.DialogResult = DialogResult.OK;
                     userInfor = userController.GetInfo(userId);
                     formMainUser = new FormMainUser();
                     formMainUser.setuserModel(user);
@@ -74,6 +76,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
                 else if(adminController.CheckLoginAdmin(admin,password))
                 {
                     MessageBox.Show("Đăng nhập thành công");
+                    
                     frmLoginSignup.Hide();
                     formMain.ShowDialog();
                     frmLoginSignup.Close();

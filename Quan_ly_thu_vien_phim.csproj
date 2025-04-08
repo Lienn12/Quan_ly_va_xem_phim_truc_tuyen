@@ -69,7 +69,7 @@
     <Compile Include="Controller\Movie_controller.cs" />
     <Compile Include="Controller\PhuongThuc_controller.cs" />
     <Compile Include="Controller\ThanhToan_controller.cs" />
-    <Compile Include="Controller\UserVip.cs" />
+    <Compile Include="Controller\UserVip_controller.cs" />
     <Compile Include="Controller\User_controller.cs" />
     <Compile Include="Model\Admin_model.cs" />
     <Compile Include="Model\DanhGia_model.cs" />
@@ -79,6 +79,7 @@
     <Compile Include="Model\Genre_model.cs" />
     <Compile Include="Model\GoiDichVu_model.cs" />
     <Compile Include="Model\PhuongThuc_model.cs" />
+    <Compile Include="Model\Sesson.cs" />
     <Compile Include="Model\Tap_model.cs" />
     <Compile Include="Model\ThanhToan_model.cs" />
     <Compile Include="Model\UserVip_model.cs" />
@@ -111,6 +112,12 @@
     </Compile>
     <Compile Include="View\View_Container\FormFavourite.Designer.cs">
       <DependentUpon>FormFavourite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View_Container\FormGoiNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View_Container\FormGoiNguoiDung.Designer.cs">
+      <DependentUpon>FormGoiNguoiDung.cs</DependentUpon>
     </Compile>
     <Compile Include="View\View_Container\FormPhanHoiDanhGia.cs">
       <SubType>Form</SubType>
@@ -338,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormFavourite.resx">
       <DependentUpon>FormFavourite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View_Container\FormGoiNguoiDung.resx">
+      <DependentUpon>FormGoiNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\View_Container\FormPhanHoiDanhGia.resx">
       <DependentUpon>FormPhanHoiDanhGia.cs</DependentUpon>

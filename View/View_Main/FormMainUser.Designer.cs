@@ -33,8 +33,8 @@
             this.lbMinimum = new System.Windows.Forms.Label();
             this.lbExit = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnGoi = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnGoi = new System.Windows.Forms.Button();
             this.btnCaNhan = new System.Windows.Forms.Button();
             this.btnFavourite = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
@@ -105,30 +105,6 @@
             this.pnlMenu.Size = new System.Drawing.Size(250, 667);
             this.pnlMenu.TabIndex = 1;
             // 
-            // btnGoi
-            // 
-            this.btnGoi.BackColor = System.Drawing.Color.Transparent;
-            this.btnGoi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGoi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGoi.FlatAppearance.BorderSize = 0;
-            this.btnGoi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
-            this.btnGoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGoi.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoi.ForeColor = System.Drawing.Color.White;
-            this.btnGoi.Image = ((System.Drawing.Image)(resources.GetObject("btnGoi.Image")));
-            this.btnGoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoi.Location = new System.Drawing.Point(0, 462);
-            this.btnGoi.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btnGoi.Name = "btnGoi";
-            this.btnGoi.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnGoi.Size = new System.Drawing.Size(250, 60);
-            this.btnGoi.TabIndex = 13;
-            this.btnGoi.Text = "      Mua gói";
-            this.btnGoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGoi.UseVisualStyleBackColor = false;
-            this.btnGoi.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
@@ -151,6 +127,30 @@
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // btnGoi
+            // 
+            this.btnGoi.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGoi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGoi.FlatAppearance.BorderSize = 0;
+            this.btnGoi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(160)))), ((int)(((byte)(202)))));
+            this.btnGoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoi.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoi.ForeColor = System.Drawing.Color.White;
+            this.btnGoi.Image = ((System.Drawing.Image)(resources.GetObject("btnGoi.Image")));
+            this.btnGoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoi.Location = new System.Drawing.Point(0, 462);
+            this.btnGoi.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnGoi.Name = "btnGoi";
+            this.btnGoi.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnGoi.Size = new System.Drawing.Size(250, 60);
+            this.btnGoi.TabIndex = 13;
+            this.btnGoi.Text = "      Gói của tôi";
+            this.btnGoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGoi.UseVisualStyleBackColor = false;
+            this.btnGoi.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCaNhan
             // 
@@ -266,6 +266,7 @@
             this.Name = "FormMainUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMainUser";
+            this.Load += new System.EventHandler(this.FormMainUser_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMenu.ResumeLayout(false);

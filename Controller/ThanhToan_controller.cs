@@ -120,7 +120,7 @@ namespace Quan_ly_thu_vien_phim.Controller
             using (conn = new DbConnect().GetConnection())
             {
                 string sql = @"INSERT INTO Orders (user_id, plan_id, method_id, amount, payment_status, order_date) 
-                       VALUES (@UserId, @PlanId, @MethodId, @Amount,  'completed', GETDATE())";
+                       VALUES (@UserId, @PlanId, @MethodId, @Amount,'completed', GETDATE())";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
