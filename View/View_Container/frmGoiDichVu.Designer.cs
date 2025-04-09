@@ -32,6 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoiDichVu));
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.favorite_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Giá = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chitiet = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtGoi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,13 +52,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
-            this.favorite_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Giá = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chitiet = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +98,60 @@
             this.dataGridView.UseWaitCursor = true;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
+            // favorite_Id
+            // 
+            this.favorite_Id.DataPropertyName = "GenreId";
+            this.favorite_Id.FillWeight = 37.09793F;
+            this.favorite_Id.HeaderText = "ID";
+            this.favorite_Id.MinimumWidth = 6;
+            this.favorite_Id.Name = "favorite_Id";
+            // 
+            // title
+            // 
+            this.title.DataPropertyName = "GenreName";
+            this.title.FillWeight = 115.931F;
+            this.title.HeaderText = "Tên gói";
+            this.title.MinimumWidth = 6;
+            this.title.Name = "title";
+            // 
+            // Giá
+            // 
+            this.Giá.HeaderText = "Giá";
+            this.Giá.MinimumWidth = 6;
+            this.Giá.Name = "Giá";
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Thời gian";
+            this.time.MinimumWidth = 6;
+            this.time.Name = "time";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mô tả";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // chitiet
+            // 
+            this.chitiet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.chitiet.HeaderText = "                  ";
+            this.chitiet.Image = ((System.Drawing.Image)(resources.GetObject("chitiet.Image")));
+            this.chitiet.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.chitiet.MinimumWidth = 6;
+            this.chitiet.Name = "chitiet";
+            this.chitiet.Width = 127;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.delete.HeaderText = "                   ";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.Width = 82;
+            // 
             // txtGoi
             // 
             this.txtGoi.Font = new System.Drawing.Font("Segoe UI", 18.32727F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,9 +176,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.29091F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(48, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 45);
+            this.label1.Size = new System.Drawing.Size(198, 45);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Phương thức thanh toán ";
+            this.label1.Text = "Gói dịch vụ ";
             // 
             // txtThoiGian
             // 
@@ -228,60 +282,6 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.UseWaitCursor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // favorite_Id
-            // 
-            this.favorite_Id.DataPropertyName = "GenreId";
-            this.favorite_Id.FillWeight = 37.09793F;
-            this.favorite_Id.HeaderText = "ID";
-            this.favorite_Id.MinimumWidth = 6;
-            this.favorite_Id.Name = "favorite_Id";
-            // 
-            // title
-            // 
-            this.title.DataPropertyName = "GenreName";
-            this.title.FillWeight = 115.931F;
-            this.title.HeaderText = "Tên gói";
-            this.title.MinimumWidth = 6;
-            this.title.Name = "title";
-            // 
-            // Giá
-            // 
-            this.Giá.HeaderText = "Giá";
-            this.Giá.MinimumWidth = 6;
-            this.Giá.Name = "Giá";
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Thời gian";
-            this.time.MinimumWidth = 6;
-            this.time.Name = "time";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mô tả";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // chitiet
-            // 
-            this.chitiet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.chitiet.HeaderText = "                  ";
-            this.chitiet.Image = ((System.Drawing.Image)(resources.GetObject("chitiet.Image")));
-            this.chitiet.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.chitiet.MinimumWidth = 6;
-            this.chitiet.Name = "chitiet";
-            this.chitiet.Width = 127;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.delete.HeaderText = "                   ";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.Width = 133;
             // 
             // frmGoiDichVu
             // 

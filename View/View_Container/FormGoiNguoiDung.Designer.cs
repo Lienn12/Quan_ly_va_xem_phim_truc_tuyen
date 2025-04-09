@@ -85,7 +85,7 @@
             // 
             this.lbstart.AutoSize = true;
             this.lbstart.Font = new System.Drawing.Font("Segoe UI", 11.12727F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbstart.Location = new System.Drawing.Point(170, 192);
+            this.lbstart.Location = new System.Drawing.Point(142, 192);
             this.lbstart.Name = "lbstart";
             this.lbstart.Size = new System.Drawing.Size(44, 23);
             this.lbstart.TabIndex = 6;
