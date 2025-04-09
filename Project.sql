@@ -126,7 +126,7 @@ CREATE TABLE Orders (
     plan_id INT FOREIGN KEY REFERENCES Subscription_Plans(plan_id),
     amount DECIMAL(10,2),
     method_id INT FOREIGN KEY REFERENCES Payment_Methods(method_id),
-    payment_status NVARCHAR(20) NOT NULL CHECK (payment_status IN ('pending', 'completed', 'failed')),
+    payment_status NVARCHAR(20) NOT NULL CHECK (payment_status IN ('pending', 'completed', 'failed','cancelled')),
     order_date DATETIME DEFAULT GETDATE()
 );
 SELECT * FROM Orders
