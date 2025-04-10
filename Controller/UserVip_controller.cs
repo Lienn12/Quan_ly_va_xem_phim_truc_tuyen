@@ -22,14 +22,14 @@ namespace Quan_ly_thu_vien_phim.Controller
             UserVip_model userVip = null;
 
             string query = @"
-        SELECT o.order_date,
-               u.user_id, u.username, u.email,
-               sp.plan_id, sp.plan_name, sp.price, sp.duration_days
-        FROM Orders o
-        JOIN Users u ON o.user_id = u.user_id
-        JOIN Subscription_Plans sp ON o.plan_id = sp.plan_id
-        WHERE o.user_id = @UserId AND o.payment_status = 'completed'
-        ORDER BY o.order_date DESC"; // Lấy đơn mới nhất
+                SELECT o.order_date,
+                       u.user_id, u.username, u.email,
+                       sp.plan_id, sp.plan_name, sp.price, sp.duration_days
+                FROM Orders o
+                JOIN Users u ON o.user_id = u.user_id
+                JOIN Subscription_Plans sp ON o.plan_id = sp.plan_id
+                WHERE o.user_id = @UserId AND o.payment_status = 'completed'
+                ORDER BY o.order_date DESC"; // Lấy đơn mới nhất
 
             using (conn = new DbConnect().GetConnection())
             {
@@ -106,6 +106,36 @@ namespace Quan_ly_thu_vien_phim.Controller
                             return rowsAffected > 0;
                         }
                     }
+        }
+        public bool AddSubscription(int userId, int planId)
+        {
+            string query = @"
+        DECLARE @Duration INT;
+
+        SELECT @Duration = duration_days FROM Subscription_Plans WHERE plan_id = @PlanId;
+
+        INSERT INTO User_Subscriptions (user_id, plan_id, start_date, end_date, is_active)
+        VALUES (
+            @UserId,
+            @PlanId,
+            GETDATE(),
+            DATEADD(DAY, @Duration, GETDATE()),
+            1
+        );
+    ";
+
+            using (conn = new DbConnect().GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    cmd.Parameters.AddWithValue("@PlanId", planId);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
         }
 
     }

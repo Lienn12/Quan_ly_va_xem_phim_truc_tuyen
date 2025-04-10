@@ -11,7 +11,6 @@ namespace Quan_ly_thu_vien_phim.Controller
         private SqlConnection conn;
         private SqlCommand cmd;
         private SqlDataReader reader;
-        private GoiDichVu_model goiDichVu_Model;
         public GoiDichVu_controller()
         {
             conn = new DbConnect().GetConnection();

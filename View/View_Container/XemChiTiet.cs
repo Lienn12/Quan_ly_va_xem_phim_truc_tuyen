@@ -30,7 +30,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private DanhGia_controller danhgiaController= new DanhGia_controller();
         private Favourite_controller favouriteController = new Favourite_controller();
         private int idPhim;
-        private int soStar = 0;
         public XemChiTiet(FormMain formMain)
         {
             InitializeComponent();

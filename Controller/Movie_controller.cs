@@ -51,11 +51,11 @@ namespace Quan_ly_thu_vien_phim.Controller
             return movieList;
         }
 
-        public bool SaveInfo(string name, int year, string director, string cast, int genreID, int formatID, int countryID, int episode, string descrip, string imgPath, string vidPath)
+        public bool SaveInfo(string name, int year, string director, string cast, int genreID, int formatID, int countryID, int episode, string descrip, string imgPath, string vidPath,bool Vip)
         {
             int row = 0;
-            string sql = @"INSERT INTO MOVIES (TITLE, RELEASE_YEAR, DIRECTOR, CAST, GENRE_ID, FORMAT_ID, COUNTRY_ID, TOTAL_EPISODES, DESCRIPTION, COVER_IMAGE, TRAILER)
-                   VALUES (@Title, @ReleaseYear, @Director, @Cast, @GenreID, @FormatID, @CountryID, @Episode, @Description, @CoverImage, @Trailer)";
+            string sql = @"INSERT INTO MOVIES (TITLE, RELEASE_YEAR, DIRECTOR, CAST, GENRE_ID, FORMAT_ID, COUNTRY_ID, TOTAL_EPISODES, DESCRIPTION, COVER_IMAGE, TRAILER,MovieVip)
+                   VALUES (@Title, @ReleaseYear, @Director, @Cast, @GenreID, @FormatID, @CountryID, @Episode, @Description, @CoverImage, @Trailer,@Vip)";
             try
             {
                 using (conn = new DbConnect().GetConnection())
@@ -74,13 +74,14 @@ namespace Quan_ly_thu_vien_phim.Controller
                         cmd.Parameters.AddWithValue("@Description", descrip);
                         cmd.Parameters.AddWithValue("@CoverImage", imgPath);
                         cmd.Parameters.AddWithValue("@Trailer", vidPath);
+                        cmd.Parameters.AddWithValue("@Vip", Vip);
                         row = cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(name + year + director + cast + genreID + countryID + formatID + episode + descrip + imgPath + vidPath, "Lỗi: " + ex.Message);
+                MessageBox.Show(name + year + director + cast + genreID + countryID + formatID + episode + descrip + imgPath + vidPath+ Vip, "Lỗi: " + ex.Message);
             }
             return row > 0;
         }
@@ -173,7 +174,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         public List<Movie_model> GetDeXuat()
         {
             List<Movie_model> dsMovie = new List<Movie_model>();
-            string query = "SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION FROM MOVIES";
+            string query = "SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION, MovieVip FROM MOVIES";
             try
             {
                 using (SqlConnection conn = new DbConnect().GetConnection())
@@ -189,7 +190,8 @@ namespace Quan_ly_thu_vien_phim.Controller
                             string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader.GetString(reader.GetOrdinal("DESCRIPTION"));
                             float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
                             string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
-                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath);
+                            bool vip = reader.IsDBNull(reader.GetOrdinal("MovieVip")) ? false : reader.GetBoolean(reader.GetOrdinal("MovieVip"));
+                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath, vip);
                             dsMovie.Add(movie);
                         }
                     }
@@ -206,7 +208,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         public List<Movie_model> GetPhimBo()
         {
             List<Movie_model> dsMovie = new List<Movie_model>();
-            string query = @"SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION FROM MOVIES JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
+            string query = @"SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION,MovieVip FROM MOVIES JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
                             WHERE FORMAT_NAME = N'Phim bộ'";
             try
             {
@@ -223,7 +225,8 @@ namespace Quan_ly_thu_vien_phim.Controller
                             string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader.GetString(reader.GetOrdinal("DESCRIPTION"));
                             float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
                             string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
-                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath);
+                            bool vip = reader.IsDBNull(reader.GetOrdinal("MovieVip")) ? false : reader.GetBoolean(reader.GetOrdinal("MovieVip"));
+                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath, vip);
                             dsMovie.Add(movie);
                         }
                     }
@@ -238,7 +241,7 @@ namespace Quan_ly_thu_vien_phim.Controller
         public List<Movie_model> GetPhimLe()
         {
             List<Movie_model> dsMovie = new List<Movie_model>();
-            string query = @"SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION FROM MOVIES JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
+            string query = @"SELECT MOVIE_ID, TITLE, RATING, COVER_IMAGE, DESCRIPTION,MovieVip FROM MOVIES JOIN FORMATS ON MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
                             WHERE FORMAT_NAME = N'Phim lẻ'";
             try
             {
@@ -255,7 +258,8 @@ namespace Quan_ly_thu_vien_phim.Controller
                             string description = reader.IsDBNull(reader.GetOrdinal("DESCRIPTION")) ? string.Empty : reader.GetString(reader.GetOrdinal("DESCRIPTION"));
                             float rating = reader.IsDBNull(reader.GetOrdinal("RATING")) ? 0.0f : Convert.ToSingle(reader.GetDouble(reader.GetOrdinal("RATING")));
                             string imgPath = reader.IsDBNull(reader.GetOrdinal("COVER_IMAGE")) ? string.Empty : reader.GetString(reader.GetOrdinal("COVER_IMAGE"));
-                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath);
+                            bool vip = reader.IsDBNull(reader.GetOrdinal("MovieVip")) ? false : reader.GetBoolean(reader.GetOrdinal("MovieVip"));
+                            Movie_model movie = new Movie_model(movieId, title, description, rating, imgPath, vip);
                             dsMovie.Add(movie);
                         }
                     }
@@ -503,6 +507,29 @@ namespace Quan_ly_thu_vien_phim.Controller
 
             return dsMovie;
         }
+        public bool CheckUserMovieAccess(int userId, int movieId)
+        {
+            string query = @"
+                    SELECT COUNT(*) 
+                    FROM User_Subscriptions 
+                    WHERE user_id = @UserId 
+                          AND is_active = 1
+                          AND GETDATE() BETWEEN start_date AND end_date
+                ";
+
+            using (conn = new DbConnect().GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
+
     }
 
 }

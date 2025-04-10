@@ -21,6 +21,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
         private GoiDichVu_controller goiController;
         private PhuongThuc_controller phuongThucController;
         private ThanhToan_controller thanhToanController;
+        private UserVip_controller userVipcontroller;
         private FormMainUser FormMainUser;
         private ThanhToan_model thanhToanModel;
         private GoiDichVu_model selectedPlan = null;
@@ -32,6 +33,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             goiController = new GoiDichVu_controller();
             phuongThucController = new PhuongThuc_controller();
             thanhToanController= new ThanhToan_controller();
+            userVipcontroller = new UserVip_controller();
             ShowGoiDichVu();
             ShowPhuongThuc();
             FormMainUser = formMainUser;
@@ -108,7 +110,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             decimal amount = (decimal)selectedPlan.Price;
 
             bool isSuccess = thanhToanController.CreateOrderByUserId(userId, planId, methodId, amount);
-
+            userVipcontroller.AddSubscription(userId, planId);
             if (isSuccess)
             {
                 MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

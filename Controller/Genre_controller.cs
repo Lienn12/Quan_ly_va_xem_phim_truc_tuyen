@@ -14,7 +14,6 @@ namespace Quan_ly_thu_vien_phim.Controller
         SqlConnection conn = null;
         SqlCommand cmd = null;
         SqlDataReader reader = null;
-        private Genre_model genre;
         public Genre_controller()
         {
             conn = new DbConnect().GetConnection();

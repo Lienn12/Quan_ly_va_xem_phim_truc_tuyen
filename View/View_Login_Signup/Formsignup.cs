@@ -17,7 +17,6 @@ namespace Quan_ly_thu_vien_phim.View.View_Login_Signup
     public partial class Formsignup : Form
     {
         private View_Main.FormLoginSignup frmLoginSignup;
-        private View_Login_Signup.VerifyCode VerifyCode;
         private User_controller userController;
         private Admin_controller adminController;
         private User_model user;

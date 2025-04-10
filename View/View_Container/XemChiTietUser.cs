@@ -40,7 +40,50 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
             pnlSoTap.BackColor = Color.FromArgb(128, 255, 255, 255);
             this.formMainUser = formMainUser;
             pnlDanhGia.Visible = false;
+            
+
         }
+        private void phimVip(int useId, int movie)
+        {
+            if (Session.CurrentUser != null)
+            {
+                bool isVip = controller.CheckUserMovieAccess(useId, idPhim);
+                if (!isVip)
+                {
+                    btnTap.Text = "Mua gói";
+                    btnTap.Click -= btnTap_Click_1; 
+                    btnTap.Click += BtnTap_Click_MuaGoi;
+                }
+                else
+                {
+                    btnTap.Text = "Xem phim";
+                    btnTap.Click -= BtnTap_Click_MuaGoi;
+                    btnTap.Click += btnTap_Click_1;
+                }
+            }
+            else
+            {
+                btnTap.Text = "Mua gói";
+                btnTap.Click -= btnTap_Click_1;
+                btnTap.Click += BtnTap_Click_MuaGoi;
+            }
+
+        }
+        private void BtnTap_Click_MuaGoi(object sender, EventArgs e)
+        {
+            if (Session.CurrentUser == null)
+            {
+                MessageBox.Show("Bạn cần đăng nhập để mua gói dịch vụ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormLoginSignup formLoginSignup = new FormLoginSignup();
+                DialogResult result = formLoginSignup.ShowDialog();
+                formMainUser.Close();
+            }
+            else
+            {
+                formMainUser.OpenChidForm(new View_Container.ThanhToan(formMainUser), sender);
+            }
+        }
+
 
         private void XemChiTietUser_Paint(object sender, PaintEventArgs e)
         {
@@ -134,6 +177,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
 
         private void btnTap_Click_1(object sender, EventArgs e)
         {
+            
             if (episode_Controller.checkTap(idPhim))
                 {
                     pnlSoTap.Visible = !pnlSoTap.Visible;
@@ -376,6 +420,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Container
                     SetMovieDetails(movie);
                     LoadReview(movieId); 
                     insertReview(movieId, userId);
+                    phimVip(userId, movieId);
                     btnThem.Enabled = true;
                     // Nếu người dùng đã đăng nhập thì cho phép đánh giá và thêm yêu thích
                     if (userId != -1)

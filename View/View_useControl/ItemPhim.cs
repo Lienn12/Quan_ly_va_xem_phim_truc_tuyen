@@ -31,6 +31,7 @@ namespace Quan_ly_thu_vien_phim.View.View_Main
             this.formMain = formMain;
             InitializeComponent();
             Init();
+            lbVip.Visible = movieModel.MovieVip;
             mota = new Mota(movieModel.Title, movieModel.Rating)
             {
                 Location = new Point(0, y),

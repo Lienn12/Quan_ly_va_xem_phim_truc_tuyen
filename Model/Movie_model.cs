@@ -22,7 +22,9 @@ namespace Quan_ly_thu_vien_phim.Model
         public int Episode { get; set; } 
         public float Rating { get; set; }
         public string ImgPath { get; set; } 
-        public string VidPath { get; set; } 
+        public string VidPath { get; set; }
+
+        public bool MovieVip {  get; set; }
         public Movie_model()
         {
         }
@@ -50,13 +52,14 @@ namespace Quan_ly_thu_vien_phim.Model
             Year = year;
         }
 
-        public Movie_model(int movieId, string title, string description, float rating, string imgPath)
+        public Movie_model(int movieId, string title, string description, float rating, string imgPath,bool vip)
         {
             MovieId = movieId;
             Title = title;
             Description = description;
             Rating = rating;
             ImgPath = imgPath;
+            MovieVip=vip;
         }
         public Movie_model(int movieId, string title,float rating, string imgPath)
         {
@@ -65,12 +68,7 @@ namespace Quan_ly_thu_vien_phim.Model
             Rating = rating;
             ImgPath = imgPath;
         }
-        public Movie_model( string title, float rating, string imgPath)
-        {
-            Title = title;
-            Rating = rating;
-            ImgPath = imgPath;
-        }
+
         public Movie_model(int movieId, string title,float rating, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode, string imgPath, string vidPath) : this(movieId, title, year)
         {
             MovieId = movieId;
@@ -86,9 +84,10 @@ namespace Quan_ly_thu_vien_phim.Model
             Episode = episode;
             ImgPath = imgPath;
             VidPath = vidPath;
+            
         }
 
-        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode,float rating, string img, string vidPath)
+        public Movie_model(int movieId, string title, int year, string director, string cast, Genre_model genre, Format_model format, Country_model country, string description, int episode,float rating, string img, string vidPath, bool vip)
         {
             this.MovieId = movieId;
             this.Title = title;
@@ -103,6 +102,7 @@ namespace Quan_ly_thu_vien_phim.Model
             this.Rating = rating;
             this.ImgPath = img;
             this.VidPath = vidPath;
+            this.MovieVip = vip;
         }
 
      

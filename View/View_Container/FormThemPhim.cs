@@ -110,11 +110,12 @@ namespace Quan_ly_thu_vien_phim.View
         {
             string title = txtName.Text;
             int year = int.Parse(txtYear.Text);
-            if (year < 0 && year > 2024)
+            if (year < 0 || year > 2024)
             {
                 MessageBox.Show("Vui lòng nhập năm hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             string director = txtDirector.Text;
             string cast = txtCast.Text;
             Genre_model genre = (Genre_model)cbType.SelectedItem;
@@ -124,23 +125,28 @@ namespace Quan_ly_thu_vien_phim.View
             Format_model format = (Format_model)cbFormat.SelectedItem;
             int formatId = format.FormatID;
             int episode = int.Parse(txtEpisode.Text);
+
             if (episode < 0)
             {
                 MessageBox.Show("Số tập phải lớn hơn hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             string descrip = txtDescrip.Text;
+
             if (filePath == null || videoPath == null)
             {
                 MessageBox.Show("Vui lòng chọn tệp hình ảnh và video!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (movie_Controller.SaveInfo(title, year, director, cast, genreId, formatId, countryId, episode, descrip, filePath, videoPath))
+            bool isVip = ckVip.Checked;
+            if (movie_Controller.SaveInfo(title, year, director, cast, genreId, formatId, countryId, episode, descrip, filePath, videoPath, isVip))
             {
                 MessageBox.Show("Đã thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 setNull();
             }
         }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -234,10 +240,11 @@ namespace Quan_ly_thu_vien_phim.View
             this.cbType.SelectedIndex = -1;
             this.txtEpisode.Text = string.Empty;
             this.txtDescrip.Text = string.Empty;
-            this.pbMovie.Image = null; // Xóa ảnh hiện tại
-            this.filePath = null; // Reset đường dẫn file ảnh
-            this.videoPath = null; // Reset đường dẫn file video
-            this.btnUpVid.BackColor = Color.LightSkyBlue; // Reset màu nút
+            this.pbMovie.Image = null; 
+            this.filePath = null; 
+            this.videoPath = null; 
+            this.btnUpVid.BackColor = Color.LightSkyBlue;
+            this.ckVip.Checked = false;
         }
     }
 }

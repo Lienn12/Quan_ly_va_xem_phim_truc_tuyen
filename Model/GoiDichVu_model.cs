@@ -13,7 +13,17 @@ namespace Quan_ly_thu_vien_phim.Model
         public decimal Price { get; set; }
         public int DurationDays { get; set; }
         public string Description { get; set; }
+        public Movie_model Movie { get; set; }
         public GoiDichVu_model() { }
+        public GoiDichVu_model(int planId, string planName, decimal price, int durationDays, string description, Movie_model movie)
+        {
+            PlanId = planId;
+            PlanName = planName;
+            Price = price;
+            DurationDays = durationDays;
+            Description = description;
+            Movie = movie;
+        }
         public GoiDichVu_model(int planId, string planName, decimal price, int durationDays, string description)
         {
             PlanId = planId;
@@ -21,6 +31,6 @@ namespace Quan_ly_thu_vien_phim.Model
             Price = price;
             DurationDays = durationDays;
             Description = description;
-        }   
+        }
     }
 }
