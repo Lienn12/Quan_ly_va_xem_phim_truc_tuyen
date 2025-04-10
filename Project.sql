@@ -1,4 +1,4 @@
-﻿CREATE DATABASE Quan_ly_thu_vien_phim;
+CREATE DATABASE Quan_ly_thu_vien_phim;
 USE Quan_ly_thu_vien_phim;
 
 CREATE TABLE COUNTRIES(
@@ -63,6 +63,11 @@ CREATE TABLE MOVIES (
     COVER_IMAGE VARCHAR (255),
 	TRAILER  VARCHAR (255)
 );
+ALTER TABLE MOVIES
+ADD MovieVip bit;
+ALTER TABLE MOVIES
+ADD CONSTRAINT DF_MOVIES_MovieVip DEFAULT 0 FOR MovieVip;
+
 CREATE TABLE EPISODES(
 	EPISODE_ID INT PRIMARY KEY IDENTITY(1,1),
 	EPISODE_NAME  NVARCHAR(MAX),
@@ -107,6 +112,9 @@ CREATE TABLE Subscription_Plans (
     duration_days INT NOT NULL,
     description NVARCHAR(MAX)
 );
+ALTER TABLE Subscription_Plans 
+ADD MOVIE_ID INT  FOREIGN KEY REFERENCES MOVIES(MOVIE_ID)
+
 CREATE TABLE User_Subscriptions (
     subscription_id INT IDENTITY(1,1) PRIMARY KEY,
     user_id INT FOREIGN KEY REFERENCES Users(user_id),
@@ -126,11 +134,16 @@ CREATE TABLE Orders (
     plan_id INT FOREIGN KEY REFERENCES Subscription_Plans(plan_id),
     amount DECIMAL(10,2),
     method_id INT FOREIGN KEY REFERENCES Payment_Methods(method_id),
-    payment_status NVARCHAR(20) NOT NULL CHECK (payment_status IN ('pending', 'completed', 'failed','cancelled')),
+    payment_status NVARCHAR(20) NOT NULL CHECK (payment_status IN ('pending', 'completed', 'failed')),
     order_date DATETIME DEFAULT GETDATE()
 );
-SELECT * FROM Orders
 
+SELECT * FROM User_Subscriptions
+SELECT COUNT(*) 
+FROM User_Subscriptions 
+WHERE user_id = 28 
+      AND is_active = 1
+      AND GETDATE() BETWEEN start_date AND end_date
 
 
 
@@ -177,3 +190,18 @@ AND MOVIES.FORMAT_ID = FORMATS.FORMAT_ID
 AND (GENRES.GENRE_ID = 1 OR 1 = 1)
 AND (COUNTRIES.COUNTRY_ID = 1 OR 1 = 1)
 AND (FORMATS.FORMAT_ID = 1 OR 1 = 1)
+
+SELECT 
+    M.MovieVip,
+    US.is_active,
+    US.end_date
+FROM 
+    MOVIES M
+LEFT JOIN 
+    Subscription_Plans SP ON M.MOVIE_ID = SP.MOVIE_ID
+LEFT JOIN 
+    User_Subscriptions US ON SP.plan_id = US.plan_id AND US.user_id = 28
+WHERE 
+    M.MOVIE_ID = 8
+
+	
